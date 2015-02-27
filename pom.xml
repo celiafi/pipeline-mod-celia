@@ -69,6 +69,19 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <configuration>
+          <instructions>
+            <Service-Component>OSGI-INF/tables.xml</Service-Component>
+            <Import-Package>
+              org.daisy.pipeline.braille.libhyphen,
+              org.daisy.pipeline.braille.tex
+            </Import-Package>
+          </instructions>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
 
