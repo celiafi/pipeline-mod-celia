@@ -15,4 +15,61 @@
   <packaging>bundle</packaging>
 
   <name>DAISY Pipeline 2 module :: Finnish hyphenator</name>
+
+  <build>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <excludes>
+          <exclude>hyph/*</exclude>
+        </excludes>
+      </resource>
+      <resource>
+        <directory>target/generated-resources</directory>
+        <includes>
+          <include>hyph/*</include>
+        </includes>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <configuration>
+              <target>
+                <concat destfile="target/generated-resources/hyph/hyph-fi.dic">
+                  <header trimleading="yes">
+                    UTF-8
+                    # This file has been translated from TeX hyphenation file
+                    # Originally by Kauko Saarinen et al., original copyright below.
+                    # Translation by Jukka Eerikäinen 2015
+                    #
+                  </header>
+                  <path path="src/main/resources/hyph/hyph-fi"/>
+                  <filterchain>
+                    <replaceregex pattern="%" replace="#"/>
+                  </filterchain>
+                </concat>
+                <concat destfile="target/generated-resources/hyph/hyph-fi.tex">
+                  <header trimleading="yes">
+                    \patterns{
+                  </header>
+                  <path path="src/main/resources/hyph/hyph-fi"/>
+                  <footer trimleading="yes">
+                    }
+                  </footer>
+                </concat>
+              </target>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
 </project>
