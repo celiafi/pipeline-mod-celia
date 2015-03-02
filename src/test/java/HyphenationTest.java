@@ -11,10 +11,10 @@ import static org.daisy.pipeline.pax.exam.Options.logbackBundles;
 import static org.daisy.pipeline.pax.exam.Options.logbackConfigFile;
 import static org.daisy.pipeline.pax.exam.Options.thisBundle;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assume.assumeTrue;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
-import static org.junit.Assert.assertEquals;
 
 import org.ops4j.pax.exam.Configuration;
 import org.ops4j.pax.exam.junit.PaxExam;
@@ -27,15 +27,19 @@ import static org.ops4j.pax.exam.CoreOptions.junitBundles;
 import static org.ops4j.pax.exam.CoreOptions.mavenBundle;
 import static org.ops4j.pax.exam.CoreOptions.options;
 
+import org.osgi.framework.BundleContext;
+
 @RunWith(PaxExam.class)
 @ExamReactorStrategy(PerClass.class)
 public class HyphenationTest {
 	
 	@Inject
-	Libhyphen libhyphen;
+	BundleContext context;
 	
 	@Test
 	public void testWithLibhyphen() {
+		assumeTrue(! onWindows);
+		Libhyphen libhyphen = (Libhyphen)context.getService(context.getServiceReference(Libhyphen.class.getName()));;
 		assertEquals("au\u00ADto", libhyphen.hyphenate(asURI("hyph-fi.dic"), "auto"));
 	}
 	
@@ -59,10 +63,13 @@ public class HyphenationTest {
 			mavenBundle().groupId("com.googlecode.texhyphj").artifactId("texhyphj").versionAsInProject(),
 			brailleModule("common-java"),
 			brailleModule("libhyphen-core"),
-			forThisPlatform(brailleModule("libhyphen-native")),
+			onWindows ? null : forThisPlatform(brailleModule("libhyphen-native")),
 			brailleModule("texhyph-core"),
 			thisBundle(true),
 			junitBundles()
 		);
 	}
+	
+	private static boolean onWindows = System.getProperty("os.name").toLowerCase().startsWith("windows");
+	
 }
