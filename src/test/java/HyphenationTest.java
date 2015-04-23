@@ -1,5 +1,14 @@
 import javax.inject.Inject;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+
+import net.davidashen.text.Hyphenator;
+import net.davidashen.text.Utf8TexParser.TexParserException;
+
 import org.daisy.pipeline.braille.libhyphen.Libhyphen;
 import org.daisy.pipeline.braille.tex.TexHyphenator;
 import static org.daisy.pipeline.braille.Utilities.URIs.asURI;
@@ -21,7 +30,6 @@ import org.ops4j.pax.exam.junit.PaxExam;
 import org.ops4j.pax.exam.Option;
 import org.ops4j.pax.exam.spi.reactors.ExamReactorStrategy;
 import org.ops4j.pax.exam.spi.reactors.PerClass;
-import org.ops4j.pax.exam.util.PathUtils;
 
 import static org.ops4j.pax.exam.CoreOptions.junitBundles;
 import static org.ops4j.pax.exam.CoreOptions.mavenBundle;
@@ -29,18 +37,7 @@ import static org.ops4j.pax.exam.CoreOptions.options;
 
 import org.osgi.framework.BundleContext;
 
-import net.davidashen.text.Hyphenator;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.io.File;
-import java.net.URI;
-import org.daisy.pipeline.braille.ResourceResolver;
-import java.net.URL;
-import static org.daisy.pipeline.braille.Utilities.URLs.asURL;
-
-//@RunWith(PaxExam.class)
+@RunWith(PaxExam.class)
 @ExamReactorStrategy(PerClass.class)
 public class HyphenationTest {
 	
@@ -55,25 +52,24 @@ public class HyphenationTest {
 	}
 	
 	@Inject
-	Hyphenator hyph;
+	TexHyphenator texhyph;
 	
 	@Test
 	public void testWithTexhyph() {
-		hyph = new Hyphenator();
-		try {
-			File file = new File("src/main/resources/hyph/hyph-fi");
-			FileInputStream fileStream = new FileInputStream(file);
-			InputStreamReader streamReader = new InputStreamReader(fileStream);
-			hyph.loadTable(streamReader);
-		}
-		catch(java.io.FileNotFoundException e) {
-		}
-		catch(net.davidashen.text.Utf8TexParser.TexParserException e) {
-		}
+		assertEquals("au\u00ADto", texhyph.hyphenate(asURI("hyph-fi.tex"), "auto"));
+	}
+	
+	@Test
+	public void testWithPlainTexhyph() throws FileNotFoundException, UnsupportedEncodingException, TexParserException {
+		Hyphenator hyph = new Hyphenator();
+		File file = new File("target/generated-resources/hyph/hyph-fi.tex");
+		FileInputStream fileStream = new FileInputStream(file);
+		InputStreamReader streamReader = new InputStreamReader(fileStream, "UTF-8");
+		hyph.loadTable(streamReader);
 		assertEquals("au\u00ADto", hyph.hyphenate("auto"));
 	}
 	
-/*	@Configuration
+	@Configuration
 	public Option[] config() {
 		return options(
 			logbackConfigFile(),
@@ -90,7 +86,7 @@ public class HyphenationTest {
 			thisBundle(true),
 			junitBundles()
 		);
-	}*/
+	}
 	
 	private static boolean onWindows = System.getProperty("os.name").toLowerCase().startsWith("windows");
 	
