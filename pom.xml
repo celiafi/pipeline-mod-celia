@@ -68,7 +68,8 @@
       <resource>
         <directory>target/generated-resources</directory>
         <includes>
-          <include>hyph/*</include>
+          <include>hyph/*.dic</include>
+          <include>hyph/*.tex</include>
         </includes>
       </resource>
     </resources>
@@ -83,19 +84,21 @@
             </goals>
             <configuration>
               <target>
-                <concat destfile="target/generated-resources/hyph/hyph-fi.dic">
+                <concat destfile="target/generated-resources/hyph/hyph-fi.dic.tmp">
                   <header trimleading="yes">
-                    UTF-8
-                    # This file has been translated from TeX hyphenation file
-                    # Originally by Kauko Saarinen et al., original copyright below.
-                    # Translation by Jukka Eerikäinen 2015
-                    #
+                    % This file has been translated from TeX hyphenation file
+                    % Originally by Kauko Saarinen et al., original copyright below.
+                    % Translation by Jukka Eerikäinen 2015
+                    %
                   </header>
                   <path path="src/main/resources/hyph/hyph-fi"/>
-                  <filterchain>
-                    <replaceregex pattern="%" replace="#"/>
-                  </filterchain>
                 </concat>
+                <exec executable="./substrings.pl" failonerror="yes">
+                  <arg value="target/generated-resources/hyph/hyph-fi.dic.tmp"/>
+                  <arg value="target/generated-resources/hyph/hyph-fi.dic"/>
+                  <arg value="UTF-8"/>
+                  <redirector output="/dev/null"/>
+                </exec>
                 <concat destfile="target/generated-resources/hyph/hyph-fi.tex">
                   <header trimleading="yes">
                     \patterns{
