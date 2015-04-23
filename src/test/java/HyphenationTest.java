@@ -29,7 +29,18 @@ import static org.ops4j.pax.exam.CoreOptions.options;
 
 import org.osgi.framework.BundleContext;
 
-@RunWith(PaxExam.class)
+import net.davidashen.text.Hyphenator;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.File;
+import java.net.URI;
+import org.daisy.pipeline.braille.ResourceResolver;
+import java.net.URL;
+import static org.daisy.pipeline.braille.Utilities.URLs.asURL;
+
+//@RunWith(PaxExam.class)
 @ExamReactorStrategy(PerClass.class)
 public class HyphenationTest {
 	
@@ -44,14 +55,25 @@ public class HyphenationTest {
 	}
 	
 	@Inject
-	TexHyphenator texhyph;
+	Hyphenator hyph;
 	
 	@Test
 	public void testWithTexhyph() {
-		assertEquals("au\u00ADto", texhyph.hyphenate(asURI("hyph-fi.tex"), "auto"));
+		hyph = new Hyphenator();
+		try {
+			File file = new File("src/main/resources/hyph/hyph-fi");
+			FileInputStream fileStream = new FileInputStream(file);
+			InputStreamReader streamReader = new InputStreamReader(fileStream);
+			hyph.loadTable(streamReader);
+		}
+		catch(java.io.FileNotFoundException e) {
+		}
+		catch(net.davidashen.text.Utf8TexParser.TexParserException e) {
+		}
+		assertEquals("au\u00ADto", hyph.hyphenate("auto"));
 	}
 	
-	@Configuration
+/*	@Configuration
 	public Option[] config() {
 		return options(
 			logbackConfigFile(),
@@ -68,7 +90,7 @@ public class HyphenationTest {
 			thisBundle(true),
 			junitBundles()
 		);
-	}
+	}*/
 	
 	private static boolean onWindows = System.getProperty("os.name").toLowerCase().startsWith("windows");
 	
