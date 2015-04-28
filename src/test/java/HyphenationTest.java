@@ -66,7 +66,12 @@ public class HyphenationTest {
 		FileInputStream fileStream = new FileInputStream(file);
 		InputStreamReader streamReader = new InputStreamReader(fileStream, "UTF-8");
 		hyph.loadTable(streamReader);
-		assertEquals("au\u00ADto", hyph.hyphenate("auto"));
+		assertEquals("Simple hyphenation", "au\u00ADto", hyph.hyphenate("auto"));
+		assertEquals("Diphthong", "näin", hyph.hyphenate("näin"));
+		assertEquals("Vowel triplet", "ka\u00ADvi\u00ADaa\u00ADri", hyph.hyphenate("kaviaari"));
+		assertEquals("Compound word with hyphen", "rek\u00ADka-\u200Bau\u00ADto", hyph.hyphenate("rekka-auto"));
+		assertEquals("Native consonant cluster", "kars\u00ADta", hyph.hyphenate("karsta"));
+		assertEquals("Borrowed consonant cluster", "verk\u00ADko\u00ADstra\u00ADte\u00ADgia", hyph.hyphenate("verkkostrategia"));
 	}
 	
 	@Configuration

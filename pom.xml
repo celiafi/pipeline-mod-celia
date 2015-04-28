@@ -93,12 +93,23 @@
                   </header>
                   <path path="src/main/resources/hyph/hyph-fi"/>
                 </concat>
+				<!-- windows -->
+				<exec executable="cmd">
+				  <arg value="perl"/>
+				  <arg value="substrings.pl"/>
+				  <arg value="target/generated-resources/hyph/hyph-fi.dic.tmp"/>
+                  <arg value="target/generated-resources/hyph/hyph-fi.dic"/>
+                  <arg value="UTF-8"/>
+				</exec>
+				<!-- unixen -->
+				<!--
                 <exec executable="./substrings.pl" failonerror="yes">
                   <arg value="target/generated-resources/hyph/hyph-fi.dic.tmp"/>
                   <arg value="target/generated-resources/hyph/hyph-fi.dic"/>
                   <arg value="UTF-8"/>
                   <redirector output="/dev/null"/>
                 </exec>
+				-->
                 <concat destfile="target/generated-resources/hyph/hyph-fi.tex">
                   <header trimleading="yes">
                     \patterns{
