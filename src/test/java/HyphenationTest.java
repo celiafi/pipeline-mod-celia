@@ -57,6 +57,7 @@ public class HyphenationTest {
 	@Test
 	public void testWithTexhyph() {
 		assertEquals("au\u00ADto", texhyph.hyphenate(asURI("hyph-fi.tex"), "auto"));
+		assertEquals("nä\u00ADen", texhyph.hyphenate(asURI("hyph-fi.tex"), "näen"));
 	}
 	
 	@Test
@@ -68,10 +69,11 @@ public class HyphenationTest {
 		hyph.loadTable(streamReader);
 		assertEquals("Simple hyphenation", "au\u00ADto", hyph.hyphenate("auto"));
 		assertEquals("Diphthong", "näin", hyph.hyphenate("näin"));
+		assertEquals("Dual vowel", "nä\u00ADen", hyph.hyphenate("näen"));
 		assertEquals("Vowel triplet", "ka\u00ADvi\u00ADaa\u00ADri", hyph.hyphenate("kaviaari"));
 		assertEquals("Compound word with hyphen", "rek\u00ADka-\u200Bau\u00ADto", hyph.hyphenate("rekka-auto"));
 		assertEquals("Native consonant cluster", "kars\u00ADta", hyph.hyphenate("karsta"));
-		assertEquals("Borrowed consonant cluster", "verk\u00ADko\u00ADstra\u00ADte\u00ADgia", hyph.hyphenate("verkkostrategia"));
+		assertEquals("Borrowed consonant cluster", "verk\u00ADko\u00ADstra\u00ADte\u00ADgi\u00ADa", hyph.hyphenate("verkkostrategia"));
 	}
 	
 	@Configuration
