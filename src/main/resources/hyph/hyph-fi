@@ -370,7 +370,10 @@ q2v 1q2vi
 sc2h ts2h
 ch2r
 %
-% *** The following rules fix diphthongs, long vowels and non-diphthong dual vowels ***
+% The following rules fix diphthongs, long vowels and non-diphthong dual vowels.
+%
+% No breaking inbetween diphthongs, no breaking between long vowels.
+% Break non-diphthong dual vowels.
 %
 % Jukka Eerikäinen 2015
 %
@@ -438,3 +441,30 @@ y2ö
 ö2y
 ö1ä
 ö2ö
+%
+% The following rules fix geminations and consonant clusters.
+%
+% Jukka Eerikäinen 2015
+%
+% Always break geminations.
+%
+b1b
+c1c
+d1d
+f1f
+g1g
+h1h
+j1j
+k1k
+l1l
+m1m
+n1n
+p1p
+q1q
+r1r
+s1s
+t1t
+v1v
+w1w
+x1x
+z1z
