@@ -372,7 +372,7 @@ ch2r
 %
 % The following rules fix diphthongs, long vowels and non-diphthong dual vowels.
 %
-% No breaking inbetween diphthongs, no breaking between long vowels.
+% No breaking in between diphthongs, no breaking between long vowels.
 % Break non-diphthong dual vowels.
 %
 % Jukka Eerikäinen 2015
@@ -468,3 +468,14 @@ v1v
 w1w
 x1x
 z1z
+%
+% Test fixes
+%
+k2a
+r2e
+v2e
+k2o
+str2a
+t2e
+a1t
+t2os

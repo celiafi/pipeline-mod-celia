@@ -6,6 +6,8 @@ import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 
+import java.util.ArrayList;
+
 import net.davidashen.text.Hyphenator;
 import net.davidashen.text.Utf8TexParser.TexParserException;
 
@@ -24,6 +26,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assume.assumeTrue;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.BeforeClass;
 
 import org.ops4j.pax.exam.Configuration;
 import org.ops4j.pax.exam.junit.PaxExam;
@@ -41,6 +44,21 @@ import org.osgi.framework.BundleContext;
 @ExamReactorStrategy(PerClass.class)
 public class HyphenationTest {
 	
+	static ArrayList<String[]> testCases;
+	
+	@BeforeClass
+	public static void initializeTestCases(){
+		testCases = new ArrayList<String[]>();
+		testCases.add(new String[]{"Simple hyphenation", "au\u00ADto", "auto"});
+		testCases.add(new String[]{"Diphthong", "näin", "näin"});
+		testCases.add(new String[]{"Dual vowel", "nä\u00ADen", "näen"});
+		testCases.add(new String[]{"Vowel triplet", "ka\u00ADvi\u00ADaa\u00ADri", "kaviaari"});
+		testCases.add(new String[]{"Compound word with hyphen", "rek\u00ADka-\u200Bau\u00ADto", "rekka-auto"});
+		testCases.add(new String[]{"Native consonant cluster", "kars\u00ADta", "karsta"});
+		testCases.add(new String[]{"Borrowed consonant cluster", "verk\u00ADko\u00ADstra\u00ADte\u00ADgi\u00ADa", "verkkostrategia"});
+		testCases.add(new String[]{"Non-word-ending and word-ending s", "os\u00ADtos", "ostos"});
+	}
+	
 	@Inject
 	BundleContext context;
 	
@@ -56,8 +74,9 @@ public class HyphenationTest {
 	
 	@Test
 	public void testWithTexhyph() {
-		assertEquals("au\u00ADto", texhyph.hyphenate(asURI("hyph-fi.tex"), "auto"));
-		assertEquals("nä\u00ADen", texhyph.hyphenate(asURI("hyph-fi.tex"), "näen"));
+		for(String[] testCase : testCases) {
+			assertEquals(testCase[0], testCase[1], texhyph.hyphenate(asURI("hyph-fi.tex"), testCase[2]));
+		}
 	}
 	
 	@Test
@@ -67,13 +86,10 @@ public class HyphenationTest {
 		FileInputStream fileStream = new FileInputStream(file);
 		InputStreamReader streamReader = new InputStreamReader(fileStream, "UTF-8");
 		hyph.loadTable(streamReader);
-		assertEquals("Simple hyphenation", "au\u00ADto", hyph.hyphenate("auto"));
-		assertEquals("Diphthong", "näin", hyph.hyphenate("näin"));
-		assertEquals("Dual vowel", "nä\u00ADen", hyph.hyphenate("näen"));
-		assertEquals("Vowel triplet", "ka\u00ADvi\u00ADaa\u00ADri", hyph.hyphenate("kaviaari"));
-		assertEquals("Compound word with hyphen", "rek\u00ADka-\u200Bau\u00ADto", hyph.hyphenate("rekka-auto"));
-		assertEquals("Native consonant cluster", "kars\u00ADta", hyph.hyphenate("karsta"));
-		assertEquals("Borrowed consonant cluster", "verk\u00ADko\u00ADstra\u00ADte\u00ADgi\u00ADa", hyph.hyphenate("verkkostrategia"));
+		
+		for(String[] testCase : testCases) {
+			assertEquals(testCase[0], testCase[1], hyph.hyphenate(testCase[2]));
+		}
 	}
 	
 	@Configuration
