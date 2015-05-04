@@ -75,6 +75,7 @@
 % *********     Patterns may be freely distributed   **********
 %
 %
+% Base syllables of form CV, CVC, CVV, CVVC, CVCC
 1ba
 1be
 1bi
@@ -199,79 +200,39 @@
 %  ------ Some special cases occuring with compound words only ----
 %  ------ There still remains well known problem as 'kaivos\-aukko' etc.
 %a1y   (common in borrowed words)
-% Removed by Jukka Eerikäinen in 2015, replaced with more general patterns
+% Replaced with more general patterns by Jukka Eerikäinen in 2015
 %    lyhyt/pitka -vokaalipareja, tavallisesti sanarajalla
 aa1i2    % maa-ikkuna
 aa1e2
-aa1o2    % maa-ottelu
-aa1u2    % uraa-uurtava
 ee1a2    % tee-astia
 ee1i2    % tee-istutus
 ee1u2    % varietee-uusinta
 ee1y2
-ii1a2
-ii1e2
-ii1o2
 uu1a2
 uu1e2    % puu-esine
 uu1o2    % puu-osa
-uu1i2    % puu-istutus
-e1aa
-i1aa
-o1aa
-u1aa
-u1ee
-a1uu     % kala-uuni
-i1uu     % ravi-uutiset
-e1uu     % virhe-uutinen
-o1uu     % radio-uutiset
-ää1i
-ää1e
-ää3y
-i1ää
-e1ää
-y1ää
-i1öö  % yhti-öön etc.
 %i1eu     % keski-eurooppalainen
 %          vokaalikolmikkoja etc.  yhdyssanojen rajoissa
 % -------- vowel triples by Fred Karlsson
-a1ei
-a1oi
-e1ai
+% unnecessary triples removed by JE 2015
 % e1oi % ambiguous for ex. video-ilme (8.3.89)
-i1au
 % u1oi   % ambiguous    (8.3.89)
-y1ei
-ai1a
 ai1e
-ai1o
 ai1u
-au1a
-au1e
-eu1a
-ie1a
-ie1o
 %ie1u   % ambiguous
 ie1y
 io1a2
 io1e2
-iu1a
 iu1e
 iu1o
-oi1a
 oi1e
-oi1o
 oi1u
-o1ui % veto-uistin, himo-uimari   etc.
 ou1e
 ou1o
-ue1a
 ui1e
-uo1a
 % uo1i % ambiguous
 uo1u
 %   ---------------- End of vowel triples --------------------
-.ä2     % don't hyphenate  ä-lyllinen etc.
 %
 % The following patterns contain no general scientific rule. They
 % are selected more or less intuitively to solve problems
@@ -323,10 +284,6 @@ ulo2s1        % ulos-ajo
 2n1a2jo       % kiven-ajo
 2s1a2jo
 %
-% *** The following rules may be used on user's responsibility ***
-% *** for example, may be needed with narrow columns           ***
-%       >>>>>>>>>>>  a1e a1o e1o o1a u1a  <<<<<<<<<<<
-%
 % ----- Some districting rules by Professor Fred Karlsson's ideas   ------
 %
 b2l 1b2lo bib3li
@@ -353,74 +310,113 @@ ch2r
 %
 % Jukka Eerikäinen 2015
 %
-a2a
-a1e
+% Diphthongs
 a2i
-a1o
 a2u
+e2i
+e2u
+e2y
+i2e
+i2u
+i2y
+o2i
+o2u
+u2i
+u2o
+y2i
+y2ö
+ä2i
+ä2y
+ö2i
+ö2y
+% Non-diphthong dual vowels
+a1e
+a1o
 a1y
 a1ä
 a1ö
 e1a
-e2e
-e2i
 e1o
-e2u
-e2y
 e1ä
 e1ö
 i1a
-i2e
-i2i
 i1o
-i2u
-i2y
 i1ä
 i1ö
 o1a
 o1e
-o2i
-o2o
-o2u
 o1y
 o1ä
 o1ö
 u1a
 u1e
-u2i
-u2o
-u2u
 u1y
 u1ä
 u1ö
 y1a
 y1e
-y2i
 y1o
 y1u
-y2y
 y1ä
-y2ö
 ä1a
 ä1e
-ä2i
 ä1o
 ä1u
-ä2y
-ä2ä
 ä1ö
 ö1a
 ö1e
-ö2i
 ö1o
 ö1u
-ö2y
 ö1ä
+% Long vowels
+a2a
+e2e
+i2i
+o2o
+u2u
+y2y
+ä2ä
 ö2ö
 %
-% The following rules fix geminations and consonant clusters.
+% Triple vowels in compound words
 %
-% Jukka Eerikäinen 2015
+a3uu
+e3uu
+i3uu
+o3ui
+o3uu
+%
+% Don't break compound words after only one letter
+%
+aa3u2
+ii3a2
+ii3e2
+ii3o2
+uu3i2
+ää3i2
+ää3y2
+%
+% Word-initial single vowels are not hyphenated
+%
+.a2
+.e2
+.i2
+.o2
+.u2
+.y2
+.ä2
+.ö2
+%
+% Word-ending single vowels are not hyphenated
+%
+2a.
+2e.
+2i.
+2o.
+2u.
+2y.
+2ä.
+2ö.
 %
 % Always break geminations.
 %
@@ -444,3 +440,7 @@ v1v
 w1w
 x1x
 z1z
+%
+% Some common consonant clusters
+%
+ks1pr
