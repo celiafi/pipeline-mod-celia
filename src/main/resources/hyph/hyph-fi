@@ -74,6 +74,7 @@
 %
 % *********     Patterns may be freely distributed   **********
 %
+% Updated & modified in 2015 by Jukka Eerikäinen
 %
 % Base syllables of form CV, CVC, CVV, CVVC, CVCC
 1ba
@@ -192,6 +193,153 @@
 1vy
 1vä
 1vö
+%
+% No breaking in between diphthongs, no breaking between long vowels.
+% Break non-diphthong dual vowels.
+% JE 2015
+% Diphthongs
+a2i
+a2u
+e2i
+e2u
+e2y
+i2e
+i2u
+i2y
+o2i
+o2u
+u2i
+u2o
+y2i
+y2ö
+ä2i
+ä2y
+ö2i
+ö2y
+% Non-diphthong dual vowels
+a1e
+a1o
+a1y
+a1ä
+a1ö
+e1a
+e1o
+e1ä
+e1ö
+i1a
+i1o
+i1ä
+i1ö
+o1a
+o1e
+o1y
+o1ä
+o1ö
+u1a
+u1e
+u1y
+u1ä
+u1ö
+y1a
+y1e
+y1o
+y1u
+y1ä
+ä1a
+ä1e
+ä1o
+ä1u
+ä1ö
+ö1a
+ö1e
+ö1o
+ö1u
+ö1ä
+% Long vowels
+a2a
+e2e
+i2i
+o2o
+u2u
+y2y
+ä2ä
+ö2ö
+%
+% Triple vowels in compound words
+%
+a3uu
+e3uu
+i3uu
+o3ui
+o3uu
+%
+% Don't break compound words after only one letter
+%
+aa3e2
+aa3i2
+aa3u2
+ee3a2
+ee3i2
+ee3u2
+ee3y2
+ii3a2
+ii3e2
+ii3o2
+uu3a2
+uu3e2
+uu3i2
+uu3o2
+ää3i2
+ää3y2
+%
+% Word-initial single vowels are not hyphenated
+%
+.a2
+.e2
+.i2
+.o2
+.u2
+.y2
+.ä2
+.ö2
+%
+% Word-ending single vowels are not hyphenated
+%
+2a.
+2e.
+2i.
+2o.
+2u.
+2y.
+2ä.
+2ö.
+%
+% Always break geminations.
+%
+b1b
+c1c
+d1d
+f1f
+g1g
+h1h
+j1j
+k1k
+l1l
+m1m
+n1n
+p1p
+q1q
+r1r
+s1s
+t1t
+v1v
+w1w
+x1x
+z1z
+%
+% Some common consonant clusters
+%
+ks1pr
 % ------- Some common words borrowed from other languages -------
 % ------- This part could be updated from time to time    -------
 %
@@ -199,18 +347,8 @@
 %
 %  ------ Some special cases occuring with compound words only ----
 %  ------ There still remains well known problem as 'kaivos\-aukko' etc.
-%a1y   (common in borrowed words)
 % Replaced with more general patterns by Jukka Eerikäinen in 2015
 %    lyhyt/pitka -vokaalipareja, tavallisesti sanarajalla
-aa1i2    % maa-ikkuna
-aa1e2
-ee1a2    % tee-astia
-ee1i2    % tee-istutus
-ee1u2    % varietee-uusinta
-ee1y2
-uu1a2
-uu1e2    % puu-esine
-uu1o2    % puu-osa
 %i1eu     % keski-eurooppalainen
 %          vokaalikolmikkoja etc.  yhdyssanojen rajoissa
 % -------- vowel triples by Fred Karlsson
@@ -302,145 +440,3 @@ c2l
 q2v 1q2vi
 sc2h ts2h
 ch2r
-%
-% The following rules fix diphthongs, long vowels and non-diphthong dual vowels.
-%
-% No breaking in between diphthongs, no breaking between long vowels.
-% Break non-diphthong dual vowels.
-%
-% Jukka Eerikäinen 2015
-%
-% Diphthongs
-a2i
-a2u
-e2i
-e2u
-e2y
-i2e
-i2u
-i2y
-o2i
-o2u
-u2i
-u2o
-y2i
-y2ö
-ä2i
-ä2y
-ö2i
-ö2y
-% Non-diphthong dual vowels
-a1e
-a1o
-a1y
-a1ä
-a1ö
-e1a
-e1o
-e1ä
-e1ö
-i1a
-i1o
-i1ä
-i1ö
-o1a
-o1e
-o1y
-o1ä
-o1ö
-u1a
-u1e
-u1y
-u1ä
-u1ö
-y1a
-y1e
-y1o
-y1u
-y1ä
-ä1a
-ä1e
-ä1o
-ä1u
-ä1ö
-ö1a
-ö1e
-ö1o
-ö1u
-ö1ä
-% Long vowels
-a2a
-e2e
-i2i
-o2o
-u2u
-y2y
-ä2ä
-ö2ö
-%
-% Triple vowels in compound words
-%
-a3uu
-e3uu
-i3uu
-o3ui
-o3uu
-%
-% Don't break compound words after only one letter
-%
-aa3u2
-ii3a2
-ii3e2
-ii3o2
-uu3i2
-ää3i2
-ää3y2
-%
-% Word-initial single vowels are not hyphenated
-%
-.a2
-.e2
-.i2
-.o2
-.u2
-.y2
-.ä2
-.ö2
-%
-% Word-ending single vowels are not hyphenated
-%
-2a.
-2e.
-2i.
-2o.
-2u.
-2y.
-2ä.
-2ö.
-%
-% Always break geminations.
-%
-b1b
-c1c
-d1d
-f1f
-g1g
-h1h
-j1j
-k1k
-l1l
-m1m
-n1n
-p1p
-q1q
-r1r
-s1s
-t1t
-v1v
-w1w
-x1x
-z1z
-%
-% Some common consonant clusters
-%
-ks1pr
