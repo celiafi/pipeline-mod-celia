@@ -66,7 +66,9 @@ public class HyphenationTest {
 	public void testWithLibhyphen() {
 		assumeTrue(! onWindows);
 		Libhyphen libhyphen = (Libhyphen)context.getService(context.getServiceReference(Libhyphen.class.getName()));;
-		assertEquals("au\u00ADto", libhyphen.hyphenate(asURI("hyph-fi.dic"), "auto"));
+		for(String[] testCase : testCases) {
+			assertEquals(testCase[0], testCase[1], libhyphen.hyphenate(asURI("hyph-fi.dic"), testCase[2]));
+		}
 	}
 	
 	@Inject
