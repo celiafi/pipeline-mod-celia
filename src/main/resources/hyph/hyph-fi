@@ -199,29 +199,7 @@
 %  ------ Some special cases occuring with compound words only ----
 %  ------ There still remains well known problem as 'kaivos\-aukko' etc.
 %a1y   (common in borrowed words)
-ä2y
-y1a2
-y1o2
-o1y
-ö2y
-u1y2
-y1u2
-ö3a2
-ö3o2
-ä3a2
-ä3o2
-ä1u2
-ö1u2
-a1ä    % (a1ä2 ei mahdollinen!)
-a1ö
-o1ä
-o1ö
-u1ä2
-u1ö2
-ä2ä
-ö2ö
-ä2ö
-ö2ä
+% Removed by Jukka Eerikäinen in 2015, replaced with more general patterns
 %    lyhyt/pitka -vokaalipareja, tavallisesti sanarajalla
 aa1i2    % maa-ikkuna
 aa1e2
@@ -293,8 +271,6 @@ uo1a
 % uo1i % ambiguous
 uo1u
 %   ---------------- End of vowel triples --------------------
-e1ö2
-ö1e2
 .ä2     % don't hyphenate  ä-lyllinen etc.
 %
 % The following patterns contain no general scientific rule. They
@@ -468,14 +444,3 @@ v1v
 w1w
 x1x
 z1z
-%
-% Test fixes
-%
-k2a
-r2e
-v2e
-k2o
-str2a
-t2e
-a1t
-t2os
