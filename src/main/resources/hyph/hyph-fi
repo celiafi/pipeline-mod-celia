@@ -272,6 +272,17 @@ e3uu
 i3uu
 o3ui
 o3uu
+ai3e
+ai3u
+ie3y
+iu3e
+iu3o
+oi3e
+oi3u
+ou3e
+ou3o
+ui3e
+uo3u
 %
 % Don't break compound words after only one letter
 %
@@ -285,6 +296,8 @@ ee3y2
 ii3a2
 ii3e2
 ii3o2
+io3a2
+io3e2
 uu3a2
 uu3e2
 uu3i2
@@ -339,38 +352,8 @@ z1z
 %
 % Some common consonant clusters
 %
-ks1pr
-% ------- Some common words borrowed from other languages -------
-% ------- This part could be updated from time to time    -------
-%
+ks1pr  % ekspressio
 1st2r  % -stressi, -strategia etc.
-%
-%  ------ Some special cases occuring with compound words only ----
-%  ------ There still remains well known problem as 'kaivos\-aukko' etc.
-% Replaced with more general patterns by Jukka Eerikäinen in 2015
-%    lyhyt/pitka -vokaalipareja, tavallisesti sanarajalla
-%i1eu     % keski-eurooppalainen
-%          vokaalikolmikkoja etc.  yhdyssanojen rajoissa
-% -------- vowel triples by Fred Karlsson
-% unnecessary triples removed by JE 2015
-% e1oi % ambiguous for ex. video-ilme (8.3.89)
-% u1oi   % ambiguous    (8.3.89)
-ai1e
-ai1u
-%ie1u   % ambiguous
-ie1y
-io1a2
-io1e2
-iu1e
-iu1o
-oi1e
-oi1u
-ou1e
-ou1o
-ui1e
-% uo1i % ambiguous
-uo1u
-%   ---------------- End of vowel triples --------------------
 %
 % The following patterns contain no general scientific rule. They
 % are selected more or less intuitively to solve problems
