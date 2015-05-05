@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.daisy.pipeline.modules</groupId>
+    <artifactId>modules-parent</artifactId>
+    <version>1.2</version>
+    <relativePath />
+  </parent>
+
+  <artifactId>finnish-hyphenator</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>bundle</packaging>
+
+  <name>DAISY Pipeline 2 module :: Finnish hyphenator</name>
+
+  <properties>
+    <pipeline.version>1.9</pipeline.version>
+  </properties>
+  
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.daisy.pipeline.modules.braille</groupId>
+        <artifactId>braille-modules-bom</artifactId>
+        <version>${pipeline.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.daisy.pipeline.modules.braille</groupId>
+      <artifactId>libhyphen-core</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.daisy.pipeline.modules.braille</groupId>
+      <artifactId>libhyphen-native</artifactId>
+      <classifier>linux</classifier>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.daisy.pipeline.modules.braille</groupId>
+      <artifactId>texhyph-core</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.daisy.pipeline</groupId>
+      <artifactId>pax-exam-helper</artifactId>
+      <version>${pipeline.version}</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <excludes>
+          <exclude>hyph/*</exclude>
+        </excludes>
+      </resource>
+      <resource>
+        <directory>target/generated-resources</directory>
+        <includes>
+          <include>hyph/*.dic</include>
+          <include>hyph/*.tex</include>
+        </includes>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <configuration>
+              <target>
+                <concat destfile="target/generated-resources/hyph/hyph-fi.dic.tmp">
+                  <header trimleading="yes">
+                    % This file has been translated from TeX hyphenation file
+                    % Originally by Kauko Saarinen et al., original copyright below.
+                    % Translation by Jukka Eerikäinen 2015
+                    %
+                  </header>
+                  <path path="src/main/resources/hyph/hyph-fi"/>
+                </concat>
+                <exec executable="perl" failonerror="yes">
+                  <arg value="substrings.pl"/>
+                  <arg value="target/generated-resources/hyph/hyph-fi.dic.tmp"/>
+                  <arg value="target/generated-resources/hyph/hyph-fi.dic"/>
+                  <arg value="UTF-8"/>
+                  <arg value="1"/>
+                  <arg value="1"/>
+                  <redirector output="target/substrings.log"/>
+                </exec>
+                <concat destfile="target/generated-resources/hyph/hyph-fi.tex">
+                  <header trimleading="yes">
+                    \patterns{
+                  </header>
+                  <path path="src/main/resources/hyph/hyph-fi"/>
+                  <footer trimleading="yes">
+                    }
+                  </footer>
+                </concat>
+              </target>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.ops4j.pax.exam</groupId>
+        <artifactId>maven-paxexam-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>generate-depends-file</id>
+            <goals>
+              <goal>generate-depends-file</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <configuration>
+          <instructions>
+            <Service-Component>OSGI-INF/tables.xml</Service-Component>
+            <Import-Package>
+              org.daisy.pipeline.braille.libhyphen,
+              org.daisy.pipeline.braille.tex
+            </Import-Package>
+          </instructions>
+        </configuration>
+        <executions>
+          <execution>
+            <id>bundle-before-test</id>
+            <phase>generate-test-resources</phase>
+            <goals>
+              <goal>bundle</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>

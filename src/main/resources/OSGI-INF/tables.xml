@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0">
+	<scr:component name="http://www.celia.fi/pipeline/hyphen/" activate="activate" >
+		<scr:implementation class="org.daisy.pipeline.braille.libhyphen.LibhyphenTablePath"/>
+		<scr:service>
+			<scr:provide interface="org.daisy.pipeline.braille.libhyphen.LibhyphenTablePath"/>
+		</scr:service>
+		<scr:property name="identifier" type="String" value="http://www.celia.fi/pipeline/hyphen/"/>
+		<scr:property name="path" type="String" value="/hyph"/>
+		<scr:property name="includes" type="String" value="*.dic"/>
+	</scr:component>
+	<scr:component name="http://www.celia.fi/pipeline/texhyph/" activate="activate" >
+		<scr:implementation class="org.daisy.pipeline.braille.tex.TexHyphenatorTablePath"/>
+		<scr:service>
+			<scr:provide interface="org.daisy.pipeline.braille.tex.TexHyphenatorTablePath"/>
+		</scr:service>
+		<scr:property name="identifier" type="String" value="http://www.celia.fi/pipeline/texhyph/"/>
+		<scr:property name="path" type="String" value="/hyph"/>
+		<scr:property name="includes" type="String" value="*.tex"/>
+	</scr:component>
+</scr:components>
