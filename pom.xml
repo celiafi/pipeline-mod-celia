@@ -98,6 +98,8 @@
                   <arg value="target/generated-resources/hyph/hyph-fi.dic.tmp"/>
                   <arg value="target/generated-resources/hyph/hyph-fi.dic"/>
                   <arg value="UTF-8"/>
+                  <arg value="1"/>
+                  <arg value="1"/>
                   <redirector output="target/substrings.log"/>
                 </exec>
                 <concat destfile="target/generated-resources/hyph/hyph-fi.tex">
