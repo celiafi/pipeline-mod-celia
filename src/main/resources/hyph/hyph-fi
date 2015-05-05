@@ -78,6 +78,8 @@
 %
 % For a brief overview of Finnish syllable structure, see http://people.uta.fi/~km56049/finnish/syldiv.html
 %
+% ”Niin kuin Wocalexet rinnoin tekevät stawauxen, niin waditan aina Wocalis stawauxeen Consonantin awuksi, ehkä wielä usiambi.” (Eric Frosterus. Opetus Ymmärryxexi Suomenkielen Stawamisesta, 1783)
+% 
 % Base syllables of form CV, CVC, CVV, CVVC, CVCC
 % These rules cover all possible Consonant-Vowel strings.
 1ba
@@ -230,6 +232,7 @@ y2y
 ä2ä
 ö2ö
 % Non-diphthong dual vowels
+% Note: Kielitoimisto recommends breaking only between different vowel harmony classes. http://www.kielikello.fi/index.php?mid=2&pid=11&aid=864
 a1e
 a1o
 a1y
@@ -371,13 +374,16 @@ z1z
 ks1pr  % ekspressio
 1st2r  % -stressi, -strategia
 %
+% Other exceptions added by JE 2015
+%
+ky3ih % nykyihminen
+%
 % The following patterns contain no general scientific rule. They
 % are selected more or less intuitively to solve problems
 % with common and frequently appearing compound words.
 % However, every pattern resolves more than only one
 % hyphenation problem.
 %
-u2s         % estaa virheita yhdyssanojen yhteydessa
 yli1o2p     % yli-opisto etc.
 ali1a2v     % ali-avaruus etc.
 1sp2li      % kuutio-splini etc.
