@@ -76,7 +76,10 @@
 %
 % Updated & modified in 2015 by Jukka Eerikäinen
 %
+% For a brief overview of Finnish syllable structure, see http://people.uta.fi/~km56049/finnish/syldiv.html
+%
 % Base syllables of form CV, CVC, CVV, CVVC, CVCC
+% These rules cover all possible Consonant-Vowel strings.
 1ba
 1be
 1bi
@@ -194,10 +197,12 @@
 1vä
 1vö
 %
-% No breaking in between diphthongs, no breaking between long vowels.
-% Break non-diphthong dual vowels.
+% No syllable break in diphthongs and in long vowels.
+% Syllable break between adjacent non-diphthong vowels.
+% See http://people.uta.fi/~km56049/finnish/diphthng.html and http://people.uta.fi/~km56049/finnish/lssound.html
+%
 % JE 2015
-% Diphthongs
+% Diphthongs and long vowels
 a2i
 a2u
 e2i
@@ -216,6 +221,14 @@ y2ö
 ä2y
 ö2i
 ö2y
+a2a
+e2e
+i2i
+o2o
+u2u
+y2y
+ä2ä
+ö2ö
 % Non-diphthong dual vowels
 a1e
 a1o
@@ -255,25 +268,17 @@ y1ä
 ö1o
 ö1u
 ö1ä
-% Long vowels
-a2a
-e2e
-i2i
-o2o
-u2u
-y2y
-ä2ä
-ö2ö
-%
+% Finnish language does not have triphthongs, but as far as the author is aware, no unambiguous rules exist for deducing the correct syllable breaking in vowel triples.
+% Note that only breaks between normally-diphthongized pairs need to be specified.
 % Triple vowels in compound words
-%
 a3uu
-e3uu
+e3uu % tiede-uutiset
 i3uu
 o3ui
 o3uu
 ai3e
 ai3u
+au3oi % tauoissa
 ie3y
 iu3e
 iu3o
@@ -283,9 +288,11 @@ ou3e
 ou3o
 ui3e
 uo3u
-%
+% The following rules follow the syllable structure, but also typesetting conventions.
+% See f.ex. https://www.cs.tut.fi/~jkorpela/kielenopas/4.16.html#tavutus
+% We don't want to hyphenate after only one letter, because the result is not very readable.
+% For example, "olento" is broken into syllables as "o-len-to". However, the first syllable boundary is not considered a proper opportunity for line breaking, because single "o" is unsightly and "lento" is very confusing. Thus, for most purposes, the proper way of hyphenating "olento" is "olen-to".
 % Don't break compound words after only one letter
-%
 aa3e2
 aa3i2
 aa3u2
@@ -304,9 +311,7 @@ uu3i2
 uu3o2
 ää3i2
 ää3y2
-%
 % Word-initial single vowels are not hyphenated
-%
 .a2
 .e2
 .i2
@@ -317,7 +322,7 @@ uu3o2
 .ö2
 %
 % Word-ending single vowels are not hyphenated
-%
+% Don't seem to work?
 2a.
 2e.
 2i.
@@ -328,6 +333,7 @@ uu3o2
 2ö.
 %
 % Always break geminations.
+% See for example http://people.uta.fi/~km56049/finnish/syldiv.html
 %
 b1b
 c1c
@@ -350,10 +356,20 @@ w1w
 x1x
 z1z
 %
+% Some other common consonant pairs
+%
+% Word-ending k is not native to Finnish language and thus these rules can be expected to be general
+1k2l2e  % klemmari, kleopatra, kleptomania but NOT artikla
+1k2l2i  % kliimaksi
+1k2l2o  % klosetti
+1k2l2u  % klubi, klusteri, klusiili
+1k2l2y  % klyyvari
+2k1k2r	% akkreditointi
+%
 % Some common consonant clusters
 %
 ks1pr  % ekspressio
-1st2r  % -stressi, -strategia etc.
+1st2r  % -stressi, -strategia
 %
 % The following patterns contain no general scientific rule. They
 % are selected more or less intuitively to solve problems
@@ -414,7 +430,6 @@ f2l 1f2la
 f2r 1f2ra 1f2re
 g2l 1g2lo
 g2r 1g2ra
-k2l
 1k2ra 1k2re 1k2ri
 1k2v 1k2va
 p2l
