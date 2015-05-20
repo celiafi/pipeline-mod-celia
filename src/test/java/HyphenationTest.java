@@ -88,7 +88,7 @@ public class HyphenationTest {
 	@Test
 	public void testWithTexhyph() {
 		for(String[] testCase : testCases) {
-			assertEquals(testCase[0], testCase[1], texhyphProvider.get("(table:'hyph-fi.tex')").iterator().next().transform(testCase[2]));
+			assertEquals(testCase[0], testCase[1], texhyphProvider.get("(table:'hyph-fi.properties')").iterator().next().transform(testCase[2]));
 		}
 	}
 	

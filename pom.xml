@@ -68,14 +68,14 @@
       <resource>
         <directory>src/main/resources</directory>
         <excludes>
-          <exclude>hyph/*</exclude>
+          <exclude>hyph/hyph-fi</exclude>
         </excludes>
       </resource>
       <resource>
         <directory>target/generated-resources</directory>
         <includes>
-          <include>hyph/*.dic</include>
-          <include>hyph/*.tex</include>
+          <include>hyph/hyph-fi.dic</include>
+          <include>hyph/hyph-fi.tex</include>
         </includes>
       </resource>
     </resources>

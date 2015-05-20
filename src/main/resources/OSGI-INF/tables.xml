@@ -16,6 +16,6 @@
 		</scr:service>
 		<scr:property name="identifier" type="String" value="http://www.celia.fi/pipeline/texhyph/"/>
 		<scr:property name="path" type="String" value="/hyph"/>
-		<scr:property name="includes" type="String" value="*.tex"/>
+		<scr:property name="includes" type="String" value="{*.tex,*.properties}"/>
 	</scr:component>
 </scr:components>
