@@ -17,7 +17,7 @@
   <name>DAISY Pipeline 2 module :: Finnish hyphenator</name>
 
   <properties>
-    <pipeline.version>1.9</pipeline.version>
+    <pipeline.version>1.10-SNAPSHOT</pipeline.version>
   </properties>
   
   <dependencyManagement>
@@ -47,6 +47,12 @@
     <dependency>
       <groupId>org.daisy.pipeline.modules.braille</groupId>
       <artifactId>texhyph-core</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-jdk14</artifactId>
+      <version>1.7.2</version>
       <scope>test</scope>
     </dependency>
     <dependency>

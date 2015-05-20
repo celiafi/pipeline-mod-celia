@@ -2,6 +2,7 @@ import javax.inject.Inject;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FilenameFilter;
 import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
@@ -11,11 +12,13 @@ import java.util.ArrayList;
 import net.davidashen.text.Hyphenator;
 import net.davidashen.text.Utf8TexParser.TexParserException;
 
-import org.daisy.pipeline.braille.libhyphen.Libhyphen;
+import org.daisy.pipeline.braille.libhyphen.LibhyphenHyphenator;
 import org.daisy.pipeline.braille.tex.TexHyphenator;
-import static org.daisy.pipeline.braille.Utilities.URIs.asURI;
+import static org.daisy.pipeline.braille.common.util.URIs.asURI;
 
 import static org.daisy.pipeline.pax.exam.Options.brailleModule;
+import static org.daisy.pipeline.pax.exam.Options.bundlesAndDependencies;
+import static org.daisy.pipeline.pax.exam.Options.domTraversalPackage;
 import static org.daisy.pipeline.pax.exam.Options.felixDeclarativeServices;
 import static org.daisy.pipeline.pax.exam.Options.forThisPlatform;
 import static org.daisy.pipeline.pax.exam.Options.logbackBundles;
@@ -33,7 +36,9 @@ import org.ops4j.pax.exam.junit.PaxExam;
 import org.ops4j.pax.exam.Option;
 import org.ops4j.pax.exam.spi.reactors.ExamReactorStrategy;
 import org.ops4j.pax.exam.spi.reactors.PerClass;
+import org.ops4j.pax.exam.util.PathUtils;
 
+import static org.ops4j.pax.exam.CoreOptions.bundle;
 import static org.ops4j.pax.exam.CoreOptions.junitBundles;
 import static org.ops4j.pax.exam.CoreOptions.mavenBundle;
 import static org.ops4j.pax.exam.CoreOptions.options;
@@ -70,19 +75,20 @@ public class HyphenationTest {
 	@Test
 	public void testWithLibhyphen() {
 		assumeTrue(! onWindows);
-		Libhyphen libhyphen = (Libhyphen)context.getService(context.getServiceReference(Libhyphen.class.getName()));;
+		LibhyphenHyphenator.Provider libhyphenProvider
+			= (LibhyphenHyphenator.Provider)context.getService(context.getServiceReference(LibhyphenHyphenator.Provider.class.getName()));
 		for(String[] testCase : testCases) {
-			assertEquals(testCase[0], testCase[1], libhyphen.hyphenate(asURI("hyph-fi.dic"), testCase[2]));
+			assertEquals(testCase[0], testCase[1], libhyphenProvider.get("(table:'hyph-fi.dic')").iterator().next().transform(testCase[2]));
 		}
 	}
 	
 	@Inject
-	TexHyphenator texhyph;
+	TexHyphenator.Provider texhyphProvider;
 	
 	@Test
 	public void testWithTexhyph() {
 		for(String[] testCase : testCases) {
-			assertEquals(testCase[0], testCase[1], texhyph.hyphenate(asURI("hyph-fi.tex"), testCase[2]));
+			assertEquals(testCase[0], testCase[1], texhyphProvider.get("(table:'hyph-fi.tex')").iterator().next().transform(testCase[2]));
 		}
 	}
 	
@@ -104,16 +110,26 @@ public class HyphenationTest {
 		return options(
 			logbackConfigFile(),
 			logbackBundles(),
+			domTraversalPackage(),
 			felixDeclarativeServices(),
 			mavenBundle().groupId("com.google.guava").artifactId("guava").versionAsInProject(),
 			mavenBundle().groupId("net.java.dev.jna").artifactId("jna").versionAsInProject(),
 			mavenBundle().groupId("org.daisy.bindings").artifactId("jhyphen").versionAsInProject(),
 			mavenBundle().groupId("com.googlecode.texhyphj").artifactId("texhyphj").versionAsInProject(),
-			brailleModule("common-java"),
+			mavenBundle().groupId("org.daisy.libs").artifactId("jstyleparser").versionAsInProject(),
+			mavenBundle().groupId("org.apache.servicemix.bundles").artifactId("org.apache.servicemix.bundles.antlr-runtime").versionAsInProject(),
+			bundlesAndDependencies("org.daisy.pipeline.calabash-adapter"),
+			brailleModule("common-utils"),
+			brailleModule("css-core"),
 			brailleModule("libhyphen-core"),
 			onWindows ? null : forThisPlatform(brailleModule("libhyphen-native")),
 			brailleModule("texhyph-core"),
-			thisBundle(true),
+			bundle("reference:"
+			        + (new File(PathUtils.getBaseDir() + "/target/")).listFiles(
+			            new FilenameFilter() {
+			                public boolean accept(File dir, String name) {
+			                    return name.endsWith(".jar"); }}
+			          )[0].toURI()),
 			junitBundles()
 		);
 	}
