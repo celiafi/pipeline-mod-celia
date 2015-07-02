@@ -4,34 +4,18 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.daisy.pipeline.modules</groupId>
-    <artifactId>modules-parent</artifactId>
-    <version>1.2</version>
+    <groupId>org.daisy.pipeline.modules.braille</groupId>
+    <artifactId>braille-modules-parent</artifactId>
+    <version>1.10-SNAPSHOT</version>
     <relativePath />
   </parent>
 
-  <artifactId>finnish-hyphenator</artifactId>
+  <artifactId>mod-celia</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>bundle</packaging>
 
-  <name>DAISY Pipeline 2 module :: Finnish hyphenator</name>
-
-  <properties>
-    <pipeline.version>1.10-SNAPSHOT</pipeline.version>
-  </properties>
+  <name>DP2 Braille Modules :: mod-celia</name>
   
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>org.daisy.pipeline.modules.braille</groupId>
-        <artifactId>braille-modules-bom</artifactId>
-        <version>${pipeline.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
-
   <dependencies>
     <dependency>
       <groupId>org.daisy.pipeline.modules.braille</groupId>
@@ -58,7 +42,6 @@
     <dependency>
       <groupId>org.daisy.pipeline</groupId>
       <artifactId>pax-exam-helper</artifactId>
-      <version>${pipeline.version}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
