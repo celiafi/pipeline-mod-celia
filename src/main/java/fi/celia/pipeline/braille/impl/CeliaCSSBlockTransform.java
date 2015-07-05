@@ -16,9 +16,15 @@ import static org.daisy.pipeline.braille.css.Query.parseQuery;
 import static org.daisy.pipeline.braille.common.util.Tuple3;
 import static org.daisy.pipeline.braille.common.util.URIs.asURI;
 import org.daisy.pipeline.braille.common.CSSBlockTransform;
+import org.daisy.pipeline.braille.common.LazyValue.ImmutableLazyValue;
 import static org.daisy.pipeline.braille.common.Provider.util.memoize;
 import org.daisy.pipeline.braille.common.Transform;
+import org.daisy.pipeline.braille.common.Transform.AbstractTransform;
+import org.daisy.pipeline.braille.common.Transform.Provider.AbstractProvider;
 import static org.daisy.pipeline.braille.common.Transform.Provider.util.dispatch;
+import static org.daisy.pipeline.braille.common.Transform.Provider.util.logCreate;
+import static org.daisy.pipeline.braille.common.Transform.Provider.util.logSelect;
+import org.daisy.pipeline.braille.common.WithSideEffect;
 import org.daisy.pipeline.braille.common.XProcTransform;
 import org.daisy.pipeline.braille.liblouis.LiblouisTranslator;
 
@@ -49,10 +55,6 @@ public interface CeliaCSSBlockTransform extends CSSBlockTransform, XProcTransfor
 			href = asURI(context.getBundleContext().getBundle().getEntry("xml/block-translate.xpl"));
 		}
 		
-		public Transform.Provider<CeliaCSSBlockTransform> withContext(Logger context) {
-			return this;
-		}
-		
 		/**
 		 * Recognized features:
 		 *
@@ -60,22 +62,54 @@ public interface CeliaCSSBlockTransform extends CSSBlockTransform, XProcTransfor
 		 *
 		 */
 		public Iterable<CeliaCSSBlockTransform> get(String query) {
-			Map<String,Optional<String>> q = new HashMap<String,Optional<String>>(parseQuery(query));
-			Optional<String> o;
-			if ((o = q.remove("translator")) != null)
-				if (o.get().equals("celia"))
-					if (q.isEmpty()) {
-						if (instance == null)
-							try {
-								instance = Optional.of((CeliaCSSBlockTransform)new TransformImpl()).asSet(); }
-							catch (Exception e) {
-								return empty; }
-						return instance; }
-			return empty;
+			 return impl.get(query);
+		 }
+	
+		public Transform.Provider<CeliaCSSBlockTransform> withContext(Logger context) {
+			return impl.withContext(context);
 		}
-		
-		private Iterable<CeliaCSSBlockTransform> instance;
-		private static final Iterable<CeliaCSSBlockTransform> empty = Optional.<CeliaCSSBlockTransform>absent().asSet();
+	
+		private Transform.Provider.MemoizingProvider<CeliaCSSBlockTransform> impl = new ProviderImpl(null);
+	
+		private class ProviderImpl extends AbstractProvider<CeliaCSSBlockTransform> {
+			
+			private final static String liblouisTable = "(liblouis-table:'http://www.liblouis.org/tables/fi.utb')";
+			
+			private ProviderImpl(Logger context) {
+				super(context);
+			}
+			
+			protected Transform.Provider.MemoizingProvider<CeliaCSSBlockTransform> _withContext(Logger context) {
+				return new ProviderImpl(context);
+			}
+			
+			protected Iterable<WithSideEffect<CeliaCSSBlockTransform,Logger>> __get(final String query) {
+				return new ImmutableLazyValue<WithSideEffect<CeliaCSSBlockTransform,Logger>>() {
+					public WithSideEffect<CeliaCSSBlockTransform,Logger> _apply() {
+						return new WithSideEffect<CeliaCSSBlockTransform,Logger>() {
+							public CeliaCSSBlockTransform _apply() {
+								Map<String,Optional<String>> q = new HashMap<String,Optional<String>>(parseQuery(query));
+								Optional<String> o;
+								if ((o = q.remove("translator")) != null)
+									if (o.get().equals("celia"))
+										if (q.size() == 0) {
+											try {
+												applyWithSideEffect(
+													logSelect(
+														liblouisTable,
+														liblouisTranslatorProvider.get(liblouisTable)).iterator().next()); }
+											catch (NoSuchElementException e) {
+												throw new NoSuchElementException(); }
+											return applyWithSideEffect(
+												logCreate(
+													(CeliaCSSBlockTransform)new TransformImpl(liblouisTable))); }
+								throw new NoSuchElementException();
+							}
+						};
+					}
+				};
+			}
+		}
 		
 		@Reference(
 			name = "LiblouisTranslatorProvider",
@@ -98,17 +132,12 @@ public interface CeliaCSSBlockTransform extends CSSBlockTransform, XProcTransfor
 		private org.daisy.pipeline.braille.common.Provider.MemoizingProvider<String,LiblouisTranslator> liblouisTranslatorProvider
 		= memoize(dispatch(liblouisTranslatorProviders));
 		
-		private class TransformImpl implements CeliaCSSBlockTransform {
+		private class TransformImpl extends AbstractTransform implements CeliaCSSBlockTransform {
 			
-			private final static String query = "(liblouis-table:'http://www.liblouis.org/tables/fi.utb')";
 			private final Tuple3<URI,QName,Map<String,String>> xproc;
 	
-			private TransformImpl() {
-				try {
-					LiblouisTranslator translator = liblouisTranslatorProvider.get(query).iterator().next(); }
-				catch (NoSuchElementException e) {
-					throw new RuntimeException(); }
-				Map<String,String> options = ImmutableMap.of("query", query);
+			private TransformImpl(String translatorQuery) {
+				Map<String,String> options = ImmutableMap.of("query", translatorQuery);
 				xproc = new Tuple3<URI,QName,Map<String,String>>(href, null, options);
 			}
 	
