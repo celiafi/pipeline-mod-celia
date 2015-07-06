@@ -75,6 +75,7 @@ public class TranslationTest {
 			brailleModule("liblouis-tables"),
 			forThisPlatform(brailleModule("liblouis-native")),
 			brailleModule("libhyphen-core"),
+			forThisPlatform(brailleModule("libhyphen-native")),
 			brailleModule("texhyph-core"),
 			bundle("reference:"
 			        + (new File(PathUtils.getBaseDir() + "/target/")).listFiles(

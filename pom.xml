@@ -31,6 +31,10 @@
     </dependency>
     <dependency>
       <groupId>org.daisy.pipeline.modules.braille</groupId>
+      <artifactId>libhyphen-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.daisy.pipeline.modules.braille</groupId>
       <artifactId>css-utils</artifactId>
       <scope>runtime</scope>
     </dependency>
@@ -43,11 +47,6 @@
       <groupId>org.daisy.pipeline.modules.braille</groupId>
       <artifactId>liblouis-tables</artifactId>
       <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.daisy.pipeline.modules.braille</groupId>
-      <artifactId>libhyphen-core</artifactId>
-      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.daisy.pipeline.modules.braille</groupId>
@@ -167,7 +166,6 @@
             <Service-Component>OSGI-INF/tables.xml</Service-Component>
             <Import-Package>
               *,
-              org.daisy.pipeline.braille.libhyphen,
               org.daisy.pipeline.braille.tex
             </Import-Package>
             <_dsannotations>

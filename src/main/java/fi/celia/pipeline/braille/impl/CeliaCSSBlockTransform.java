@@ -9,6 +9,7 @@ import java.net.URI;
 import javax.xml.namespace.QName;
 
 import static com.google.common.base.Objects.toStringHelper;
+import static com.google.common.collect.Iterables.transform;
 import com.google.common.base.Optional;
 import com.google.common.collect.ImmutableMap;
 
@@ -16,16 +17,16 @@ import static org.daisy.pipeline.braille.css.Query.parseQuery;
 import static org.daisy.pipeline.braille.common.util.Tuple3;
 import static org.daisy.pipeline.braille.common.util.URIs.asURI;
 import org.daisy.pipeline.braille.common.CSSBlockTransform;
-import org.daisy.pipeline.braille.common.LazyValue.ImmutableLazyValue;
-import static org.daisy.pipeline.braille.common.Provider.util.memoize;
 import org.daisy.pipeline.braille.common.Transform;
 import org.daisy.pipeline.braille.common.Transform.AbstractTransform;
 import org.daisy.pipeline.braille.common.Transform.Provider.AbstractProvider;
 import static org.daisy.pipeline.braille.common.Transform.Provider.util.dispatch;
 import static org.daisy.pipeline.braille.common.Transform.Provider.util.logCreate;
 import static org.daisy.pipeline.braille.common.Transform.Provider.util.logSelect;
+import static org.daisy.pipeline.braille.common.Transform.Provider.util.memoize;
 import org.daisy.pipeline.braille.common.WithSideEffect;
 import org.daisy.pipeline.braille.common.XProcTransform;
+import org.daisy.pipeline.braille.libhyphen.LibhyphenHyphenator;
 import org.daisy.pipeline.braille.liblouis.LiblouisTranslator;
 
 import org.osgi.service.component.annotations.Activate;
@@ -74,6 +75,7 @@ public interface CeliaCSSBlockTransform extends CSSBlockTransform, XProcTransfor
 		private class ProviderImpl extends AbstractProvider<CeliaCSSBlockTransform> {
 			
 			private final static String liblouisTable = "(liblouis-table:'http://www.liblouis.org/tables/fi.utb')";
+			private final static String hyphenationTable = "(libhyphen-table:'http://www.celia.fi/pipeline/hyphen/hyph-fi.dic')";
 			
 			private ProviderImpl(Logger context) {
 				super(context);
@@ -83,31 +85,53 @@ public interface CeliaCSSBlockTransform extends CSSBlockTransform, XProcTransfor
 				return new ProviderImpl(context);
 			}
 			
-			protected Iterable<WithSideEffect<CeliaCSSBlockTransform,Logger>> __get(final String query) {
-				return new ImmutableLazyValue<WithSideEffect<CeliaCSSBlockTransform,Logger>>() {
-					public WithSideEffect<CeliaCSSBlockTransform,Logger> _apply() {
-						return new WithSideEffect<CeliaCSSBlockTransform,Logger>() {
-							public CeliaCSSBlockTransform _apply() {
-								Map<String,Optional<String>> q = new HashMap<String,Optional<String>>(parseQuery(query));
-								Optional<String> o;
-								if ((o = q.remove("translator")) != null)
-									if (o.get().equals("celia"))
-										if (q.size() == 0) {
-											try {
-												applyWithSideEffect(
-													logSelect(
-														liblouisTable,
-														liblouisTranslatorProvider.get(liblouisTable)).iterator().next()); }
-											catch (NoSuchElementException e) {
-												throw new NoSuchElementException(); }
-											return applyWithSideEffect(
-												logCreate(
-													(CeliaCSSBlockTransform)new TransformImpl(liblouisTable))); }
-								throw new NoSuchElementException();
-							}
-						};
-					}
-				};
+			protected Iterable<WithSideEffect<CeliaCSSBlockTransform,Logger>> __get(String query) {
+				Map<String,Optional<String>> q = new HashMap<String,Optional<String>>(parseQuery(query));
+				Optional<String> o;
+				if ((o = q.remove("translator")) != null)
+					if (o.get().equals("celia"))
+						if (q.size() == 0) {
+							Iterable<WithSideEffect<LibhyphenHyphenator,Logger>> hyphenators
+								= logSelect(hyphenationTable, libhyphenHyphenatorProvider.get(hyphenationTable));
+							return transform(
+								hyphenators,
+								new WithSideEffect.Function<LibhyphenHyphenator,CeliaCSSBlockTransform,Logger>() {
+									public CeliaCSSBlockTransform _apply(LibhyphenHyphenator h) {
+										String translatorQuery = liblouisTable + "(hyphenator:" + h.getIdentifier() + ")";
+										try {
+											applyWithSideEffect(
+												logSelect(
+													translatorQuery,
+													liblouisTranslatorProvider.get(translatorQuery)).iterator().next()); }
+										catch (NoSuchElementException e) {
+											throw new NoSuchElementException(); }
+										return applyWithSideEffect(
+											logCreate(
+												(CeliaCSSBlockTransform)new TransformImpl(translatorQuery))); }}); }
+				return empty;
+			}
+		}
+		
+		private final static Iterable<WithSideEffect<CeliaCSSBlockTransform,Logger>> empty
+		= Optional.<WithSideEffect<CeliaCSSBlockTransform,Logger>>absent().asSet();
+		
+		private class TransformImpl extends AbstractTransform implements CeliaCSSBlockTransform {
+			
+			private final Tuple3<URI,QName,Map<String,String>> xproc;
+			
+			private TransformImpl(String translatorQuery) {
+				Map<String,String> options = ImmutableMap.of("query", translatorQuery);
+				xproc = new Tuple3<URI,QName,Map<String,String>>(href, null, options);
+			}
+			
+			public Tuple3<URI,QName,Map<String,String>> asXProc() {
+				return xproc;
+			}
+			
+			@Override
+			public String toString() {
+				return toStringHelper(CeliaCSSBlockTransform.class.getSimpleName())
+					.toString();
 			}
 		}
 		
@@ -129,27 +153,29 @@ public interface CeliaCSSBlockTransform extends CSSBlockTransform, XProcTransfor
 	
 		private List<Transform.Provider<LiblouisTranslator>> liblouisTranslatorProviders
 		= new ArrayList<Transform.Provider<LiblouisTranslator>>();
-		private org.daisy.pipeline.braille.common.Provider.MemoizingProvider<String,LiblouisTranslator> liblouisTranslatorProvider
+		private Transform.Provider.MemoizingProvider<LiblouisTranslator> liblouisTranslatorProvider
 		= memoize(dispatch(liblouisTranslatorProviders));
 		
-		private class TransformImpl extends AbstractTransform implements CeliaCSSBlockTransform {
-			
-			private final Tuple3<URI,QName,Map<String,String>> xproc;
-	
-			private TransformImpl(String translatorQuery) {
-				Map<String,String> options = ImmutableMap.of("query", translatorQuery);
-				xproc = new Tuple3<URI,QName,Map<String,String>>(href, null, options);
-			}
-	
-			public Tuple3<URI,QName,Map<String,String>> asXProc() {
-				return xproc;
-			}
-	
-			@Override
-			public String toString() {
-				return toStringHelper(CeliaCSSBlockTransform.class.getSimpleName())
-					.toString();
-			}
+		@Reference(
+			name = "LibhyphenHyphenatorProvider",
+			unbind = "unbindLibhyphenHyphenatorProvider",
+			service = LibhyphenHyphenator.Provider.class,
+			cardinality = ReferenceCardinality.MULTIPLE,
+			policy = ReferencePolicy.DYNAMIC
+			)
+			protected void bindLibhyphenHyphenatorProvider(LibhyphenHyphenator.Provider provider) {
+			libhyphenHyphenatorProviders.add(provider);
 		}
+		
+		protected void unbindLibhyphenHyphenatorProvider(LibhyphenHyphenator.Provider provider) {
+			libhyphenHyphenatorProviders.remove(provider);
+			libhyphenHyphenatorProvider.invalidateCache();
+		}
+		
+		private List<Transform.Provider<LibhyphenHyphenator>> libhyphenHyphenatorProviders
+		= new ArrayList<Transform.Provider<LibhyphenHyphenator>>();
+		private Transform.Provider.MemoizingProvider<LibhyphenHyphenator> libhyphenHyphenatorProvider
+		= memoize(dispatch(libhyphenHyphenatorProviders));
+		
 	}
 }
