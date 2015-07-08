@@ -119,6 +119,7 @@ public class HyphenationTest {
 			mavenBundle().groupId("org.daisy.braille").artifactId("braille-utils.api").versionAsInProject(),
 			mavenBundle().groupId("com.googlecode.texhyphj").artifactId("texhyphj").versionAsInProject(),
 			mavenBundle().groupId("org.daisy.libs").artifactId("jstyleparser").versionAsInProject(),
+			mavenBundle().groupId("org.unbescape").artifactId("unbescape").versionAsInProject(),
 			mavenBundle().groupId("org.daisy.braille").artifactId("braille-css").versionAsInProject(),
 			mavenBundle().groupId("org.apache.servicemix.bundles").artifactId("org.apache.servicemix.bundles.antlr-runtime").versionAsInProject(),
 			bundlesAndDependencies("org.daisy.pipeline.calabash-adapter"),
@@ -136,12 +137,7 @@ public class HyphenationTest {
 			brailleModule("libhyphen-core"),
 			onWindows ? null : forThisPlatform(brailleModule("libhyphen-native")),
 			brailleModule("texhyph-core"),
-			bundle("reference:"
-			        + (new File(PathUtils.getBaseDir() + "/target/")).listFiles(
-			            new FilenameFilter() {
-			                public boolean accept(File dir, String name) {
-			                    return name.endsWith(".jar"); }}
-			          )[0].toURI()),
+			thisBundle(),
 			junitBundles()
 		);
 	}
