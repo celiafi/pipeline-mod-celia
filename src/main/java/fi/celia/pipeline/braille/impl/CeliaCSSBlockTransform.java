@@ -24,6 +24,7 @@ import static org.daisy.pipeline.braille.common.Transform.Provider.util.dispatch
 import static org.daisy.pipeline.braille.common.Transform.Provider.util.logCreate;
 import static org.daisy.pipeline.braille.common.Transform.Provider.util.logSelect;
 import static org.daisy.pipeline.braille.common.Transform.Provider.util.memoize;
+import static org.daisy.pipeline.braille.common.util.Locales.parseLocale;
 import org.daisy.pipeline.braille.common.WithSideEffect;
 import org.daisy.pipeline.braille.common.XProcTransform;
 import org.daisy.pipeline.braille.libhyphen.LibhyphenHyphenator;
@@ -60,6 +61,7 @@ public interface CeliaCSSBlockTransform extends CSSBlockTransform, XProcTransfor
 		 * Recognized features:
 		 *
 		 * - translator: Will only match if the value is `celia'.
+		 * - locale: Will only match if the language subtag is 'fi'.
 		 *
 		 */
 		public Iterable<CeliaCSSBlockTransform> get(String query) {
@@ -88,6 +90,9 @@ public interface CeliaCSSBlockTransform extends CSSBlockTransform, XProcTransfor
 			protected Iterable<WithSideEffect<CeliaCSSBlockTransform,Logger>> __get(String query) {
 				Map<String,Optional<String>> q = new HashMap<String,Optional<String>>(parseQuery(query));
 				Optional<String> o;
+				if ((o = q.remove("locale")) != null)
+					if (!"fi".equals(parseLocale(o.get()).getLanguage()))
+						return empty;
 				if ((o = q.remove("translator")) != null)
 					if (o.get().equals("celia"))
 						if (q.size() == 0) {

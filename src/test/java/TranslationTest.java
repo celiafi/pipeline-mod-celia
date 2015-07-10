@@ -11,6 +11,7 @@ import static org.daisy.pipeline.pax.exam.Options.felixDeclarativeServices;
 import static org.daisy.pipeline.pax.exam.Options.forThisPlatform;
 import static org.daisy.pipeline.pax.exam.Options.logbackBundles;
 import static org.daisy.pipeline.pax.exam.Options.logbackConfigFile;
+import static org.daisy.pipeline.pax.exam.Options.thisBundle;
 import static org.daisy.pipeline.pax.exam.Options.xprocspecBundles;
 
 import static org.junit.Assert.assertTrue;
@@ -61,6 +62,7 @@ public class TranslationTest {
 			mavenBundle().groupId("org.daisy.braille").artifactId("braille-utils.api").versionAsInProject(),
 			mavenBundle().groupId("com.googlecode.texhyphj").artifactId("texhyphj").versionAsInProject(),
 			mavenBundle().groupId("org.daisy.libs").artifactId("jstyleparser").versionAsInProject(),
+			mavenBundle().groupId("org.unbescape").artifactId("unbescape").versionAsInProject(),
 			mavenBundle().groupId("org.daisy.braille").artifactId("braille-css").versionAsInProject(),
 			mavenBundle().groupId("org.apache.servicemix.bundles").artifactId("org.apache.servicemix.bundles.antlr-runtime").versionAsInProject(),
 			brailleModule("common-utils"),
@@ -77,12 +79,7 @@ public class TranslationTest {
 			brailleModule("libhyphen-core"),
 			forThisPlatform(brailleModule("libhyphen-native")),
 			brailleModule("texhyph-core"),
-			bundle("reference:"
-			        + (new File(PathUtils.getBaseDir() + "/target/")).listFiles(
-			            new FilenameFilter() {
-			                public boolean accept(File dir, String name) {
-			                    return name.endsWith(".jar"); }}
-			          )[0].toURI()),
+			thisBundle(),
 			xprocspecBundles(),
 			junitBundles()
 		);

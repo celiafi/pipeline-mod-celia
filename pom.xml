@@ -6,12 +6,12 @@
   <parent>
     <groupId>org.daisy.pipeline.modules.braille</groupId>
     <artifactId>braille-modules-parent</artifactId>
-    <version>1.10-SNAPSHOT</version>
+    <version>1.9.1</version>
     <relativePath />
   </parent>
 
   <artifactId>mod-celia</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.1-SNAPSHOT</version>
   <packaging>bundle</packaging>
 
   <name>DP2 Braille Modules :: mod-celia</name>
@@ -121,22 +121,22 @@
                     % Translation by Jukka Eerikäinen 2015
                     %
                   </header>
-                  <path path="src/main/resources/hyph/hyph-fi"/>
+                  <path path="src/main/resources/hyph/hyph-fi" />
                 </concat>
                 <exec executable="perl" failonerror="yes">
-                  <arg value="substrings.pl"/>
-                  <arg value="target/generated-resources/hyph/hyph-fi.dic.tmp"/>
-                  <arg value="target/generated-resources/hyph/hyph-fi.dic"/>
-                  <arg value="UTF-8"/>
-                  <arg value="1"/>
-                  <arg value="1"/>
-                  <redirector output="target/substrings.log"/>
+                  <arg value="substrings.pl" />
+                  <arg value="target/generated-resources/hyph/hyph-fi.dic.tmp" />
+                  <arg value="target/generated-resources/hyph/hyph-fi.dic" />
+                  <arg value="UTF-8" />
+                  <arg value="1" />
+                  <arg value="1" />
+                  <redirector output="target/substrings.log" />
                 </exec>
                 <concat destfile="target/generated-resources/hyph/hyph-fi.tex">
                   <header trimleading="yes">
                     \patterns{
                   </header>
-                  <path path="src/main/resources/hyph/hyph-fi"/>
+                  <path path="src/main/resources/hyph/hyph-fi" />
                   <footer trimleading="yes">
                     }
                   </footer>
@@ -214,5 +214,4 @@
       </plugin>
     </plugins>
   </build>
-
 </project>
