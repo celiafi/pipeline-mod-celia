@@ -1,0 +1,9 @@
+pipeline-mod-celia v1.0.0
+=========================
+
+Includes
+--------
+- Improved hyphenation table for Finnish (https://github.com/snaekobbi/issues/issues/2)
+- Custom Liblouis based translator that handles `html:strong` and `html:em`
+  (https://github.com/snaekobbi/liblouis/issues/1, https://github.com/snaekobbi/issues/issues/13,
+  https://github.com/snaekobbi/issues/issues/14, https://github.com/snaekobbi/pipeline-mod-braille/issues/38)
