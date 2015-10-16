@@ -6,7 +6,7 @@
   <parent>
     <groupId>org.daisy.pipeline.modules.braille</groupId>
     <artifactId>braille-modules-parent</artifactId>
-    <version>1.9.1</version>
+    <version>1.9.6</version>
     <relativePath />
   </parent>
 
@@ -50,13 +50,13 @@
     </dependency>
     <dependency>
       <groupId>org.daisy.pipeline.modules.braille</groupId>
-      <artifactId>libhyphen-native</artifactId>
-      <classifier>linux</classifier>
-      <scope>test</scope>
+      <artifactId>texhyph-core</artifactId>
+      <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>org.daisy.pipeline.modules.braille</groupId>
-      <artifactId>texhyph-core</artifactId>
+      <artifactId>libhyphen-native</artifactId>
+      <classifier>linux</classifier>
       <scope>test</scope>
     </dependency>
     <dependency>
