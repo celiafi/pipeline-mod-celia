@@ -6,7 +6,7 @@
   <parent>
     <groupId>org.daisy.pipeline.modules.braille</groupId>
     <artifactId>braille-modules-parent</artifactId>
-    <version>1.9.6</version>
+    <version>1.9.8-SNAPSHOT</version>
     <relativePath />
   </parent>
 
@@ -169,7 +169,7 @@
               org.daisy.pipeline.braille.tex
             </Import-Package>
             <_dsannotations>
-              fi.celia.pipeline.braille.impl.CeliaCSSBlockTransform$Provider
+              fi.celia.pipeline.braille.impl.CeliaTranslator$Provider
             </_dsannotations>
           </instructions>
         </configuration>
@@ -211,6 +211,13 @@
             </configuration>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <configuration>
+          <tagNameFormat>v@{project.version}</tagNameFormat>
+        </configuration>
       </plugin>
     </plugins>
   </build>

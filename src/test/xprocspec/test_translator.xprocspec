@@ -11,7 +11,7 @@
       <p:output port="result"/>
       <p:import href="http://www.daisy.org/pipeline/modules/braille/common-utils/library.xpl"/>
       <p:add-attribute match="html:p" attribute-name="style" attribute-value="display:block"/>
-      <px:transform type="css-block" query="(translator:celia)(locale:fi)"/>
+      <px:transform query="(input:html)(input:css)(output:css)(translator:celia)(locale:fi)"/>
       <p:delete match="html:p/@style"/>
     </p:declare-step>
   </x:script>
