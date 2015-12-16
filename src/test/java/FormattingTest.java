@@ -12,6 +12,7 @@ import static org.daisy.pipeline.pax.exam.Options.felixDeclarativeServices;
 import static org.daisy.pipeline.pax.exam.Options.forThisPlatform;
 import static org.daisy.pipeline.pax.exam.Options.logbackBundles;
 import static org.daisy.pipeline.pax.exam.Options.logbackConfigFile;
+import static org.daisy.pipeline.pax.exam.Options.pipelineModule;
 import static org.daisy.pipeline.pax.exam.Options.thisBundle;
 import static org.daisy.pipeline.pax.exam.Options.xprocspecBundles;
 
@@ -32,7 +33,7 @@ import static org.ops4j.pax.exam.CoreOptions.options;
 
 @RunWith(PaxExam.class)
 @ExamReactorStrategy(PerClass.class)
-public class TranslationTest {
+public class FormattingTest {
 	
 	@Inject
 	private XProcSpecRunner xprocspecRunner;
@@ -40,8 +41,8 @@ public class TranslationTest {
 	@Test
 	public void runXProcSpec() throws Exception {
 		File baseDir = new File(PathUtils.getBaseDir());
-		boolean success = xprocspecRunner.run(ImmutableMap.of("test_translator",
-		                                                      new File(baseDir, "src/test/xprocspec/test_translator.xprocspec")),
+		boolean success = xprocspecRunner.run(ImmutableMap.of("test_css_formatter",
+		                                                      new File(baseDir, "src/test/xprocspec/test_css_formatter.xprocspec")),
 		                                      new File(baseDir, "target/xprocspec-reports"),
 		                                      new File(baseDir, "target/surefire-reports"),
 		                                      new File(baseDir, "target/xprocspec"),
@@ -67,12 +68,24 @@ public class TranslationTest {
 			mavenBundle().groupId("org.unbescape").artifactId("unbescape").versionAsInProject(),
 			mavenBundle().groupId("org.daisy.braille").artifactId("braille-css").versionAsInProject(),
 			mavenBundle().groupId("org.apache.servicemix.bundles").artifactId("org.apache.servicemix.bundles.antlr-runtime").versionAsInProject(),
+			mavenBundle().groupId("org.daisy.braille").artifactId("braille-utils.api").versionAsInProject(),
+			mavenBundle().groupId("org.daisy.braille").artifactId("braille-utils.pef-tools").versionAsInProject(),
+			mavenBundle().groupId("org.daisy.braille").artifactId("braille-utils.impl").versionAsInProject(),
+			mavenBundle().groupId("org.daisy.libs").artifactId("jing").versionAsInProject(),
 			mavenBundle().groupId("org.daisy.dotify").artifactId("dotify.api").versionAsInProject(),
+			mavenBundle().groupId("org.daisy.dotify").artifactId("dotify.common").versionAsInProject(),
+			mavenBundle().groupId("org.daisy.dotify").artifactId("dotify.translator.impl").versionAsInProject(),
+			mavenBundle().groupId("org.daisy.dotify").artifactId("dotify.formatter.impl").versionAsInProject(),
+			mavenBundle().groupId("org.daisy.dotify").artifactId("dotify.task-api").versionAsInProject(),
+			mavenBundle().groupId("org.daisy.dotify").artifactId("dotify.task.impl").versionAsInProject(),
 			brailleModule("common-utils"),
 			brailleModule("css-core"),
 			brailleModule("css-calabash"),
 			brailleModule("css-utils"),
 			brailleModule("pef-core"),
+			brailleModule("pef-calabash"),
+			brailleModule("pef-saxon"),
+			brailleModule("pef-utils"),
 			brailleModule("liblouis-core"),
 			brailleModule("liblouis-saxon"),
 			brailleModule("liblouis-calabash"),
@@ -82,10 +95,16 @@ public class TranslationTest {
 			brailleModule("libhyphen-core"),
 			forThisPlatform(brailleModule("libhyphen-native")),
 			brailleModule("texhyph-core"),
+			brailleModule("dotify-core"),
+			brailleModule("dotify-saxon"),
+			brailleModule("dotify-calabash"),
+			brailleModule("dotify-utils"),
+			brailleModule("dotify-formatter"),
+			pipelineModule("file-utils"),
+			pipelineModule("common-utils"),
 			thisBundle(),
 			xprocspecBundles(),
 			junitBundles()
 		);
 	}
-	
 }

@@ -16,7 +16,7 @@
 		<xsl:variable name="style" as="xs:string*">
 			<xsl:for-each select="$text">
 				<xsl:variable name="inline-style" as="element()*"
-				              select="css:computed-properties($inline-properties, true(), parent::*)"/>
+				              select="css:computed-properties($inline-properties[not(.='word-spacing')], true(), parent::*)"/>
 				<xsl:variable name="transform" as="xs:string?"
 				              select="if (ancestor::html:strong) then 'louis-bold' else
 				                      if (ancestor::html:em) then 'louis-ital' else ()"/>
@@ -28,6 +28,12 @@
 		<xsl:apply-templates select="node()[1]" mode="treewalk">
 			<xsl:with-param name="new-text-nodes" select="pf:text-transform($query,$text,$style)"/>
 		</xsl:apply-templates>
+	</xsl:template>
+	
+	<xsl:template match="css:property[@name='letter-spacing']" mode="translate-declaration-list"/>
+	
+	<xsl:template match="css:property[@name='word-spacing']" mode="translate-declaration-list">
+		<xsl:sequence select="."/>
 	</xsl:template>
 	
 	<xsl:template match="css:property[@name=('font-style','font-weight','text-decoration','color')]"
