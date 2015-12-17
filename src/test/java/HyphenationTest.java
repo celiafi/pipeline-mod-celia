@@ -2,7 +2,6 @@ import javax.inject.Inject;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FilenameFilter;
 import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
@@ -12,9 +11,9 @@ import java.util.ArrayList;
 import net.davidashen.text.Hyphenator;
 import net.davidashen.text.Utf8TexParser.TexParserException;
 
+import static org.daisy.pipeline.braille.common.Query.util.query;
 import org.daisy.pipeline.braille.libhyphen.LibhyphenHyphenator;
 import org.daisy.pipeline.braille.tex.TexHyphenator;
-import static org.daisy.pipeline.braille.common.util.URIs.asURI;
 
 import static org.daisy.pipeline.pax.exam.Options.brailleModule;
 import static org.daisy.pipeline.pax.exam.Options.bundlesAndDependencies;
@@ -36,9 +35,7 @@ import org.ops4j.pax.exam.junit.PaxExam;
 import org.ops4j.pax.exam.Option;
 import org.ops4j.pax.exam.spi.reactors.ExamReactorStrategy;
 import org.ops4j.pax.exam.spi.reactors.PerClass;
-import org.ops4j.pax.exam.util.PathUtils;
 
-import static org.ops4j.pax.exam.CoreOptions.bundle;
 import static org.ops4j.pax.exam.CoreOptions.junitBundles;
 import static org.ops4j.pax.exam.CoreOptions.mavenBundle;
 import static org.ops4j.pax.exam.CoreOptions.options;
@@ -75,10 +72,11 @@ public class HyphenationTest {
 	@Test
 	public void testWithLibhyphen() {
 		assumeTrue(! onWindows);
-		LibhyphenHyphenator.Provider libhyphenProvider
-			= (LibhyphenHyphenator.Provider)context.getService(context.getServiceReference(LibhyphenHyphenator.Provider.class.getName()));
+		LibhyphenHyphenator hyphenator
+			= ((LibhyphenHyphenator.Provider)context.getService(context.getServiceReference(LibhyphenHyphenator.Provider.class.getName())))
+			.get(query("(table:'hyph-fi.dic')")).iterator().next();
 		for(String[] testCase : testCases) {
-			assertEquals(testCase[0], testCase[1], libhyphenProvider.get("(table:'hyph-fi.dic')").iterator().next().transform(testCase[2]));
+			assertEquals(testCase[0], testCase[1], hyphenator.transform(new String[]{testCase[2]})[0]);
 		}
 	}
 	
@@ -88,7 +86,9 @@ public class HyphenationTest {
 	@Test
 	public void testWithTexhyph() {
 		for(String[] testCase : testCases) {
-			assertEquals(testCase[0], testCase[1], texhyphProvider.get("(table:'hyph-fi.properties')").iterator().next().transform(testCase[2]));
+			assertEquals(testCase[0], testCase[1],
+			             texhyphProvider.get(query("(table:'hyph-fi.properties')")).iterator().next()
+			                            .transform(new String[]{testCase[2]})[0]);
 		}
 	}
 	
@@ -122,6 +122,7 @@ public class HyphenationTest {
 			mavenBundle().groupId("org.unbescape").artifactId("unbescape").versionAsInProject(),
 			mavenBundle().groupId("org.daisy.braille").artifactId("braille-css").versionAsInProject(),
 			mavenBundle().groupId("org.apache.servicemix.bundles").artifactId("org.apache.servicemix.bundles.antlr-runtime").versionAsInProject(),
+			mavenBundle().groupId("org.daisy.dotify").artifactId("dotify.api").versionAsInProject(),
 			bundlesAndDependencies("org.daisy.pipeline.calabash-adapter"),
 			brailleModule("common-utils"),
 			brailleModule("css-core"),
