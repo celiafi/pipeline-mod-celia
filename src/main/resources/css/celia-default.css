@@ -1,0 +1,49 @@
+/*******************************************************************************
+* Celia default CSS
+* http://www.celia.fi/
+*
+* Author: Jukka Eerikäinen <jukka.eerikainen@iki.fi>
+*/
+
+@namespace xml "http://www.w3.org/XML/1998/namespace";
+
+head {
+	display: none;
+}
+
+@book {
+	hyphens: auto;
+}
+
+@page {
+	size: 25 40;
+	@top-right {
+		content: counter(page);
+	}
+}
+
+level,
+level1, level2, level3,
+level4, level5, level6,
+frontmatter, bodymatter, rearmatter {
+	display: block
+	page-break-before: always;
+	page-break-after: always;
+}
+
+hd, h1, h2, h3, h4, h5, h6 {
+	display: block;
+	margin-bottom: 1;
+	page-break-after: avoid;
+}
+
+p {
+	margin-left: 10;
+}
+
+/** TODO TEST
+*/
+* {
+	margin-left: 10;
+	letter-spacing: 1;
+}
