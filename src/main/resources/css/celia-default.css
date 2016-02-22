@@ -1,20 +1,34 @@
-/*******************************************************************************
-* Celia default CSS
-* http://www.celia.fi/
-*
-* Author: Jukka Eerikäinen <jukka.eerikainen@iki.fi>
-*/
+/*
+ * Celia default CSS
+ * http://www.celia.fi/
+ *
+ * Author: Jukka Eerikäinen <jukka.eerikainen@iki.fi>
+ */
 
+/*
+ * Namespaces
+ */
 @namespace xml "http://www.w3.org/XML/1998/namespace";
 
+/*
+ * Hidden elements
+ */
 head {
 	display: none;
 }
 
-@book {
+/*
+ * Hyphenation
+ */
+book {
 	hyphens: auto;
 }
 
+/*
+ * Page layout
+ *
+ * TODO: What about page numbers?
+ */
 @page {
 	size: 25 40;
 	@top-right {
@@ -22,6 +36,22 @@ head {
 	}
 }
 
+/*
+ * Volume boilerplate
+ *
+ * TODO
+ */
+@volume {
+	@begin {
+		/* TODO title, number of volume (out of N) */
+	}
+}
+
+/*
+ * Major structural divisions of the book
+ *
+ * Each section starts on a new page.
+ */
 level,
 level1, level2, level3,
 level4, level5, level6,
@@ -31,19 +61,150 @@ frontmatter, bodymatter, rearmatter {
 	page-break-after: always;
 }
 
+/*
+ * Headings
+ *
+ * In headings that span multiple lines, every line except for the first
+ * one is indented by 2 cells.
+ */
 hd, h1, h2, h3, h4, h5, h6 {
 	display: block;
 	margin-bottom: 1;
+	margin-left: 2;
+	text-indent: -2;
 	page-break-after: avoid;
 }
 
-p {
-	margin-left: 10;
+/*
+ * Print page numbers
+ *
+ * TODO ensure these
+ */
+pagenum {
+	display: block;
+	margin-top: 1;
+	margin-bottom: 1;
+	text-align: center;
 }
 
-/** TODO TEST
-*/
-* {
-	margin-left: 10;
-	letter-spacing: 1;
+/*
+ * Title and author
+ */
+doctitle, docauthor {
+	display: block;
+	margin-bottom: 1;
+}
+
+/*
+ * Paragraphs
+ */
+p {
+	display: block;
+}
+
+/*
+ * Lists
+ */
+list {
+	display: block;
+}
+
+/*
+ * List items
+ */
+list > li {
+	display: block;
+}
+
+/*
+ * Producer notes
+ *
+ * TODO: What should we do with these?
+ */
+prodnote {
+	display: block;
+}
+
+/*
+ * Tables
+ *
+ * TODO: What should we do with these?
+ */
+table {
+	display: block;
+	margin-top: 1;
+	margin-bottom: 1;
+}
+
+/*
+ * Image groups
+ *
+ * TODO
+ */
+imggroup {
+
+}
+
+/*
+ * Captions
+ *
+ * TODO
+ */
+caption {
+	display: block;
+}
+
+/*
+ * Code
+ *
+ * No hyphenation
+ * To preserve whitespace, add attribute xml:space="preserve" to the XML element.
+ */
+code {
+	display: block;
+	hyphens: none;
+}
+
+/*
+ * INLINE ELEMENTS
+ */
+
+/*
+ * Strong emphasis as bold
+ */
+strong {
+	text-transform: louis-bold;
+}
+
+/*
+ * Emphasis as italic
+ */
+em {
+	text-transform: louis-ital;
+}
+
+/*
+ * Preceding empty line
+ */
+.precedingemptyline::before {
+	/* Don't convert newlines to spaces */
+	white-space: pre-line;
+	/* TODO what's this do? see: mod-dedicon */
+	content: '\A';
+}
+
+/*
+ * Indented elements
+ */
+.indented {
+	text-indent: 2;
+}
+
+/*
+ * xml:space='preserve'
+ *
+ * Pre-formatted text
+ */
+[xml|space=preserve] {
+	white-space: pre-wrap;
 }
