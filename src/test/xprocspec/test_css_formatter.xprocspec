@@ -198,7 +198,7 @@
   <x:scenario label="test">
     <x:call step="pxi:transform">
       <x:input port="source">
-        <x:document type="file" href="../resources/test.xml">
+        <x:document type="file" href="../resources/test.html">
         </x:document>
       </x:input>
       <x:option name="temp-dir" select="$temp-dir"/>
@@ -232,5 +232,6 @@
       </x:document>
     </x:expect>
   </x:scenario>
+
   
 </x:description>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x:description xmlns:x="http://www.daisy.org/ns/xprocspec"
+               xmlns:p="http://www.w3.org/ns/xproc"
+               xmlns:px="http://www.daisy.org/ns/pipeline/xproc"
+               xmlns:html="http://www.w3.org/1999/xhtml"
+               xmlns:css="http://www.daisy.org/ns/pipeline/braille-css"
+               xmlns:pxi="http://www.daisy.org/ns/pipeline/xproc/internal"
+	       xmlns:celia="http://www.celia.fi"
+	       script="http://www.celia.fi/pipeline/modules/braille/dtbook-to-pef.xpl">
+  
+  <!--
+        TODO 
+  -->
+  <x:scenario label="test">
+    <x:call step="celia:dtbook-to-pef">
+      <x:input port="source">
+        <x:document type="file" href="../resources/test.html">
+        </x:document>
+      </x:input>
+      <x:option name="temp-dir" select="$temp-dir"/>
+      <x:option name="stylesheet" select="'http://www.celia.fi/pipeline/modules/braille/default.css'"/>
+    </x:call>
+    <x:context label="pef">
+      <x:document type="port" port="result"/>
+    </x:context>
+    <x:expect label="result" type="custom" href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl" step="x:pef-compare">
+      <x:document type="inline">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1">
+          <head>
+            <meta xmlns:dc="http://purl.org/dc/elements/1.1/">
+              <dc:format>application/x-pef+xml</dc:format>
+            </meta>
+          </head>
+          <body>
+            <volume cols="22" rows="10" rowgap="0" duplex="true">
+              <section>
+                <page>
+                  <row>⠠⠇⠀⠜⠀⠏⠀⠊⠀⠀⠀⠝⠀⠜⠀⠅⠀⠽⠀⠽⠂</row>
+                  <row>⠇⠀⠜⠀⠍⠀⠏⠀⠊⠀⠍⠀⠜⠀⠝⠀⠀⠀⠏⠀⠊⠤</row>
+                  <row>⠞⠀⠜⠀⠜⠢</row>
+                  <row>⠠⠓⠀⠊⠀⠝⠀⠞⠀⠁⠀⠀⠀⠕⠀⠝⠀⠀⠀⠼⠉⠚</row>
+                  <row>⠍⠀⠁⠀⠗⠀⠅⠀⠅⠀⠁⠀⠁⠄</row>
+                </page>
+              </section>
+            </volume>
+          </body>
+        </pef>
+      </x:document>
+    </x:expect>
+  </x:scenario>
+
+  
+</x:description>
