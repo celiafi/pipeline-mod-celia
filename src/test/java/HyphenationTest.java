@@ -22,6 +22,7 @@ import static org.daisy.pipeline.pax.exam.Options.felixDeclarativeServices;
 import static org.daisy.pipeline.pax.exam.Options.forThisPlatform;
 import static org.daisy.pipeline.pax.exam.Options.logbackBundles;
 import static org.daisy.pipeline.pax.exam.Options.logbackConfigFile;
+import static org.daisy.pipeline.pax.exam.Options.pipelineModule;
 import static org.daisy.pipeline.pax.exam.Options.thisBundle;
 
 import static org.junit.Assert.assertEquals;
@@ -138,6 +139,25 @@ public class HyphenationTest {
 			brailleModule("libhyphen-core"),
 			onWindows ? null : forThisPlatform(brailleModule("libhyphen-native")),
 			brailleModule("texhyph-core"),
+			mavenBundle().groupId("org.daisy.braille").artifactId("braille-utils.api").versionAsInProject(),
+			mavenBundle().groupId("org.daisy.braille").artifactId("braille-utils.pef-tools").versionAsInProject(),
+			mavenBundle().groupId("org.daisy.braille").artifactId("braille-utils.impl").versionAsInProject(),
+			mavenBundle().groupId("org.daisy.libs").artifactId("jing").versionAsInProject(),
+			brailleModule("pef-core"),
+			brailleModule("pef-calabash"),
+			brailleModule("pef-saxon"),
+			brailleModule("pef-utils"),
+			brailleModule("dtbook-to-pef"),
+			pipelineModule("file-utils"),
+			pipelineModule("common-utils"),
+			pipelineModule("html-utils"),
+			pipelineModule("zip-utils"),
+			pipelineModule("mediatype-utils"),
+			pipelineModule("fileset-utils"),
+			pipelineModule("metadata-utils"),
+			pipelineModule("validation-utils"),
+			pipelineModule("dtbook-utils"),
+			pipelineModule("dtbook-validator"),
 			thisBundle(),
 			junitBundles()
 		);

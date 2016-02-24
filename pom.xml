@@ -56,6 +56,11 @@
       <artifactId>texhyph-core</artifactId>
       <scope>runtime</scope>
     </dependency>
+    <dependency>
+      <groupId>org.daisy.pipeline.modules.braille</groupId>
+      <artifactId>dtbook-to-pef</artifactId>
+      <scope>runtime</scope>
+    </dependency>
     <!--
         test dependencies
     -->
@@ -68,11 +73,6 @@
     <dependency>
       <groupId>org.daisy.pipeline.modules.braille</groupId>
       <artifactId>dotify-formatter</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.daisy.pipeline.modules.braille</groupId>
-      <artifactId>dtbook-to-pef</artifactId>
       <scope>test</scope>
     </dependency>
     <dependency>
