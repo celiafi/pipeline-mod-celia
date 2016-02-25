@@ -22,7 +22,7 @@
       <x:option name="stylesheet" select="'http://www.celia.fi/pipeline/modules/braille/default.css'"/>
     </x:call>
     <x:context label="pef">
-      <x:document type="port" port="result"/>
+      <x:document type="file" base-uri="temp-dir" href="output-dir/test_script.pef"/>
     </x:context>
     <x:expect label="result" type="custom" href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl" step="x:pef-compare">
       <x:document type="inline">
