@@ -113,7 +113,8 @@ public class ScriptTest {
 			pipelineModule("dtbook-validator"),
 			thisBundle(),
 			xprocspecBundles(),
-			junitBundles()
+			junitBundles(),
+			org.daisy.pipeline.pax.exam.Options.calabashConfigFile()
 		);
 	}
 }

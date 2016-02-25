@@ -13,7 +13,7 @@
 
     <p:input port="source" primary="true" px:name="source" px:media-type="application/x-dtbook+xml"/>
 
-    <p:option name="output-dir"/>
+    <p:option name="output-dir" px:output="result" px:type="anyDirURI"/>
     <p:option name="temp-dir"/>
 
     <p:option name="stylesheet"/>
@@ -23,7 +23,8 @@
     <p:import href="http://www.daisy.org/pipeline/modules/braille/dtbook-to-pef/dtbook-to-pef.xpl"/>
 
     <px:dtbook-to-pef>
-        <p:with-option name="query" select="(input:css)(output:pef)(formatter:dotify)(translator:celia)(locale:fi)"/>
+        <p:with-option name="transform" select="'(translator:celia)'"/>
+	<p:with-option name="output-dir" select="$output-dir"/>
     </px:dtbook-to-pef>
 
 </p:declare-step>

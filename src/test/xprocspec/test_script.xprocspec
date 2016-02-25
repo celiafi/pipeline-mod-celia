@@ -14,10 +14,11 @@
   <x:scenario label="test">
     <x:call step="celia:dtbook-to-pef">
       <x:input port="source">
-        <x:document type="file" href="../resources/test.html">
+        <x:document type="file" href="../resources/test.xml">
         </x:document>
       </x:input>
       <x:option name="temp-dir" select="$temp-dir"/>
+      <x:option name="output-dir" select="concat($temp-dir, 'output-dir/')"/>
       <x:option name="stylesheet" select="'http://www.celia.fi/pipeline/modules/braille/default.css'"/>
     </x:call>
     <x:context label="pef">
