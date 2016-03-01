@@ -44,6 +44,7 @@ book {
 @volume {
 	@begin {
 		/* TODO title, number of volume (out of N) */
+		content: flow(titlepage);
 	}
 }
 
@@ -85,6 +86,10 @@ pagenum {
 	margin-top: 1;
 	margin-bottom: 1;
 	text-align: center;
+}
+
+pagenum::before {
+	content: 'Sivu ';
 }
 
 /*

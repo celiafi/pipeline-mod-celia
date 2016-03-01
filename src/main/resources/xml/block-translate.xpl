@@ -5,6 +5,13 @@
             exclude-inline-prefixes="#all">
 	
 	<p:option name="query" required="true"/>
+
+	<p:xslt>
+		<p:input port="stylesheet">
+			<p:document href="insert-titlepage.xsl"/>
+		</p:input>
+		<p:with-param name="query" select="$query"/>
+	</p:xslt>
 	
 	<p:xslt>
 		<p:input port="stylesheet">

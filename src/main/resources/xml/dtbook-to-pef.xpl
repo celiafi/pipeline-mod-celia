@@ -13,10 +13,10 @@
 
     <p:input port="source" primary="true" px:name="source" px:media-type="application/x-dtbook+xml"/>
 
-    <p:option name="output-dir" px:output="result" px:type="anyDirURI"/>
+    <p:option name="output-dir"/>
     <p:option name="temp-dir"/>
 
-    <p:option name="stylesheet"/>
+    <p:option name="stylesheet" select="'http://www.celia.fi/pipeline/modules/braille/celia-default.css'"/>
 
     <p:option name="transform" px:data-type="transform-query"/>
 
@@ -25,6 +25,7 @@
     <px:dtbook-to-pef>
         <p:with-option name="transform" select="'(translator:celia)'"/>
 	<p:with-option name="output-dir" select="$output-dir"/>
+	<p:with-option name="stylesheet" select="$stylesheet"/>
     </px:dtbook-to-pef>
 
 </p:declare-step>
