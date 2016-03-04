@@ -6,7 +6,7 @@
   <parent>
     <groupId>org.daisy.pipeline.modules.braille</groupId>
     <artifactId>braille-modules-parent</artifactId>
-    <version>1.9.9</version>
+    <version>1.9.10-SNAPSHOT</version>
     <relativePath />
   </parent>
 
@@ -33,6 +33,14 @@
       <groupId>org.daisy.pipeline.modules.braille</groupId>
       <artifactId>libhyphen-core</artifactId>
     </dependency>
+    <dependency>
+      <groupId>org.daisy.pipeline.modules.braille</groupId>
+      <artifactId>texhyph-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.daisy.pipeline.modules.braille</groupId>
+      <artifactId>dtbook-to-pef</artifactId>
+    </dependency>
     <!--
         runtime dependencies
     -->
@@ -49,16 +57,6 @@
     <dependency>
       <groupId>org.daisy.pipeline.modules.braille</groupId>
       <artifactId>liblouis-tables</artifactId>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.daisy.pipeline.modules.braille</groupId>
-      <artifactId>texhyph-core</artifactId>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.daisy.pipeline.modules.braille</groupId>
-      <artifactId>dtbook-to-pef</artifactId>
       <scope>runtime</scope>
     </dependency>
     <!--
@@ -114,13 +112,25 @@
         <directory>src/main/resources</directory>
         <excludes>
           <exclude>hyph/hyph-fi</exclude>
+          <!--
+              braille-modules-parent
+          -->
+          <exclude>META-INF/catalog.xml</exclude>
         </excludes>
       </resource>
       <resource>
-        <directory>target/generated-resources</directory>
+        <directory>${project.build.directory}/generated-resources</directory>
         <includes>
           <include>hyph/hyph-fi.dic</include>
           <include>hyph/hyph-fi.tex</include>
+          <!--
+              braille-modules-parent
+          -->
+          <include>META-INF/catalog.xml</include>
+          <include>generated-scripts</include>
+          <include>generated-scripts/*</include>
+          <include>data-types</include>
+          <include>data-types/**/*</include>
         </includes>
       </resource>
     </resources>
@@ -184,13 +194,10 @@
         <artifactId>maven-bundle-plugin</artifactId>
         <configuration>
           <instructions>
-            <Service-Component>OSGI-INF/tables.xml</Service-Component>
-            <Import-Package>
-              *,
-              org.daisy.pipeline.braille.tex
-            </Import-Package>
             <_dsannotations>
-              fi.celia.pipeline.braille.impl.CeliaTranslator$Provider
+              fi.celia.pipeline.braille.impl.CeliaTranslator$Provider,
+              fi.celia.pipeline.braille.impl.LibhyphenTablePath,
+              fi.celia.pipeline.braille.impl.TexHyphenatorTablePath
             </_dsannotations>
           </instructions>
         </configuration>

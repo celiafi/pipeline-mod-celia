@@ -18,7 +18,7 @@
         </x:document>
       </x:input>
       <x:option name="temp-dir" select="$temp-dir"/>
-      <x:option name="output-dir" select="concat($temp-dir, 'output-dir/')"/>
+      <x:option name="pef-output-dir" select="concat($temp-dir, 'output-dir/')"/>
       <x:option name="stylesheet" select="'http://www.celia.fi/pipeline/modules/braille/default.css'"/>
     </x:call>
     <x:context label="pef">
