@@ -16,7 +16,7 @@
     <p:option name="pef-output-dir"/>
     <p:option name="temp-dir"/>
 
-    <p:option name="stylesheet" select="'http://www.celia.fi/pipeline/modules/braille/celia-default.css'"/>
+    <p:option name="stylesheet" select="'http://www.celia.fi/pipeline/modules/braille/default.css'"/>
 
     <p:option name="transform" px:data-type="transform-query"/>
 
