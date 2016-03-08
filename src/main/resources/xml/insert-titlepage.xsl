@@ -23,9 +23,11 @@
 		select="(/dtbook/head/meta[@name eq 'dc:source']/@content|
 		/html:html/html:head/dc:source/text())/replace(
 		., '^urn:isbn:', '')"/>
+	<!--<xsl:variable name="TITLE" as="xs:string*"
+		select="/dtbook/head/meta[@name = 'dc:title']/@content|
+		/html:html/html:head/dc:title/text()"/>-->
 	<xsl:variable name="TITLE" as="xs:string*"
-		select="/dtbook/head/meta[@name eq 'dc:title']/@content|
-		/html:html/html:head/dc:title/text()"/>
+		select="//meta[@name='dc:Title']/@content"/>
 	<xsl:variable name="YEAR" as="xs:integer"
 		select="year-from-date(current-date())"/>
 	
@@ -46,14 +48,14 @@
     </xsl:template>
 
     <xsl:template name="TITLE_PAGE_CONTENT">
-        <xsl:element name="p" namespace="{$OUTPUT_NAMESPACE}">
-		    <xsl:attribute name="style" select="'display:block;'"/>
-	    	<xsl:value-of select="$AUTHOR"/>
-		</xsl:element>
     	<xsl:element name="p" namespace="{$OUTPUT_NAMESPACE}">
     		<xsl:attribute name="style" select="'display:block'"/>
     		<xsl:value-of select="$TITLE"/>
     	</xsl:element>
+        <xsl:element name="p" namespace="{$OUTPUT_NAMESPACE}">
+		<xsl:attribute name="style" select="'display:block;'"/>
+	    	<xsl:value-of select="$AUTHOR"/>
+	</xsl:element>
     	<xsl:element name="p" namespace="{$OUTPUT_NAMESPACE}">
     		<xsl:attribute name="style" select="'display:block'"/>
     		<xsl:element name="span" namespace="{$OUTPUT_NAMESPACE}">
@@ -66,8 +68,8 @@
     		<xsl:text> sidoksesta.</xsl:text>
     	</xsl:element>
     	<xsl:element name="p" namespace="{$OUTPUT_NAMESPACE}">
-    		<xsl:attribute name="style" select="'display:block'"/>
-    		Celia
+		<xsl:attribute name="style" select="'display:block'"/>
+		Celia
     	</xsl:element>
     	<xsl:element name="p" namespace="{$OUTPUT_NAMESPACE}">
     		<xsl:attribute name="style" select="'display:block'"/>
