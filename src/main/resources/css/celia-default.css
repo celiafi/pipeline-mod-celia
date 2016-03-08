@@ -51,6 +51,7 @@ book {
  * TODO
  */
 @volume {
+	max-length: 80;
 	@begin {
 		/* TODO title, number of volume (out of N) */
 		content: flow(titlepage);
