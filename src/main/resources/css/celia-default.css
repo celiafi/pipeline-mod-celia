@@ -30,7 +30,16 @@ book {
  * TODO: What about page numbers?
  */
 @page {
-	size: 25 40;
+	size: 27 30;
+}
+
+@page:left {
+	@top-left {
+		content: counter(page);
+	}
+}
+
+@page:right {
 	@top-right {
 		content: counter(page);
 	}
