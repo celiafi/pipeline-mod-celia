@@ -3,9 +3,8 @@
 <dtbook xmlns="http://www.daisy.org/z3986/2005/dtbook/" version="2005-3" xml:lang="fi">
 <head>
 <meta name="dtb:uid" content="0213456789"/>
-<meta name="dc:Title" content="QWERTY"/>
-<meta name="dc:Creator" content="ZXCV"/>
-<meta name="dc:Creator" content="ZXCV"/>
+<meta name="dc:Title" content="Kirja"/>
+<meta name="dc:Creator" content="John Doe"/>
 <meta name="dc:Date" content="2016-01-12"/>
 <meta name="dc:Publisher" content="Celia"/>
 <meta name="dc:Language" content="fi"/>
@@ -13,7 +12,6 @@
 <meta name="dc:Subject" content=""/>
 <meta name="dc:Type" content=""/>
 <meta name="track:Guidelines" content="2015-1"/>
-<meta name="track:Supplier" content="ASDFG"/>
 </head>
 <book>
 <frontmatter>
@@ -45,14 +43,6 @@
 	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 </level2>
 </level1>
-
-
-
-
-
-
-
-
 </bodymatter>
 <rearmatter>
 <level1>
@@ -61,7 +51,7 @@
 <p>asdasd</p>
 </level1>
 
-<level1><h1>  Kirjan loppu </h1><p>Tähän päättyi kirja QWERT</p></level1>
+<level1><h1>  Kirjan loppu </h1><p>Tähän päättyi kirja Kirja</p></level1>
 </rearmatter>
 </book>
 </dtbook>
