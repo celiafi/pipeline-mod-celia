@@ -17,17 +17,13 @@
 </head>
 <book>
 <frontmatter>
-<doctitle>QWERTY</doctitle>
-<docauthor>ZXCV</docauthor>
+<doctitle>Kirja</doctitle>
+<docauthor>John Doe</docauthor>
 <level1>
-<pagenum id="page-3" page="normal">3</pagenum>
 <h1>Alkutiedot</h1>
-<p>ASDFG</p>
-<p>ZXCV</p>
-<p>QAZWSX</p>
+<p>KUSTANTAJA PAIKKA</p>
 <p>Viides painos, 2015</p>
-<p>&#x00A9; ZXCV &#x0026; ZXCV</p>
-  <p>Tuottaja: Celia - Näkövammaisten kirjasto 2016 </p>
+<p>Tuottaja: Celia - Näkövammaisten kirjasto 2016 </p>
 <level2><h2>  Käyttöoikeus </h2>
 <p>Tämä kirja on valmistettu tekijänoikeuslain 17. pykälän nojalla ja on tarkoitettu ainoastaan näkövammaisten ja muiden lukemisesteisten käyttöön. </p>
 </level2>
@@ -38,8 +34,6 @@
 		</p>
 </level2>
 </level1>
-
-
 </frontmatter>
 <bodymatter>
 <level1>
