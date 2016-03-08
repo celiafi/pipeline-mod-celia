@@ -13,9 +13,6 @@
 
     <!-- Variables -->
     <xsl:variable name="OUTPUT_NAMESPACE" as="xs:string" select="namespace-uri(/*)"/>
-	<xsl:variable name="AUTHOR" as="xs:string*"
-		select="/dtbook/head/meta[@name eq 'dc:creator']/@content|
-		/html:html/html:head/dc:creator/text()"/>
 	<xsl:variable name="PID" as="xs:string*"
 		select="/dtbook/head/meta[@name eq 'dtb:uid']/@content|
 		/html:html/html:head/dc:identifier/text()"/>
@@ -23,11 +20,10 @@
 		select="(/dtbook/head/meta[@name eq 'dc:source']/@content|
 		/html:html/html:head/dc:source/text())/replace(
 		., '^urn:isbn:', '')"/>
-	<!--<xsl:variable name="TITLE" as="xs:string*"
-		select="/dtbook/head/meta[@name = 'dc:title']/@content|
-		/html:html/html:head/dc:title/text()"/>-->
 	<xsl:variable name="TITLE" as="xs:string*"
 		select="//meta[@name='dc:Title']/@content"/>
+	<xsl:variable name="AUTHOR" as="xs:string*"
+		select="//meta[@name='dc:Creator']/@content"/>
 	<xsl:variable name="YEAR" as="xs:integer"
 		select="year-from-date(current-date())"/>
 	
