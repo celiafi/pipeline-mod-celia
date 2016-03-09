@@ -46,14 +46,21 @@ book {
 }
 
 /*
- * Volume boilerplate
+ * @page:first doesn't seem to work
+ */
+@page:first {
+	@top-right {
+		content: '';
+	}
+}
+
+/*
+ * Volumes: Maximum length, title page 
  *
- * TODO
  */
 @volume {
 	max-length: 80;
 	@begin {
-		/* TODO title, number of volume (out of N) */
 		content: flow(titlepage);
 	}
 }
