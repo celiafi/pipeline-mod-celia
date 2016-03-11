@@ -5,8 +5,8 @@
   <uri name="http://www.celia.fi/pipeline/modules/braille/dtbook-to-pef.xpl" uri="../xml/dtbook-to-pef.xpl"
        px:script="true" px:extends="http://www.daisy.org/pipeline/modules/braille/dtbook-to-pef/dtbook-to-pef.xpl"/>
   <!-- CSS -->
-  <uri name="http://www.celia.fi/pipeline/modules/braille/default.css"
-       uri="../css/celia-default.css"/>
+  <uri name="http://www.celia.fi/pipeline/modules/braille/default.scss"
+       uri="../css/celia-default.scss"/>
   <!-- dependencies -->
   <nextCatalog catalog="org:daisy:pipeline:modules:braille:css-utils"/>
   <nextCatalog catalog="org:daisy:pipeline:modules:braille:liblouis-utils"/>

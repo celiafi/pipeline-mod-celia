@@ -5,6 +5,8 @@
  * Author: Jukka Eerikäinen <jukka.eerikainen@iki.fi>
  */
 
+$show-braille-page-numbers: true !default;
+
 /*
  * Namespaces
  */
@@ -33,15 +35,17 @@ book {
 	size: 27 30;
 }
 
-@page:left {
-	@top-left {
-		content: counter(page);
+@if $show-braille-page-numbers {
+	@page:left {
+		@top-left {
+			content: counter(page);
+		}
 	}
-}
 
-@page:right {
-	@top-right {
-		content: counter(page);
+	@page:right {
+		@top-right {
+			content: counter(page);
+		}
 	}
 }
 
@@ -66,9 +70,9 @@ level,
 level1, level2, level3,
 level4, level5, level6,
 frontmatter, bodymatter, rearmatter {
-	display: block
+	display: block;
 	page-break-before: always;
-	page-break-after: always;
+	/* page-break-after: always; */
 }
 
 /*
