@@ -40,7 +40,7 @@
                   word-spacing: 3;
                   letter-spacing: 1;
                   hyphens: none; }
-                p { display: block }
+                p { display: block; text-indent: 0; }
               </style>
             </head>
             <body>
@@ -94,7 +94,7 @@
                   word-spacing: 3;
                   letter-spacing: 1;
                   hyphens: none; }
-                p { display: block }
+                p { display: block; text-indent: 0; }
               </style>
             </head>
             <body>
@@ -152,7 +152,7 @@
                   word-spacing: 3;
                   letter-spacing: 1;
                   hyphens: auto; }
-                p { display: block }
+                p { display: block; text-indent: 0; }
               </style>
             </head>
             <body>
