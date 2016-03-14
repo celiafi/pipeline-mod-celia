@@ -49,6 +49,9 @@
 	<p:with-option name="brf-output-dir" select="$brf-output-dir"/>
 	<p:with-option name="stylesheet" select="$stylesheet"/>
 
+	<p:with-option name="page-width" select="$page-width"/>
+	<p:with-option name="page-height" select="$page-height"/>
+
 	<p:with-option name="duplex" select="$duplex"/>
 
 	<p:with-option name="include-captions" select="$include-captions"/>
