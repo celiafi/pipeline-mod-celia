@@ -13,10 +13,12 @@
 
     <p:input port="source" primary="true" px:name="source" px:media-type="application/x-dtbook+xml"/>
 
+    <p:option name="include-brf"/>
     <p:option name="pef-output-dir"/>
+    <p:option name="brf-output-dir"/>
     <p:option name="temp-dir"/>
 
-    <p:option name="stylesheet" select="'http://www.celia.fi/pipeline/modules/braille/default.css'"/>
+    <p:option name="stylesheet" select="'http://www.celia.fi/pipeline/modules/braille/default.scss'"/>
 
     <p:option name="transform" px:data-type="transform-query"/>
 
@@ -42,7 +44,9 @@
 
     <px:dtbook-to-pef>
         <p:with-option name="transform" select="'(translator:celia)'"/>
+	<p:with-option name="include-brf" select="$include-brf"/>
 	<p:with-option name="pef-output-dir" select="$pef-output-dir"/>
+	<p:with-option name="brf-output-dir" select="$brf-output-dir"/>
 	<p:with-option name="stylesheet" select="$stylesheet"/>
 
 	<p:with-option name="duplex" select="$duplex"/>

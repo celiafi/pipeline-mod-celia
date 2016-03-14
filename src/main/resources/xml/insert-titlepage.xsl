@@ -38,7 +38,7 @@
     <xsl:template match="frontmatter/doctitle">
         <xsl:next-match/>
 	<level depth="1"
-	       style="display:block; text-align:center; page-break-after:always; page-break-inside:avoid; flow:titlepage;">
+	       style="display:block; text-align:center; page-break-before:always; page-break-inside:avoid; flow:titlepage;">
 	    <xsl:call-template name="TITLE_PAGE_CONTENT"/>
 	</level>
     </xsl:template>
