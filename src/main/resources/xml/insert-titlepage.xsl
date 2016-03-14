@@ -38,7 +38,7 @@
     <xsl:template match="frontmatter/doctitle">
         <xsl:next-match/>
 	<level depth="1"
-	       style="display:block; text-align:center; page-break-before:always; page-break-inside:avoid; flow:titlepage;">
+	       style="display:block; page-break-before:always; page-break-inside:avoid; flow:titlepage;">
 	    <xsl:call-template name="TITLE_PAGE_CONTENT"/>
 	</level>
     </xsl:template>
@@ -49,28 +49,19 @@
     		<xsl:value-of select="$TITLE"/>
     	</xsl:element>
         <xsl:element name="p" namespace="{$OUTPUT_NAMESPACE}">
-		<xsl:attribute name="style" select="'display:block;'"/>
+		<xsl:attribute name="style" select="'display:block; margin-top:1;'"/>
 	    	<xsl:value-of select="$AUTHOR"/>
 	</xsl:element>
     	<xsl:element name="p" namespace="{$OUTPUT_NAMESPACE}">
-    		<xsl:attribute name="style" select="'display:block'"/>
+    		<xsl:attribute name="style" select="'display:block; margin-top:1;'"/>
+    		<xsl:text>Vihko </xsl:text>
     		<xsl:element name="span" namespace="{$OUTPUT_NAMESPACE}">
     			<xsl:attribute name="style" select="'::before { content: -obfl-evaluate(&quot;(round $volume)&quot;); }'"/>
     		</xsl:element>
-    		<xsl:text>. sidos </xsl:text>
+		<xsl:text>/</xsl:text>
     		<xsl:element name="span" namespace="{$OUTPUT_NAMESPACE}">
     			<xsl:attribute name="style" select="'::before { content: -obfl-evaluate(&quot;(round $volumes)&quot;); }'"/>
     		</xsl:element>
-    		<xsl:text> sidoksesta.</xsl:text>
-    	</xsl:element>
-    	<xsl:element name="p" namespace="{$OUTPUT_NAMESPACE}">
-		<xsl:attribute name="style" select="'display:block'"/>
-		Celia
-    	</xsl:element>
-    	<xsl:element name="p" namespace="{$OUTPUT_NAMESPACE}">
-    		<xsl:attribute name="style" select="'display:block'"/>
-    		<!-- TODO selvitä tekstit -->
-    		Lukemisesteisten kirjasto
     	</xsl:element>
     </xsl:template>
 
