@@ -26,8 +26,6 @@ book {
 
 /*
  * Page layout
- *
- * TODO: What about page numbers?
  */
 @page {
 	size: 27 30;
@@ -46,7 +44,7 @@ book {
 }
 
 /*
- * @page:first doesn't seem to work
+ * @page:first doesn't work yet
  */
 @page:first {
 	@top-right {
@@ -56,7 +54,6 @@ book {
 
 /*
  * Volumes: Maximum length, title page 
- *
  */
 @volume {
 	max-length: 80;
