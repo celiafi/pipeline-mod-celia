@@ -36,8 +36,7 @@
     <p:option name="show-braille-page-numbers"/>
     <p:option name="show-print-page-numbers"/>
 
-    <p:option name="line-spacing"/>
-    <p:option name="letter-spacing"/>
+    <p:option name="line-spacing" select="'0'"/>
     <p:option name="hyphenation"/>
 
     <p:import href="http://www.daisy.org/pipeline/modules/braille/dtbook-to-pef/dtbook-to-pef.xpl"/>
@@ -65,7 +64,6 @@
 	<p:with-option name="show-print-page-numbers" select="$show-print-page-numbers"/>
 
 	<p:with-option name="line-spacing" select="$line-spacing"/>
-	<!--<p:with-option name="letter-spacing" select="$letter-spacing"/> something wrong here TODO -->
 	<p:with-option name="hyphenation" select="$hyphenation"/>
     </px:dtbook-to-pef>
 
