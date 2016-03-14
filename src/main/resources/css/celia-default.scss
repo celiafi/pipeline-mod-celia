@@ -6,6 +6,7 @@
  */
 
 $show-braille-page-numbers: true !default;
+$show-print-page-numbers: false !default;
 
 /*
  * Namespaces
@@ -67,17 +68,24 @@ book {
 }
 
 /*
+ * Frontmatter
+ * Every p within frontmatter has top margins and no indentation
+ */
+frontmatter p {
+	margin-top: 1;
+	text-indent: 0;
+}
+
+/*
  * Major structural divisions of the book
  *
- * Each section starts on a new page.
+ * Sections do not start on a new page.
  */
 level,
 level1, level2, level3,
 level4, level5, level6,
 frontmatter, bodymatter, rearmatter {
 	display: block;
-	page-break-before: always;
-	/* page-break-after: always; */
 }
 
 /*
@@ -88,6 +96,7 @@ frontmatter, bodymatter, rearmatter {
  */
 hd, h1, h2, h3, h4, h5, h6 {
 	display: block;
+	margin-top: 1;
 	margin-bottom: 1;
 	margin-left: 2;
 	text-indent: -2;
@@ -96,18 +105,10 @@ hd, h1, h2, h3, h4, h5, h6 {
 
 /*
  * Print page numbers
- *
- * TODO ensure these
+ * Default: no print page numbers
  */
 pagenum {
-	display: block;
-	margin-top: 1;
-	margin-bottom: 1;
-	text-align: center;
-}
-
-pagenum::before {
-	content: 'Sivu ';
+	display: none;
 }
 
 /*
@@ -120,9 +121,11 @@ doctitle, docauthor {
 
 /*
  * Paragraphs
+ * Paragraphs are separated by indent of 2.
  */
 p {
 	display: block;
+	text-indent: 2;
 }
 
 /*
