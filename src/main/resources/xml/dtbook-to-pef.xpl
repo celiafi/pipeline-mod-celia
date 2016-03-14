@@ -22,8 +22,8 @@
 
     <p:option name="transform" px:data-type="transform-query"/>
 
-    <p:option name="page-width"/>
-    <p:option name="page-height"/>
+    <p:option name="page-width" select="'27'"/>
+    <p:option name="page-height" select="'30'"/>
     <p:option name="duplex"/>
 
     <p:option name="include-captions"/>
