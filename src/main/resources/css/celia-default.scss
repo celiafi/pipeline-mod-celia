@@ -64,17 +64,12 @@ book {
 	max-length: 80;
 	@begin {
 		content: flow(title-page);
-		@page:left {
-			@top-left {
-				content: '';
-			}
-		}
-		@page:right {
-			@top-right {
-				content: '';
-			}
-		}
+		page: generated-page;
 	}
+}
+
+@page generated-page {
+	margin-top: 20;
 }
 
 /*
