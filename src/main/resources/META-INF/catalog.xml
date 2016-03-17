@@ -4,6 +4,8 @@
   <!-- scripts -->
   <uri name="http://www.celia.fi/pipeline/modules/braille/dtbook-to-pef.xpl" uri="../xml/dtbook-to-pef.xpl"
        px:script="true" px:extends="http://www.daisy.org/pipeline/modules/braille/dtbook-to-pef/dtbook-to-pef.xpl"/>
+  <!-- library -->
+  <uri name="http://www.celia.fi/pipeline/modules/braille/library.xpl" uri="../xml/library.xpl"/>
   <!-- CSS -->
   <uri name="http://www.celia.fi/pipeline/modules/braille/default.scss"
        uri="../css/celia-default.scss"/>

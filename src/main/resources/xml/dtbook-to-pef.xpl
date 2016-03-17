@@ -39,7 +39,28 @@
     <p:option name="line-spacing" select="'0'"/>
     <p:option name="hyphenation"/>
 
+    <p:option name="insert-titlepage" select="'true'"/>
+
+    <p:import href="http://www.daisy.org/pipeline/modules/common-utils/library.xpl"/>
     <p:import href="http://www.daisy.org/pipeline/modules/braille/dtbook-to-pef/dtbook-to-pef.xpl"/>
+    <p:import href="http://www.celia.fi/pipeline/modules/braille/library.xpl"/>
+
+    <p:choose>
+        <p:when test="$insert-titlepage='true'">
+            <p:in-scope-names name="parameters"/>
+            <celia:pre-processing>
+                <p:input port="parameters">
+                    <p:pipe port="result" step="parameters"/>
+                </p:input>
+                <p:input port="source">
+                    <p:pipe port="source" step="main"/>
+                </p:input>
+            </celia:pre-processing>
+        </p:when>
+        <p:otherwise>
+            <px:message message="Skipping title page generation"/>
+        </p:otherwise>
+    </p:choose>
 
     <px:dtbook-to-pef>
         <p:with-option name="transform" select="'(translator:celia)'"/>

@@ -44,6 +44,10 @@ book {
 	}
 }
 
+#generated-title-page {
+	flow: title-page;
+}
+
 /*
  * @page:first doesn't work yet
  */
@@ -59,7 +63,7 @@ book {
 @volume {
 	max-length: 80;
 	@begin {
-		content: flow(titlepage);
+		content: flow(title-page);
 	}
 }
 

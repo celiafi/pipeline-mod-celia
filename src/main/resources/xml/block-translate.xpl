@@ -8,13 +8,6 @@
 
 	<p:xslt>
 		<p:input port="stylesheet">
-			<p:document href="insert-titlepage.xsl"/>
-		</p:input>
-		<p:with-param name="query" select="$query"/>
-	</p:xslt>
-	
-	<p:xslt>
-		<p:input port="stylesheet">
 			<p:document href="block-translate.xsl"/>
 		</p:input>
 		<p:with-param name="query" select="$query"/>

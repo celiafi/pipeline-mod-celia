@@ -26,6 +26,7 @@
 		select="//meta[@name='dc:Creator']/@content"/>
 	<xsl:variable name="YEAR" as="xs:integer"
 		select="year-from-date(current-date())"/>
+	<xsl:param name="show-braille-page-numbers" select="false"/>
 	
 	<!-- Generic copy-all template -->
 	<xsl:template match="@*|node()">
@@ -38,10 +39,15 @@
     <xsl:template match="frontmatter/doctitle">
         <xsl:next-match/>
 	<!-- page-break-after:always adds an empty page -->
-	<level depth="1"
-	       style="display:block; page-break-before:always; page-break-inside:avoid; page-break-after:always; flow:titlepage; $show-braille-page-numbers:false;">
+	<level1
+	       style="display:block;
+	              page-break-before:always;
+		      page-break-inside:avoid;
+		      page-break-after:always;
+		      flow:title-page;"
+	       id="generated-title-page">
 	    <xsl:call-template name="TITLE_PAGE_CONTENT"/>
-	</level>
+	</level1>
     </xsl:template>
 
     <xsl:template name="TITLE_PAGE_CONTENT">

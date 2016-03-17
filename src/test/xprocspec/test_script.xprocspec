@@ -8,7 +8,7 @@
 	       xmlns:celia="http://www.celia.fi"
 	       script="http://www.celia.fi/pipeline/modules/braille/dtbook-to-pef.xpl">
   
-  <x:scenario label="test_1" pending="$show-braille-page-numbers in xslt doesn't work">
+  <x:scenario label="test_1">
     <x:call step="celia:dtbook-to-pef">
       <x:input port="source">
         <x:document type="file" href="../resources/test.xml">
