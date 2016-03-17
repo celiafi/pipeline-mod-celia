@@ -64,6 +64,16 @@ book {
 	max-length: 80;
 	@begin {
 		content: flow(title-page);
+		@page:left {
+			@top-left {
+				content: '';
+			}
+		}
+		@page:right {
+			@top-right {
+				content: '';
+			}
+		}
 	}
 }
 
