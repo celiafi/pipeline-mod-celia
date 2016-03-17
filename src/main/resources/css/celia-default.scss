@@ -45,6 +45,9 @@ book {
 }
 
 #generated-title-page {
+	display:block;
+	page-break-before:always;
+	page-break-inside:avoid;
 	flow: title-page;
 }
 

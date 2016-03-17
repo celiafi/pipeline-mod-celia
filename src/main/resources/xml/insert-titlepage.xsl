@@ -38,14 +38,7 @@
     <!-- DTBook template -->
     <xsl:template match="frontmatter/doctitle">
         <xsl:next-match/>
-	<!-- page-break-after:always adds an empty page -->
-	<level1
-	       style="display:block;
-	              page-break-before:always;
-		      page-break-inside:avoid;
-		      page-break-after:always;
-		      flow:title-page;"
-	       id="generated-title-page">
+	<level1 id="generated-title-page">
 	    <xsl:call-template name="TITLE_PAGE_CONTENT"/>
 	</level1>
     </xsl:template>
