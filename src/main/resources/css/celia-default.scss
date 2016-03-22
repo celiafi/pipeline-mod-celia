@@ -47,17 +47,9 @@ book {
 #generated-title-page {
 	display:block;
 	page-break-before:always;
+	page-break-after:always;
 	page-break-inside:avoid;
 	flow: title-page;
-}
-
-/*
- * @page:first doesn't work yet
- */
-@page:first {
-	@top-right {
-		content: '';
-	}
 }
 
 /*
