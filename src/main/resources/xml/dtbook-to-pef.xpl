@@ -41,6 +41,8 @@
 
     <p:option name="insert-titlepage" select="'true'"/>
 
+    <p:option name="toc-depth" select="'2'"/>
+
     <p:import href="http://www.daisy.org/pipeline/modules/common-utils/library.xpl"/>
     <p:import href="http://www.daisy.org/pipeline/modules/braille/dtbook-to-pef/dtbook-to-pef.xpl"/>
     <p:import href="http://www.celia.fi/pipeline/modules/braille/library.xpl"/>
@@ -86,6 +88,8 @@
 
 	<p:with-option name="line-spacing" select="$line-spacing"/>
 	<p:with-option name="hyphenation" select="$hyphenation"/>
+
+	<p:with-option name="toc-depth" select="$toc-depth"/>
     </px:dtbook-to-pef>
 
 </p:declare-step>

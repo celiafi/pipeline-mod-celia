@@ -58,9 +58,16 @@ book {
 @volume {
 	max-length: 80;
 	@begin {
-		content: flow(title-page);
+		content: flow(title-page) flow(volume-toc);
 		page: generated;
 	}
+}
+
+#generated-volume-toc li a::after {
+	content: ' ' leader('⠄') ' ' target-counter(attr(href), page);
+	margin-left: 2;
+	margin-top: 2;
+	text-indent: -2;
 }
 
 @page generated:left {
