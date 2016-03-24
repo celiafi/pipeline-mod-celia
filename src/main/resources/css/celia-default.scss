@@ -235,6 +235,13 @@ em {
 }
 
 /*
+ * pagebreakbefore
+ */
+.pagebreakbefore {
+	page-break-before: always;
+}
+
+/*
  * Indented elements
  */
 .indented {

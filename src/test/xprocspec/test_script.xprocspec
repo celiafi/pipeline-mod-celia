@@ -289,16 +289,20 @@
               </frontmatter>
               <bodymatter>
                 <level1>
-                  <h1>h1</h1>
-		  <p>content</p>
+                  <h1>h1 a</h1>
+		  <p>level1</p>
 		  <level2>
-		    <h2>h2</h2>
-		    <p>content</p>
+		    <h2>h2 a</h2>
+		    <p>level2</p>
+		    <level3>
+		      <h3>h3 a</h3>
+		      <p>level3</p>
+		    </level3>
 		  </level2>
                 </level1>
-		<level1>
-		  <h1>h1</h1>
-		  <p>content</p>
+		<level1 class="pagebreakbefore">
+		  <h1>h1 b</h1>
+		  <p>level1</p>
 		</level1>
               </bodymatter>
             </book>
@@ -309,6 +313,7 @@
       <x:option name="pef-output-dir" select="concat($temp-dir, 'table-of-contents/output-dir/')"/>
       <x:option name="brf-output-dir" select="concat($temp-dir, 'table-of-contents/output-dir/')"/>
       <x:option name="temp-dir" select="concat($temp-dir, 'table-of-contents/temp-dir/')"/>
+      <x:option name="insert-titlepage" select="false()"/>
     </x:call>
     <x:context label="pef">
       <x:document type="file" base-uri="temp-dir" href="table-of-contents/output-dir/test_script.pef"/>
