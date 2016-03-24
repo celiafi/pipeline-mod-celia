@@ -64,9 +64,8 @@ book {
 }
 
 #generated-volume-toc li a::after {
-	content: ' ' leader('⠄') ' ' target-counter(attr(href), page);
+	content: ' ' leader('⠐') ' ' target-counter(attr(href), page);
 	margin-left: 2;
-	margin-top: 2;
 	text-indent: -2;
 }
 
