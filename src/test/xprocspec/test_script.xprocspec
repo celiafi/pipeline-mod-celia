@@ -16,6 +16,7 @@
       </x:input>
       <x:option name="temp-dir" select="$temp-dir"/>
       <x:option name="pef-output-dir" select="concat($temp-dir, 'test_1/output-dir/')"/>
+      <x:option name="toc-depth" select="'0'"/>
     </x:call>
     <x:context label="pef">
       <x:document type="file" base-uri="temp-dir" href="test_1/output-dir/test.pef"/>
@@ -225,6 +226,7 @@
       <x:option name="pef-output-dir" select="concat($temp-dir, 'title-page/output-dir/')"/>
       <x:option name="brf-output-dir" select="concat($temp-dir, 'title-page/output-dir/')"/>
       <x:option name="temp-dir" select="concat($temp-dir, 'title-page/temp-dir/')"/>
+      <x:option name="toc-depth" select="'0'"/>
     </x:call>
     <x:context label="pef">
       <x:document type="file" base-uri="temp-dir" href="title-page/output-dir/test_script.pef"/>
