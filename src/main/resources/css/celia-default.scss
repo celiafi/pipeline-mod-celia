@@ -124,8 +124,21 @@ hd, h1, h2, h3, h4, h5, h6 {
  * Print page numbers
  * Default: no print page numbers
  */
-pagenum {
-	display: none;
+@if $show-print-page-numbers {
+	pagenum::before {
+		content: 'Sivu ';
+	}
+	pagenum {
+		display: block;
+		margin-top: 1;
+		margin-bottom: 1;
+		margin-left: 2;
+	}
+}
+@else {
+	pagenum {
+		display: none;
+	}
 }
 
 /*
@@ -229,12 +242,21 @@ em {
 }
 
 /*
+ * Don't transform, avoid page breaks
+ * Used for "Braille illustrations" (similarly
+ * to ASCII graphics".
+ */
+.notransform {
+	text-transform: none;
+	page-break-inside: avoid;
+}
+
+/*
  * Preceding empty line
  */
 .precedingemptyline::before {
 	/* Don't convert newlines to spaces */
 	white-space: pre-line;
-	/* TODO what's this do? see: mod-dedicon */
 	content: '\A';
 }
 
@@ -243,6 +265,13 @@ em {
  */
 .pagebreakbefore {
 	page-break-before: always;
+}
+
+/*
+ * pagebreakafter
+ */
+.pagebreakafter {
+	page-break-after: always;
 }
 
 /*
