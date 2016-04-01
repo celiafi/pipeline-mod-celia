@@ -44,6 +44,10 @@ book {
 	}
 }
 
+/*
+ * Generated title page
+ * page-break-after: always adds an empty page afterwards
+ */
 #generated-title-page {
 	display:block;
 	page-break-before:always;
@@ -82,8 +86,7 @@ book {
 }
 
 /*
- * Frontmatter
- * Every p within frontmatter has top margins and no indentation
+ * <p>s within frontmatter have top margins instead of indentation
  */
 frontmatter p {
 	margin-top: 1;
@@ -158,11 +161,13 @@ list > li {
 
 /*
  * Producer notes
- *
- * TODO: What should we do with these?
  */
 prodnote {
 	display: block;
+}
+
+prodnote::before {
+	content: 'Tuottajan huomautus: ';
 }
 
 /*
