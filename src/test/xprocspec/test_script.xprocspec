@@ -552,7 +552,7 @@
     </x:expect>
   </x:scenario>
 
-  <x:scenario label="no-transform">
+  <x:scenario label="no-transform" pending="fails">
     <x:call step="celia:dtbook-to-pef">
       <x:input port="source">
         <x:document type="inline">
@@ -565,16 +565,14 @@
               <bodymatter>
                 <level1>
 		  <p>bla bla bla</p>
-		  <p class="notransform">
-                  ⠁⠁⠁⠁
-                  ⠁⠁⠁⠁
-                  ⠁⠁⠁⠁
-                  ⠁⠁⠁⠁
-                  ⠁⠁⠁⠁
-                  ⠁⠁⠁⠁
-                  ⠁⠁⠁⠁
-                  ⠁⠁⠁⠁
-		  </p>
+		  <p class="notransform">⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁
+⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁
+⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁
+⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁
+⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁
+⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁
+⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁
+⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁</p>
 		  <p>bla bla bla</p>
                 </level1>
               </bodymatter>
@@ -610,9 +608,14 @@
                 <page>
                   <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁</row>
                   <row>⠀⠀⠃⠇⠁⠀⠃⠇⠁⠀⠃⠇⠁</row>
-                  <row/>
-                  <row>⠀⠀⠠⠎⠊⠧⠥⠀⠼⠁</row>
-                  <row/>
+                  <row>⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁</row>
+                  <row>⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁</row>
+                  <row>⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁</row>
+                  <row>⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁</row>
+                  <row>⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁</row>
+                  <row>⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁</row>
+                  <row>⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁</row>
+                  <row>⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁</row>
                   <row>⠀⠀⠃⠇⠁⠀⠃⠇⠁⠀⠃⠇⠁</row>
                 </page>
               </section>

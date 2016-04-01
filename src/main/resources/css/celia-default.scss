@@ -247,6 +247,7 @@ em {
  * to ASCII graphics".
  */
 .notransform {
+	margin-left: 0;
 	text-transform: none;
 	page-break-inside: avoid;
 	white-space: pre-wrap;
