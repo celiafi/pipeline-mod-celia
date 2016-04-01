@@ -242,13 +242,14 @@ em {
 }
 
 /*
- * Don't transform, avoid page breaks
+ * Don't transform, avoid page breaks, preserve line breaks
  * Used for "Braille illustrations" (similarly
  * to ASCII graphics".
  */
 .notransform {
 	text-transform: none;
 	page-break-inside: avoid;
+	white-space: pre-wrap;
 }
 
 /*
