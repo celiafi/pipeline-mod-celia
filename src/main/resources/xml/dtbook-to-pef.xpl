@@ -13,7 +13,7 @@
 
     <p:input port="source" primary="true" px:name="source" px:media-type="application/x-dtbook+xml"/>
 
-    <p:option name="include-brf"/>
+    <p:option name="include-brf" select="'true'"/>
     <p:option name="pef-output-dir"/>
     <p:option name="brf-output-dir"/>
     <p:option name="temp-dir"/>
@@ -24,17 +24,17 @@
 
     <p:option name="page-width" select="'27'"/>
     <p:option name="page-height" select="'30'"/>
-    <p:option name="duplex"/>
+    <p:option name="duplex" select="'true'"/>
 
-    <p:option name="include-captions"/>
-    <p:option name="include-images"/>
-    <p:option name="include-image-groups"/>
+    <p:option name="include-image-groups" select="'false'"/>
+    <p:option name="include-images" select="'false'"/>
+    <p:option name="include-captions" select="'false'"/>
 
-    <p:option name="include-note-references"/>
-    <p:option name="include-production-notes"/>
+    <p:option name="include-note-references" select="'false'"/>
+    <p:option name="include-production-notes" select="'false'"/>
 
-    <p:option name="show-braille-page-numbers"/>
-    <p:option name="show-print-page-numbers"/>
+    <p:option name="show-braille-page-numbers" select="'true'"/>
+    <p:option name="show-print-page-numbers" select="'false'"/>
 
     <p:option name="line-spacing" select="'0'"/>
     <p:option name="hyphenation"/>
