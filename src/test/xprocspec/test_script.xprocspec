@@ -648,11 +648,11 @@
 		    <li>a</li>
 		    <li>a</li>
 		  </ul>
-		  <pl>
+		  <ol>
 		    <li>a</li>
 		    <li>a</li>
 		    <li>a</li>
-		  </pl>
+		  </ol>
                 </level1>
               </bodymatter>
             </book>
@@ -686,16 +686,19 @@
               <section>
                 <page>
                   <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁</row>
-                  <row>⠀⠀⠃⠇⠁⠀⠃⠇⠁⠀⠃⠇⠁</row>
-                  <row>⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁</row>
-                  <row>⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁</row>
-                  <row>⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁</row>
-                  <row>⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁</row>
-                  <row>⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁</row>
-                  <row>⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁</row>
-                  <row>⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁</row>
-                  <row>⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁</row>
-                  <row>⠀⠀⠃⠇⠁⠀⠃⠇⠁⠀⠃⠇⠁</row>
+                  <row/>
+                  <row>⠼⠁⠀⠁</row>
+                  <row>⠼⠃⠀⠁</row>
+                  <row>⠼⠉⠀⠁</row>
+                  <row/>
+                  <row>⠁</row>
+                  <row>⠁</row>
+                  <row>⠁</row>
+                  <row/>
+                  <row>⠼⠁⠀⠁</row>
+                  <row>⠼⠃⠀⠁</row>
+                  <row>⠼⠉⠀⠁</row>
+                  <row/>
                 </page>
               </section>
             </volume>

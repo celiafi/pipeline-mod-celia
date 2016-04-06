@@ -161,15 +161,23 @@ p {
 /*
  * Lists
  */
-list {
+ul {
 	display: block;
+	margin-top: 1;
+	margin-bottom: 1;
+	li {
+		display: list-item;
+	}
 }
 
-/*
- * List items
- */
-list > li {
+ol {
 	display: block;
+	margin-top: 1;
+	margin-bottom: 1;
+	list-style-type: decimal;
+	li {
+		display: list-item;
+	}
 }
 
 /*
