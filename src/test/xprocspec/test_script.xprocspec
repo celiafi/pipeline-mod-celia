@@ -660,15 +660,15 @@
         </x:document>
       </x:input>
       <x:option name="include-brf" select="true()"/>
-      <x:option name="pef-output-dir" select="concat($temp-dir, 'no-transform/output-dir/')"/>
-      <x:option name="brf-output-dir" select="concat($temp-dir, 'no-transform/output-dir/')"/>
-      <x:option name="temp-dir" select="concat($temp-dir, 'no-transform/temp-dir/')"/>
+      <x:option name="pef-output-dir" select="concat($temp-dir, 'lists/output-dir/')"/>
+      <x:option name="brf-output-dir" select="concat($temp-dir, 'lists/output-dir/')"/>
+      <x:option name="temp-dir" select="concat($temp-dir, 'lists/temp-dir/')"/>
       <x:option name="insert-titlepage" select="false()"/>
       <x:option name="toc-depth" select="'0'"/>
       <x:option name="show-print-page-numbers" select="true()"/>
     </x:call>
     <x:context label="pef">
-      <x:document type="file" base-uri="temp-dir" href="no-transform/output-dir/test_script.pef"/>
+      <x:document type="file" base-uri="temp-dir" href="lists/output-dir/test_script.pef"/>
     </x:context>
     <x:expect label="result" type="custom" href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl" step="x:pef-compare">
       <x:document type="inline">
