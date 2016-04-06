@@ -193,13 +193,27 @@ prodnote::before {
 
 /*
  * Tables
- *
- * TODO: What should we do with these?
  */
 table {
 	display: block;
 	margin-top: 1;
 	margin-bottom: 1;
+}
+
+th {
+	display: block;
+}
+
+tr {
+	display: block;
+}
+
+td::after {
+	content: ' /';
+}
+
+td:last-child::after {
+	content: '';
 }
 
 /*
