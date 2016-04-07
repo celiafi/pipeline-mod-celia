@@ -218,12 +218,35 @@ td:last-child::after {
 
 /*
  * Image groups
- *
- * TODO
  */
-imggroup {
+@if $include-image-groups {
+	imggroup {
 
+	}
 }
+@else {
+	imggroup {
+		display: none;
+	}
+}
+
+/*
+ * Captions
+ */
+@if $include-captions {
+	caption {
+		display: block;
+	}
+	caption::before {
+		content: "Kuvateksti: ";
+	}
+}
+@else {
+	caption {
+		display: none;
+	}
+}
+
 
 /*
  * Sidebar
@@ -232,15 +255,6 @@ sidebar {
 	display: block;
 	border-left: ⠿;
 	padding-left: 1;
-}
-
-/*
- * Captions
- *
- * TODO
- */
-caption {
-	display: block;
 }
 
 /*
