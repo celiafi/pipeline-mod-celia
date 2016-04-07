@@ -226,6 +226,15 @@ imggroup {
 }
 
 /*
+ * Sidebar
+ */
+sidebar {
+	display: block;
+	border-left: ⠿;
+	padding-left: 1;
+}
+
+/*
  * Captions
  *
  * TODO
@@ -237,11 +246,12 @@ caption {
 /*
  * Code
  *
+ * Code is a code fragment, ie. inline
  * No hyphenation
  * To preserve whitespace, add attribute xml:space="preserve" to the XML element.
  */
 code {
-	display: block;
+	display: inline;
 	hyphens: none;
 }
 
