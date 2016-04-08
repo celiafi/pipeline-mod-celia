@@ -7,24 +7,27 @@
 
 $show-braille-page-numbers: true !default;
 $show-print-page-numbers: false !default;
+$include-image-groups: false !default;
+$include-captions: false !default;
 
-/*
- * Namespaces
- */
 @namespace xml "http://www.w3.org/XML/1998/namespace";
-
-/*
- * Hidden elements
- */
-head {
-	display: none;
-}
 
 /*
  * Hyphenation
  */
 book {
 	hyphens: auto;
+}
+
+/*
+ * Volumes: Maximum length, title page
+ */
+@volume {
+	max-length: 80;
+	@begin {
+		content: flow(title-page) flow(volume-toc);
+		page: generated;
+	}
 }
 
 /*
@@ -57,22 +60,19 @@ book {
 }
 
 /*
- * Volumes: Maximum length, title page 
+ * Generated volume TOC
+ * Leaders and formatting for TOC
  */
-@volume {
-	max-length: 80;
-	@begin {
-		content: flow(title-page) flow(volume-toc);
-		page: generated;
-	}
-}
-
 #generated-volume-toc li a::after {
 	content: ' ' leader('⠐') ' ' target-counter(attr(href), page);
 	margin-left: 2;
 	text-indent: -2;
 }
 
+/*
+ * Generated pages
+ * No page numbering on title pages and TOC
+ */
 @page generated:left {
 	@top-left {
 		content: none;
@@ -94,8 +94,6 @@ frontmatter p {
 }
 
 /*
- * Major structural divisions of the book
- *
  * Sections do not start on a new page.
  */
 level,
@@ -193,6 +191,8 @@ prodnote::before {
 
 /*
  * Tables
+ *
+ * By default, show tables as they are
  */
 table {
 	display: block;
@@ -247,9 +247,10 @@ td:last-child::after {
 	}
 }
 
-
 /*
  * Sidebar
+ *
+ * Marked with left border
  */
 sidebar {
 	display: block;
@@ -260,7 +261,6 @@ sidebar {
 /*
  * Code
  *
- * Code is a code fragment, ie. inline
  * No hyphenation
  * To preserve whitespace, add attribute xml:space="preserve" to the XML element.
  */
@@ -270,9 +270,11 @@ code {
 }
 
 /*
- * INLINE ELEMENTS
+ * Emphasis as italic
  */
-
+em {
+	text-transform: louis-ital;
+}
 /*
  * Strong emphasis as bold
  */
@@ -281,13 +283,7 @@ strong {
 }
 
 /*
- * Emphasis as italic
- */
-em {
-	text-transform: louis-ital;
-}
-
-/*
+ * notransform class
  * Don't transform, avoid page breaks, preserve line breaks
  * Used for "Braille illustrations" (similarly
  * to ASCII graphics".
