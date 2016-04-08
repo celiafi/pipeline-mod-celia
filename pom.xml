@@ -107,6 +107,11 @@
       <artifactId>pax-exam-helper</artifactId>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.osgi</groupId>
+      <artifactId>org.osgi.compendium</artifactId>
+      <scope>provided</scope>
+    </dependency>
   </dependencies>
 
   <build>
