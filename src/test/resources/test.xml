@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dtbook PUBLIC "-//NISO//DTD dtbook 2005-3//EN" "http://www.daisy.org/z3986/2005/dtbook-2005-3.dtd">
+<dtbook xmlns="http://www.daisy.org/z3986/2005/dtbook/" version="2005-3" xml:lang="fi">
+  <head>
+    <meta name="dtb:uid" content="0213456789"/>
+    <meta name="dc:Title" content="Kirja"/>
+    <meta name="dc:Creator" content="John Doe"/>
+    <meta name="dc:Date" content="2016-01-12"/>
+    <meta name="dc:Publisher" content="Celia"/>
+    <meta name="dc:Language" content="fi"/>
+    <meta name="dc:Rights" content="N/A"/>
+    <meta name="dc:Subject" content=""/>
+    <meta name="dc:Type" content=""/>
+    <meta name="track:Guidelines" content="2015-1"/>
+  </head>
+  <book>
+    <frontmatter>
+      <doctitle>Kirja</doctitle>
+      <docauthor>John Doe</docauthor>
+      <level1>
+        <h1>Alkutiedot</h1>
+        <p>KUSTANTAJA PAIKKA</p>
+        <p>Viides painos, 2015</p>
+        <p>Tuottaja: Celia - Näkövammaisten kirjasto 2016 </p>
+        <level2>
+          <h2>Käyttöoikeus</h2>
+          <p>Tämä kirja on valmistettu tekijänoikeuslain 17. pykälän nojalla ja on tarkoitettu
+            ainoastaan näkövammaisten ja muiden lukemisesteisten käyttöön.</p>
+        </level2>
+        <level2>
+          <h2>Kustantaja esittelee</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+            mollit anim id est laborum.</p>
+        </level2>
+      </level1>
+    </frontmatter>
+    <bodymatter>
+      <level1>
+        <pagenum id="page-17" page="normal">17</pagenum>
+        <h1>1 Lorem ipsum</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+          ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+          ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+          sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+          est laborum.</p>
+        <level2>
+          <h2>Lorem ipsum</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+            mollit anim id est laborum.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+            mollit anim id est laborum.</p>
+        </level2>
+      </level1>
+    </bodymatter>
+    <rearmatter>
+      <level1>
+        <pagenum id="page-391" page="normal">391</pagenum>
+        <h1>Loppusanat</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+          dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+          mollit anim id est laborum.</p>
+      </level1>
+      <level1>
+        <h1>Kirjan loppu </h1>
+        <p>Tähän päättyi kirja Kirja</p>
+      </level1>
+    </rearmatter>
+  </book>
+</dtbook>

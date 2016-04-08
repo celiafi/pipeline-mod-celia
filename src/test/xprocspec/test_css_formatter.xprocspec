@@ -11,6 +11,7 @@
       <p:input port="source"/>
       <p:output port="result"/>
       <p:option name="temp-dir" required="true"/>
+      <p:option name="stylesheet"/>
       <p:import href="http://www.daisy.org/pipeline/modules/braille/common-utils/library.xpl"/>
       <p:import href="http://www.daisy.org/pipeline/modules/braille/css-utils/library.xpl"/>
       <css:inline/>
@@ -36,7 +37,7 @@
                   word-spacing: 3;
                   letter-spacing: 1;
                   hyphens: none; }
-                p { display: block }
+                p { display: block; text-indent: 0; }
               </style>
             </head>
             <body>
@@ -90,7 +91,7 @@
                   word-spacing: 3;
                   letter-spacing: 1;
                   hyphens: none; }
-                p { display: block }
+                p { display: block; text-indent: 0; }
               </style>
             </head>
             <body>
@@ -148,7 +149,7 @@
                   word-spacing: 3;
                   letter-spacing: 1;
                   hyphens: auto; }
-                p { display: block }
+                p { display: block; text-indent: 0; }
               </style>
             </head>
             <body>

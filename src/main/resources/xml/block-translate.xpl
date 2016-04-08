@@ -5,7 +5,7 @@
             exclude-inline-prefixes="#all">
 	
 	<p:option name="query" required="true"/>
-	
+
 	<p:xslt>
 		<p:input port="stylesheet">
 			<p:document href="block-translate.xsl"/>

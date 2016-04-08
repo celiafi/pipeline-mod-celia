@@ -1,0 +1,327 @@
+/*
+ * Celia default CSS
+ * http://www.celia.fi/
+ *
+ * Author: Jukka Eerikäinen <jukka.eerikainen@iki.fi>
+ */
+
+$show-braille-page-numbers: true !default;
+$show-print-page-numbers: false !default;
+$include-image-groups: false !default;
+$include-captions: false !default;
+
+@namespace xml "http://www.w3.org/XML/1998/namespace";
+
+/*
+ * Hyphenation
+ */
+book {
+	hyphens: auto;
+}
+
+/*
+ * Volumes: Maximum length, title page
+ */
+@volume {
+	max-length: 80;
+	@begin {
+		content: flow(title-page) flow(volume-toc);
+		page: generated;
+	}
+}
+
+/*
+ * Page layout
+ */
+@if $show-braille-page-numbers {
+	@page:left {
+		@top-left {
+			content: counter(page);
+		}
+	}
+
+	@page:right {
+		@top-right {
+			content: counter(page);
+		}
+	}
+}
+
+/*
+ * Generated title page
+ * page-break-after: always adds an empty page afterwards
+ */
+#generated-title-page {
+	display:block;
+	page-break-before:always;
+	page-break-after:right;
+	page-break-inside:avoid;
+	flow: title-page;
+}
+
+/*
+ * Generated volume TOC
+ * Leaders and formatting for TOC
+ */
+#generated-volume-toc li a::after {
+	content: ' ' leader('⠐') ' ' target-counter(attr(href), page);
+	margin-left: 2;
+	text-indent: -2;
+}
+
+/*
+ * Generated pages
+ * No page numbering on title pages and TOC
+ */
+@page generated:left {
+	@top-left {
+		content: none;
+	}
+}
+
+@page generated:right {
+	@top-right {
+		content: none;
+	}
+}
+
+/*
+ * <p>s within frontmatter have top margins instead of indentation
+ */
+frontmatter p {
+	margin-top: 1;
+	text-indent: 0;
+}
+
+/*
+ * Sections do not start on a new page.
+ */
+level,
+level1, level2, level3,
+level4, level5, level6,
+frontmatter, bodymatter, rearmatter {
+	display: block;
+}
+
+/*
+ * Headings
+ *
+ * In headings that span multiple lines, every line except for the first
+ * one is indented by 2 cells.
+ */
+hd, h1, h2, h3, h4, h5, h6 {
+	display: block;
+	margin-top: 1;
+	margin-bottom: 1;
+	margin-left: 2;
+	text-indent: -2;
+	page-break-after: avoid;
+}
+
+/*
+ * Print page numbers
+ * Default: no print page numbers
+ */
+@if $show-print-page-numbers {
+	pagenum::before {
+		content: 'Sivu ';
+	}
+	pagenum {
+		display: block;
+		margin-top: 1;
+		margin-bottom: 1;
+		margin-left: 2;
+	}
+}
+@else {
+	pagenum {
+		display: none;
+	}
+}
+
+/*
+ * Title and author
+ */
+doctitle, docauthor {
+	display: block;
+	margin-bottom: 1;
+}
+
+/*
+ * Paragraphs
+ * Paragraphs are separated by indent of 2.
+ */
+p {
+	display: block;
+	text-indent: 2;
+}
+
+/*
+ * Lists
+ */
+ul {
+	display: block;
+	margin-top: 1;
+	margin-bottom: 1;
+	li {
+		display: list-item;
+	}
+}
+
+ol {
+	display: block;
+	margin-top: 1;
+	margin-bottom: 1;
+	list-style-type: decimal;
+	li {
+		display: list-item;
+	}
+}
+
+/*
+ * Producer notes
+ */
+prodnote {
+	display: block;
+}
+
+prodnote::before {
+	content: 'Tuottajan huomautus: ';
+}
+
+/*
+ * Tables
+ *
+ * By default, show tables as they are
+ */
+table {
+	display: block;
+	margin-top: 1;
+	margin-bottom: 1;
+}
+
+th {
+	display: block;
+}
+
+tr {
+	display: block;
+}
+
+td::after {
+	content: ' /';
+}
+
+td:last-child::after {
+	content: '';
+}
+
+/*
+ * Image groups
+ */
+@if $include-image-groups {
+	imggroup {
+
+	}
+}
+@else {
+	imggroup {
+		display: none;
+	}
+}
+
+/*
+ * Captions
+ */
+@if $include-captions {
+	caption {
+		display: block;
+	}
+	caption::before {
+		content: "Kuvateksti: ";
+	}
+}
+@else {
+	caption {
+		display: none;
+	}
+}
+
+/*
+ * Sidebar
+ *
+ * Marked with left border
+ */
+sidebar {
+	display: block;
+	border-left: ⠿;
+	padding-left: 1;
+}
+
+/*
+ * Code
+ *
+ * No hyphenation
+ * To preserve whitespace, add attribute xml:space="preserve" to the XML element.
+ */
+code {
+	display: inline;
+	hyphens: none;
+}
+
+/*
+ * Emphasis as italic
+ */
+em {
+	text-transform: louis-ital;
+}
+/*
+ * Strong emphasis as bold
+ */
+strong {
+	text-transform: louis-bold;
+}
+
+/*
+ * notransform class
+ * Don't transform, avoid page breaks, preserve line breaks
+ * Used for "Braille illustrations" (similarly
+ * to ASCII graphics".
+ */
+.notransform {
+	text-indent: 0;
+	margin-left: 0;
+	text-transform: none;
+	page-break-inside: avoid;
+	white-space: pre-wrap;
+}
+
+/*
+ * Preceding empty line
+ */
+.precedingemptyline::before {
+	/* Don't convert newlines to spaces */
+	white-space: pre-line;
+	content: '\A';
+}
+
+/*
+ * pagebreakbefore
+ */
+.pagebreakbefore {
+	page-break-before: always;
+}
+
+/*
+ * pagebreakafter
+ */
+.pagebreakafter {
+	page-break-after: always;
+}
+
+/*
+ * Indented elements
+ */
+.indented {
+	text-indent: 2;
+}

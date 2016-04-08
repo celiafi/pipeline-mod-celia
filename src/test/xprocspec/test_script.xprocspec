@@ -1,0 +1,969 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x:description xmlns:x="http://www.daisy.org/ns/xprocspec"
+               xmlns:p="http://www.w3.org/ns/xproc"
+               xmlns:px="http://www.daisy.org/ns/pipeline/xproc"
+               xmlns:html="http://www.w3.org/1999/xhtml"
+               xmlns:css="http://www.daisy.org/ns/pipeline/braille-css"
+               xmlns:pxi="http://www.daisy.org/ns/pipeline/xproc/internal"
+	       xmlns:celia="http://www.celia.fi"
+	       script="http://www.celia.fi/pipeline/modules/braille/dtbook-to-pef.xpl">
+
+  <x:scenario label="table-of-contents">
+    <x:call step="celia:dtbook-to-pef">
+      <x:input port="source">
+        <x:document type="inline">
+          <dtbook xmlns="http://www.daisy.org/z3986/2005/dtbook/" xml:lang="fi" version="2005-3">
+            <head>
+	            <meta name="dc:Title" content="title"/>
+	            <meta name="dc:Creator" content="celia"/>
+	          </head>
+            <book>
+              <frontmatter>
+                <doctitle>title</doctitle>
+                <docauthor>celia</docauthor>
+              </frontmatter>
+              <bodymatter>
+                <level1>
+                  <h1>h1 a</h1>
+		  <p>level1</p>
+		  <level2>
+		    <h2>h2 a</h2>
+		    <p>level2</p>
+		    <level3>
+		      <h3>h3 a</h3>
+		      <p>level3</p>
+		    </level3>
+		  </level2>
+                </level1>
+		<level1 class="pagebreakbefore">
+		  <h1>h1 b</h1>
+		  <p>level1</p>
+		</level1>
+              </bodymatter>
+            </book>
+          </dtbook>
+        </x:document>
+      </x:input>
+      <x:option name="include-brf" select="true()"/>
+      <x:option name="pef-output-dir" select="concat($temp-dir, 'table-of-contents/output-dir/')"/>
+      <x:option name="brf-output-dir" select="concat($temp-dir, 'table-of-contents/output-dir/')"/>
+      <x:option name="temp-dir" select="concat($temp-dir, 'table-of-contents/temp-dir/')"/>
+      <x:option name="insert-titlepage" select="false()"/>
+    </x:call>
+    <x:context label="pef">
+      <x:document type="file" base-uri="temp-dir" href="table-of-contents/output-dir/test_script.pef"/>
+    </x:context>
+    <x:expect label="result" type="custom" href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl" step="x:pef-compare">
+      <x:document type="inline">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+    <head>
+        <meta>
+            <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/">application/x-pef+xml</dc:format>
+            <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
+            <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">title</dc:title>
+            <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">celia</dc:creator>
+        </meta>
+    </head>
+    <body>
+        <volume cols="27" rows="30" rowgap="0" duplex="true">
+          <section>
+            <page>
+              <row>⠓⠼⠁⠀⠁⠀⠐⠐⠐⠐⠐⠐⠐⠐⠐⠐⠐⠐⠐⠐⠐⠐⠐⠐⠀⠼⠁</row>
+              <row>⠓⠼⠃⠀⠁⠀⠐⠐⠐⠐⠐⠐⠐⠐⠐⠐⠐⠐⠐⠐⠐⠐⠐⠐⠀⠼⠁</row>
+              <row>⠓⠼⠁⠀⠃⠀⠐⠐⠐⠐⠐⠐⠐⠐⠐⠐⠐⠐⠐⠐⠐⠐⠐⠐⠀⠼⠃</row>
+           </page>
+          </section>
+          <section>
+            <page>
+              <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁</row>
+              <row>⠞⠊⠞⠇⠑</row>
+              <row/>
+              <row>⠉⠑⠇⠊⠁</row>
+              <row/>
+              <row>⠓⠼⠁⠀⠁</row>
+              <row/>
+              <row>⠀⠀⠇⠑⠧⠑⠇⠼⠁</row>
+              <row/>
+              <row>⠓⠼⠃⠀⠁</row>
+              <row/>
+              <row>⠀⠀⠇⠑⠧⠑⠇⠼⠃</row>
+              <row/>
+              <row>⠓⠼⠉⠀⠁</row>
+              <row/>
+              <row>⠀⠀⠇⠑⠧⠑⠇⠼⠉</row>
+            </page>
+            <page>
+              <row>⠼⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</row>
+              <row/>
+              <row>⠓⠼⠁⠀⠃</row>
+              <row/>
+              <row>⠀⠀⠇⠑⠧⠑⠇⠼⠁</row>
+            </page>
+          </section>
+        </volume>
+    </body>
+</pef>
+      </x:document>
+    </x:expect>
+  </x:scenario>
+
+
+  <x:scenario label="multi-line-headings">
+    <x:call step="celia:dtbook-to-pef">
+      <x:input port="source">
+        <x:document type="inline">
+          <dtbook xmlns="http://www.daisy.org/z3986/2005/dtbook/" xml:lang="fi" version="2005-3">
+            <head>
+	            <meta name="dc:Title" content="title"/>
+	            <meta name="dc:Creator" content="celia"/>
+	          </head>
+            <book>
+              <bodymatter>
+                <level1>
+                  <h1>this is a very long heading that will not fit on a single line</h1>
+		  <p>bla bla bla</p>
+                </level1>
+              </bodymatter>
+            </book>
+          </dtbook>
+        </x:document>
+      </x:input>
+      <x:option name="include-brf" select="true()"/>
+      <x:option name="pef-output-dir" select="concat($temp-dir, 'multi-line-headings/output-dir/')"/>
+      <x:option name="brf-output-dir" select="concat($temp-dir, 'multi-line-headings/output-dir/')"/>
+      <x:option name="temp-dir" select="concat($temp-dir, 'multi-line-headings/temp-dir/')"/>
+      <x:option name="insert-titlepage" select="false()"/>
+      <x:option name="toc-depth" select="'0'"/>
+    </x:call>
+    <x:context label="pef">
+      <x:document type="file" base-uri="temp-dir" href="multi-line-headings/output-dir/test_script.pef"/>
+    </x:context>
+    <x:expect label="result" type="custom" href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl" step="x:pef-compare">
+      <x:document type="inline">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+          <head>
+            <meta>
+              <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/">application/x-pef+xml</dc:format>
+              <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
+              <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">title</dc:title>
+              <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">celia</dc:creator>
+            </meta>
+          </head>
+          <body>
+            <volume cols="27" rows="30" rowgap="0" duplex="true">
+              <section>
+                <page>
+                  <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁</row>
+                  <row/>
+                  <row>⠞⠓⠊⠎⠀⠊⠎⠀⠁⠀⠧⠑⠗⠽⠀⠇⠕⠝⠛⠀⠓⠑⠁⠙⠊⠝⠛</row>
+                  <row>⠀⠀⠞⠓⠁⠞⠀⠺⠊⠇⠇⠀⠝⠕⠞⠀⠋⠊⠞⠀⠕⠝⠀⠁⠀</row>
+                  <row>⠀⠀⠎⠊⠝⠛⠇⠑⠀⠇⠊⠝⠑</row>
+                  <row/>
+                  <row>⠀⠀⠃⠇⠁⠀⠃⠇⠁⠀⠃⠇⠁</row>
+                </page>
+              </section>
+            </volume>
+          </body>
+        </pef>
+      </x:document>
+    </x:expect>
+  </x:scenario>
+
+  <x:scenario label="prodnotes">
+    <x:call step="celia:dtbook-to-pef">
+      <x:input port="source">
+        <x:document type="inline">
+          <dtbook xmlns="http://www.daisy.org/z3986/2005/dtbook/" xml:lang="fi" version="2005-3">
+            <head>
+	            <meta name="dc:Title" content="title"/>
+	            <meta name="dc:Creator" content="celia"/>
+	          </head>
+            <book>
+              <bodymatter>
+                <level1>
+		  <prodnote>bla bla bla</prodnote>
+                </level1>
+              </bodymatter>
+            </book>
+          </dtbook>
+        </x:document>
+      </x:input>
+      <x:option name="include-brf" select="true()"/>
+      <x:option name="pef-output-dir" select="concat($temp-dir, 'prodnotes/output-dir/')"/>
+      <x:option name="brf-output-dir" select="concat($temp-dir, 'prodnotes/output-dir/')"/>
+      <x:option name="temp-dir" select="concat($temp-dir, 'prodnotes/temp-dir/')"/>
+      <x:option name="insert-titlepage" select="false()"/>
+      <x:option name="toc-depth" select="'0'"/>
+    </x:call>
+    <x:context label="pef">
+      <x:document type="file" base-uri="temp-dir" href="prodnotes/output-dir/test_script.pef"/>
+    </x:context>
+    <x:expect label="result" type="custom" href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl" step="x:pef-compare">
+      <x:document type="inline">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+          <head>
+            <meta>
+              <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/">application/x-pef+xml</dc:format>
+              <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
+              <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">title</dc:title>
+              <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">celia</dc:creator>
+            </meta>
+          </head>
+          <body>
+            <volume cols="27" rows="30" rowgap="0" duplex="true">
+              <section>
+	        <page>
+                  <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁</row>
+                  <row>⠠⠞⠥⠕⠞⠞⠁⠚⠁⠝⠀⠓⠥⠕⠍⠁⠥⠞⠥⠎⠒⠀⠃⠇⠁⠀</row>
+                  <row>⠃⠇⠁⠀⠃⠇⠁</row>
+                </page>
+              </section>
+            </volume>
+          </body>
+        </pef>
+      </x:document>
+    </x:expect>
+  </x:scenario>
+
+  <x:scenario label="print page numbers">
+    <x:call step="celia:dtbook-to-pef">
+      <x:input port="source">
+        <x:document type="inline">
+          <dtbook xmlns="http://www.daisy.org/z3986/2005/dtbook/" xml:lang="fi" version="2005-3">
+            <head>
+	            <meta name="dc:Title" content="title"/>
+	            <meta name="dc:Creator" content="celia"/>
+	          </head>
+            <book>
+              <bodymatter>
+                <level1>
+		  <p>bla bla bla</p>
+		  <pagenum>1</pagenum>
+		  <p>bla bla bla</p>
+                </level1>
+              </bodymatter>
+            </book>
+          </dtbook>
+        </x:document>
+      </x:input>
+      <x:option name="include-brf" select="true()"/>
+      <x:option name="pef-output-dir" select="concat($temp-dir, 'print-page-numbers/output-dir/')"/>
+      <x:option name="brf-output-dir" select="concat($temp-dir, 'print-page-numbers/output-dir/')"/>
+      <x:option name="temp-dir" select="concat($temp-dir, 'print-page-numbers/temp-dir/')"/>
+      <x:option name="insert-titlepage" select="false()"/>
+      <x:option name="toc-depth" select="'0'"/>
+      <x:option name="show-print-page-numbers" select="true()"/>
+    </x:call>
+    <x:context label="pef">
+      <x:document type="file" base-uri="temp-dir" href="print-page-numbers/output-dir/test_script.pef"/>
+    </x:context>
+    <x:expect label="result" type="custom" href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl" step="x:pef-compare">
+      <x:document type="inline">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+          <head>
+            <meta>
+              <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/">application/x-pef+xml</dc:format>
+              <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
+              <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">title</dc:title>
+              <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">celia</dc:creator>
+            </meta>
+          </head>
+          <body>
+            <volume cols="27" rows="30" rowgap="0" duplex="true">
+              <section>
+                <page>
+                  <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁</row>
+                  <row>⠀⠀⠃⠇⠁⠀⠃⠇⠁⠀⠃⠇⠁</row>
+                  <row/>
+                  <row>⠀⠀⠠⠎⠊⠧⠥⠀⠼⠁</row>
+                  <row/>
+                  <row>⠀⠀⠃⠇⠁⠀⠃⠇⠁⠀⠃⠇⠁</row>
+                </page>
+              </section>
+            </volume>
+          </body>
+        </pef>
+      </x:document>
+    </x:expect>
+  </x:scenario>
+
+  <x:scenario label="no-transform" pending="fails">
+    <x:call step="celia:dtbook-to-pef">
+      <x:input port="source">
+        <x:document type="inline">
+          <dtbook xmlns="http://www.daisy.org/z3986/2005/dtbook/" xml:lang="fi" version="2005-3">
+            <head>
+	            <meta name="dc:Title" content="title"/>
+	            <meta name="dc:Creator" content="celia"/>
+	          </head>
+            <book>
+              <bodymatter>
+                <level1>
+		  <p>bla bla bla</p>
+		  <p class="notransform">⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁
+⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁
+⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁
+⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁
+⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁
+⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁
+⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁
+⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁</p>
+		  <p>bla bla bla</p>
+                </level1>
+              </bodymatter>
+            </book>
+          </dtbook>
+        </x:document>
+      </x:input>
+      <x:option name="include-brf" select="true()"/>
+      <x:option name="pef-output-dir" select="concat($temp-dir, 'no-transform/output-dir/')"/>
+      <x:option name="brf-output-dir" select="concat($temp-dir, 'no-transform/output-dir/')"/>
+      <x:option name="temp-dir" select="concat($temp-dir, 'no-transform/temp-dir/')"/>
+      <x:option name="insert-titlepage" select="false()"/>
+      <x:option name="toc-depth" select="'0'"/>
+      <x:option name="show-print-page-numbers" select="true()"/>
+    </x:call>
+    <x:context label="pef">
+      <x:document type="file" base-uri="temp-dir" href="no-transform/output-dir/test_script.pef"/>
+    </x:context>
+    <x:expect label="result" type="custom" href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl" step="x:pef-compare">
+      <x:document type="inline">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+          <head>
+            <meta>
+              <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/">application/x-pef+xml</dc:format>
+              <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
+              <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">title</dc:title>
+              <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">celia</dc:creator>
+            </meta>
+          </head>
+          <body>
+            <volume cols="27" rows="30" rowgap="0" duplex="true">
+              <section>
+                <page>
+                  <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁</row>
+                  <row>⠀⠀⠃⠇⠁⠀⠃⠇⠁⠀⠃⠇⠁</row>
+                  <row>⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁</row>
+                  <row>⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁</row>
+                  <row>⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁</row>
+                  <row>⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁</row>
+                  <row>⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁</row>
+                  <row>⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁</row>
+                  <row>⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁</row>
+                  <row>⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁</row>
+                  <row>⠀⠀⠃⠇⠁⠀⠃⠇⠁⠀⠃⠇⠁</row>
+                </page>
+              </section>
+            </volume>
+          </body>
+        </pef>
+      </x:document>
+    </x:expect>
+  </x:scenario>
+
+  <x:scenario label="lists">
+    <x:call step="celia:dtbook-to-pef">
+      <x:input port="source">
+        <x:document type="inline">
+          <dtbook xmlns="http://www.daisy.org/z3986/2005/dtbook/" xml:lang="fi" version="2005-3">
+            <head>
+	            <meta name="dc:Title" content="title"/>
+	            <meta name="dc:Creator" content="celia"/>
+	          </head>
+            <book>
+              <bodymatter>
+                <level1>
+		  <ol>
+		    <li>a</li>
+		    <li>a</li>
+		    <li>a</li>
+		  </ol>
+		  <ul>
+		    <li>a</li>
+		    <li>a</li>
+		    <li>a</li>
+		  </ul>
+		  <ol>
+		    <li>a</li>
+		    <li>a</li>
+		    <li>a</li>
+		  </ol>
+                </level1>
+              </bodymatter>
+            </book>
+          </dtbook>
+        </x:document>
+      </x:input>
+      <x:option name="include-brf" select="true()"/>
+      <x:option name="pef-output-dir" select="concat($temp-dir, 'lists/output-dir/')"/>
+      <x:option name="brf-output-dir" select="concat($temp-dir, 'lists/output-dir/')"/>
+      <x:option name="temp-dir" select="concat($temp-dir, 'lists/temp-dir/')"/>
+      <x:option name="insert-titlepage" select="false()"/>
+      <x:option name="toc-depth" select="'0'"/>
+      <x:option name="show-print-page-numbers" select="true()"/>
+    </x:call>
+    <x:context label="pef">
+      <x:document type="file" base-uri="temp-dir" href="lists/output-dir/test_script.pef"/>
+    </x:context>
+    <x:expect label="result" type="custom" href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl" step="x:pef-compare">
+      <x:document type="inline">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+          <head>
+            <meta>
+              <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/">application/x-pef+xml</dc:format>
+              <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
+              <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">title</dc:title>
+              <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">celia</dc:creator>
+            </meta>
+          </head>
+          <body>
+            <volume cols="27" rows="30" rowgap="0" duplex="true">
+              <section>
+                <page>
+                  <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁</row>
+                  <row/>
+                  <row>⠼⠁⠀⠁</row>
+                  <row>⠼⠃⠀⠁</row>
+                  <row>⠼⠉⠀⠁</row>
+                  <row/>
+                  <row>⠁</row>
+                  <row>⠁</row>
+                  <row>⠁</row>
+                  <row/>
+                  <row>⠼⠁⠀⠁</row>
+                  <row>⠼⠃⠀⠁</row>
+                  <row>⠼⠉⠀⠁</row>
+                  <row/>
+                </page>
+              </section>
+            </volume>
+          </body>
+        </pef>
+      </x:document>
+    </x:expect>
+  </x:scenario>
+
+  <x:scenario label="simple tables">
+    <x:call step="celia:dtbook-to-pef">
+      <x:input port="source">
+        <x:document type="inline">
+          <dtbook xmlns="http://www.daisy.org/z3986/2005/dtbook/" xml:lang="fi" version="2005-3">
+            <head>
+	            <meta name="dc:Title" content="title"/>
+	            <meta name="dc:Creator" content="celia"/>
+	          </head>
+            <book>
+              <bodymatter>
+                <level1>
+		  <table>
+		    <th>
+		      <td>a</td>
+		      <td>b</td>
+		      <td>c</td>
+		      <td>d</td>
+		    </th>
+		    <tr>
+		      <td>e</td>
+		      <td>f</td>
+		      <td>g</td>
+		      <td>h</td>
+		    </tr>
+		    <tr>
+		      <td>i</td>
+		      <td>j</td>
+		      <td>k</td>
+		      <td>l</td>
+		    </tr>
+		  </table>
+                </level1>
+              </bodymatter>
+            </book>
+          </dtbook>
+        </x:document>
+      </x:input>
+      <x:option name="include-brf" select="true()"/>
+      <x:option name="pef-output-dir" select="concat($temp-dir, 'tables/output-dir/')"/>
+      <x:option name="brf-output-dir" select="concat($temp-dir, 'tables/output-dir/')"/>
+      <x:option name="temp-dir" select="concat($temp-dir, 'tables/temp-dir/')"/>
+      <x:option name="insert-titlepage" select="false()"/>
+      <x:option name="toc-depth" select="'0'"/>
+      <x:option name="show-print-page-numbers" select="true()"/>
+    </x:call>
+    <x:context label="pef">
+      <x:document type="file" base-uri="temp-dir" href="tables/output-dir/test_script.pef"/>
+    </x:context>
+    <x:expect label="result" type="custom" href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl" step="x:pef-compare">
+      <x:document type="inline">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+          <head>
+            <meta>
+              <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/">application/x-pef+xml</dc:format>
+              <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
+              <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">title</dc:title>
+              <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">celia</dc:creator>
+            </meta>
+          </head>
+          <body>
+            <volume cols="27" rows="30" rowgap="0" duplex="true">
+              <section>
+                <page>
+                  <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁</row>
+                  <row/>
+                  <row>⠁⠀⠌⠀⠃⠀⠌⠀⠉⠀⠌⠀⠙</row>
+                  <row>⠑⠀⠌⠀⠋⠀⠌⠀⠛⠀⠌⠀⠓</row>
+                  <row>⠊⠀⠌⠀⠚⠀⠌⠀⠅⠀⠌⠀⠇</row>
+                  <row/>
+                </page>
+              </section>
+            </volume>
+          </body>
+        </pef>
+      </x:document>
+    </x:expect>
+  </x:scenario>
+
+
+  <x:scenario label="sidebar">
+    <x:call step="celia:dtbook-to-pef">
+      <x:input port="source">
+        <x:document type="inline">
+          <dtbook xmlns="http://www.daisy.org/z3986/2005/dtbook/" xml:lang="fi" version="2005-3">
+            <head>
+	            <meta name="dc:Title" content="title"/>
+	            <meta name="dc:Creator" content="celia"/>
+	          </head>
+            <book>
+              <bodymatter>
+                <level1>
+		  <sidebar>
+		    aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa
+		  </sidebar>
+                </level1>
+              </bodymatter>
+            </book>
+          </dtbook>
+        </x:document>
+      </x:input>
+      <x:option name="include-brf" select="true()"/>
+      <x:option name="pef-output-dir" select="concat($temp-dir, 'sidebar/output-dir/')"/>
+      <x:option name="brf-output-dir" select="concat($temp-dir, 'sidebar/output-dir/')"/>
+      <x:option name="temp-dir" select="concat($temp-dir, 'sidebar/temp-dir/')"/>
+      <x:option name="insert-titlepage" select="false()"/>
+      <x:option name="toc-depth" select="'0'"/>
+      <x:option name="show-print-page-numbers" select="true()"/>
+    </x:call>
+    <x:context label="pef">
+      <x:document type="file" base-uri="temp-dir" href="sidebar/output-dir/test_script.pef"/>
+    </x:context>
+    <x:expect label="result" type="custom" href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl" step="x:pef-compare">
+      <x:document type="inline">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+          <head>
+            <meta>
+              <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/">application/x-pef+xml</dc:format>
+              <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
+              <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">title</dc:title>
+              <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">celia</dc:creator>
+            </meta>
+          </head>
+          <body>
+            <volume cols="27" rows="30" rowgap="0" duplex="true">
+              <section>
+                <page>
+                  <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁</row>
+                  <row>⠿⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁⠀</row>
+                  <row>⠿⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁⠀</row>
+                  <row>⠿⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁</row>
+                </page>
+              </section>
+            </volume>
+          </body>
+        </pef>
+      </x:document>
+    </x:expect>
+  </x:scenario>
+
+  <x:scenario label="include-image-groups">
+    <x:call step="celia:dtbook-to-pef">
+      <x:input port="source">
+        <x:document type="inline">
+          <dtbook xmlns="http://www.daisy.org/z3986/2005/dtbook/" xml:lang="fi" version="2005-3">
+            <head>
+	            <meta name="dc:Title" content="title"/>
+	            <meta name="dc:Creator" content="celia"/>
+	          </head>
+            <book>
+              <bodymatter>
+                <level1>
+		  <imggroup>
+		    <img src="n/a" alt="image"/>
+		    <caption>caption</caption>
+		    <prodnote>prodnote</prodnote>
+		  </imggroup>
+                </level1>
+              </bodymatter>
+            </book>
+          </dtbook>
+        </x:document>
+      </x:input>
+      <x:option name="include-brf" select="true()"/>
+      <x:option name="pef-output-dir" select="concat($temp-dir, 'images/output-dir/')"/>
+      <x:option name="brf-output-dir" select="concat($temp-dir, 'images/output-dir/')"/>
+      <x:option name="temp-dir" select="concat($temp-dir, 'images/temp-dir/')"/>
+      <x:option name="insert-titlepage" select="false()"/>
+      <x:option name="toc-depth" select="'0'"/>
+      <x:option name="show-print-page-numbers" select="true()"/>
+      <x:option name="include-image-groups" select="true()"/>
+      <x:option name="include-images" select="false()"/>
+      <x:option name="include-captions" select="true()"/>
+    </x:call>
+    <x:context label="pef">
+      <x:document type="file" base-uri="temp-dir" href="images/output-dir/test_script.pef"/>
+    </x:context>
+    <x:expect label="result" type="custom" href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl" step="x:pef-compare">
+      <x:document type="inline">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+          <head>
+            <meta>
+              <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/">application/x-pef+xml</dc:format>
+              <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
+              <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">title</dc:title>
+              <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">celia</dc:creator>
+            </meta>
+          </head>
+          <body>
+            <volume cols="27" rows="30" rowgap="0" duplex="true">
+              <section>
+                <page>
+                  <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁</row>
+                  <row>⠠⠅⠥⠧⠁⠞⠑⠅⠎⠞⠊⠒⠀⠉⠁⠏⠞⠊⠕⠝</row>
+                  <row>⠠⠞⠥⠕⠞⠞⠁⠚⠁⠝⠀⠓⠥⠕⠍⠁⠥⠞⠥⠎⠒⠀⠏⠗⠕⠙⠤</row>
+                  <row>⠝⠕⠞⠑</row>
+                </page>
+              </section>
+            </volume>
+          </body>
+        </pef>
+      </x:document>
+    </x:expect>
+  </x:scenario>
+
+  <x:scenario label="no-image-groups">
+    <x:call step="celia:dtbook-to-pef">
+      <x:input port="source">
+        <x:document type="inline">
+          <dtbook xmlns="http://www.daisy.org/z3986/2005/dtbook/" xml:lang="fi" version="2005-3">
+            <head>
+	            <meta name="dc:Title" content="title"/>
+	            <meta name="dc:Creator" content="celia"/>
+	          </head>
+            <book>
+              <bodymatter>
+                <level1>
+		  <imggroup>
+		    <img src="n/a" alt="image"/>
+		    <caption>caption</caption>
+		    <prodnote>prodnote</prodnote>
+		  </imggroup>
+                </level1>
+              </bodymatter>
+            </book>
+          </dtbook>
+        </x:document>
+      </x:input>
+      <x:option name="include-brf" select="true()"/>
+      <x:option name="pef-output-dir" select="concat($temp-dir, 'no-images/output-dir/')"/>
+      <x:option name="brf-output-dir" select="concat($temp-dir, 'no-images/output-dir/')"/>
+      <x:option name="temp-dir" select="concat($temp-dir, 'no-images/temp-dir/')"/>
+      <x:option name="insert-titlepage" select="false()"/>
+      <x:option name="toc-depth" select="'0'"/>
+      <x:option name="show-print-page-numbers" select="true()"/>
+      <x:option name="include-image-groups" select="false()"/>
+      <x:option name="include-images" select="false()"/>
+      <x:option name="include-captions" select="true()"/>
+    </x:call>
+    <x:context label="pef">
+      <x:document type="file" base-uri="temp-dir" href="no-images/output-dir/test_script.pef"/>
+    </x:context>
+    <x:expect label="result" type="custom" href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl" step="x:pef-compare">
+      <x:document type="inline">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+          <head>
+            <meta>
+              <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/">application/x-pef+xml</dc:format>
+              <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
+              <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">title</dc:title>
+              <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">celia</dc:creator>
+            </meta>
+          </head>
+          <body>
+          </body>
+        </pef>
+      </x:document>
+    </x:expect>
+  </x:scenario>
+
+  <x:scenario label="test-whole-script">
+    <x:call step="celia:dtbook-to-pef">
+      <x:input port="source">
+        <x:document type="file" href="../resources/test.xml">
+        </x:document>
+      </x:input>
+      <x:option name="temp-dir" select="$temp-dir"/>
+      <x:option name="pef-output-dir" select="concat($temp-dir, 'test_1/output-dir/')"/>
+      <x:option name="toc-depth" select="'0'"/>
+    </x:call>
+    <x:context label="pef">
+      <x:document type="file" base-uri="temp-dir" href="test_1/output-dir/test.pef"/>
+    </x:context>
+    <x:expect label="result" type="custom" href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl" step="x:pef-compare">
+      <x:document type="inline">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+          <head xmlns:dc="http://purl.org/dc/elements/1.1/">
+            <meta>
+              <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/">application/x-pef+xml</dc:format>
+              <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
+              <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">Kirja</dc:title>
+              <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">John Doe</dc:creator>
+              <dc:language xmlns:dc="http://purl.org/dc/elements/1.1/">fi</dc:language>
+              <dc:publisher xmlns:dc="http://purl.org/dc/elements/1.1/">Celia</dc:publisher>
+            </meta>
+          </head>
+          <body>
+        <volume cols="27" rows="30" rowgap="0" duplex="true">
+            <section>
+                <page>
+		    <row/>
+                    <row>⠠⠅⠊⠗⠚⠁</row>
+                    <row/>
+                    <row>⠠⠚⠕⠓⠝⠀⠠⠙⠕⠑</row>
+                    <row/>
+                    <row>⠠⠧⠊⠓⠅⠕⠀⠼⠁⠌⠼⠁</row>
+                </page>
+            </section>
+            <section>
+                <page>
+                    <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁</row>
+                    <row>⠠⠅⠊⠗⠚⠁</row>
+                    <row/>
+                    <row>⠠⠚⠕⠓⠝⠀⠠⠙⠕⠑</row>
+                    <row/>
+                    <row>⠠⠁⠇⠅⠥⠞⠊⠑⠙⠕⠞</row>
+                    <row/>
+                    <row>⠠⠠⠅⠥⠎⠞⠁⠝⠞⠁⠚⠁⠀⠠⠠⠏⠁⠊⠅⠅⠁</row>
+                    <row/>
+                    <row>⠠⠧⠊⠊⠙⠑⠎⠀⠏⠁⠊⠝⠕⠎⠂⠀⠼⠃⠚⠁⠑</row>
+                    <row/>
+                    <row>⠠⠞⠥⠕⠞⠞⠁⠚⠁⠒⠀⠠⠉⠑⠇⠊⠁⠀⠤⠀⠠⠝⠜⠅⠪⠤</row>
+                    <row>⠧⠁⠍⠍⠁⠊⠎⠞⠑⠝⠀⠅⠊⠗⠚⠁⠎⠞⠕⠀⠼⠃⠚⠁⠋</row>
+                    <row/>
+                    <row>⠠⠅⠜⠽⠞⠞⠪⠕⠊⠅⠑⠥⠎</row>
+                    <row/>
+                    <row>⠠⠞⠜⠍⠜⠀⠅⠊⠗⠚⠁⠀⠕⠝⠀⠧⠁⠇⠍⠊⠎⠞⠑⠞⠞⠥⠀</row>
+                    <row>⠞⠑⠅⠊⠚⠜⠝⠕⠊⠅⠑⠥⠎⠇⠁⠊⠝⠀⠼⠁⠛⠄⠀⠏⠽⠤</row>
+                    <row>⠅⠜⠇⠜⠝⠀⠝⠕⠚⠁⠇⠇⠁⠀⠚⠁⠀⠕⠝⠀⠞⠁⠗⠅⠕⠊⠤</row>
+                    <row>⠞⠑⠞⠞⠥⠀⠁⠊⠝⠕⠁⠎⠞⠁⠁⠝⠀⠝⠜⠅⠪⠧⠁⠍⠤</row>
+                    <row>⠍⠁⠊⠎⠞⠑⠝⠀⠚⠁⠀⠍⠥⠊⠙⠑⠝⠀⠇⠥⠅⠑⠍⠊⠤</row>
+                    <row>⠎⠑⠎⠞⠑⠊⠎⠞⠑⠝⠀⠅⠜⠽⠞⠞⠪⠪⠝⠄</row>
+                    <row/>
+                    <row>⠠⠅⠥⠎⠞⠁⠝⠞⠁⠚⠁⠀⠑⠎⠊⠞⠞⠑⠇⠑⠑</row>
+                    <row/>
+                    <row>⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍⠀⠙⠕⠇⠕⠗⠀⠎⠊⠞⠀</row>
+                    <row>⠁⠍⠑⠞⠂⠀⠉⠕⠝⠎⠑⠉⠞⠑⠞⠥⠗⠀⠁⠙⠊⠤</row>
+                    <row>⠏⠊⠎⠉⠊⠝⠛⠀⠑⠇⠊⠞⠂⠀⠎⠑⠙⠀⠙⠕⠀⠑⠊⠥⠎⠤</row>
+                    <row>⠍⠕⠙⠀⠞⠑⠍⠏⠕⠗⠀⠊⠝⠉⠊⠙⠊⠙⠥⠝⠞⠀⠥⠞⠀</row>
+                    <row>⠇⠁⠃⠕⠗⠑⠀⠑⠞⠀⠙⠕⠇⠕⠗⠑⠀⠍⠁⠛⠝⠁⠀</row>
+                </page>
+                <page>
+                    <row>⠼⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</row>
+                    <row>⠁⠇⠊⠟⠥⠁⠄⠀⠠⠥⠞⠀⠑⠝⠊⠍⠀⠁⠙⠀⠍⠊⠝⠊⠍⠀</row>
+                    <row>⠧⠑⠝⠊⠁⠍⠂⠀⠟⠥⠊⠎⠀⠝⠕⠎⠞⠗⠥⠙⠀</row>
+                    <row>⠑⠭⠑⠗⠉⠊⠞⠁⠞⠊⠕⠝⠀⠥⠇⠇⠁⠍⠉⠕⠀⠇⠁⠃⠕⠤</row>
+                    <row>⠗⠊⠎⠀⠝⠊⠎⠊⠀⠥⠞⠀⠁⠇⠊⠟⠥⠊⠏⠀⠑⠭⠀⠑⠁⠀</row>
+                    <row>⠉⠕⠍⠍⠕⠙⠕⠀⠉⠕⠝⠎⠑⠟⠥⠁⠞⠄⠀⠠⠙⠥⠊⠎⠀</row>
+                    <row>⠁⠥⠞⠑⠀⠊⠗⠥⠗⠑⠀⠙⠕⠇⠕⠗⠀⠊⠝⠀⠗⠑⠏⠗⠑⠤</row>
+                    <row>⠓⠑⠝⠙⠑⠗⠊⠞⠀⠊⠝⠀⠧⠕⠇⠥⠏⠞⠁⠞⠑⠀⠧⠑⠇⠊⠞</row>
+                    <row>⠑⠎⠎⠑⠀⠉⠊⠇⠇⠥⠍⠀⠙⠕⠇⠕⠗⠑⠀⠑⠥⠀⠋⠥⠛⠊⠤</row>
+                    <row>⠁⠞⠀⠝⠥⠇⠇⠁⠀⠏⠁⠗⠊⠁⠞⠥⠗⠄⠀⠠⠑⠭⠉⠑⠏⠤</row>
+                    <row>⠞⠑⠥⠗⠀⠎⠊⠝⠞⠀⠕⠉⠉⠁⠑⠉⠁⠞⠀⠉⠥⠏⠊⠙⠁⠤</row>
+                    <row>⠞⠁⠞⠀⠝⠕⠝⠀⠏⠗⠕⠊⠙⠑⠝⠞⠂⠀⠎⠥⠝⠞⠀⠊⠝⠀</row>
+                    <row>⠉⠥⠇⠏⠁⠀⠟⠥⠊⠀⠕⠋⠋⠊⠉⠊⠁⠀⠙⠑⠎⠑⠗⠥⠝⠞⠀</row>
+                    <row>⠍⠕⠇⠇⠊⠞⠀⠁⠝⠊⠍⠀⠊⠙⠀⠑⠎⠞⠀⠇⠁⠃⠕⠗⠥⠍⠄</row>
+                    <row/>
+                    <row>⠼⠁⠀⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍</row>
+                    <row/>
+                    <row>⠀⠀⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍⠀⠙⠕⠇⠕⠗⠀⠎⠊⠞⠀</row>
+                    <row>⠁⠍⠑⠞⠂⠀⠉⠕⠝⠎⠑⠉⠞⠑⠞⠥⠗⠀⠁⠙⠊⠤</row>
+                    <row>⠏⠊⠎⠉⠊⠝⠛⠀⠑⠇⠊⠞⠂⠀⠎⠑⠙⠀⠙⠕⠀⠑⠊⠥⠎⠤</row>
+                    <row>⠍⠕⠙⠀⠞⠑⠍⠏⠕⠗⠀⠊⠝⠉⠊⠙⠊⠙⠥⠝⠞⠀⠥⠞⠀</row>
+                    <row>⠇⠁⠃⠕⠗⠑⠀⠑⠞⠀⠙⠕⠇⠕⠗⠑⠀⠍⠁⠛⠝⠁⠀</row>
+                    <row>⠁⠇⠊⠟⠥⠁⠄⠀⠠⠥⠞⠀⠑⠝⠊⠍⠀⠁⠙⠀⠍⠊⠝⠊⠍⠀</row>
+                    <row>⠧⠑⠝⠊⠁⠍⠂⠀⠟⠥⠊⠎⠀⠝⠕⠎⠞⠗⠥⠙⠀</row>
+                    <row>⠑⠭⠑⠗⠉⠊⠞⠁⠞⠊⠕⠝⠀⠥⠇⠇⠁⠍⠉⠕⠀⠇⠁⠃⠕⠤</row>
+                    <row>⠗⠊⠎⠀⠝⠊⠎⠊⠀⠥⠞⠀⠁⠇⠊⠟⠥⠊⠏⠀⠑⠭⠀⠑⠁⠀</row>
+                    <row>⠉⠕⠍⠍⠕⠙⠕⠀⠉⠕⠝⠎⠑⠟⠥⠁⠞⠄⠀⠠⠙⠥⠊⠎⠀</row>
+                    <row>⠁⠥⠞⠑⠀⠊⠗⠥⠗⠑⠀⠙⠕⠇⠕⠗⠀⠊⠝⠀⠗⠑⠏⠗⠑⠤</row>
+                    <row>⠓⠑⠝⠙⠑⠗⠊⠞⠀⠊⠝⠀⠧⠕⠇⠥⠏⠞⠁⠞⠑⠀⠧⠑⠇⠊⠞</row>
+                    <row>⠑⠎⠎⠑⠀⠉⠊⠇⠇⠥⠍⠀⠙⠕⠇⠕⠗⠑⠀⠑⠥⠀⠋⠥⠛⠊⠤</row>
+                </page>
+                <page>
+                    <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠉</row>
+                    <row>⠁⠞⠀⠝⠥⠇⠇⠁⠀⠏⠁⠗⠊⠁⠞⠥⠗⠄⠀⠠⠑⠭⠉⠑⠏⠤</row>
+                    <row>⠞⠑⠥⠗⠀⠎⠊⠝⠞⠀⠕⠉⠉⠁⠑⠉⠁⠞⠀⠉⠥⠏⠊⠙⠁⠤</row>
+                    <row>⠞⠁⠞⠀⠝⠕⠝⠀⠏⠗⠕⠊⠙⠑⠝⠞⠂⠀⠎⠥⠝⠞⠀⠊⠝⠀</row>
+                    <row>⠉⠥⠇⠏⠁⠀⠟⠥⠊⠀⠕⠋⠋⠊⠉⠊⠁⠀⠙⠑⠎⠑⠗⠥⠝⠞⠀</row>
+                    <row>⠍⠕⠇⠇⠊⠞⠀⠁⠝⠊⠍⠀⠊⠙⠀⠑⠎⠞⠀⠇⠁⠃⠕⠗⠥⠍⠄</row>
+                    <row/>
+                    <row>⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍</row>
+                    <row/>
+                    <row>⠀⠀⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍⠀⠙⠕⠇⠕⠗⠀⠎⠊⠞⠀</row>
+                    <row>⠁⠍⠑⠞⠂⠀⠉⠕⠝⠎⠑⠉⠞⠑⠞⠥⠗⠀⠁⠙⠊⠤</row>
+                    <row>⠏⠊⠎⠉⠊⠝⠛⠀⠑⠇⠊⠞⠂⠀⠎⠑⠙⠀⠙⠕⠀⠑⠊⠥⠎⠤</row>
+                    <row>⠍⠕⠙⠀⠞⠑⠍⠏⠕⠗⠀⠊⠝⠉⠊⠙⠊⠙⠥⠝⠞⠀⠥⠞⠀</row>
+                    <row>⠇⠁⠃⠕⠗⠑⠀⠑⠞⠀⠙⠕⠇⠕⠗⠑⠀⠍⠁⠛⠝⠁⠀</row>
+                    <row>⠁⠇⠊⠟⠥⠁⠄⠀⠠⠥⠞⠀⠑⠝⠊⠍⠀⠁⠙⠀⠍⠊⠝⠊⠍⠀</row>
+                    <row>⠧⠑⠝⠊⠁⠍⠂⠀⠟⠥⠊⠎⠀⠝⠕⠎⠞⠗⠥⠙⠀</row>
+                    <row>⠑⠭⠑⠗⠉⠊⠞⠁⠞⠊⠕⠝⠀⠥⠇⠇⠁⠍⠉⠕⠀⠇⠁⠃⠕⠤</row>
+                    <row>⠗⠊⠎⠀⠝⠊⠎⠊⠀⠥⠞⠀⠁⠇⠊⠟⠥⠊⠏⠀⠑⠭⠀⠑⠁⠀</row>
+                    <row>⠉⠕⠍⠍⠕⠙⠕⠀⠉⠕⠝⠎⠑⠟⠥⠁⠞⠄⠀⠠⠙⠥⠊⠎⠀</row>
+                    <row>⠁⠥⠞⠑⠀⠊⠗⠥⠗⠑⠀⠙⠕⠇⠕⠗⠀⠊⠝⠀⠗⠑⠏⠗⠑⠤</row>
+                    <row>⠓⠑⠝⠙⠑⠗⠊⠞⠀⠊⠝⠀⠧⠕⠇⠥⠏⠞⠁⠞⠑⠀⠧⠑⠇⠊⠞</row>
+                    <row>⠑⠎⠎⠑⠀⠉⠊⠇⠇⠥⠍⠀⠙⠕⠇⠕⠗⠑⠀⠑⠥⠀⠋⠥⠛⠊⠤</row>
+                    <row>⠁⠞⠀⠝⠥⠇⠇⠁⠀⠏⠁⠗⠊⠁⠞⠥⠗⠄⠀⠠⠑⠭⠉⠑⠏⠤</row>
+                    <row>⠞⠑⠥⠗⠀⠎⠊⠝⠞⠀⠕⠉⠉⠁⠑⠉⠁⠞⠀⠉⠥⠏⠊⠙⠁⠤</row>
+                    <row>⠞⠁⠞⠀⠝⠕⠝⠀⠏⠗⠕⠊⠙⠑⠝⠞⠂⠀⠎⠥⠝⠞⠀⠊⠝⠀</row>
+                    <row>⠉⠥⠇⠏⠁⠀⠟⠥⠊⠀⠕⠋⠋⠊⠉⠊⠁⠀⠙⠑⠎⠑⠗⠥⠝⠞⠀</row>
+                    <row>⠍⠕⠇⠇⠊⠞⠀⠁⠝⠊⠍⠀⠊⠙⠀⠑⠎⠞⠀⠇⠁⠃⠕⠗⠥⠍⠄</row>
+                    <row>⠀⠀⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍⠀⠙⠕⠇⠕⠗⠀⠎⠊⠞⠀</row>
+                    <row>⠁⠍⠑⠞⠂⠀⠉⠕⠝⠎⠑⠉⠞⠑⠞⠥⠗⠀⠁⠙⠊⠤</row>
+                    <row>⠏⠊⠎⠉⠊⠝⠛⠀⠑⠇⠊⠞⠂⠀⠎⠑⠙⠀⠙⠕⠀⠑⠊⠥⠎⠤</row>
+                </page>
+                <page>
+                    <row>⠼⠙⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</row>
+                    <row>⠍⠕⠙⠀⠞⠑⠍⠏⠕⠗⠀⠊⠝⠉⠊⠙⠊⠙⠥⠝⠞⠀⠥⠞⠀</row>
+                    <row>⠇⠁⠃⠕⠗⠑⠀⠑⠞⠀⠙⠕⠇⠕⠗⠑⠀⠍⠁⠛⠝⠁⠀</row>
+                    <row>⠁⠇⠊⠟⠥⠁⠄⠀⠠⠥⠞⠀⠑⠝⠊⠍⠀⠁⠙⠀⠍⠊⠝⠊⠍⠀</row>
+                    <row>⠧⠑⠝⠊⠁⠍⠂⠀⠟⠥⠊⠎⠀⠝⠕⠎⠞⠗⠥⠙⠀</row>
+                    <row>⠑⠭⠑⠗⠉⠊⠞⠁⠞⠊⠕⠝⠀⠥⠇⠇⠁⠍⠉⠕⠀⠇⠁⠃⠕⠤</row>
+                    <row>⠗⠊⠎⠀⠝⠊⠎⠊⠀⠥⠞⠀⠁⠇⠊⠟⠥⠊⠏⠀⠑⠭⠀⠑⠁⠀</row>
+                    <row>⠉⠕⠍⠍⠕⠙⠕⠀⠉⠕⠝⠎⠑⠟⠥⠁⠞⠄⠀⠠⠙⠥⠊⠎⠀</row>
+                    <row>⠁⠥⠞⠑⠀⠊⠗⠥⠗⠑⠀⠙⠕⠇⠕⠗⠀⠊⠝⠀⠗⠑⠏⠗⠑⠤</row>
+                    <row>⠓⠑⠝⠙⠑⠗⠊⠞⠀⠊⠝⠀⠧⠕⠇⠥⠏⠞⠁⠞⠑⠀⠧⠑⠇⠊⠞</row>
+                    <row>⠑⠎⠎⠑⠀⠉⠊⠇⠇⠥⠍⠀⠙⠕⠇⠕⠗⠑⠀⠑⠥⠀⠋⠥⠛⠊⠤</row>
+                    <row>⠁⠞⠀⠝⠥⠇⠇⠁⠀⠏⠁⠗⠊⠁⠞⠥⠗⠄⠀⠠⠑⠭⠉⠑⠏⠤</row>
+                    <row>⠞⠑⠥⠗⠀⠎⠊⠝⠞⠀⠕⠉⠉⠁⠑⠉⠁⠞⠀⠉⠥⠏⠊⠙⠁⠤</row>
+                    <row>⠞⠁⠞⠀⠝⠕⠝⠀⠏⠗⠕⠊⠙⠑⠝⠞⠂⠀⠎⠥⠝⠞⠀⠊⠝⠀</row>
+                    <row>⠉⠥⠇⠏⠁⠀⠟⠥⠊⠀⠕⠋⠋⠊⠉⠊⠁⠀⠙⠑⠎⠑⠗⠥⠝⠞⠀</row>
+                    <row>⠍⠕⠇⠇⠊⠞⠀⠁⠝⠊⠍⠀⠊⠙⠀⠑⠎⠞⠀⠇⠁⠃⠕⠗⠥⠍⠄</row>
+                    <row/>
+                    <row>⠠⠇⠕⠏⠏⠥⠎⠁⠝⠁⠞</row>
+                    <row/>
+                    <row>⠀⠀⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍⠀⠙⠕⠇⠕⠗⠀⠎⠊⠞⠀</row>
+                    <row>⠁⠍⠑⠞⠂⠀⠉⠕⠝⠎⠑⠉⠞⠑⠞⠥⠗⠀⠁⠙⠊⠤</row>
+                    <row>⠏⠊⠎⠉⠊⠝⠛⠀⠑⠇⠊⠞⠂⠀⠎⠑⠙⠀⠙⠕⠀⠑⠊⠥⠎⠤</row>
+                    <row>⠍⠕⠙⠀⠞⠑⠍⠏⠕⠗⠀⠊⠝⠉⠊⠙⠊⠙⠥⠝⠞⠀⠥⠞⠀</row>
+                    <row>⠇⠁⠃⠕⠗⠑⠀⠑⠞⠀⠙⠕⠇⠕⠗⠑⠀⠍⠁⠛⠝⠁⠀</row>
+                    <row>⠁⠇⠊⠟⠥⠁⠄⠀⠠⠥⠞⠀⠑⠝⠊⠍⠀⠁⠙⠀⠍⠊⠝⠊⠍⠀</row>
+                    <row>⠧⠑⠝⠊⠁⠍⠂⠀⠟⠥⠊⠎⠀⠝⠕⠎⠞⠗⠥⠙⠀</row>
+                    <row>⠑⠭⠑⠗⠉⠊⠞⠁⠞⠊⠕⠝⠀⠥⠇⠇⠁⠍⠉⠕⠀⠇⠁⠃⠕⠤</row>
+                    <row>⠗⠊⠎⠀⠝⠊⠎⠊⠀⠥⠞⠀⠁⠇⠊⠟⠥⠊⠏⠀⠑⠭⠀⠑⠁⠀</row>
+                    <row>⠉⠕⠍⠍⠕⠙⠕⠀⠉⠕⠝⠎⠑⠟⠥⠁⠞⠄⠀⠠⠙⠥⠊⠎⠀</row>
+                    <row>⠁⠥⠞⠑⠀⠊⠗⠥⠗⠑⠀⠙⠕⠇⠕⠗⠀⠊⠝⠀⠗⠑⠏⠗⠑⠤</row>
+                </page>
+                <page>
+                    <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠑</row>
+                    <row>⠓⠑⠝⠙⠑⠗⠊⠞⠀⠊⠝⠀⠧⠕⠇⠥⠏⠞⠁⠞⠑⠀⠧⠑⠇⠊⠞</row>
+                    <row>⠑⠎⠎⠑⠀⠉⠊⠇⠇⠥⠍⠀⠙⠕⠇⠕⠗⠑⠀⠑⠥⠀⠋⠥⠛⠊⠤</row>
+                    <row>⠁⠞⠀⠝⠥⠇⠇⠁⠀⠏⠁⠗⠊⠁⠞⠥⠗⠄⠀⠠⠑⠭⠉⠑⠏⠤</row>
+                    <row>⠞⠑⠥⠗⠀⠎⠊⠝⠞⠀⠕⠉⠉⠁⠑⠉⠁⠞⠀⠉⠥⠏⠊⠙⠁⠤</row>
+                    <row>⠞⠁⠞⠀⠝⠕⠝⠀⠏⠗⠕⠊⠙⠑⠝⠞⠂⠀⠎⠥⠝⠞⠀⠊⠝⠀</row>
+                    <row>⠉⠥⠇⠏⠁⠀⠟⠥⠊⠀⠕⠋⠋⠊⠉⠊⠁⠀⠙⠑⠎⠑⠗⠥⠝⠞⠀</row>
+                    <row>⠍⠕⠇⠇⠊⠞⠀⠁⠝⠊⠍⠀⠊⠙⠀⠑⠎⠞⠀⠇⠁⠃⠕⠗⠥⠍⠄</row>
+                    <row/>
+                    <row>⠠⠅⠊⠗⠚⠁⠝⠀⠇⠕⠏⠏⠥</row>
+                    <row/>
+                    <row>⠀⠀⠠⠞⠜⠓⠜⠝⠀⠏⠜⠜⠞⠞⠽⠊⠀⠅⠊⠗⠚⠁⠀</row>
+                    <row>⠠⠅⠊⠗⠚⠁</row>
+                </page>
+            </section>
+        </volume>
+    </body>
+        </pef>
+      </x:document>
+    </x:expect>
+  </x:scenario>
+  
+  <x:scenario label="title-page">
+    <x:call step="celia:dtbook-to-pef">
+      <x:input port="source">
+        <x:document type="inline">
+          <dtbook xmlns="http://www.daisy.org/z3986/2005/dtbook/" xml:lang="fi" version="2005-3">
+            <head>
+	            <meta name="dc:Title" content="title"/>
+	            <meta name="dc:Creator" content="celia"/>
+	          </head>
+            <book>
+              <frontmatter>
+                <doctitle>title</doctitle>
+                <docauthor>celia</docauthor>
+              </frontmatter>
+              <bodymatter>
+                <level1>
+                  <h1>simple test</h1>
+                </level1>
+              </bodymatter>
+            </book>
+          </dtbook>
+        </x:document>
+      </x:input>
+      <x:option name="include-brf" select="true()"/>
+      <x:option name="pef-output-dir" select="concat($temp-dir, 'title-page/output-dir/')"/>
+      <x:option name="brf-output-dir" select="concat($temp-dir, 'title-page/output-dir/')"/>
+      <x:option name="temp-dir" select="concat($temp-dir, 'title-page/temp-dir/')"/>
+      <x:option name="toc-depth" select="'0'"/>
+    </x:call>
+    <x:context label="pef">
+      <x:document type="file" base-uri="temp-dir" href="title-page/output-dir/test_script.pef"/>
+    </x:context>
+    <x:expect label="result" type="custom" href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl" step="x:pef-compare">
+      <x:document type="inline">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+    <head>
+        <meta>
+            <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/">application/x-pef+xml</dc:format>
+            <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
+            <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">title</dc:title>
+            <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">celia</dc:creator>
+        </meta>
+    </head>
+    <body>
+        <volume cols="27" rows="30" rowgap="0" duplex="true">
+            <section>
+                <page>
+		    <row/>
+                    <row>⠞⠊⠞⠇⠑</row>
+                    <row/>
+                    <row>⠉⠑⠇⠊⠁</row>
+                    <row/>
+                    <row>⠠⠧⠊⠓⠅⠕⠀⠼⠁⠌⠼⠁</row>
+                </page>
+            </section>
+            <section>
+                <page>
+                    <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁</row>
+                    <row>⠞⠊⠞⠇⠑</row>
+                    <row/>
+                    <row>⠉⠑⠇⠊⠁</row>
+                    <row/>
+                    <row>⠎⠊⠍⠏⠇⠑⠀⠞⠑⠎⠞</row>
+                    <row/>
+                </page>
+            </section>
+        </volume>
+    </body>
+</pef>
+      </x:document>
+    </x:expect>
+  </x:scenario>
+
+</x:description>
