@@ -7,271 +7,6 @@
                xmlns:pxi="http://www.daisy.org/ns/pipeline/xproc/internal"
 	       xmlns:celia="http://www.celia.fi"
 	       script="http://www.celia.fi/pipeline/modules/braille/dtbook-to-pef.xpl">
-  
-  <x:scenario label="test_1">
-    <x:call step="celia:dtbook-to-pef">
-      <x:input port="source">
-        <x:document type="file" href="../resources/test.xml">
-        </x:document>
-      </x:input>
-      <x:option name="temp-dir" select="$temp-dir"/>
-      <x:option name="pef-output-dir" select="concat($temp-dir, 'test_1/output-dir/')"/>
-      <x:option name="toc-depth" select="'0'"/>
-    </x:call>
-    <x:context label="pef">
-      <x:document type="file" base-uri="temp-dir" href="test_1/output-dir/test.pef"/>
-    </x:context>
-    <x:expect label="result" type="custom" href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl" step="x:pef-compare">
-      <x:document type="inline">
-        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
-          <head xmlns:dc="http://purl.org/dc/elements/1.1/">
-            <meta>
-              <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/">application/x-pef+xml</dc:format>
-              <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
-              <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">Kirja</dc:title>
-              <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">John Doe</dc:creator>
-              <dc:language xmlns:dc="http://purl.org/dc/elements/1.1/">fi</dc:language>
-              <dc:publisher xmlns:dc="http://purl.org/dc/elements/1.1/">Celia</dc:publisher>
-            </meta>
-          </head>
-          <body>
-        <volume cols="27" rows="30" rowgap="0" duplex="true">
-            <section>
-                <page>
-		    <row/>
-                    <row>⠠⠅⠊⠗⠚⠁</row>
-                    <row/>
-                    <row>⠠⠚⠕⠓⠝⠀⠠⠙⠕⠑</row>
-                    <row/>
-                    <row>⠠⠧⠊⠓⠅⠕⠀⠼⠁⠌⠼⠁</row>
-                </page>
-                <page/>
-            </section>
-            <section>
-                <page>
-                    <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁</row>
-                    <row>⠠⠅⠊⠗⠚⠁</row>
-                    <row/>
-                    <row>⠠⠚⠕⠓⠝⠀⠠⠙⠕⠑</row>
-                    <row/>
-                    <row>⠠⠁⠇⠅⠥⠞⠊⠑⠙⠕⠞</row>
-                    <row/>
-                    <row>⠠⠠⠅⠥⠎⠞⠁⠝⠞⠁⠚⠁⠀⠠⠠⠏⠁⠊⠅⠅⠁</row>
-                    <row/>
-                    <row>⠠⠧⠊⠊⠙⠑⠎⠀⠏⠁⠊⠝⠕⠎⠂⠀⠼⠃⠚⠁⠑</row>
-                    <row/>
-                    <row>⠠⠞⠥⠕⠞⠞⠁⠚⠁⠒⠀⠠⠉⠑⠇⠊⠁⠀⠤⠀⠠⠝⠜⠅⠪⠤</row>
-                    <row>⠧⠁⠍⠍⠁⠊⠎⠞⠑⠝⠀⠅⠊⠗⠚⠁⠎⠞⠕⠀⠼⠃⠚⠁⠋</row>
-                    <row/>
-                    <row>⠠⠅⠜⠽⠞⠞⠪⠕⠊⠅⠑⠥⠎</row>
-                    <row/>
-                    <row>⠠⠞⠜⠍⠜⠀⠅⠊⠗⠚⠁⠀⠕⠝⠀⠧⠁⠇⠍⠊⠎⠞⠑⠞⠞⠥⠀</row>
-                    <row>⠞⠑⠅⠊⠚⠜⠝⠕⠊⠅⠑⠥⠎⠇⠁⠊⠝⠀⠼⠁⠛⠄⠀⠏⠽⠤</row>
-                    <row>⠅⠜⠇⠜⠝⠀⠝⠕⠚⠁⠇⠇⠁⠀⠚⠁⠀⠕⠝⠀⠞⠁⠗⠅⠕⠊⠤</row>
-                    <row>⠞⠑⠞⠞⠥⠀⠁⠊⠝⠕⠁⠎⠞⠁⠁⠝⠀⠝⠜⠅⠪⠧⠁⠍⠤</row>
-                    <row>⠍⠁⠊⠎⠞⠑⠝⠀⠚⠁⠀⠍⠥⠊⠙⠑⠝⠀⠇⠥⠅⠑⠍⠊⠤</row>
-                    <row>⠎⠑⠎⠞⠑⠊⠎⠞⠑⠝⠀⠅⠜⠽⠞⠞⠪⠪⠝⠄</row>
-                    <row/>
-                    <row>⠠⠅⠥⠎⠞⠁⠝⠞⠁⠚⠁⠀⠑⠎⠊⠞⠞⠑⠇⠑⠑</row>
-                    <row/>
-                    <row>⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍⠀⠙⠕⠇⠕⠗⠀⠎⠊⠞⠀</row>
-                    <row>⠁⠍⠑⠞⠂⠀⠉⠕⠝⠎⠑⠉⠞⠑⠞⠥⠗⠀⠁⠙⠊⠤</row>
-                    <row>⠏⠊⠎⠉⠊⠝⠛⠀⠑⠇⠊⠞⠂⠀⠎⠑⠙⠀⠙⠕⠀⠑⠊⠥⠎⠤</row>
-                    <row>⠍⠕⠙⠀⠞⠑⠍⠏⠕⠗⠀⠊⠝⠉⠊⠙⠊⠙⠥⠝⠞⠀⠥⠞⠀</row>
-                    <row>⠇⠁⠃⠕⠗⠑⠀⠑⠞⠀⠙⠕⠇⠕⠗⠑⠀⠍⠁⠛⠝⠁⠀</row>
-                </page>
-                <page>
-                    <row>⠼⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</row>
-                    <row>⠁⠇⠊⠟⠥⠁⠄⠀⠠⠥⠞⠀⠑⠝⠊⠍⠀⠁⠙⠀⠍⠊⠝⠊⠍⠀</row>
-                    <row>⠧⠑⠝⠊⠁⠍⠂⠀⠟⠥⠊⠎⠀⠝⠕⠎⠞⠗⠥⠙⠀</row>
-                    <row>⠑⠭⠑⠗⠉⠊⠞⠁⠞⠊⠕⠝⠀⠥⠇⠇⠁⠍⠉⠕⠀⠇⠁⠃⠕⠤</row>
-                    <row>⠗⠊⠎⠀⠝⠊⠎⠊⠀⠥⠞⠀⠁⠇⠊⠟⠥⠊⠏⠀⠑⠭⠀⠑⠁⠀</row>
-                    <row>⠉⠕⠍⠍⠕⠙⠕⠀⠉⠕⠝⠎⠑⠟⠥⠁⠞⠄⠀⠠⠙⠥⠊⠎⠀</row>
-                    <row>⠁⠥⠞⠑⠀⠊⠗⠥⠗⠑⠀⠙⠕⠇⠕⠗⠀⠊⠝⠀⠗⠑⠏⠗⠑⠤</row>
-                    <row>⠓⠑⠝⠙⠑⠗⠊⠞⠀⠊⠝⠀⠧⠕⠇⠥⠏⠞⠁⠞⠑⠀⠧⠑⠇⠊⠞</row>
-                    <row>⠑⠎⠎⠑⠀⠉⠊⠇⠇⠥⠍⠀⠙⠕⠇⠕⠗⠑⠀⠑⠥⠀⠋⠥⠛⠊⠤</row>
-                    <row>⠁⠞⠀⠝⠥⠇⠇⠁⠀⠏⠁⠗⠊⠁⠞⠥⠗⠄⠀⠠⠑⠭⠉⠑⠏⠤</row>
-                    <row>⠞⠑⠥⠗⠀⠎⠊⠝⠞⠀⠕⠉⠉⠁⠑⠉⠁⠞⠀⠉⠥⠏⠊⠙⠁⠤</row>
-                    <row>⠞⠁⠞⠀⠝⠕⠝⠀⠏⠗⠕⠊⠙⠑⠝⠞⠂⠀⠎⠥⠝⠞⠀⠊⠝⠀</row>
-                    <row>⠉⠥⠇⠏⠁⠀⠟⠥⠊⠀⠕⠋⠋⠊⠉⠊⠁⠀⠙⠑⠎⠑⠗⠥⠝⠞⠀</row>
-                    <row>⠍⠕⠇⠇⠊⠞⠀⠁⠝⠊⠍⠀⠊⠙⠀⠑⠎⠞⠀⠇⠁⠃⠕⠗⠥⠍⠄</row>
-                    <row/>
-                    <row>⠼⠁⠀⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍</row>
-                    <row/>
-                    <row>⠀⠀⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍⠀⠙⠕⠇⠕⠗⠀⠎⠊⠞⠀</row>
-                    <row>⠁⠍⠑⠞⠂⠀⠉⠕⠝⠎⠑⠉⠞⠑⠞⠥⠗⠀⠁⠙⠊⠤</row>
-                    <row>⠏⠊⠎⠉⠊⠝⠛⠀⠑⠇⠊⠞⠂⠀⠎⠑⠙⠀⠙⠕⠀⠑⠊⠥⠎⠤</row>
-                    <row>⠍⠕⠙⠀⠞⠑⠍⠏⠕⠗⠀⠊⠝⠉⠊⠙⠊⠙⠥⠝⠞⠀⠥⠞⠀</row>
-                    <row>⠇⠁⠃⠕⠗⠑⠀⠑⠞⠀⠙⠕⠇⠕⠗⠑⠀⠍⠁⠛⠝⠁⠀</row>
-                    <row>⠁⠇⠊⠟⠥⠁⠄⠀⠠⠥⠞⠀⠑⠝⠊⠍⠀⠁⠙⠀⠍⠊⠝⠊⠍⠀</row>
-                    <row>⠧⠑⠝⠊⠁⠍⠂⠀⠟⠥⠊⠎⠀⠝⠕⠎⠞⠗⠥⠙⠀</row>
-                    <row>⠑⠭⠑⠗⠉⠊⠞⠁⠞⠊⠕⠝⠀⠥⠇⠇⠁⠍⠉⠕⠀⠇⠁⠃⠕⠤</row>
-                    <row>⠗⠊⠎⠀⠝⠊⠎⠊⠀⠥⠞⠀⠁⠇⠊⠟⠥⠊⠏⠀⠑⠭⠀⠑⠁⠀</row>
-                    <row>⠉⠕⠍⠍⠕⠙⠕⠀⠉⠕⠝⠎⠑⠟⠥⠁⠞⠄⠀⠠⠙⠥⠊⠎⠀</row>
-                    <row>⠁⠥⠞⠑⠀⠊⠗⠥⠗⠑⠀⠙⠕⠇⠕⠗⠀⠊⠝⠀⠗⠑⠏⠗⠑⠤</row>
-                    <row>⠓⠑⠝⠙⠑⠗⠊⠞⠀⠊⠝⠀⠧⠕⠇⠥⠏⠞⠁⠞⠑⠀⠧⠑⠇⠊⠞</row>
-                    <row>⠑⠎⠎⠑⠀⠉⠊⠇⠇⠥⠍⠀⠙⠕⠇⠕⠗⠑⠀⠑⠥⠀⠋⠥⠛⠊⠤</row>
-                </page>
-                <page>
-                    <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠉</row>
-                    <row>⠁⠞⠀⠝⠥⠇⠇⠁⠀⠏⠁⠗⠊⠁⠞⠥⠗⠄⠀⠠⠑⠭⠉⠑⠏⠤</row>
-                    <row>⠞⠑⠥⠗⠀⠎⠊⠝⠞⠀⠕⠉⠉⠁⠑⠉⠁⠞⠀⠉⠥⠏⠊⠙⠁⠤</row>
-                    <row>⠞⠁⠞⠀⠝⠕⠝⠀⠏⠗⠕⠊⠙⠑⠝⠞⠂⠀⠎⠥⠝⠞⠀⠊⠝⠀</row>
-                    <row>⠉⠥⠇⠏⠁⠀⠟⠥⠊⠀⠕⠋⠋⠊⠉⠊⠁⠀⠙⠑⠎⠑⠗⠥⠝⠞⠀</row>
-                    <row>⠍⠕⠇⠇⠊⠞⠀⠁⠝⠊⠍⠀⠊⠙⠀⠑⠎⠞⠀⠇⠁⠃⠕⠗⠥⠍⠄</row>
-                    <row/>
-                    <row>⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍</row>
-                    <row/>
-                    <row>⠀⠀⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍⠀⠙⠕⠇⠕⠗⠀⠎⠊⠞⠀</row>
-                    <row>⠁⠍⠑⠞⠂⠀⠉⠕⠝⠎⠑⠉⠞⠑⠞⠥⠗⠀⠁⠙⠊⠤</row>
-                    <row>⠏⠊⠎⠉⠊⠝⠛⠀⠑⠇⠊⠞⠂⠀⠎⠑⠙⠀⠙⠕⠀⠑⠊⠥⠎⠤</row>
-                    <row>⠍⠕⠙⠀⠞⠑⠍⠏⠕⠗⠀⠊⠝⠉⠊⠙⠊⠙⠥⠝⠞⠀⠥⠞⠀</row>
-                    <row>⠇⠁⠃⠕⠗⠑⠀⠑⠞⠀⠙⠕⠇⠕⠗⠑⠀⠍⠁⠛⠝⠁⠀</row>
-                    <row>⠁⠇⠊⠟⠥⠁⠄⠀⠠⠥⠞⠀⠑⠝⠊⠍⠀⠁⠙⠀⠍⠊⠝⠊⠍⠀</row>
-                    <row>⠧⠑⠝⠊⠁⠍⠂⠀⠟⠥⠊⠎⠀⠝⠕⠎⠞⠗⠥⠙⠀</row>
-                    <row>⠑⠭⠑⠗⠉⠊⠞⠁⠞⠊⠕⠝⠀⠥⠇⠇⠁⠍⠉⠕⠀⠇⠁⠃⠕⠤</row>
-                    <row>⠗⠊⠎⠀⠝⠊⠎⠊⠀⠥⠞⠀⠁⠇⠊⠟⠥⠊⠏⠀⠑⠭⠀⠑⠁⠀</row>
-                    <row>⠉⠕⠍⠍⠕⠙⠕⠀⠉⠕⠝⠎⠑⠟⠥⠁⠞⠄⠀⠠⠙⠥⠊⠎⠀</row>
-                    <row>⠁⠥⠞⠑⠀⠊⠗⠥⠗⠑⠀⠙⠕⠇⠕⠗⠀⠊⠝⠀⠗⠑⠏⠗⠑⠤</row>
-                    <row>⠓⠑⠝⠙⠑⠗⠊⠞⠀⠊⠝⠀⠧⠕⠇⠥⠏⠞⠁⠞⠑⠀⠧⠑⠇⠊⠞</row>
-                    <row>⠑⠎⠎⠑⠀⠉⠊⠇⠇⠥⠍⠀⠙⠕⠇⠕⠗⠑⠀⠑⠥⠀⠋⠥⠛⠊⠤</row>
-                    <row>⠁⠞⠀⠝⠥⠇⠇⠁⠀⠏⠁⠗⠊⠁⠞⠥⠗⠄⠀⠠⠑⠭⠉⠑⠏⠤</row>
-                    <row>⠞⠑⠥⠗⠀⠎⠊⠝⠞⠀⠕⠉⠉⠁⠑⠉⠁⠞⠀⠉⠥⠏⠊⠙⠁⠤</row>
-                    <row>⠞⠁⠞⠀⠝⠕⠝⠀⠏⠗⠕⠊⠙⠑⠝⠞⠂⠀⠎⠥⠝⠞⠀⠊⠝⠀</row>
-                    <row>⠉⠥⠇⠏⠁⠀⠟⠥⠊⠀⠕⠋⠋⠊⠉⠊⠁⠀⠙⠑⠎⠑⠗⠥⠝⠞⠀</row>
-                    <row>⠍⠕⠇⠇⠊⠞⠀⠁⠝⠊⠍⠀⠊⠙⠀⠑⠎⠞⠀⠇⠁⠃⠕⠗⠥⠍⠄</row>
-                    <row>⠀⠀⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍⠀⠙⠕⠇⠕⠗⠀⠎⠊⠞⠀</row>
-                    <row>⠁⠍⠑⠞⠂⠀⠉⠕⠝⠎⠑⠉⠞⠑⠞⠥⠗⠀⠁⠙⠊⠤</row>
-                    <row>⠏⠊⠎⠉⠊⠝⠛⠀⠑⠇⠊⠞⠂⠀⠎⠑⠙⠀⠙⠕⠀⠑⠊⠥⠎⠤</row>
-                </page>
-                <page>
-                    <row>⠼⠙⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</row>
-                    <row>⠍⠕⠙⠀⠞⠑⠍⠏⠕⠗⠀⠊⠝⠉⠊⠙⠊⠙⠥⠝⠞⠀⠥⠞⠀</row>
-                    <row>⠇⠁⠃⠕⠗⠑⠀⠑⠞⠀⠙⠕⠇⠕⠗⠑⠀⠍⠁⠛⠝⠁⠀</row>
-                    <row>⠁⠇⠊⠟⠥⠁⠄⠀⠠⠥⠞⠀⠑⠝⠊⠍⠀⠁⠙⠀⠍⠊⠝⠊⠍⠀</row>
-                    <row>⠧⠑⠝⠊⠁⠍⠂⠀⠟⠥⠊⠎⠀⠝⠕⠎⠞⠗⠥⠙⠀</row>
-                    <row>⠑⠭⠑⠗⠉⠊⠞⠁⠞⠊⠕⠝⠀⠥⠇⠇⠁⠍⠉⠕⠀⠇⠁⠃⠕⠤</row>
-                    <row>⠗⠊⠎⠀⠝⠊⠎⠊⠀⠥⠞⠀⠁⠇⠊⠟⠥⠊⠏⠀⠑⠭⠀⠑⠁⠀</row>
-                    <row>⠉⠕⠍⠍⠕⠙⠕⠀⠉⠕⠝⠎⠑⠟⠥⠁⠞⠄⠀⠠⠙⠥⠊⠎⠀</row>
-                    <row>⠁⠥⠞⠑⠀⠊⠗⠥⠗⠑⠀⠙⠕⠇⠕⠗⠀⠊⠝⠀⠗⠑⠏⠗⠑⠤</row>
-                    <row>⠓⠑⠝⠙⠑⠗⠊⠞⠀⠊⠝⠀⠧⠕⠇⠥⠏⠞⠁⠞⠑⠀⠧⠑⠇⠊⠞</row>
-                    <row>⠑⠎⠎⠑⠀⠉⠊⠇⠇⠥⠍⠀⠙⠕⠇⠕⠗⠑⠀⠑⠥⠀⠋⠥⠛⠊⠤</row>
-                    <row>⠁⠞⠀⠝⠥⠇⠇⠁⠀⠏⠁⠗⠊⠁⠞⠥⠗⠄⠀⠠⠑⠭⠉⠑⠏⠤</row>
-                    <row>⠞⠑⠥⠗⠀⠎⠊⠝⠞⠀⠕⠉⠉⠁⠑⠉⠁⠞⠀⠉⠥⠏⠊⠙⠁⠤</row>
-                    <row>⠞⠁⠞⠀⠝⠕⠝⠀⠏⠗⠕⠊⠙⠑⠝⠞⠂⠀⠎⠥⠝⠞⠀⠊⠝⠀</row>
-                    <row>⠉⠥⠇⠏⠁⠀⠟⠥⠊⠀⠕⠋⠋⠊⠉⠊⠁⠀⠙⠑⠎⠑⠗⠥⠝⠞⠀</row>
-                    <row>⠍⠕⠇⠇⠊⠞⠀⠁⠝⠊⠍⠀⠊⠙⠀⠑⠎⠞⠀⠇⠁⠃⠕⠗⠥⠍⠄</row>
-                    <row/>
-                    <row>⠠⠇⠕⠏⠏⠥⠎⠁⠝⠁⠞</row>
-                    <row/>
-                    <row>⠀⠀⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍⠀⠙⠕⠇⠕⠗⠀⠎⠊⠞⠀</row>
-                    <row>⠁⠍⠑⠞⠂⠀⠉⠕⠝⠎⠑⠉⠞⠑⠞⠥⠗⠀⠁⠙⠊⠤</row>
-                    <row>⠏⠊⠎⠉⠊⠝⠛⠀⠑⠇⠊⠞⠂⠀⠎⠑⠙⠀⠙⠕⠀⠑⠊⠥⠎⠤</row>
-                    <row>⠍⠕⠙⠀⠞⠑⠍⠏⠕⠗⠀⠊⠝⠉⠊⠙⠊⠙⠥⠝⠞⠀⠥⠞⠀</row>
-                    <row>⠇⠁⠃⠕⠗⠑⠀⠑⠞⠀⠙⠕⠇⠕⠗⠑⠀⠍⠁⠛⠝⠁⠀</row>
-                    <row>⠁⠇⠊⠟⠥⠁⠄⠀⠠⠥⠞⠀⠑⠝⠊⠍⠀⠁⠙⠀⠍⠊⠝⠊⠍⠀</row>
-                    <row>⠧⠑⠝⠊⠁⠍⠂⠀⠟⠥⠊⠎⠀⠝⠕⠎⠞⠗⠥⠙⠀</row>
-                    <row>⠑⠭⠑⠗⠉⠊⠞⠁⠞⠊⠕⠝⠀⠥⠇⠇⠁⠍⠉⠕⠀⠇⠁⠃⠕⠤</row>
-                    <row>⠗⠊⠎⠀⠝⠊⠎⠊⠀⠥⠞⠀⠁⠇⠊⠟⠥⠊⠏⠀⠑⠭⠀⠑⠁⠀</row>
-                    <row>⠉⠕⠍⠍⠕⠙⠕⠀⠉⠕⠝⠎⠑⠟⠥⠁⠞⠄⠀⠠⠙⠥⠊⠎⠀</row>
-                    <row>⠁⠥⠞⠑⠀⠊⠗⠥⠗⠑⠀⠙⠕⠇⠕⠗⠀⠊⠝⠀⠗⠑⠏⠗⠑⠤</row>
-                </page>
-                <page>
-                    <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠑</row>
-                    <row>⠓⠑⠝⠙⠑⠗⠊⠞⠀⠊⠝⠀⠧⠕⠇⠥⠏⠞⠁⠞⠑⠀⠧⠑⠇⠊⠞</row>
-                    <row>⠑⠎⠎⠑⠀⠉⠊⠇⠇⠥⠍⠀⠙⠕⠇⠕⠗⠑⠀⠑⠥⠀⠋⠥⠛⠊⠤</row>
-                    <row>⠁⠞⠀⠝⠥⠇⠇⠁⠀⠏⠁⠗⠊⠁⠞⠥⠗⠄⠀⠠⠑⠭⠉⠑⠏⠤</row>
-                    <row>⠞⠑⠥⠗⠀⠎⠊⠝⠞⠀⠕⠉⠉⠁⠑⠉⠁⠞⠀⠉⠥⠏⠊⠙⠁⠤</row>
-                    <row>⠞⠁⠞⠀⠝⠕⠝⠀⠏⠗⠕⠊⠙⠑⠝⠞⠂⠀⠎⠥⠝⠞⠀⠊⠝⠀</row>
-                    <row>⠉⠥⠇⠏⠁⠀⠟⠥⠊⠀⠕⠋⠋⠊⠉⠊⠁⠀⠙⠑⠎⠑⠗⠥⠝⠞⠀</row>
-                    <row>⠍⠕⠇⠇⠊⠞⠀⠁⠝⠊⠍⠀⠊⠙⠀⠑⠎⠞⠀⠇⠁⠃⠕⠗⠥⠍⠄</row>
-                    <row/>
-                    <row>⠠⠅⠊⠗⠚⠁⠝⠀⠇⠕⠏⠏⠥</row>
-                    <row/>
-                    <row>⠀⠀⠠⠞⠜⠓⠜⠝⠀⠏⠜⠜⠞⠞⠽⠊⠀⠅⠊⠗⠚⠁⠀</row>
-                    <row>⠠⠅⠊⠗⠚⠁</row>
-                </page>
-            </section>
-        </volume>
-    </body>
-        </pef>
-      </x:document>
-    </x:expect>
-  </x:scenario>
-  
-  <x:scenario label="title-page">
-    <x:call step="celia:dtbook-to-pef">
-      <x:input port="source">
-        <x:document type="inline">
-          <dtbook xmlns="http://www.daisy.org/z3986/2005/dtbook/" xml:lang="fi" version="2005-3">
-            <head>
-	            <meta name="dc:Title" content="title"/>
-	            <meta name="dc:Creator" content="celia"/>
-	          </head>
-            <book>
-              <frontmatter>
-                <doctitle>title</doctitle>
-                <docauthor>celia</docauthor>
-              </frontmatter>
-              <bodymatter>
-                <level1>
-                  <h1>simple test</h1>
-                </level1>
-              </bodymatter>
-            </book>
-          </dtbook>
-        </x:document>
-      </x:input>
-      <x:option name="include-brf" select="true()"/>
-      <x:option name="pef-output-dir" select="concat($temp-dir, 'title-page/output-dir/')"/>
-      <x:option name="brf-output-dir" select="concat($temp-dir, 'title-page/output-dir/')"/>
-      <x:option name="temp-dir" select="concat($temp-dir, 'title-page/temp-dir/')"/>
-      <x:option name="toc-depth" select="'0'"/>
-    </x:call>
-    <x:context label="pef">
-      <x:document type="file" base-uri="temp-dir" href="title-page/output-dir/test_script.pef"/>
-    </x:context>
-    <x:expect label="result" type="custom" href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl" step="x:pef-compare">
-      <x:document type="inline">
-        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
-    <head>
-        <meta>
-            <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/">application/x-pef+xml</dc:format>
-            <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
-            <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">title</dc:title>
-            <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">celia</dc:creator>
-        </meta>
-    </head>
-    <body>
-        <volume cols="27" rows="30" rowgap="0" duplex="true">
-            <section>
-                <page>
-		    <row/>
-                    <row>⠞⠊⠞⠇⠑</row>
-                    <row/>
-                    <row>⠉⠑⠇⠊⠁</row>
-                    <row/>
-                    <row>⠠⠧⠊⠓⠅⠕⠀⠼⠁⠌⠼⠁</row>
-                </page>
-                <page/>
-            </section>
-            <section>
-                <page>
-                    <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁</row>
-                    <row>⠞⠊⠞⠇⠑</row>
-                    <row/>
-                    <row>⠉⠑⠇⠊⠁</row>
-                    <row/>
-                    <row>⠎⠊⠍⠏⠇⠑⠀⠞⠑⠎⠞</row>
-                    <row/>
-                </page>
-            </section>
-        </volume>
-    </body>
-</pef>
-      </x:document>
-    </x:expect>
-  </x:scenario>
 
   <x:scenario label="table-of-contents">
     <x:call step="celia:dtbook-to-pef">
@@ -964,6 +699,271 @@
           <body>
           </body>
         </pef>
+      </x:document>
+    </x:expect>
+  </x:scenario>
+
+  <x:scenario label="test-whole-script" pending="fails, no empty page generated after title page">
+    <x:call step="celia:dtbook-to-pef">
+      <x:input port="source">
+        <x:document type="file" href="../resources/test.xml">
+        </x:document>
+      </x:input>
+      <x:option name="temp-dir" select="$temp-dir"/>
+      <x:option name="pef-output-dir" select="concat($temp-dir, 'test_1/output-dir/')"/>
+      <x:option name="toc-depth" select="'0'"/>
+    </x:call>
+    <x:context label="pef">
+      <x:document type="file" base-uri="temp-dir" href="test_1/output-dir/test.pef"/>
+    </x:context>
+    <x:expect label="result" type="custom" href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl" step="x:pef-compare">
+      <x:document type="inline">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+          <head xmlns:dc="http://purl.org/dc/elements/1.1/">
+            <meta>
+              <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/">application/x-pef+xml</dc:format>
+              <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
+              <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">Kirja</dc:title>
+              <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">John Doe</dc:creator>
+              <dc:language xmlns:dc="http://purl.org/dc/elements/1.1/">fi</dc:language>
+              <dc:publisher xmlns:dc="http://purl.org/dc/elements/1.1/">Celia</dc:publisher>
+            </meta>
+          </head>
+          <body>
+        <volume cols="27" rows="30" rowgap="0" duplex="true">
+            <section>
+                <page>
+		    <row/>
+                    <row>⠠⠅⠊⠗⠚⠁</row>
+                    <row/>
+                    <row>⠠⠚⠕⠓⠝⠀⠠⠙⠕⠑</row>
+                    <row/>
+                    <row>⠠⠧⠊⠓⠅⠕⠀⠼⠁⠌⠼⠁</row>
+                </page>
+                <page/>
+            </section>
+            <section>
+                <page>
+                    <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁</row>
+                    <row>⠠⠅⠊⠗⠚⠁</row>
+                    <row/>
+                    <row>⠠⠚⠕⠓⠝⠀⠠⠙⠕⠑</row>
+                    <row/>
+                    <row>⠠⠁⠇⠅⠥⠞⠊⠑⠙⠕⠞</row>
+                    <row/>
+                    <row>⠠⠠⠅⠥⠎⠞⠁⠝⠞⠁⠚⠁⠀⠠⠠⠏⠁⠊⠅⠅⠁</row>
+                    <row/>
+                    <row>⠠⠧⠊⠊⠙⠑⠎⠀⠏⠁⠊⠝⠕⠎⠂⠀⠼⠃⠚⠁⠑</row>
+                    <row/>
+                    <row>⠠⠞⠥⠕⠞⠞⠁⠚⠁⠒⠀⠠⠉⠑⠇⠊⠁⠀⠤⠀⠠⠝⠜⠅⠪⠤</row>
+                    <row>⠧⠁⠍⠍⠁⠊⠎⠞⠑⠝⠀⠅⠊⠗⠚⠁⠎⠞⠕⠀⠼⠃⠚⠁⠋</row>
+                    <row/>
+                    <row>⠠⠅⠜⠽⠞⠞⠪⠕⠊⠅⠑⠥⠎</row>
+                    <row/>
+                    <row>⠠⠞⠜⠍⠜⠀⠅⠊⠗⠚⠁⠀⠕⠝⠀⠧⠁⠇⠍⠊⠎⠞⠑⠞⠞⠥⠀</row>
+                    <row>⠞⠑⠅⠊⠚⠜⠝⠕⠊⠅⠑⠥⠎⠇⠁⠊⠝⠀⠼⠁⠛⠄⠀⠏⠽⠤</row>
+                    <row>⠅⠜⠇⠜⠝⠀⠝⠕⠚⠁⠇⠇⠁⠀⠚⠁⠀⠕⠝⠀⠞⠁⠗⠅⠕⠊⠤</row>
+                    <row>⠞⠑⠞⠞⠥⠀⠁⠊⠝⠕⠁⠎⠞⠁⠁⠝⠀⠝⠜⠅⠪⠧⠁⠍⠤</row>
+                    <row>⠍⠁⠊⠎⠞⠑⠝⠀⠚⠁⠀⠍⠥⠊⠙⠑⠝⠀⠇⠥⠅⠑⠍⠊⠤</row>
+                    <row>⠎⠑⠎⠞⠑⠊⠎⠞⠑⠝⠀⠅⠜⠽⠞⠞⠪⠪⠝⠄</row>
+                    <row/>
+                    <row>⠠⠅⠥⠎⠞⠁⠝⠞⠁⠚⠁⠀⠑⠎⠊⠞⠞⠑⠇⠑⠑</row>
+                    <row/>
+                    <row>⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍⠀⠙⠕⠇⠕⠗⠀⠎⠊⠞⠀</row>
+                    <row>⠁⠍⠑⠞⠂⠀⠉⠕⠝⠎⠑⠉⠞⠑⠞⠥⠗⠀⠁⠙⠊⠤</row>
+                    <row>⠏⠊⠎⠉⠊⠝⠛⠀⠑⠇⠊⠞⠂⠀⠎⠑⠙⠀⠙⠕⠀⠑⠊⠥⠎⠤</row>
+                    <row>⠍⠕⠙⠀⠞⠑⠍⠏⠕⠗⠀⠊⠝⠉⠊⠙⠊⠙⠥⠝⠞⠀⠥⠞⠀</row>
+                    <row>⠇⠁⠃⠕⠗⠑⠀⠑⠞⠀⠙⠕⠇⠕⠗⠑⠀⠍⠁⠛⠝⠁⠀</row>
+                </page>
+                <page>
+                    <row>⠼⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</row>
+                    <row>⠁⠇⠊⠟⠥⠁⠄⠀⠠⠥⠞⠀⠑⠝⠊⠍⠀⠁⠙⠀⠍⠊⠝⠊⠍⠀</row>
+                    <row>⠧⠑⠝⠊⠁⠍⠂⠀⠟⠥⠊⠎⠀⠝⠕⠎⠞⠗⠥⠙⠀</row>
+                    <row>⠑⠭⠑⠗⠉⠊⠞⠁⠞⠊⠕⠝⠀⠥⠇⠇⠁⠍⠉⠕⠀⠇⠁⠃⠕⠤</row>
+                    <row>⠗⠊⠎⠀⠝⠊⠎⠊⠀⠥⠞⠀⠁⠇⠊⠟⠥⠊⠏⠀⠑⠭⠀⠑⠁⠀</row>
+                    <row>⠉⠕⠍⠍⠕⠙⠕⠀⠉⠕⠝⠎⠑⠟⠥⠁⠞⠄⠀⠠⠙⠥⠊⠎⠀</row>
+                    <row>⠁⠥⠞⠑⠀⠊⠗⠥⠗⠑⠀⠙⠕⠇⠕⠗⠀⠊⠝⠀⠗⠑⠏⠗⠑⠤</row>
+                    <row>⠓⠑⠝⠙⠑⠗⠊⠞⠀⠊⠝⠀⠧⠕⠇⠥⠏⠞⠁⠞⠑⠀⠧⠑⠇⠊⠞</row>
+                    <row>⠑⠎⠎⠑⠀⠉⠊⠇⠇⠥⠍⠀⠙⠕⠇⠕⠗⠑⠀⠑⠥⠀⠋⠥⠛⠊⠤</row>
+                    <row>⠁⠞⠀⠝⠥⠇⠇⠁⠀⠏⠁⠗⠊⠁⠞⠥⠗⠄⠀⠠⠑⠭⠉⠑⠏⠤</row>
+                    <row>⠞⠑⠥⠗⠀⠎⠊⠝⠞⠀⠕⠉⠉⠁⠑⠉⠁⠞⠀⠉⠥⠏⠊⠙⠁⠤</row>
+                    <row>⠞⠁⠞⠀⠝⠕⠝⠀⠏⠗⠕⠊⠙⠑⠝⠞⠂⠀⠎⠥⠝⠞⠀⠊⠝⠀</row>
+                    <row>⠉⠥⠇⠏⠁⠀⠟⠥⠊⠀⠕⠋⠋⠊⠉⠊⠁⠀⠙⠑⠎⠑⠗⠥⠝⠞⠀</row>
+                    <row>⠍⠕⠇⠇⠊⠞⠀⠁⠝⠊⠍⠀⠊⠙⠀⠑⠎⠞⠀⠇⠁⠃⠕⠗⠥⠍⠄</row>
+                    <row/>
+                    <row>⠼⠁⠀⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍</row>
+                    <row/>
+                    <row>⠀⠀⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍⠀⠙⠕⠇⠕⠗⠀⠎⠊⠞⠀</row>
+                    <row>⠁⠍⠑⠞⠂⠀⠉⠕⠝⠎⠑⠉⠞⠑⠞⠥⠗⠀⠁⠙⠊⠤</row>
+                    <row>⠏⠊⠎⠉⠊⠝⠛⠀⠑⠇⠊⠞⠂⠀⠎⠑⠙⠀⠙⠕⠀⠑⠊⠥⠎⠤</row>
+                    <row>⠍⠕⠙⠀⠞⠑⠍⠏⠕⠗⠀⠊⠝⠉⠊⠙⠊⠙⠥⠝⠞⠀⠥⠞⠀</row>
+                    <row>⠇⠁⠃⠕⠗⠑⠀⠑⠞⠀⠙⠕⠇⠕⠗⠑⠀⠍⠁⠛⠝⠁⠀</row>
+                    <row>⠁⠇⠊⠟⠥⠁⠄⠀⠠⠥⠞⠀⠑⠝⠊⠍⠀⠁⠙⠀⠍⠊⠝⠊⠍⠀</row>
+                    <row>⠧⠑⠝⠊⠁⠍⠂⠀⠟⠥⠊⠎⠀⠝⠕⠎⠞⠗⠥⠙⠀</row>
+                    <row>⠑⠭⠑⠗⠉⠊⠞⠁⠞⠊⠕⠝⠀⠥⠇⠇⠁⠍⠉⠕⠀⠇⠁⠃⠕⠤</row>
+                    <row>⠗⠊⠎⠀⠝⠊⠎⠊⠀⠥⠞⠀⠁⠇⠊⠟⠥⠊⠏⠀⠑⠭⠀⠑⠁⠀</row>
+                    <row>⠉⠕⠍⠍⠕⠙⠕⠀⠉⠕⠝⠎⠑⠟⠥⠁⠞⠄⠀⠠⠙⠥⠊⠎⠀</row>
+                    <row>⠁⠥⠞⠑⠀⠊⠗⠥⠗⠑⠀⠙⠕⠇⠕⠗⠀⠊⠝⠀⠗⠑⠏⠗⠑⠤</row>
+                    <row>⠓⠑⠝⠙⠑⠗⠊⠞⠀⠊⠝⠀⠧⠕⠇⠥⠏⠞⠁⠞⠑⠀⠧⠑⠇⠊⠞</row>
+                    <row>⠑⠎⠎⠑⠀⠉⠊⠇⠇⠥⠍⠀⠙⠕⠇⠕⠗⠑⠀⠑⠥⠀⠋⠥⠛⠊⠤</row>
+                </page>
+                <page>
+                    <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠉</row>
+                    <row>⠁⠞⠀⠝⠥⠇⠇⠁⠀⠏⠁⠗⠊⠁⠞⠥⠗⠄⠀⠠⠑⠭⠉⠑⠏⠤</row>
+                    <row>⠞⠑⠥⠗⠀⠎⠊⠝⠞⠀⠕⠉⠉⠁⠑⠉⠁⠞⠀⠉⠥⠏⠊⠙⠁⠤</row>
+                    <row>⠞⠁⠞⠀⠝⠕⠝⠀⠏⠗⠕⠊⠙⠑⠝⠞⠂⠀⠎⠥⠝⠞⠀⠊⠝⠀</row>
+                    <row>⠉⠥⠇⠏⠁⠀⠟⠥⠊⠀⠕⠋⠋⠊⠉⠊⠁⠀⠙⠑⠎⠑⠗⠥⠝⠞⠀</row>
+                    <row>⠍⠕⠇⠇⠊⠞⠀⠁⠝⠊⠍⠀⠊⠙⠀⠑⠎⠞⠀⠇⠁⠃⠕⠗⠥⠍⠄</row>
+                    <row/>
+                    <row>⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍</row>
+                    <row/>
+                    <row>⠀⠀⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍⠀⠙⠕⠇⠕⠗⠀⠎⠊⠞⠀</row>
+                    <row>⠁⠍⠑⠞⠂⠀⠉⠕⠝⠎⠑⠉⠞⠑⠞⠥⠗⠀⠁⠙⠊⠤</row>
+                    <row>⠏⠊⠎⠉⠊⠝⠛⠀⠑⠇⠊⠞⠂⠀⠎⠑⠙⠀⠙⠕⠀⠑⠊⠥⠎⠤</row>
+                    <row>⠍⠕⠙⠀⠞⠑⠍⠏⠕⠗⠀⠊⠝⠉⠊⠙⠊⠙⠥⠝⠞⠀⠥⠞⠀</row>
+                    <row>⠇⠁⠃⠕⠗⠑⠀⠑⠞⠀⠙⠕⠇⠕⠗⠑⠀⠍⠁⠛⠝⠁⠀</row>
+                    <row>⠁⠇⠊⠟⠥⠁⠄⠀⠠⠥⠞⠀⠑⠝⠊⠍⠀⠁⠙⠀⠍⠊⠝⠊⠍⠀</row>
+                    <row>⠧⠑⠝⠊⠁⠍⠂⠀⠟⠥⠊⠎⠀⠝⠕⠎⠞⠗⠥⠙⠀</row>
+                    <row>⠑⠭⠑⠗⠉⠊⠞⠁⠞⠊⠕⠝⠀⠥⠇⠇⠁⠍⠉⠕⠀⠇⠁⠃⠕⠤</row>
+                    <row>⠗⠊⠎⠀⠝⠊⠎⠊⠀⠥⠞⠀⠁⠇⠊⠟⠥⠊⠏⠀⠑⠭⠀⠑⠁⠀</row>
+                    <row>⠉⠕⠍⠍⠕⠙⠕⠀⠉⠕⠝⠎⠑⠟⠥⠁⠞⠄⠀⠠⠙⠥⠊⠎⠀</row>
+                    <row>⠁⠥⠞⠑⠀⠊⠗⠥⠗⠑⠀⠙⠕⠇⠕⠗⠀⠊⠝⠀⠗⠑⠏⠗⠑⠤</row>
+                    <row>⠓⠑⠝⠙⠑⠗⠊⠞⠀⠊⠝⠀⠧⠕⠇⠥⠏⠞⠁⠞⠑⠀⠧⠑⠇⠊⠞</row>
+                    <row>⠑⠎⠎⠑⠀⠉⠊⠇⠇⠥⠍⠀⠙⠕⠇⠕⠗⠑⠀⠑⠥⠀⠋⠥⠛⠊⠤</row>
+                    <row>⠁⠞⠀⠝⠥⠇⠇⠁⠀⠏⠁⠗⠊⠁⠞⠥⠗⠄⠀⠠⠑⠭⠉⠑⠏⠤</row>
+                    <row>⠞⠑⠥⠗⠀⠎⠊⠝⠞⠀⠕⠉⠉⠁⠑⠉⠁⠞⠀⠉⠥⠏⠊⠙⠁⠤</row>
+                    <row>⠞⠁⠞⠀⠝⠕⠝⠀⠏⠗⠕⠊⠙⠑⠝⠞⠂⠀⠎⠥⠝⠞⠀⠊⠝⠀</row>
+                    <row>⠉⠥⠇⠏⠁⠀⠟⠥⠊⠀⠕⠋⠋⠊⠉⠊⠁⠀⠙⠑⠎⠑⠗⠥⠝⠞⠀</row>
+                    <row>⠍⠕⠇⠇⠊⠞⠀⠁⠝⠊⠍⠀⠊⠙⠀⠑⠎⠞⠀⠇⠁⠃⠕⠗⠥⠍⠄</row>
+                    <row>⠀⠀⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍⠀⠙⠕⠇⠕⠗⠀⠎⠊⠞⠀</row>
+                    <row>⠁⠍⠑⠞⠂⠀⠉⠕⠝⠎⠑⠉⠞⠑⠞⠥⠗⠀⠁⠙⠊⠤</row>
+                    <row>⠏⠊⠎⠉⠊⠝⠛⠀⠑⠇⠊⠞⠂⠀⠎⠑⠙⠀⠙⠕⠀⠑⠊⠥⠎⠤</row>
+                </page>
+                <page>
+                    <row>⠼⠙⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</row>
+                    <row>⠍⠕⠙⠀⠞⠑⠍⠏⠕⠗⠀⠊⠝⠉⠊⠙⠊⠙⠥⠝⠞⠀⠥⠞⠀</row>
+                    <row>⠇⠁⠃⠕⠗⠑⠀⠑⠞⠀⠙⠕⠇⠕⠗⠑⠀⠍⠁⠛⠝⠁⠀</row>
+                    <row>⠁⠇⠊⠟⠥⠁⠄⠀⠠⠥⠞⠀⠑⠝⠊⠍⠀⠁⠙⠀⠍⠊⠝⠊⠍⠀</row>
+                    <row>⠧⠑⠝⠊⠁⠍⠂⠀⠟⠥⠊⠎⠀⠝⠕⠎⠞⠗⠥⠙⠀</row>
+                    <row>⠑⠭⠑⠗⠉⠊⠞⠁⠞⠊⠕⠝⠀⠥⠇⠇⠁⠍⠉⠕⠀⠇⠁⠃⠕⠤</row>
+                    <row>⠗⠊⠎⠀⠝⠊⠎⠊⠀⠥⠞⠀⠁⠇⠊⠟⠥⠊⠏⠀⠑⠭⠀⠑⠁⠀</row>
+                    <row>⠉⠕⠍⠍⠕⠙⠕⠀⠉⠕⠝⠎⠑⠟⠥⠁⠞⠄⠀⠠⠙⠥⠊⠎⠀</row>
+                    <row>⠁⠥⠞⠑⠀⠊⠗⠥⠗⠑⠀⠙⠕⠇⠕⠗⠀⠊⠝⠀⠗⠑⠏⠗⠑⠤</row>
+                    <row>⠓⠑⠝⠙⠑⠗⠊⠞⠀⠊⠝⠀⠧⠕⠇⠥⠏⠞⠁⠞⠑⠀⠧⠑⠇⠊⠞</row>
+                    <row>⠑⠎⠎⠑⠀⠉⠊⠇⠇⠥⠍⠀⠙⠕⠇⠕⠗⠑⠀⠑⠥⠀⠋⠥⠛⠊⠤</row>
+                    <row>⠁⠞⠀⠝⠥⠇⠇⠁⠀⠏⠁⠗⠊⠁⠞⠥⠗⠄⠀⠠⠑⠭⠉⠑⠏⠤</row>
+                    <row>⠞⠑⠥⠗⠀⠎⠊⠝⠞⠀⠕⠉⠉⠁⠑⠉⠁⠞⠀⠉⠥⠏⠊⠙⠁⠤</row>
+                    <row>⠞⠁⠞⠀⠝⠕⠝⠀⠏⠗⠕⠊⠙⠑⠝⠞⠂⠀⠎⠥⠝⠞⠀⠊⠝⠀</row>
+                    <row>⠉⠥⠇⠏⠁⠀⠟⠥⠊⠀⠕⠋⠋⠊⠉⠊⠁⠀⠙⠑⠎⠑⠗⠥⠝⠞⠀</row>
+                    <row>⠍⠕⠇⠇⠊⠞⠀⠁⠝⠊⠍⠀⠊⠙⠀⠑⠎⠞⠀⠇⠁⠃⠕⠗⠥⠍⠄</row>
+                    <row/>
+                    <row>⠠⠇⠕⠏⠏⠥⠎⠁⠝⠁⠞</row>
+                    <row/>
+                    <row>⠀⠀⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍⠀⠙⠕⠇⠕⠗⠀⠎⠊⠞⠀</row>
+                    <row>⠁⠍⠑⠞⠂⠀⠉⠕⠝⠎⠑⠉⠞⠑⠞⠥⠗⠀⠁⠙⠊⠤</row>
+                    <row>⠏⠊⠎⠉⠊⠝⠛⠀⠑⠇⠊⠞⠂⠀⠎⠑⠙⠀⠙⠕⠀⠑⠊⠥⠎⠤</row>
+                    <row>⠍⠕⠙⠀⠞⠑⠍⠏⠕⠗⠀⠊⠝⠉⠊⠙⠊⠙⠥⠝⠞⠀⠥⠞⠀</row>
+                    <row>⠇⠁⠃⠕⠗⠑⠀⠑⠞⠀⠙⠕⠇⠕⠗⠑⠀⠍⠁⠛⠝⠁⠀</row>
+                    <row>⠁⠇⠊⠟⠥⠁⠄⠀⠠⠥⠞⠀⠑⠝⠊⠍⠀⠁⠙⠀⠍⠊⠝⠊⠍⠀</row>
+                    <row>⠧⠑⠝⠊⠁⠍⠂⠀⠟⠥⠊⠎⠀⠝⠕⠎⠞⠗⠥⠙⠀</row>
+                    <row>⠑⠭⠑⠗⠉⠊⠞⠁⠞⠊⠕⠝⠀⠥⠇⠇⠁⠍⠉⠕⠀⠇⠁⠃⠕⠤</row>
+                    <row>⠗⠊⠎⠀⠝⠊⠎⠊⠀⠥⠞⠀⠁⠇⠊⠟⠥⠊⠏⠀⠑⠭⠀⠑⠁⠀</row>
+                    <row>⠉⠕⠍⠍⠕⠙⠕⠀⠉⠕⠝⠎⠑⠟⠥⠁⠞⠄⠀⠠⠙⠥⠊⠎⠀</row>
+                    <row>⠁⠥⠞⠑⠀⠊⠗⠥⠗⠑⠀⠙⠕⠇⠕⠗⠀⠊⠝⠀⠗⠑⠏⠗⠑⠤</row>
+                </page>
+                <page>
+                    <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠑</row>
+                    <row>⠓⠑⠝⠙⠑⠗⠊⠞⠀⠊⠝⠀⠧⠕⠇⠥⠏⠞⠁⠞⠑⠀⠧⠑⠇⠊⠞</row>
+                    <row>⠑⠎⠎⠑⠀⠉⠊⠇⠇⠥⠍⠀⠙⠕⠇⠕⠗⠑⠀⠑⠥⠀⠋⠥⠛⠊⠤</row>
+                    <row>⠁⠞⠀⠝⠥⠇⠇⠁⠀⠏⠁⠗⠊⠁⠞⠥⠗⠄⠀⠠⠑⠭⠉⠑⠏⠤</row>
+                    <row>⠞⠑⠥⠗⠀⠎⠊⠝⠞⠀⠕⠉⠉⠁⠑⠉⠁⠞⠀⠉⠥⠏⠊⠙⠁⠤</row>
+                    <row>⠞⠁⠞⠀⠝⠕⠝⠀⠏⠗⠕⠊⠙⠑⠝⠞⠂⠀⠎⠥⠝⠞⠀⠊⠝⠀</row>
+                    <row>⠉⠥⠇⠏⠁⠀⠟⠥⠊⠀⠕⠋⠋⠊⠉⠊⠁⠀⠙⠑⠎⠑⠗⠥⠝⠞⠀</row>
+                    <row>⠍⠕⠇⠇⠊⠞⠀⠁⠝⠊⠍⠀⠊⠙⠀⠑⠎⠞⠀⠇⠁⠃⠕⠗⠥⠍⠄</row>
+                    <row/>
+                    <row>⠠⠅⠊⠗⠚⠁⠝⠀⠇⠕⠏⠏⠥</row>
+                    <row/>
+                    <row>⠀⠀⠠⠞⠜⠓⠜⠝⠀⠏⠜⠜⠞⠞⠽⠊⠀⠅⠊⠗⠚⠁⠀</row>
+                    <row>⠠⠅⠊⠗⠚⠁</row>
+                </page>
+            </section>
+        </volume>
+    </body>
+        </pef>
+      </x:document>
+    </x:expect>
+  </x:scenario>
+  
+  <x:scenario label="title-page">
+    <x:call step="celia:dtbook-to-pef">
+      <x:input port="source">
+        <x:document type="inline">
+          <dtbook xmlns="http://www.daisy.org/z3986/2005/dtbook/" xml:lang="fi" version="2005-3">
+            <head>
+	            <meta name="dc:Title" content="title"/>
+	            <meta name="dc:Creator" content="celia"/>
+	          </head>
+            <book>
+              <frontmatter>
+                <doctitle>title</doctitle>
+                <docauthor>celia</docauthor>
+              </frontmatter>
+              <bodymatter>
+                <level1>
+                  <h1>simple test</h1>
+                </level1>
+              </bodymatter>
+            </book>
+          </dtbook>
+        </x:document>
+      </x:input>
+      <x:option name="include-brf" select="true()"/>
+      <x:option name="pef-output-dir" select="concat($temp-dir, 'title-page/output-dir/')"/>
+      <x:option name="brf-output-dir" select="concat($temp-dir, 'title-page/output-dir/')"/>
+      <x:option name="temp-dir" select="concat($temp-dir, 'title-page/temp-dir/')"/>
+      <x:option name="toc-depth" select="'0'"/>
+    </x:call>
+    <x:context label="pef">
+      <x:document type="file" base-uri="temp-dir" href="title-page/output-dir/test_script.pef"/>
+    </x:context>
+    <x:expect label="result" type="custom" href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl" step="x:pef-compare">
+      <x:document type="inline">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+    <head>
+        <meta>
+            <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/">application/x-pef+xml</dc:format>
+            <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
+            <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">title</dc:title>
+            <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">celia</dc:creator>
+        </meta>
+    </head>
+    <body>
+        <volume cols="27" rows="30" rowgap="0" duplex="true">
+            <section>
+                <page>
+		    <row/>
+                    <row>⠞⠊⠞⠇⠑</row>
+                    <row/>
+                    <row>⠉⠑⠇⠊⠁</row>
+                    <row/>
+                    <row>⠠⠧⠊⠓⠅⠕⠀⠼⠁⠌⠼⠁</row>
+                </page>
+                <page/>
+            </section>
+            <section>
+                <page>
+                    <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁</row>
+                    <row>⠞⠊⠞⠇⠑</row>
+                    <row/>
+                    <row>⠉⠑⠇⠊⠁</row>
+                    <row/>
+                    <row>⠎⠊⠍⠏⠇⠑⠀⠞⠑⠎⠞</row>
+                    <row/>
+                </page>
+            </section>
+        </volume>
+    </body>
+</pef>
       </x:document>
     </x:expect>
   </x:scenario>
