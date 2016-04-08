@@ -54,7 +54,7 @@ book {
 #generated-title-page {
 	display:block;
 	page-break-before:always;
-	page-break-after:always;
+	page-break-after:right;
 	page-break-inside:avoid;
 	flow: title-page;
 }
@@ -324,13 +324,4 @@ strong {
  */
 .indented {
 	text-indent: 2;
-}
-
-/*
- * xml:space='preserve'
- *
- * Pre-formatted text
- */
-[xml|space=preserve] {
-	white-space: pre-wrap;
 }
