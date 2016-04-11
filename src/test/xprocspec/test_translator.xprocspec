@@ -10,21 +10,27 @@
       <p:input port="source"/>
       <p:output port="result"/>
       <p:import href="http://www.daisy.org/pipeline/modules/braille/common-utils/library.xpl"/>
-      <p:add-attribute match="html:p" attribute-name="style" attribute-value="display:block"/>
       <px:transform query="(input:html)(input:css)(output:css)(translator:celia)(locale:fi)"/>
-      <p:delete match="html:p/@style"/>
     </p:declare-step>
   </x:script>
   
-  <x:scenario label="test_01">
+  <x:scenario label="emphasis">
     <x:call step="pxi:transform">
       <x:input port="source">
         <x:document type="inline">
           <html xmlns="http://www.w3.org/1999/xhtml">
-            <p>Tietoa saa <strong>Näkövammaisten Keskusliitosta</strong>.</p>
-            <p>Hän kiinnitti huomiota <strong>järjestysluvun</strong> taivutukseen sanassa tuhan<strong>nen</strong>nen.</p>
-            <p>Ei <em>kaikki</em> ole kultaa, <em>mikä</em> kiiltää.</p>
-            <p>Tämä <strong>on yli kolmen sanan testi</strong>.</p>
+            <p style="display: block">
+              Tietoa saa <strong>Näkövammaisten Keskusliitosta</strong>.
+            </p>
+            <p style="display: block">
+              Hän kiinnitti huomiota <strong>järjestysluvun</strong> taivutukseen sanassa tuhan<strong>nen</strong>nen.
+            </p>
+            <p style="display: block">
+              Ei <em>kaikki</em> ole kultaa, <em>mikä</em> kiiltää.
+            </p>
+            <p style="display: block">
+              Tämä <strong>on yli kolmen sanan testi</strong>.
+            </p>
           </html>
         </x:document>
       </x:input>
@@ -35,11 +41,59 @@
     <x:expect label="result" type="compare" pending="Liblouis emphasis needs fixing">
       <x:document type="inline">
         <html xmlns="http://www.w3.org/1999/xhtml">
-          <p>⠠⠞⠊⠑⠞⠕⠁ ⠎⠁⠁ <strong>⠬⠠⠝⠜⠅⠪⠧⠁⠍⠍⠁⠊⠎⠞⠑⠝ ⠬⠠⠅⠑⠎⠅⠥⠎⠇⠊⠊⠞⠕⠎⠞⠁</strong>⠄</p>
-          <p>⠠⠓⠜⠝ ⠅⠊⠊⠝⠝⠊⠞⠞⠊ ⠓⠥⠕⠍⠊⠕⠞⠁ <strong>⠬⠚⠜⠗⠚⠑⠎⠞⠽⠎⠇⠥⠧⠥⠝</strong> ⠞⠁⠊⠧⠥⠞⠥⠅⠎⠑⠑⠝ ⠎⠁⠝⠁⠎⠎⠁ ⠞⠥⠓⠁⠝<strong>⠬⠝⠑⠝</strong>⠬⠝⠑⠝⠄</p>
-          <p>⠠⠑⠊ <em>⠨⠅⠁⠊⠅⠅⠊</em> ⠕⠇⠑ ⠅⠥⠇⠞⠁⠁⠂ <em>⠨⠍⠊⠅⠜</em> ⠅⠊⠊⠇⠞⠜⠜⠄</p>
-          <p>⠠⠞⠜⠍⠜ <strong>⠬⠬⠕⠝ ⠽⠇⠊ ⠅⠕⠇⠍⠑⠝ ⠎⠁⠝⠁⠝ ⠬⠞⠑⠎⠞⠊</strong>⠄</p>
+          <p style="display: block">
+            ⠠⠞⠊⠑⠞⠕⠁ ⠎⠁⠁ <strong>⠬⠠⠝⠜⠅⠪⠧⠁⠍⠍⠁⠊⠎⠞⠑⠝ ⠬⠠⠅⠑⠎⠅⠥⠎⠇⠊⠊⠞⠕⠎⠞⠁</strong>⠄
+          </p>
+          <p style="display: block">
+            ⠠⠓⠜⠝ ⠅⠊⠊⠝⠝⠊⠞⠞⠊ ⠓⠥⠕⠍⠊⠕⠞⠁ <strong>⠬⠚⠜⠗⠚⠑⠎⠞⠽⠎⠇⠥⠧⠥⠝</strong> ⠞⠁⠊⠧⠥⠞⠥⠅⠎⠑⠑⠝ ⠎⠁⠝⠁⠎⠎⠁ ⠞⠥⠓⠁⠝<strong>⠬⠝⠑⠝</strong>⠬⠝⠑⠝⠄
+          </p>
+          <p style="display: block">
+            ⠠⠑⠊ <em>⠨⠅⠁⠊⠅⠅⠊</em> ⠕⠇⠑ ⠅⠥⠇⠞⠁⠁⠂ <em>⠨⠍⠊⠅⠜</em> ⠅⠊⠊⠇⠞⠜⠜⠄
+          </p>
+          <p style="display: block">
+            ⠠⠞⠜⠍⠜ <strong>⠬⠬⠕⠝ ⠽⠇⠊ ⠅⠕⠇⠍⠑⠝ ⠎⠁⠝⠁⠝ ⠬⠞⠑⠎⠞⠊</strong>⠄
+          </p>
         </html>
+      </x:document>
+    </x:expect>
+  </x:scenario>
+  
+  <x:scenario label="notransform">
+    <x:documentation>
+      Class "notransform"
+    </x:documentation>
+    <x:call step="pxi:transform">
+      <x:input port="source">
+        <x:document type="inline">
+          <level1 xmlns="http://www.daisy.org/z3986/2005/dtbook/" xml:lang="fi">
+            <p style="display: block">bla bla bla</p>
+            <p class="notransform"
+               style="display: block; text-transform: none; white-space: pre-wrap">⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁
+⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁
+⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁
+⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁
+⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁
+⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁
+⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁
+⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁</p>
+            <p style="display: block">bla bla bla</p>
+          </level1>
+        </x:document>
+      </x:input>
+    </x:call>
+    <x:context label="result">
+      <x:document type="port" port="result"/>
+    </x:context>
+    <x:expect label="result" type="compare" normalize-space="false">
+      <x:document type="inline">
+        <level1 xmlns="http://www.daisy.org/z3986/2005/dtbook/" xml:lang="fi" style="text-transform: none">             <p style="display: block">⠃⠇⠁ ⠃⠇⠁ ⠃⠇⠁</p>             <p class="notransform" style="display: block; text-transform: none; white-space: pre-wrap">⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁
+⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁
+⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁
+⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁
+⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁
+⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁
+⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁
+⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁</p>             <p style="display: block">⠃⠇⠁ ⠃⠇⠁ ⠃⠇⠁</p>           </level1>
       </x:document>
     </x:expect>
   </x:scenario>
