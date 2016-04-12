@@ -259,6 +259,24 @@ sidebar {
 }
 
 /*
+ * Notes and noterefs
+ *
+ * Noterefs have square brackets around them.
+ *
+ * Notes can be left as they are. Notes are collected at the end of the book
+ * by the subcontractor.
+ */
+noteref::before {
+	content: "[";
+}
+noteref::after {
+	content: "]";
+}
+note::before {
+	content: attr(id) ': ';
+}
+
+/*
  * Code
  *
  * No hyphenation
