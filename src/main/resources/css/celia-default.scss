@@ -69,6 +69,12 @@ book {
 	text-indent: -2;
 }
 
+/* Override ordinary li's negative indentation */
+#generated-volume-toc li {
+	margin-left: 0;
+	text-indent: 0;
+}
+
 /*
  * Generated pages
  * No page numbering on title pages and TOC
@@ -163,9 +169,6 @@ ul {
 	display: block;
 	margin-top: 1;
 	margin-bottom: 1;
-	li {
-		display: list-item;
-	}
 }
 
 ol {
@@ -173,9 +176,13 @@ ol {
 	margin-top: 1;
 	margin-bottom: 1;
 	list-style-type: decimal;
-	li {
-		display: list-item;
-	}
+}
+
+/* Long list items have negative indent */
+li {
+	display: list-item;
+	text-indent: -2;
+	margin-left: 2;
 }
 
 /*
@@ -204,10 +211,14 @@ th {
 	display: block;
 }
 
+/* Long rows have indent on the continuation line */
 tr {
 	display: block;
+	text-indent: -2;
+	margin-left: 2;
 }
 
+/* <td>s are separated by a slash */
 td::after {
 	content: ' /';
 }
@@ -274,6 +285,15 @@ noteref::after {
 }
 note::before {
 	content: attr(id) ': ';
+}
+
+/*
+ * <line>s in <linegroup>s and <poem>s
+ * Negative indent for long lines
+ */
+line {
+	text-indent: -2;
+	margin-left: 2;
 }
 
 /*
