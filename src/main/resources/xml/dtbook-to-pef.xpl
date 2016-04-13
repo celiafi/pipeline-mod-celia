@@ -41,11 +41,30 @@
 
     <p:option name="insert-titlepage" select="'true'"/>
 
+    <p:option name="preprocess-tables" select="'false'"/>
+
     <p:option name="toc-depth" select="'2'"/>
 
     <p:import href="http://www.daisy.org/pipeline/modules/common-utils/library.xpl"/>
     <p:import href="http://www.daisy.org/pipeline/modules/braille/dtbook-to-pef/dtbook-to-pef.xpl"/>
     <p:import href="http://www.celia.fi/pipeline/modules/braille/library.xpl"/>
+
+    <!--<p:choose>
+        <p:when test="$preprocess-tables='true'">
+            <p:in-scope-names name="parameters"/>
+            <celia:pre-processing>
+                <p:input port="parameters">
+                    <p:pipe port="result" step="parameters"/>
+                </p:input>
+                <p:input port="source">
+                    <p:pipe port="source" step="main"/>
+                </p:input>
+            </celia:pre-processing>
+        </p:when>
+        <p:otherwise>
+            <px:message message="Skipping table preprocessing"/>
+        </p:otherwise>
+    </p:choose>
 
     <p:choose>
         <p:when test="$insert-titlepage='true'">
@@ -62,7 +81,19 @@
         <p:otherwise>
             <px:message message="Skipping title page generation"/>
         </p:otherwise>
-    </p:choose>
+    </p:choose>-->
+
+    <p:in-scope-names name="parameters"/>
+    <celia:pre-processing>
+      <p:input port="parameters">
+        <p:pipe port="result" step="parameters"/>
+      </p:input>
+      <p:input port="source">
+        <p:pipe port="source" step="main"/>
+      </p:input>
+      <p:with-option name="preprocess-tables" select="$preprocess-tables"/>
+      <p:with-option name="insert-titlepage" select="$insert-titlepage"/>
+    </celia:pre-processing>
 
     <px:dtbook-to-pef>
         <p:with-option name="transform" select="'(translator:celia)'"/>

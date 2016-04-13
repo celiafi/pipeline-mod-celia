@@ -565,8 +565,7 @@
       <x:option name="pef-output-dir" select="concat($temp-dir, 'slash-tables/output-dir/')"/>
       <x:option name="brf-output-dir" select="concat($temp-dir, 'slash-tables/output-dir/')"/>
       <x:option name="temp-dir" select="concat($temp-dir, 'slash-tables/temp-dir/')"/>
-      <!-- TODO handle titlepage insertion and other pre-processing separately! -> dtbook-to-pef.xpl -->
-      <x:option name="insert-titlepage" select="true()"/>
+      <x:option name="preprocess-tables" select="true()"/>
       <x:option name="toc-depth" select="'0'"/>
       <x:option name="show-print-page-numbers" select="true()"/>
     </x:call>
