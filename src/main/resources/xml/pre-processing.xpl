@@ -22,7 +22,17 @@
         </p:input>
     </p:identity>
     
-    <px:message message="Running Celia-specific pre-processing steps"/>
+    <px:message message="Running tables preprocessing"/>
+    <p:xslt>
+        <p:input port="parameters">
+            <p:pipe port="result" step="parameters"/>
+        </p:input>
+        <p:input port="stylesheet">
+            <p:document href="preprocess-tables.xsl"/>
+        </p:input>
+    </p:xslt>
+    
+    <px:message message="Running title page generation"/>
     <p:xslt>
         <p:input port="parameters">
             <p:pipe port="result" step="parameters"/>
@@ -31,6 +41,7 @@
             <p:document href="insert-titlepage.xsl"/>
         </p:input>
     </p:xslt>
+
     <px:message message="Finished running Celia-specific pre-processing steps" severity="DEBUG"/>
     
 </p:declare-step>

@@ -227,6 +227,17 @@ td:last-child::after {
 	content: '';
 }
 
+/* dash-separated is generated in pre-processing for tables
+ * that contain slashes in <tds */
+.dash-separated {
+	td::after {
+		content: ' --';
+	}
+	td:last-child::after {
+		content: '';
+	}
+}
+
 /*
  * Image groups
  */
