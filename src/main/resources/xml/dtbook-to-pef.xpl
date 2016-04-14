@@ -3,6 +3,9 @@
                 xmlns:celia="http://www.celia.fi"
 		xmlns:p="http://www.w3.org/ns/xproc"
 		xmlns:px="http://www.daisy.org/ns/pipeline/xproc"
+		xmlns:pef="http://www.daisy.org/ns/2008/pef"
+		xmlns:c="http://www.w3.org/ns/xproc-step"
+		xmlns:dtb="http://www.daisy.org/z3986/2005/dtbook/"
 		exclude-inline-prefixes="#all"
 		name="main">
 
@@ -14,8 +17,10 @@
     <p:input port="source" primary="true" px:name="source" px:media-type="application/x-dtbook+xml"/>
 
     <p:option name="include-brf" select="'true'"/>
+    <p:option name="include-preview" select="'true'"/>
     <p:option name="pef-output-dir"/>
     <p:option name="brf-output-dir"/>
+    <p:option name="preview-output-dir"/>
     <p:option name="temp-dir"/>
 
     <p:option name="stylesheet" select="'http://www.celia.fi/pipeline/modules/braille/default.scss'"/>
@@ -45,82 +50,93 @@
 
     <p:option name="toc-depth" select="'2'"/>
 
+
+    <p:import href="http://www.daisy.org/pipeline/modules/braille/dtbook-to-pef/library.xpl"/>
+    <p:import href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl"/>
+    <p:import href="http://www.daisy.org/pipeline/modules/file-utils/library.xpl"/>
     <p:import href="http://www.daisy.org/pipeline/modules/common-utils/library.xpl"/>
-    <p:import href="http://www.daisy.org/pipeline/modules/braille/dtbook-to-pef/dtbook-to-pef.xpl"/>
     <p:import href="http://www.celia.fi/pipeline/modules/braille/library.xpl"/>
 
-    <!--<p:choose>
-        <p:when test="$preprocess-tables='true'">
-            <p:in-scope-names name="parameters"/>
-            <celia:pre-processing>
-                <p:input port="parameters">
-                    <p:pipe port="result" step="parameters"/>
-                </p:input>
-                <p:input port="source">
-                    <p:pipe port="source" step="main"/>
-                </p:input>
-            </celia:pre-processing>
-        </p:when>
-        <p:otherwise>
-            <px:message message="Skipping table preprocessing"/>
-        </p:otherwise>
-    </p:choose>
 
-    <p:choose>
-        <p:when test="$insert-titlepage='true'">
-            <p:in-scope-names name="parameters"/>
-            <celia:pre-processing>
-                <p:input port="parameters">
-                    <p:pipe port="result" step="parameters"/>
-                </p:input>
-                <p:input port="source">
-                    <p:pipe port="source" step="main"/>
-                </p:input>
-            </celia:pre-processing>
-        </p:when>
-        <p:otherwise>
-            <px:message message="Skipping title page generation"/>
-        </p:otherwise>
-    </p:choose>-->
+    <p:in-scope-names name="in-scope-names"/>
+    <p:identity>
+      <p:input port="source">
+        <p:pipe port="result" step="in-scope-names"/>
+      </p:input>
+    </p:identity>
+    <p:delete match="c:param[@name=('stylesheet',
+                                    'ascii-table',
+				    'include-brf',
+				    'include-preview',
+				    'pef-output-dir',
+				    'brf-output-dir',
+				    'preview-output-dir',
+				    'temp-dir')]"/>
+    <p:add-attribute match="c:param[@name='hyphenation']" attribute-name="value">
+        <p:with-option name="attribute-value"
+	             select="if ($hyphenation='from-meta')
+		             then (//dtb:meta[@name='prod:docHyphenate']/@content,'Y')[1]='Y'
+			     else $hyphenation='true'"/>
+    </p:add-attribute>
 
-    <p:in-scope-names name="parameters"/>
+    <p:identity name="input-options"/>
+    <p:sink/>
+
+    <!-- =============== -->
+    <!-- CREATE TEMP DIR -->
+    <!-- =============== -->
+    <px:tempdir name="temp-dir">
+      <p:with-option name="href" select="if ($temp-dir!='') then $temp-dir else $pef-output-dir"/>
+    </px:tempdir>
+    <p:sink/>
+
+    <!-- ==================== -->
+    <!-- DTBOOK PREPROCESSING -->
+    <!-- ==================== -->
+    <p:identity>
+      <p:input port="source">
+        <p:pipe step="main" port="source"/>
+      </p:input>
+    </p:identity>
+
     <celia:pre-processing>
       <p:input port="parameters">
-        <p:pipe port="result" step="parameters"/>
-      </p:input>
-      <p:input port="source">
-        <p:pipe port="source" step="main"/>
+	<p:pipe step="input-options" port="result"/>
       </p:input>
       <p:with-option name="preprocess-tables" select="$preprocess-tables"/>
       <p:with-option name="insert-titlepage" select="$insert-titlepage"/>
     </celia:pre-processing>
 
-    <px:dtbook-to-pef>
-        <p:with-option name="transform" select="'(translator:celia)'"/>
-	<p:with-option name="include-brf" select="$include-brf"/>
-	<p:with-option name="pef-output-dir" select="$pef-output-dir"/>
-	<p:with-option name="brf-output-dir" select="$brf-output-dir"/>
+    <!-- ============= -->
+    <!-- DTBOOK TO PEF -->
+    <!-- ============= -->
+    <px:dtbook-to-pef.convert default-stylesheet="http://www.daisy.org/pipeline/modules/braille/dtbook-to-pef/css/default.css"
+                              transform="(formatter:dotify)(translator:celia)">
+	<p:with-option name="temp-dir" select="string(/c:result)">
+	  <p:pipe step="temp-dir" port="result"/>
+	</p:with-option>
 	<p:with-option name="stylesheet" select="$stylesheet"/>
+	<p:input port="parameters">
+	  <p:pipe step="input-options" port="result"/>
+	</p:input>
+    </px:dtbook-to-pef.convert>
 
-	<p:with-option name="page-width" select="$page-width"/>
-	<p:with-option name="page-height" select="$page-height"/>
-
-	<p:with-option name="duplex" select="$duplex"/>
-
-	<p:with-option name="include-captions" select="$include-captions"/>
-	<p:with-option name="include-images" select="$include-images"/>
-	<p:with-option name="include-image-groups" select="$include-image-groups"/>
-
-	<p:with-option name="include-note-references" select="$include-note-references"/>
-	<p:with-option name="include-production-notes" select="$include-production-notes"/>
-
-	<p:with-option name="show-braille-page-numbers" select="$show-braille-page-numbers"/>
-	<p:with-option name="show-print-page-numbers" select="$show-print-page-numbers"/>
-
-	<p:with-option name="line-spacing" select="$line-spacing"/>
-	<p:with-option name="hyphenation" select="$hyphenation"/>
-
-	<p:with-option name="toc-depth" select="$toc-depth"/>
-    </px:dtbook-to-pef>
+    <!-- ========= -->
+    <!-- STORE PEF -->
+    <!-- ========= -->
+    <p:group>
+      <p:variable name="name" select="replace(p:base-uri(/),'^.*/([^/]*)\.[^/\.]*$','$1')">
+        <p:pipe step="main" port="source"/>
+      </p:variable>
+      <pef:store>
+                  <p:with-option name="href" select="concat($pef-output-dir,'/',$name,'.pef')"/>
+                  <p:with-option name="preview-href" select="if ($include-preview='true' and $preview-output-dir!='')
+                                                             then concat($preview-output-dir,'/',$name,'.pef.html')
+                                                             else ''"/>
+                  <p:with-option name="brf-href" select="if ($include-brf='true' and $brf-output-dir!='')
+                                                         then concat($brf-output-dir,'/',$name,'.brf')
+                                                         else ''"/>
+              </pef:store>
+    </p:group>
 
 </p:declare-step>
