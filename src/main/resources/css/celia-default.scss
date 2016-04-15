@@ -9,6 +9,7 @@ $show-braille-page-numbers: true !default;
 $show-print-page-numbers: false !default;
 $include-image-groups: false !default;
 $include-captions: false !default;
+$letter-spacing: 0 !default;
 
 @namespace xml "http://www.w3.org/XML/1998/namespace";
 
@@ -373,4 +374,19 @@ strong {
  */
 .indented {
 	text-indent: 2;
+}
+
+/*
+ * TODO test, fix later
+ */
+@if $letter-spacing == 1 {
+	* {
+		letter-spacing: 1;
+		word-spacing: 3;
+	}
+	p {
+		text-indent: 0;
+		margin-top: 1;
+		margin-bottom: 1;
+	}
 }
