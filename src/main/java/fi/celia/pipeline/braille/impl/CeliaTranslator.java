@@ -56,7 +56,7 @@ public interface CeliaTranslator {
 			href = asURI(context.getBundleContext().getBundle().getEntry("xml/block-translate.xpl"));
 		}
 		
-		private final static Query liblouisTable = mutableQuery().add("liblouis-table", "http://www.liblouis.org/tables/fi.utb");
+		private final static Query liblouisTable = mutableQuery().add("liblouis-table", "http://www.liblouis.org/tables/fi.utb,http://www.celia.fi/liblouis/undefined.utb");
 		private final static Query hyphenTable = mutableQuery().add("libhyphen-table", "http://www.celia.fi/pipeline/hyphen/hyph-fi.dic");
 		
 		private final static Iterable<BrailleTranslator> empty = Iterables.<BrailleTranslator>empty();
@@ -67,7 +67,7 @@ public interface CeliaTranslator {
 		/**
 		 * Recognized features:
 		 *
-		 * - translator: Will only match if the value is `celia'.
+		 * - translator: Will only match if the value is 'celia'.
 		 * - locale: Will only match if the language subtag is 'fi'.
 		 *
 		 */

@@ -204,6 +204,7 @@
           <instructions>
             <_dsannotations>
               fi.celia.pipeline.braille.impl.CeliaTranslator$Provider,
+	      fi.celia.pipeline.braille.impl.TablePath,
               fi.celia.pipeline.braille.impl.LibhyphenTablePath,
               fi.celia.pipeline.braille.impl.TexHyphenatorTablePath
             </_dsannotations>
