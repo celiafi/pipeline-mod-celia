@@ -1,3 +1,17 @@
+pipeline-mod-celia v1.2.0
+=========================
+
+Includes
+--------
+- Aggregate letter- and word-spacing under letter-spacing in UI
+- Default behavior for undefined characters: Replace with an asterisk
+- Add copyright and trademark symbols to translation tables
+- Implement default behaviour for simple tables
+- Add preprocessing step for tables containing forward slashes
+- Support for certain line elements too long to fit on one line: <tr>, <line>, <li>
+- Support for <noteref> elements
+- Add .notransform class for UTF-8 Braille content that is to be passed through the system unchanged
+
 pipeline-mod-celia v1.1.0
 =========================
 
