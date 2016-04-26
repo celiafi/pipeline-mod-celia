@@ -10,6 +10,7 @@ $show-print-page-numbers: false !default;
 $include-image-groups: false !default;
 $include-captions: false !default;
 $letter-spacing: 0 !default;
+$skip-typography: false !default;
 
 @namespace xml "http://www.w3.org/XML/1998/namespace";
 
@@ -320,16 +321,23 @@ code {
 }
 
 /*
- * Emphasis as italic
+ * Emphases
  */
-em {
-	text-transform: louis-ital;
+@if $skip-typography {
+	em {
+		text-transform: none;
+	}
+	strong {
+		text-transform: none;
+	}
 }
-/*
- * Strong emphasis as bold
- */
-strong {
-	text-transform: louis-bold;
+@else {
+	em {
+		text-transform: louis-ital;
+	}
+	strong {
+		text-transform: louis-bold;
+	}
 }
 
 /*
