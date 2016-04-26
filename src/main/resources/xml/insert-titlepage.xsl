@@ -26,7 +26,7 @@
 		select="//meta[@name='dc:Creator']/@content"/>
 	<xsl:variable name="YEAR" as="xs:integer"
 		select="year-from-date(current-date())"/>
-	<xsl:param name="show-braille-page-numbers" select="false"/>
+	<xsl:param name="show-braille-page-numbers" select="'false'"/>
 	
 	<!-- Generic copy-all template -->
 	<xsl:template match="@*|node()">
