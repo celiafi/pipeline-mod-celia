@@ -323,15 +323,7 @@ code {
 /*
  * Emphases
  */
-@if $skip-typography {
-	em {
-		text-transform: none;
-	}
-	strong {
-		text-transform: none;
-	}
-}
-@else {
+@if $skip-typography != true {
 	em {
 		text-transform: louis-ital;
 	}
