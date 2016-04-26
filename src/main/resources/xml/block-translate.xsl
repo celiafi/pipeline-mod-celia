@@ -21,7 +21,7 @@
 				              select="if (ancestor::html:strong) then 'louis-bold' else
 				                      if (ancestor::html:em) then 'louis-ital' else ()"/>
 				<xsl:variable name="inline-style" as="element()*"
-				              select="if ($transform) then ($inline-style,css:property('transform',$transform)) else $inline-style"/>
+				              select="if ($transform) then ($inline-style,css:property('text-transform',$transform)) else $inline-style"/>
 				<xsl:sequence select="css:serialize-declaration-list($inline-style[not(@value=css:initial-value(@name))])"/>
 			</xsl:for-each>
 		</xsl:variable>
