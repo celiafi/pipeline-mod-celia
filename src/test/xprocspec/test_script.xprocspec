@@ -1371,7 +1371,7 @@
                 <level1>
 		  <p><em>with</em> emphasis</p>
 		  <p><em>a longer passage with</em> emphasis</p>
-		  <p><em>part</em>ly emphasized word</p>
+		  <p>p<em>art</em>ly emphasized word</p>
 		  <p><strong>ditto</strong> for strong</p>
                 </level1>
               </bodymatter>
@@ -1409,7 +1409,7 @@
                 <row>⠀⠀⠨⠺⠊⠞⠓⠀⠑⠍⠏⠓⠁⠎⠊⠎</row>
                 <row>⠀⠀⠨⠨⠁⠀⠇⠕⠝⠛⠑⠗⠀⠏⠁⠎⠎⠁⠛⠑⠀⠨⠺⠊⠞⠓⠀</row>
                 <row>⠑⠍⠏⠓⠁⠎⠊⠎</row>
-                <row>⠀⠀⠨⠏⠁⠗⠞⠨⠇⠽⠀⠑⠍⠏⠓⠁⠎⠊⠵⠑⠙⠀⠺⠕⠗⠙</row>
+                <row>⠀⠀⠏⠨⠁⠗⠞⠨⠇⠽⠀⠑⠍⠏⠓⠁⠎⠊⠵⠑⠙⠀⠺⠕⠗⠙</row>
                 <row>⠀⠀⠬⠙⠊⠞⠞⠕⠀⠋⠕⠗⠀⠎⠞⠗⠕⠝⠛</row>
                 </page>
               </section>
