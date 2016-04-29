@@ -35,15 +35,15 @@
     <p:option name="include-images" select="'false'"/>
     <p:option name="include-captions" select="'false'"/>
 
-    <p:option name="include-note-references" select="'false'"/>
     <p:option name="include-production-notes" select="'false'"/>
+    <p:option name="process-noterefs" select="'true'"/>
 
     <p:option name="show-braille-page-numbers" select="'true'"/>
     <p:option name="show-print-page-numbers" select="'false'"/>
 
     <p:option name="line-spacing" select="'0'"/>
     <p:option name="letter-spacing" select="'0'"/>
-    <p:option name="hyphenation"/>
+    <p:option name="hyphenation" select="'true'"/>
 
     <p:option name="insert-titlepage" select="'true'"/>
 
