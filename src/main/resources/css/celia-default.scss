@@ -15,13 +15,6 @@ $skip-typography: false !default;
 @namespace xml "http://www.w3.org/XML/1998/namespace";
 
 /*
- * Hyphenation
- */
-book {
-	hyphens: auto;
-}
-
-/*
  * Volumes: Maximum length, title page
  */
 @volume {
