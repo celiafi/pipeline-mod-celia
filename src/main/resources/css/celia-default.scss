@@ -9,6 +9,7 @@ $show-braille-page-numbers: true !default;
 $show-print-page-numbers: false !default;
 $include-image-groups: false !default;
 $include-captions: false !default;
+$include-production-notes: false !default;
 $letter-spacing: 0 !default;
 $skip-typography: false !default;
 
@@ -182,12 +183,14 @@ li {
 /*
  * Producer notes
  */
-prodnote {
-	display: block;
-}
+@if $include-production-notes {
+	prodnote {
+		display: block;
+	}
 
-prodnote::before {
-	content: 'Tuottajan huomautus: ';
+	prodnote::before {
+		content: 'Tuottajan huomautus: ';
+	}
 }
 
 /*
