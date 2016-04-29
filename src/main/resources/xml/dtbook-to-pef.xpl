@@ -31,6 +31,9 @@
     <p:option name="page-height" select="'30'"/>
     <p:option name="duplex" select="'true'"/>
 
+    <p:option name="maximum-number-of-sheets" select="'80'"/>
+    <p:option name="minimum-number-of-sheets" select="'0'"/>
+
     <p:option name="include-image-groups" select="'false'"/>
     <p:option name="include-images" select="'false'"/>
     <p:option name="include-captions" select="'false'"/>
