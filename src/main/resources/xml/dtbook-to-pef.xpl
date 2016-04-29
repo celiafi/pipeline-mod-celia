@@ -46,7 +46,7 @@
 
     <p:option name="line-spacing" select="'0'"/>
     <p:option name="letter-spacing" select="'0'"/>
-    <p:option name="hyphenation"/>
+    <p:option name="hyphenation" select="'true'"/>
 
     <p:option name="insert-titlepage" select="'true'"/>
 
