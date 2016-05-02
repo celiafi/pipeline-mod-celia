@@ -63,7 +63,7 @@ public class HyphenationTest {
 			= ((LibhyphenHyphenator.Provider)context.getService(context.getServiceReference(LibhyphenHyphenator.Provider.class.getName())))
 			.get(query("(table:'hyph-fi.dic')")).iterator().next();
 		for(String[] testCase : testCases) {
-			assertEquals(testCase[0], testCase[1], hyphenator.transform(new String[]{testCase[2]})[0]);
+			assertEquals(testCase[0], testCase[1], hyphenator.asFullHyphenator().transform(new String[]{testCase[2]})[0]);
 		}
 	}
 	
@@ -75,6 +75,7 @@ public class HyphenationTest {
 		for(String[] testCase : testCases) {
 			assertEquals(testCase[0], testCase[1],
 			             texhyphProvider.get(query("(table:'hyph-fi.properties')")).iterator().next()
+			                            .asFullHyphenator()
 			                            .transform(new String[]{testCase[2]})[0]);
 		}
 	}
