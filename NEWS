@@ -1,3 +1,12 @@
+pipeline-mod-celia v1.3.0
+=========================
+
+Includes
+--------
+- New option `skip-typography` for disabling text-level formatting
+  (https://github.com/snaekobbi/pipeline-mod-celia/issues/9,
+  https://github.com/snaekobbi/pipeline-mod-celia/pull/16)
+
 pipeline-mod-celia v1.2.0
 =========================
 

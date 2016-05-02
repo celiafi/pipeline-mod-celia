@@ -20,16 +20,16 @@
         <x:document type="inline">
           <html xmlns="http://www.w3.org/1999/xhtml">
             <p style="display: block">
-              Tietoa saa <strong>Näkövammaisten Keskusliitosta</strong>.
+              Tietoa saa <strong style="text-transform: louis-bold">Näkövammaisten Keskusliitosta</strong>.
             </p>
             <p style="display: block">
-              Hän kiinnitti huomiota <strong>järjestysluvun</strong> taivutukseen sanassa tuhan<strong>nen</strong>nen.
+              Hän kiinnitti huomiota <strong style="text-transform: louis-bold">järjestysluvun</strong> taivutukseen sanassa tuhan<strong style="text-transform: louis-bold">nen</strong>nen.
             </p>
             <p style="display: block">
-              Ei <em>kaikki</em> ole kultaa, <em>mikä</em> kiiltää.
+              Ei <em style="text-transform: louis-ital">kaikki</em> ole kultaa, <em style="text-transform: louis-ital">mikä</em> kiiltää.
             </p>
             <p style="display: block">
-              Tämä <strong>on yli kolmen sanan testi</strong>.
+              Tämä <strong style="text-transform: louis-bold">on yli kolmen sanan testi</strong>.
             </p>
           </html>
         </x:document>
@@ -38,20 +38,20 @@
     <x:context label="result">
       <x:document type="port" port="result"/>
     </x:context>
-    <x:expect label="result" type="compare" pending="Liblouis emphasis needs fixing">
+    <x:expect label="result" type="compare">
       <x:document type="inline">
-        <html xmlns="http://www.w3.org/1999/xhtml">
+        <html xmlns="http://www.w3.org/1999/xhtml" style="text-transform: none">
           <p style="display: block">
-            ⠠⠞⠊⠑⠞⠕⠁ ⠎⠁⠁ <strong>⠬⠠⠝⠜⠅⠪⠧⠁⠍⠍⠁⠊⠎⠞⠑⠝ ⠬⠠⠅⠑⠎⠅⠥⠎⠇⠊⠊⠞⠕⠎⠞⠁</strong>⠄
+            ⠠⠞⠊⠑⠞⠕⠁ ⠎⠁⠁ <strong style="text-transform: none">⠬⠠⠝⠜⠅⠪⠧⠁⠍⠍⠁⠊⠎⠞⠑⠝ ⠬⠠⠅⠑⠎⠅⠥⠎⠇⠊⠊⠞⠕⠎⠞⠁</strong>⠄
           </p>
           <p style="display: block">
-            ⠠⠓⠜⠝ ⠅⠊⠊⠝⠝⠊⠞⠞⠊ ⠓⠥⠕⠍⠊⠕⠞⠁ <strong>⠬⠚⠜⠗⠚⠑⠎⠞⠽⠎⠇⠥⠧⠥⠝</strong> ⠞⠁⠊⠧⠥⠞⠥⠅⠎⠑⠑⠝ ⠎⠁⠝⠁⠎⠎⠁ ⠞⠥⠓⠁⠝<strong>⠬⠝⠑⠝</strong>⠬⠝⠑⠝⠄
+            ⠠⠓⠜⠝ ⠅⠊⠊⠝⠝⠊⠞⠞⠊ ⠓⠥⠕⠍⠊⠕⠞⠁ <strong style="text-transform: none">⠬⠚⠜⠗⠚⠑⠎⠞⠽⠎⠇⠥⠧⠥⠝</strong> ⠞⠁⠊⠧⠥⠞⠥⠅⠎⠑⠑⠝ ⠎⠁⠝⠁⠎⠎⠁ ⠞⠥⠓⠁⠝<strong style="text-transform: none">⠬⠝⠑⠝</strong>⠬⠝⠑⠝⠄
           </p>
           <p style="display: block">
-            ⠠⠑⠊ <em>⠨⠅⠁⠊⠅⠅⠊</em> ⠕⠇⠑ ⠅⠥⠇⠞⠁⠁⠂ <em>⠨⠍⠊⠅⠜</em> ⠅⠊⠊⠇⠞⠜⠜⠄
+            ⠠⠑⠊ <em style="text-transform: none">⠨⠅⠁⠊⠅⠅⠊</em> ⠕⠇⠑ ⠅⠥⠇⠞⠁⠁⠂ <em style="text-transform: none">⠨⠍⠊⠅⠜</em> ⠅⠊⠊⠇⠞⠜⠜⠄
           </p>
           <p style="display: block">
-            ⠠⠞⠜⠍⠜ <strong>⠬⠬⠕⠝ ⠽⠇⠊ ⠅⠕⠇⠍⠑⠝ ⠎⠁⠝⠁⠝ ⠬⠞⠑⠎⠞⠊</strong>⠄
+            ⠠⠞⠜⠍⠜ <strong style="text-transform: none">⠬⠬⠕⠝ ⠽⠇⠊ ⠅⠕⠇⠍⠑⠝ ⠎⠁⠝⠁⠝ ⠬⠞⠑⠎⠞⠊</strong>⠄
           </p>
         </html>
       </x:document>

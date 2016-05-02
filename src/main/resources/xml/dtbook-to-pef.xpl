@@ -49,6 +49,8 @@
 
     <p:option name="preprocess-tables" select="'false'"/>
 
+    <p:option name="skip-typography" select="'false'"/>
+
     <p:option name="toc-depth" select="'2'"/>
 
 
