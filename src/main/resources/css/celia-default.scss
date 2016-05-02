@@ -9,17 +9,12 @@ $show-braille-page-numbers: true !default;
 $show-print-page-numbers: false !default;
 $include-image-groups: false !default;
 $include-captions: false !default;
+$include-production-notes: false !default;
 $letter-spacing: 0 !default;
 $skip-typography: false !default;
+$process-noterefs: true !default;
 
 @namespace xml "http://www.w3.org/XML/1998/namespace";
-
-/*
- * Hyphenation
- */
-book {
-	hyphens: auto;
-}
 
 /*
  * Volumes: Maximum length, title page
@@ -189,12 +184,14 @@ li {
 /*
  * Producer notes
  */
-prodnote {
-	display: block;
-}
+@if $include-production-notes {
+	prodnote {
+		display: block;
+	}
 
-prodnote::before {
-	content: 'Tuottajan huomautus: ';
+	prodnote::before {
+		content: 'Tuottajan huomautus: ';
+	}
 }
 
 /*
@@ -282,19 +279,24 @@ sidebar {
 }
 
 /*
- * Notes and noterefs
+ * Noterefs
  *
  * Noterefs have square brackets around them.
- *
- * Notes can be left as they are. Notes are collected at the end of the book
- * by the subcontractor.
  */
-noteref::before {
-	content: "[";
+@if $process-noterefs {
+	noteref::before {
+		content: "[";
+	}
+	noteref::after {
+		content: "]";
+	}
 }
-noteref::after {
-	content: "]";
-}
+
+/*
+ * Notes
+ *
+ * Notes are moved to the end of the book by the subcontractor.
+ */
 note::before {
 	content: attr(id) ': ';
 }

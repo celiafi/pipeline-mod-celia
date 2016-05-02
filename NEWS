@@ -6,6 +6,8 @@ Includes
 - Enabled options `maximum-number-of-sheets` and `minimum-number-of-sheets`
   (https://github.com/snaekobbi/pipeline-mod-celia/issues/17,
   https://github.com/snaekobbi/pipeline-mod-celia/pull/18)
+- Fixed options `hyphenation`, `include-production-notes` and `include-note-references`
+  (https://github.com/snaekobbi/pipeline-mod-celia/pull/20)
 - New option `skip-typography` for disabling text-level formatting
   (https://github.com/snaekobbi/pipeline-mod-celia/issues/9,
   https://github.com/snaekobbi/pipeline-mod-celia/pull/16)
