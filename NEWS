@@ -3,6 +3,9 @@ pipeline-mod-celia v1.3.0
 
 Includes
 --------
+- Enabled options `maximum-number-of-sheets` and `minimum-number-of-sheets`
+  (https://github.com/snaekobbi/pipeline-mod-celia/issues/17,
+  https://github.com/snaekobbi/pipeline-mod-celia/pull/18)
 - New option `skip-typography` for disabling text-level formatting
   (https://github.com/snaekobbi/pipeline-mod-celia/issues/9,
   https://github.com/snaekobbi/pipeline-mod-celia/pull/16)

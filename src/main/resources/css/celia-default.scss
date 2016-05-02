@@ -25,7 +25,6 @@ book {
  * Volumes: Maximum length, title page
  */
 @volume {
-	max-length: 80;
 	@begin {
 		content: flow(title-page) flow(volume-toc);
 		page: generated;
