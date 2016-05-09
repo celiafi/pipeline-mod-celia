@@ -13,6 +13,7 @@ $include-production-notes: false !default;
 $letter-spacing: 0 !default;
 $skip-typography: false !default;
 $process-noterefs: true !default;
+$process-notes: true !default;
 
 @namespace xml "http://www.w3.org/XML/1998/namespace";
 
@@ -297,8 +298,10 @@ sidebar {
  *
  * Notes are moved to the end of the book by the subcontractor.
  */
-note::before {
-	content: attr(id) ': ';
+@if $process-notes {
+	note::before {
+		content: attr(id) ': ';
+	}
 }
 
 /*
