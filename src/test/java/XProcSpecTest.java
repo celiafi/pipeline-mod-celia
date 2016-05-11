@@ -32,8 +32,10 @@ public class XProcSpecTest {
 			                                      new File(baseDir, "src/test/xprocspec/test_translator.xprocspec"),
 			                                      "test_css_formatter",
 			                                      new File(baseDir, "src/test/xprocspec/test_css_formatter.xprocspec"),
-			                                      "test_script",
-			                                      new File(baseDir, "src/test/xprocspec/test_script.xprocspec")
+			                                      "test_dtbook-to-pef",
+			                                      new File(baseDir, "src/test/xprocspec/test_dtbook-to-pef.xprocspec"),
+			                                      "test_dtbook-to-pef_include-brf",
+			                                      new File(baseDir, "src/test/xprocspec/test_dtbook-to-pef_include-brf.xprocspec")
 			                                      ),
 		                                      new File(baseDir, "target/xprocspec-reports"),
 		                                      new File(baseDir, "target/surefire-reports"),

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x:description xmlns:x="http://www.daisy.org/ns/xprocspec"
+               xmlns:celia="http://www.celia.fi"
+               script="http://www.celia.fi/pipeline/modules/braille/dtbook-to-pef.xpl">
+
+  <x:scenario label="ascii-table">
+    <x:call step="celia:dtbook-to-pef">
+      <x:input port="source">
+        <x:document type="inline">
+          <dtbook xmlns="http://www.daisy.org/z3986/2005/dtbook/" xml:lang="fi" version="2005-3">
+            <book>
+              <bodymatter>
+                <level1>
+                  <p>first page</p>
+                  <p class="pagebreakbefore">second page</p>
+                </level1>
+              </bodymatter>
+            </book>
+          </dtbook>
+        </x:document>
+      </x:input>
+      <x:option name="include-brf" select="true()"/>
+      <x:option name="pef-output-dir" select="concat($temp-dir, 'ascii-table/output-dir/')"/>
+      <x:option name="brf-output-dir" select="concat($temp-dir, 'ascii-table/output-dir/')"/>
+      <x:option name="temp-dir" select="concat($temp-dir, 'temp-dir/')"/>
+    </x:call>
+    <x:context label="brf">
+      <x:document type="file" base-uri="temp-dir" method="binary" href="ascii-table/output-dir/test_dtbook-to-pef_include-brf.brf"/>
+    </x:context>
+    <x:expect label="brf" type="compare" normalize-space="false">
+      <x:document type="file" method="binary" href="../resources/ascii-table_expected.txt"/>
+    </x:expect>
+  </x:scenario>
+  
+</x:description>

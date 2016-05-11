@@ -6,7 +6,10 @@
   <parent>
     <groupId>org.daisy.pipeline.modules.braille</groupId>
     <artifactId>braille-modules-parent</artifactId>
-    <version>1.9.12</version>
+    <!--
+        depends on branch file-format
+    -->
+    <version>1.9.13-SNAPSHOT</version>
     <relativePath />
   </parent>
 

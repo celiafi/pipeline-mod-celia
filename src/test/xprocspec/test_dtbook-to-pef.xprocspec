@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <x:description xmlns:x="http://www.daisy.org/ns/xprocspec"
-               xmlns:p="http://www.w3.org/ns/xproc"
-               xmlns:px="http://www.daisy.org/ns/pipeline/xproc"
-               xmlns:html="http://www.w3.org/1999/xhtml"
-               xmlns:css="http://www.daisy.org/ns/pipeline/braille-css"
-               xmlns:pxi="http://www.daisy.org/ns/pipeline/xproc/internal"
 	       xmlns:celia="http://www.celia.fi"
 	       script="http://www.celia.fi/pipeline/modules/braille/dtbook-to-pef.xpl">
 
@@ -51,7 +46,7 @@
       <x:option name="insert-titlepage" select="false()"/>
     </x:call>
     <x:context label="pef">
-      <x:document type="file" base-uri="temp-dir" href="table-of-contents/output-dir/test_script.pef"/>
+      <x:document type="file" base-uri="temp-dir" href="table-of-contents/output-dir/test_dtbook-to-pef.pef"/>
     </x:context>
     <x:expect label="result" type="custom" href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl" step="x:pef-compare">
       <x:document type="inline">
@@ -136,7 +131,7 @@
       <x:option name="toc-depth" select="'0'"/>
     </x:call>
     <x:context label="pef">
-      <x:document type="file" base-uri="temp-dir" href="multi-line-headings/output-dir/test_script.pef"/>
+      <x:document type="file" base-uri="temp-dir" href="multi-line-headings/output-dir/test_dtbook-to-pef.pef"/>
     </x:context>
     <x:expect label="result" type="custom" href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl" step="x:pef-compare">
       <x:document type="inline">
@@ -197,7 +192,7 @@
       <x:option name="include-production-notes" select="true()"/>
     </x:call>
     <x:context label="pef">
-      <x:document type="file" base-uri="temp-dir" href="prodnotes/output-dir/test_script.pef"/>
+      <x:document type="file" base-uri="temp-dir" href="prodnotes/output-dir/test_dtbook-to-pef.pef"/>
     </x:context>
     <x:expect label="result" type="custom" href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl" step="x:pef-compare">
       <x:document type="inline">
@@ -255,7 +250,7 @@
       <x:option name="include-production-notes" select="false()"/>
     </x:call>
     <x:context label="pef">
-      <x:document type="file" base-uri="temp-dir" href="skip-prodnotes/output-dir/test_script.pef"/>
+      <x:document type="file" base-uri="temp-dir" href="skip-prodnotes/output-dir/test_dtbook-to-pef.pef"/>
     </x:context>
     <x:expect label="result" type="custom" href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl" step="x:pef-compare">
       <x:document type="inline">
@@ -313,7 +308,7 @@
       <x:option name="show-print-page-numbers" select="true()"/>
     </x:call>
     <x:context label="pef">
-      <x:document type="file" base-uri="temp-dir" href="print-page-numbers/output-dir/test_script.pef"/>
+      <x:document type="file" base-uri="temp-dir" href="print-page-numbers/output-dir/test_dtbook-to-pef.pef"/>
     </x:context>
     <x:expect label="result" type="custom" href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl" step="x:pef-compare">
       <x:document type="inline">
@@ -382,7 +377,7 @@
       <x:option name="show-print-page-numbers" select="true()"/>
     </x:call>
     <x:context label="pef">
-      <x:document type="file" base-uri="temp-dir" href="no-transform/output-dir/test_script.pef"/>
+      <x:document type="file" base-uri="temp-dir" href="no-transform/output-dir/test_dtbook-to-pef.pef"/>
     </x:context>
     <x:expect label="result" type="custom" href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl" step="x:pef-compare">
       <x:document type="inline">
@@ -461,7 +456,7 @@
       <x:option name="show-print-page-numbers" select="true()"/>
     </x:call>
     <x:context label="pef">
-      <x:document type="file" base-uri="temp-dir" href="lists/output-dir/test_script.pef"/>
+      <x:document type="file" base-uri="temp-dir" href="lists/output-dir/test_dtbook-to-pef.pef"/>
     </x:context>
     <x:expect label="result" type="custom" href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl" step="x:pef-compare">
       <x:document type="inline">
@@ -548,7 +543,7 @@
       <x:option name="show-print-page-numbers" select="true()"/>
     </x:call>
     <x:context label="pef">
-      <x:document type="file" base-uri="temp-dir" href="tables/output-dir/test_script.pef"/>
+      <x:document type="file" base-uri="temp-dir" href="tables/output-dir/test_dtbook-to-pef.pef"/>
     </x:context>
     <x:expect label="result" type="custom" href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl" step="x:pef-compare">
       <x:document type="inline">
@@ -628,7 +623,7 @@
       <x:option name="show-print-page-numbers" select="true()"/>
     </x:call>
     <x:context label="pef">
-      <x:document type="file" base-uri="temp-dir" href="slash-tables/output-dir/test_script.pef"/>
+      <x:document type="file" base-uri="temp-dir" href="slash-tables/output-dir/test_dtbook-to-pef.pef"/>
     </x:context>
     <x:expect label="result" type="custom" href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl" step="x:pef-compare">
       <x:document type="inline">
@@ -693,7 +688,7 @@
       <x:option name="show-print-page-numbers" select="true()"/>
     </x:call>
     <x:context label="pef">
-      <x:document type="file" base-uri="temp-dir" href="sidebar/output-dir/test_script.pef"/>
+      <x:document type="file" base-uri="temp-dir" href="sidebar/output-dir/test_dtbook-to-pef.pef"/>
     </x:context>
     <x:expect label="result" type="custom" href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl" step="x:pef-compare">
       <x:document type="inline">
@@ -759,7 +754,7 @@
       <x:option name="include-production-notes" select="true()"/>
     </x:call>
     <x:context label="pef">
-      <x:document type="file" base-uri="temp-dir" href="images/output-dir/test_script.pef"/>
+      <x:document type="file" base-uri="temp-dir" href="images/output-dir/test_dtbook-to-pef.pef"/>
     </x:context>
     <x:expect label="result" type="custom" href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl" step="x:pef-compare">
       <x:document type="inline">
@@ -824,7 +819,7 @@
       <x:option name="include-captions" select="true()"/>
     </x:call>
     <x:context label="pef">
-      <x:document type="file" base-uri="temp-dir" href="no-images/output-dir/test_script.pef"/>
+      <x:document type="file" base-uri="temp-dir" href="no-images/output-dir/test_dtbook-to-pef.pef"/>
     </x:context>
     <x:expect label="result" type="custom" href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl" step="x:pef-compare">
       <x:document type="inline">
@@ -1064,7 +1059,7 @@
       <x:option name="toc-depth" select="'0'"/>
     </x:call>
     <x:context label="pef">
-      <x:document type="file" base-uri="temp-dir" href="title-page/output-dir/test_script.pef"/>
+      <x:document type="file" base-uri="temp-dir" href="title-page/output-dir/test_dtbook-to-pef.pef"/>
     </x:context>
     <x:expect label="result" type="custom" href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl" step="x:pef-compare">
       <x:document type="inline">
@@ -1142,7 +1137,7 @@
       <x:option name="toc-depth" select="'0'"/>
     </x:call>
     <x:context label="pef">
-      <x:document type="file" base-uri="temp-dir" href="noterefs/output-dir/test_script.pef"/>
+      <x:document type="file" base-uri="temp-dir" href="noterefs/output-dir/test_dtbook-to-pef.pef"/>
     </x:context>
     <x:expect label="result" type="custom" href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl" step="x:pef-compare">
       <x:document type="inline">
@@ -1214,7 +1209,7 @@
       <x:option name="process-noterefs" select="false()"/>
     </x:call>
     <x:context label="pef">
-      <x:document type="file" base-uri="temp-dir" href="no-noterefs/output-dir/test_script.pef"/>
+      <x:document type="file" base-uri="temp-dir" href="no-noterefs/output-dir/test_dtbook-to-pef.pef"/>
     </x:context>
     <x:expect label="result" type="custom" href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl" step="x:pef-compare">
       <x:document type="inline">
@@ -1302,7 +1297,7 @@
       <x:option name="show-print-page-numbers" select="true()"/>
     </x:call>
     <x:context label="pef">
-      <x:document type="file" base-uri="temp-dir" href="multilines/output-dir/test_script.pef"/>
+      <x:document type="file" base-uri="temp-dir" href="multilines/output-dir/test_dtbook-to-pef.pef"/>
     </x:context>
     <x:expect label="result" type="custom" href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl" step="x:pef-compare">
       <x:document type="inline">
@@ -1385,7 +1380,7 @@
       <x:option name="letter-spacing" select="'1'"/>
     </x:call>
     <x:context label="pef">
-      <x:document type="file" base-uri="temp-dir" href="custom-params/output-dir/test_script.pef"/>
+      <x:document type="file" base-uri="temp-dir" href="custom-params/output-dir/test_dtbook-to-pef.pef"/>
     </x:context>
     <x:expect label="result" type="custom" href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl" step="x:pef-compare">
       <x:document type="inline">
@@ -1456,7 +1451,7 @@
       <x:option name="skip-typography" select="true()"/>
     </x:call>
     <x:context label="pef">
-      <x:document type="file" base-uri="temp-dir" href="skip-typography/output-dir/test_script.pef"/>
+      <x:document type="file" base-uri="temp-dir" href="skip-typography/output-dir/test_dtbook-to-pef.pef"/>
     </x:context>
     <x:expect label="result" type="custom" href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl" step="x:pef-compare">
       <x:document type="inline">
@@ -1519,7 +1514,7 @@
       <x:option name="skip-typography" select="false()"/>
     </x:call>
     <x:context label="pef">
-      <x:document type="file" base-uri="temp-dir" href="emphases/output-dir/test_script.pef"/>
+      <x:document type="file" base-uri="temp-dir" href="emphases/output-dir/test_dtbook-to-pef.pef"/>
     </x:context>
     <x:expect label="result" type="custom" href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl" step="x:pef-compare">
       <x:document type="inline">

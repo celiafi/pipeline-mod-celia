@@ -71,7 +71,6 @@
       </p:input>
     </p:identity>
     <p:delete match="c:param[@name=('stylesheet',
-                                    'ascii-table',
 				    'include-brf',
 				    'include-preview',
 				    'pef-output-dir',
@@ -142,6 +141,7 @@
                   <p:with-option name="brf-href" select="if ($include-brf='true' and $brf-output-dir!='')
                                                          then concat($brf-output-dir,'/',$name,'.brf')
                                                          else ''"/>
+                  <p:with-option name="brf-file-format" select="'(pad:NONE)'"/>
               </pef:store>
     </p:group>
 
