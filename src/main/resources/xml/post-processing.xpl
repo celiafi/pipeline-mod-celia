@@ -13,6 +13,7 @@
     <p:input port="parameters" kind="parameter"/>
     
     <p:option name="make-volumes-divisible-by-four" select="'false'"/>
+    <p:option name="duplex" select="'true'"/>
     
     <p:output port="result"/>
     
@@ -30,6 +31,7 @@
       <p:when test="$make-volumes-divisible-by-four='true'">
         <px:message message="Running PEF post-processing"/>
         <p:xslt>
+	  <p:with-param name="duplex" select="$duplex"/>
           <p:input port="parameters">
             <p:pipe port="result" step="parameters"/>
           </p:input>
