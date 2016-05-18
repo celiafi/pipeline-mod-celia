@@ -52,6 +52,8 @@
 
     <p:option name="preprocess-tables" select="'false'"/>
 
+    <p:option name="make-volumes-divisible-by-four" select="'false'"/>
+
     <p:option name="skip-typography" select="'false'"/>
 
     <p:option name="toc-depth" select="'2'"/>
@@ -126,6 +128,17 @@
 	  <p:pipe step="input-options" port="result"/>
 	</p:input>
     </px:dtbook-to-pef.convert>
+
+    <!-- ================== -->
+    <!-- PEF POSTPROCESSING -->
+    <!-- ================== -->
+
+    <celia:post-processing>
+      <p:input port="parameters">
+        <p:pipe step="input-options" port="result"/>
+      </p:input>
+      <p:with-option name="make-volumes-divisible-by-four" select="$make-volumes-divisible-by-four"/>
+    </celia:post-processing>
 
     <!-- ========= -->
     <!-- STORE PEF -->
