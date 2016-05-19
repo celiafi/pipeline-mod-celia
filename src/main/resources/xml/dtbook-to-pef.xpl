@@ -52,6 +52,7 @@
 
     <p:option name="preprocess-tables" select="'false'"/>
 
+    <p:option name="pad-volume-endings" select="'false'"/>
     <p:option name="make-volumes-divisible-by-four" select="'false'"/>
 
     <p:option name="skip-typography" select="'false'"/>
@@ -138,6 +139,7 @@
         <p:pipe step="input-options" port="result"/>
       </p:input>
       <p:with-option name="make-volumes-divisible-by-four" select="$make-volumes-divisible-by-four"/>
+      <p:with-option name="pad-volume-endings" select="$pad-volume-endings"/>
       <p:with-option name="duplex" select="$duplex"/>
     </celia:post-processing>
 
