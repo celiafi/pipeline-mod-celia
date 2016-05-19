@@ -3,6 +3,7 @@
                xmlns:p="http://www.w3.org/ns/xproc"
                xmlns:px="http://www.daisy.org/ns/pipeline/xproc"
                xmlns:html="http://www.w3.org/1999/xhtml"
+               xmlns:css="http://www.daisy.org/ns/pipeline/braille-css"
                xmlns:pxi="http://www.daisy.org/ns/pipeline/xproc/internal">
   
   <x:script>
@@ -19,16 +20,16 @@
       <x:input port="source">
         <x:document type="inline">
           <html xmlns="http://www.w3.org/1999/xhtml">
-            <p style="display: block">
+            <p css:display="block">
               Tietoa saa <strong style="text-transform: louis-bold">Näkövammaisten Keskusliitosta</strong>.
             </p>
-            <p style="display: block">
+            <p css:display="block">
               Hän kiinnitti huomiota <strong style="text-transform: louis-bold">järjestysluvun</strong> taivutukseen sanassa tuhan<strong style="text-transform: louis-bold">nen</strong>nen.
             </p>
-            <p style="display: block">
+            <p css:display="block">
               Ei <em style="text-transform: louis-ital">kaikki</em> ole kultaa, <em style="text-transform: louis-ital">mikä</em> kiiltää.
             </p>
-            <p style="display: block">
+            <p css:display="block">
               Tämä <strong style="text-transform: louis-bold">on yli kolmen sanan testi</strong>.
             </p>
           </html>
@@ -40,20 +41,22 @@
     </x:context>
     <x:expect label="result" type="compare">
       <x:document type="inline">
-        <html xmlns="http://www.w3.org/1999/xhtml" style="text-transform: none">
-          <p style="display: block">
-            ⠠⠞⠊⠑⠞⠕⠁ ⠎⠁⠁ <strong style="text-transform: none">⠬⠠⠝⠜⠅⠪⠧⠁⠍⠍⠁⠊⠎⠞⠑⠝ ⠬⠠⠅⠑⠎⠅⠥⠎⠇⠊⠊⠞⠕⠎⠞⠁</strong>⠄
+        <_ style="text-transform: none">
+        <html xmlns="http://www.w3.org/1999/xhtml">
+          <p css:display="block">
+            ⠠⠞⠊⠑⠞⠕⠁ ⠎⠁⠁ <strong>⠬⠠⠝⠜⠅⠪⠧⠁⠍⠍⠁⠊⠎⠞⠑⠝ ⠬⠠⠅⠑⠎⠅⠥⠎⠇⠊⠊⠞⠕⠎⠞⠁</strong>⠄
           </p>
-          <p style="display: block">
-            ⠠⠓⠜⠝ ⠅⠊⠊⠝⠝⠊⠞⠞⠊ ⠓⠥⠕⠍⠊⠕⠞⠁ <strong style="text-transform: none">⠬⠚⠜⠗⠚⠑⠎⠞⠽⠎⠇⠥⠧⠥⠝</strong> ⠞⠁⠊⠧⠥⠞⠥⠅⠎⠑⠑⠝ ⠎⠁⠝⠁⠎⠎⠁ ⠞⠥⠓⠁⠝<strong style="text-transform: none">⠬⠝⠑⠝</strong>⠬⠝⠑⠝⠄
+          <p css:display="block">
+            ⠠⠓⠜⠝ ⠅⠊⠊⠝⠝⠊⠞⠞⠊ ⠓⠥⠕⠍⠊⠕⠞⠁ <strong>⠬⠚⠜⠗⠚⠑⠎⠞⠽⠎⠇⠥⠧⠥⠝</strong> ⠞⠁⠊⠧⠥⠞⠥⠅⠎⠑⠑⠝ ⠎⠁⠝⠁⠎⠎⠁ ⠞⠥⠓⠁⠝<strong>⠬⠝⠑⠝</strong>⠬⠝⠑⠝⠄
           </p>
-          <p style="display: block">
-            ⠠⠑⠊ <em style="text-transform: none">⠨⠅⠁⠊⠅⠅⠊</em> ⠕⠇⠑ ⠅⠥⠇⠞⠁⠁⠂ <em style="text-transform: none">⠨⠍⠊⠅⠜</em> ⠅⠊⠊⠇⠞⠜⠜⠄
+          <p css:display="block">
+            ⠠⠑⠊ <em>⠨⠅⠁⠊⠅⠅⠊</em> ⠕⠇⠑ ⠅⠥⠇⠞⠁⠁⠂ <em>⠨⠍⠊⠅⠜</em> ⠅⠊⠊⠇⠞⠜⠜⠄
           </p>
-          <p style="display: block">
-            ⠠⠞⠜⠍⠜ <strong style="text-transform: none">⠬⠬⠕⠝ ⠽⠇⠊ ⠅⠕⠇⠍⠑⠝ ⠎⠁⠝⠁⠝ ⠬⠞⠑⠎⠞⠊</strong>⠄
+          <p css:display="block">
+            ⠠⠞⠜⠍⠜ <strong>⠬⠬⠕⠝ ⠽⠇⠊ ⠅⠕⠇⠍⠑⠝ ⠎⠁⠝⠁⠝ ⠬⠞⠑⠎⠞⠊</strong>⠄
           </p>
         </html>
+        </_>
       </x:document>
     </x:expect>
   </x:scenario>
@@ -66,9 +69,10 @@
       <x:input port="source">
         <x:document type="inline">
           <level1 xmlns="http://www.daisy.org/z3986/2005/dtbook/" xml:lang="fi">
-            <p style="display: block">bla bla bla</p>
+            <p css:display="block">bla bla bla</p>
             <p class="notransform"
-               style="display: block; text-transform: none; white-space: pre-wrap">⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁
+               css:display="block"
+               style="text-transform: none; white-space: pre-wrap">⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁
 ⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁
 ⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁
 ⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁
@@ -76,7 +80,7 @@
 ⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁
 ⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁
 ⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁</p>
-            <p style="display: block">bla bla bla</p>
+            <p css:display="block">bla bla bla</p>
           </level1>
         </x:document>
       </x:input>
@@ -86,14 +90,14 @@
     </x:context>
     <x:expect label="result" type="compare" normalize-space="false">
       <x:document type="inline">
-        <level1 xmlns="http://www.daisy.org/z3986/2005/dtbook/" xml:lang="fi" style="text-transform: none">             <p style="display: block">⠃⠇⠁ ⠃⠇⠁ ⠃⠇⠁</p>             <p class="notransform" style="display: block; text-transform: none; white-space: pre-wrap">⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁
+        <_ style="text-transform: none"><level1 xmlns="http://www.daisy.org/z3986/2005/dtbook/" xml:lang="fi">             <p css:display="block">⠃⠇⠁ ⠃⠇⠁ ⠃⠇⠁</p>             <p css:display="block" class="notransform" style="white-space: pre-wrap">⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁
 ⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁
 ⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁
 ⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁
 ⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁
 ⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁
 ⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁
-⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁</p>             <p style="display: block">⠃⠇⠁ ⠃⠇⠁ ⠃⠇⠁</p>           </level1>
+⠁⠁⠁⠁⠀⠀⠁⠁⠁⠁⠀⠁⠁⠁⠁</p>             <p css:display="block">⠃⠇⠁ ⠃⠇⠁ ⠃⠇⠁</p>           </level1></_>
       </x:document>
     </x:expect>
   </x:scenario>
@@ -106,7 +110,7 @@
       <x:input port="source">
         <x:document type="inline">
           <level1 xmlns="http://www.daisy.org/z3986/2005/dtbook/" xml:lang="fi">
-            <p style="display: block">test გ test</p>
+            <p css:display="block">test გ test</p>
           </level1>
         </x:document>
       </x:input>
@@ -116,9 +120,11 @@
     </x:context>
     <x:expect label="result" type="compare" normalize-space="true">
       <x:document type="inline">
-        <level1 xmlns="http://www.daisy.org/z3986/2005/dtbook/" xml:lang="fi" style="text-transform: none">
-          <p style="display: block">⠞⠑⠎⠞ ⠔ ⠞⠑⠎⠞</p>
+        <_ style="text-transform: none">
+        <level1 xmlns="http://www.daisy.org/z3986/2005/dtbook/" xml:lang="fi">
+          <p css:display="block">⠞⠑⠎⠞ ⠔ ⠞⠑⠎⠞</p>
         </level1>
+        </_>
       </x:document>
     </x:expect>
   </x:scenario>
@@ -131,7 +137,7 @@
       <x:input port="source">
         <x:document type="inline">
           <level1 xmlns="http://www.daisy.org/z3986/2005/dtbook/" xml:lang="fi">
-            <p style="display: block">© ® ™</p>
+            <p css:display="block">© ® ™</p>
           </level1>
         </x:document>
       </x:input>
@@ -141,9 +147,11 @@
     </x:context>
     <x:expect label="result" type="compare" normalize-space="true">
       <x:document type="inline">
-        <level1 xmlns="http://www.daisy.org/z3986/2005/dtbook/" xml:lang="fi" style="text-transform: none">
-          <p style="display: block">⠦⠉⠴ ⠦⠗⠴ ⠞⠍</p>
+        <_ style="text-transform: none">
+        <level1 xmlns="http://www.daisy.org/z3986/2005/dtbook/" xml:lang="fi">
+          <p css:display="block">⠦⠉⠴ ⠦⠗⠴ ⠞⠍</p>
         </level1>
+        </_>
       </x:document>
     </x:expect>
   </x:scenario>
