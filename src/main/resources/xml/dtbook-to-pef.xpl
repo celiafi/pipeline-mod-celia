@@ -40,6 +40,7 @@
 
     <p:option name="include-production-notes" select="'false'"/>
     <p:option name="process-noterefs" select="'true'"/>
+    <p:option name="process-notes" select="'true'"/>
 
     <p:option name="show-braille-page-numbers" select="'true'"/>
     <p:option name="show-print-page-numbers" select="'false'"/>
