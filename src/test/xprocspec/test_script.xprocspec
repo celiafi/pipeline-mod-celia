@@ -1286,7 +1286,7 @@
       <x:option name="process-notes" select="false()"/>
     </x:call>
     <x:context label="pef">
-      <x:document type="file" base-uri="temp-dir" href="no-notes/output-dir/test_script.pef"/>
+      <x:document type="file" base-uri="temp-dir" href="no-notes/output-dir/test_dtbook-to-pef.pef"/>
     </x:context>
     <x:expect label="result" type="custom" href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl" step="x:pef-compare">
       <x:document type="inline">
