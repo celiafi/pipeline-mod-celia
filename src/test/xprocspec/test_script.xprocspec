@@ -1577,18 +1577,18 @@
             <book>
               <bodymatter>
                 <level1>
-                  <ul style="hyphens: none;">
+                  <ul>
                     <li>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</li>
                     <li>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</li>
                   </ul>
-                  <poem style="hyphens: none;">
+                  <poem>
                     <line>this is a poem with quite long lines</line>
                     <line>to test how the system copes with our guidelines</line>
                     <line>the continuation line should be indented</line>
                     <line>by two braille cells (elsewhere documented)</line>
                     <line>the last line is bad because of deadlines</line>
                   </poem>
-                  <table style="hyphens: none;">
+                  <table>
                     <tr>
                       <td>aaaaa</td>
                       <td>aaaaa</td>
@@ -1613,6 +1613,7 @@
       <x:option name="insert-titlepage" select="false()"/>
       <x:option name="toc-depth" select="'0'"/>
       <x:option name="show-print-page-numbers" select="true()"/>
+      <x:option name="hyphenation" select="false()"/>
     </x:call>
     <x:context label="pef">
       <x:document type="file" base-uri="temp-dir" href="multilines/output-dir/test_script.pef"/>
