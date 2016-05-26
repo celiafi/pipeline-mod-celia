@@ -45,7 +45,7 @@
     <p:option name="show-braille-page-numbers" select="'true'"/>
     <p:option name="show-print-page-numbers" select="'false'"/>
 
-    <p:option name="line-spacing" select="'0'"/>
+    <p:option name="line-spacing" select="'single'"/>
     <p:option name="letter-spacing" select="'0'"/>
     <p:option name="hyphenation" select="'true'"/>
 
