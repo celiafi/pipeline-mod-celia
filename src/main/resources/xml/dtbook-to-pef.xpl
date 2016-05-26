@@ -59,6 +59,7 @@
     <p:option name="skip-typography" select="'false'"/>
 
     <p:option name="toc-depth" select="'2'"/>
+    <p:option name="include-document-toc-in-first-volume" select="'false'"/>
 
 
     <p:import href="http://www.daisy.org/pipeline/modules/braille/dtbook-to-pef/library.xpl"/>

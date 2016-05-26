@@ -14,11 +14,12 @@ $letter-spacing: 0 !default;
 $skip-typography: false !default;
 $process-noterefs: true !default;
 $process-notes: true !default;
+$include-document-toc-in-first-volume: false !default;
 
 @namespace xml "http://www.w3.org/XML/1998/namespace";
 
 /*
- * Volumes: Maximum length, title page
+ * Volumes: Title page, TOCs
  */
 @volume {
 	@begin {
@@ -26,6 +27,15 @@ $process-notes: true !default;
 		page: generated;
 	}
 }
+
+@if $include-document-toc-in-first-volume { 
+	@volume:first {
+		@begin {
+			content: flow(title-page) flow(document-toc) flow(volume-toc);
+			page: generated;
+		}
+	}
+} 
 
 /*
  * Page layout
@@ -68,6 +78,21 @@ $process-notes: true !default;
 
 /* Override ordinary li's negative indentation */
 #generated-volume-toc li {
+	margin-left: 0;
+	text-indent: 0;
+}
+
+/*
+ * Generated document TOC
+ */
+#generated-document-toc li a::after {
+	content: ' ' leader('⠐') ' ' target-counter(attr(href), page);
+	margin-left: 2;
+	text-indent: -2;
+}
+
+/* Override ordinary li's negative indentation */
+#generated-document-toc li {
 	margin-left: 0;
 	text-indent: 0;
 }
