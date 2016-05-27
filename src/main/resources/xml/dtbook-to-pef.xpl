@@ -42,24 +42,62 @@
     <p:option name="process-noterefs" select="'true'"/>
     <p:option name="process-notes" select="'true'"/>
 
-    <p:option name="show-braille-page-numbers" select="'true'"/>
-    <p:option name="show-print-page-numbers" select="'false'"/>
+    <p:option name="show-braille-page-numbers" px:type="boolean" select="'true'"/>
+    <p:option name="show-print-page-numbers" px:type="boolean" select="'false'"/>
 
-    <p:option name="line-spacing" select="'single'"/>
-    <p:option name="letter-spacing" select="'0'"/>
+    <p:option name="line-spacing" select="'single'">
+        <p:documentation xmlns="http://www.w3.org/1999/xhtml">
+	    <h2 px:role="name">Line spacing</h2>
+	    <p px:role="desc">Possible values: 'single' or 'double'.</p>
+	</p:documentation>
+    </p:option>
+    
+    <p:option name="letter-spacing" select="'0'">
+        <p:documentation xmlns="http://www.w3.org/1999/xhtml">
+	    <h2 px:role="name">Letter spacing</h2>
+	    <p px:role="desc">When set to 1, braille cells have empty spaces between them according to the Finnish braille specification. Furthermore, words are separated by 3 empty cells.</p>
+	</p:documentation>
+    </p:option>
+    
     <p:option name="hyphenation" select="'true'"/>
 
-    <p:option name="insert-titlepage" select="'true'"/>
+    <p:option name="insert-titlepage" px:type="boolean" select="'true'">
+        <p:documentation xmlns="http://www.w3.org/1999/xhtml">
+	    <h2 px:role="name">Insert title page</h2>
+	    <p px:role="desc">When enabled, will insert the title page. The content of the title page is generated from the metadata of the book.</p>
+	</p:documentation>
+    </p:option>
 
-    <p:option name="preprocess-tables" select="'false'"/>
+    <p:option name="preprocess-tables" px:type="boolean" select="'false'">
+        <p:documentation xmlns="http://www.w3.org/1999/xhtml">
+	    <h2 px:role="name">Preprocess tables</h2>
+	    <p px:role="desc">When enabled, will translate the tables containing slashes differently to braille. The cells of the tables containing slashes will be separated by two dashes instead of slashes.</p>
+	</p:documentation>
+    </p:option>
 
-    <p:option name="pad-volume-endings" select="'false'"/>
-    <p:option name="make-volumes-divisible-by-four" select="'false'"/>
+    <p:option name="pad-volume-endings" px:type="boolean" select="'false'">
+        <p:documentation xmlns="http://www.w3.org/1999/xhtml">
+	    <h2 px:role="name">Pad volume endings</h2>
+	    <p px:role="desc">When enabled, will ensure that there is at least one empty braille sheet at the end of the volume to protect the physical print. Note: This may cause some volumes be up to two pages longer than what's set in Maximum number of sheets.</p>
+	</p:documentation>
+    </p:option>
+
+    <p:option name="make-volumes-divisible-by-four" px:type="boolean" select="'false'">
+        <p:documentation xmlns="http://www.w3.org/1999/xhtml">
+	    <h2 px:role="name">Make volumes divisible by four</h2>
+	    <p px:role="desc">When enabled, will ensure that the number of pages in each volume is divisible by four, thus avoiding empty pages in the middle of the printed book. Works by appending empty pages at the end of each volumes. If Pad volume endings is set to true, then may cause some volumes to be slightly longer than what's set in Maximum number of sheets.</p>
+	</p:documentation>
+    </p:option>
 
     <p:option name="skip-typography" select="'false'"/>
 
     <p:option name="toc-depth" select="'2'"/>
-    <p:option name="include-document-toc-in-first-volume" select="'false'"/>
+    <p:option name="include-document-toc-in-first-volume" px:type="boolean" select="'false'">
+        <p:documentation xmlns="http://www.w3.org/1999/xhtml">
+	    <h2 px:role="name">Include document TOC in first volume</h2>
+	    <p px:role="desc">When enabled, includes document-level table of contents at the beginning of the first volume. The depth of the document-level table of contents is the same as that of volume-level TOCs.</p>
+	</p:documentation>
+    </p:option>
 
 
     <p:import href="http://www.daisy.org/pipeline/modules/braille/dtbook-to-pef/library.xpl"/>
