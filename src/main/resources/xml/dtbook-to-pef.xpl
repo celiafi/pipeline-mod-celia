@@ -25,8 +25,6 @@
 
     <p:option name="stylesheet" select="'http://www.celia.fi/pipeline/modules/braille/default.scss'"/>
 
-    <p:option name="transform" px:data-type="transform-query"/>
-
     <p:option name="page-width" select="'27'"/>
     <p:option name="page-height" select="'30'"/>
     <p:option name="duplex" select="'true'"/>
