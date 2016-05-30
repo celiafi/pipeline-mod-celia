@@ -39,8 +39,20 @@
     <p:option name="include-captions" select="'false'"/>
 
     <p:option name="include-production-notes" select="'false'"/>
-    <p:option name="process-noterefs" select="'true'"/>
-    <p:option name="process-notes" select="'true'"/>
+
+    <p:option name="process-noterefs" px:type="boolean" select="'true'">
+        <p:documentation xmlns="http://www.w3.org/1999/xhtml">
+	    <h2 px:role="name">Process noterefs</h2>
+	    <p px:role="desc">When enabled, will insert square brackets around noteref elements.</p>
+	</p:documentation>
+    </p:option>
+    
+    <p:option name="process-notes" px:type="boolean" select="'true'">
+        <p:documentation xmlns="http://www.w3.org/1999/xhtml">
+	    <h2 px:role="name">Process notes</h2>
+	    <p px:role="desc">When enabled, will insert the ID of the noteref and a colon before note elements.</p>
+	</p:documentation>
+    </p:option>
 
     <p:option name="show-braille-page-numbers" px:type="boolean" select="'true'"/>
     <p:option name="show-print-page-numbers" px:type="boolean" select="'false'"/>
@@ -89,7 +101,12 @@
 	</p:documentation>
     </p:option>
 
-    <p:option name="skip-typography" select="'false'"/>
+    <p:option name="skip-typography" px:type="boolean" select="'false'">
+        <p:documentation xmlns="http://www.w3.org/1999/xhtml">
+	    <h2 px:role="name">Skip typography</h2>
+	    <p px:role="desc">When enabled, will skip text-level typography markers, such as em and strong.</p>
+	</p:documentation>
+    </p:option>
 
     <p:option name="toc-depth" select="'2'"/>
     <p:option name="include-document-toc-in-first-volume" px:type="boolean" select="'false'">
