@@ -54,7 +54,7 @@
     <p:option name="pad-volume-endings" select="'false'"/>
     <p:option name="make-volumes-divisible-by-four" select="'false'"/>
 
-    <p:option name="skip-typography" select="'false'"/>
+    <p:option name="text-level-formatting" select="'true'"/>
 
     <p:option name="toc-depth" select="'2'"/>
     <p:option name="include-document-toc-in-first-volume" select="'false'"/>

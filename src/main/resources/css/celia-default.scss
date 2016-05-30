@@ -10,8 +10,8 @@ $show-print-page-numbers: false !default;
 $include-image-groups: false !default;
 $include-captions: false !default;
 $include-production-notes: false !default;
+$text-level-formatting: true !default;
 $letter-spacing: 0 !default;
-$skip-typography: false !default;
 $process-noterefs: true !default;
 $process-notes: true !default;
 $include-document-toc-in-first-volume: false !default;
@@ -352,7 +352,7 @@ code {
 /*
  * Emphases
  */
-@if $skip-typography != true {
+@if $text-level-formatting {
 	em {
 		text-transform: louis-ital;
 	}

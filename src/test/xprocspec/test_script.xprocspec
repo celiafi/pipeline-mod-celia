@@ -1884,7 +1884,7 @@
     </x:expect>
   </x:scenario>
 
-  <x:scenario label="skip-typography">
+  <x:scenario label="text-level-formatting">
     <x:call step="celia:dtbook-to-pef">
       <x:input port="source">
         <x:document type="inline">
@@ -1912,7 +1912,7 @@
       <x:option name="temp-dir" select="concat($temp-dir, 'skip-typography/temp-dir/')"/>
       <x:option name="insert-titlepage" select="false()"/>
       <x:option name="toc-depth" select="'0'"/>
-      <x:option name="skip-typography" select="true()"/>
+      <x:option name="text-level-formatting" select="false()"/>
     </x:call>
     <x:context label="pef">
       <x:document type="file" base-uri="temp-dir" href="skip-typography/output-dir/test_script.pef"
@@ -1979,7 +1979,6 @@
       <x:option name="temp-dir" select="concat($temp-dir, 'emphases/temp-dir/')"/>
       <x:option name="insert-titlepage" select="false()"/>
       <x:option name="toc-depth" select="'0'"/>
-      <x:option name="skip-typography" select="false()"/>
     </x:call>
     <x:context label="pef">
       <x:document type="file" base-uri="temp-dir" href="emphases/output-dir/test_script.pef"/>
