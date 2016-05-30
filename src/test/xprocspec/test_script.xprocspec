@@ -1513,7 +1513,7 @@
       <x:option name="temp-dir" select="concat($temp-dir, 'no-noterefs/temp-dir/')"/>
       <x:option name="insert-titlepage" select="false()"/>
       <x:option name="toc-depth" select="'0'"/>
-      <x:option name="process-noterefs" select="false()"/>
+      <x:option name="process-note-references" select="false()"/>
     </x:call>
     <x:context label="pef">
       <x:document type="file" base-uri="temp-dir" href="no-noterefs/output-dir/test_script.pef"/>

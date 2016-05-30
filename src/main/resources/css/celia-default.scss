@@ -12,7 +12,7 @@ $include-captions: false !default;
 $include-production-notes: false !default;
 $text-level-formatting: true !default;
 $letter-spacing: 0 !default;
-$process-noterefs: true !default;
+$process-note-references: true !default;
 $process-notes: true !default;
 $include-document-toc-in-first-volume: false !default;
 
@@ -309,7 +309,7 @@ sidebar {
  *
  * Noterefs have square brackets around them.
  */
-@if $process-noterefs {
+@if $process-note-references {
 	noteref::before {
 		content: "[";
 	}
