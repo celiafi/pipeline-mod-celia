@@ -25,8 +25,6 @@
 
     <p:option name="stylesheet" select="'http://www.celia.fi/pipeline/modules/braille/default.scss'"/>
 
-    <p:option name="transform" px:data-type="transform-query"/>
-
     <p:option name="page-width" select="'27'"/>
     <p:option name="page-height" select="'30'"/>
     <p:option name="duplex" select="'true'"/>
@@ -40,20 +38,22 @@
 
     <p:option name="include-production-notes" select="'false'"/>
 
-    <p:option name="process-noterefs" px:type="boolean" select="'true'">
+    <p:option name="include-note-references" select="'true'"/>
+    <p:option name="process-note-references" px:type="boolean" select="'true'">
         <p:documentation xmlns="http://www.w3.org/1999/xhtml">
 	    <h2 px:role="name">Process noterefs</h2>
 	    <p px:role="desc">When enabled, will insert square brackets around noteref elements.</p>
 	</p:documentation>
     </p:option>
-    
+
+    <p:option name="include-notes" select="'true'"/>
     <p:option name="process-notes" px:type="boolean" select="'true'">
         <p:documentation xmlns="http://www.w3.org/1999/xhtml">
 	    <h2 px:role="name">Process notes</h2>
 	    <p px:role="desc">When enabled, will insert the ID of the noteref and a colon before note elements.</p>
 	</p:documentation>
     </p:option>
-
+    
     <p:option name="show-braille-page-numbers" px:type="boolean" select="'true'"/>
     <p:option name="show-print-page-numbers" px:type="boolean" select="'false'"/>
 
@@ -101,10 +101,10 @@
 	</p:documentation>
     </p:option>
 
-    <p:option name="skip-typography" px:type="boolean" select="'false'">
+    <p:option name="text-level-formatting" px:type="boolean" select="'true'">
         <p:documentation xmlns="http://www.w3.org/1999/xhtml">
-	    <h2 px:role="name">Skip typography</h2>
-	    <p px:role="desc">When enabled, will skip text-level typography markers, such as em and strong.</p>
+	    <h2 px:role="name">Text-level formatting</h2>
+	    <p px:role="desc">When disabled, will skip text-level typography markers, such as em and strong.</p>
 	</p:documentation>
     </p:option>
 
