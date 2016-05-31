@@ -37,8 +37,12 @@
     <p:option name="include-captions" select="'false'"/>
 
     <p:option name="include-production-notes" select="'false'"/>
-    <p:option name="process-noterefs" select="'true'"/>
-    <p:option name="process-notes" select="'true'"/>
+
+    <p:option name="include-note-references" select="'true'"/>
+    <p:option name="process-note-references" px:type="boolean" select="'true'"/>
+
+    <p:option name="include-notes" select="'true'"/>
+    <p:option name="process-notes" px:type="boolean" select="'true'"/>
 
     <p:option name="show-braille-page-numbers" select="'true'"/>
     <p:option name="show-print-page-numbers" select="'false'"/>
@@ -54,7 +58,7 @@
     <p:option name="pad-volume-endings" select="'false'"/>
     <p:option name="make-volumes-divisible-by-four" select="'false'"/>
 
-    <p:option name="skip-typography" select="'false'"/>
+    <p:option name="text-level-formatting" select="'true'"/>
 
     <p:option name="toc-depth" select="'2'"/>
     <p:option name="include-document-toc-in-first-volume" select="'false'"/>

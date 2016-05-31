@@ -10,9 +10,11 @@ $show-print-page-numbers: false !default;
 $include-image-groups: false !default;
 $include-captions: false !default;
 $include-production-notes: false !default;
+$text-level-formatting: true !default;
 $letter-spacing: 0 !default;
-$skip-typography: false !default;
-$process-noterefs: true !default;
+$include-note-references: true !default;
+$process-note-references: true !default;
+$include-notes: true !default;
 $process-notes: true !default;
 $include-document-toc-in-first-volume: false !default;
 
@@ -309,7 +311,12 @@ sidebar {
  *
  * Noterefs have square brackets around them.
  */
-@if $process-noterefs {
+@if not($include-note-references) {
+	noteref {
+		display: none;
+	}
+}
+@if $process-note-references {
 	noteref::before {
 		content: "[";
 	}
@@ -323,6 +330,11 @@ sidebar {
  *
  * Notes are moved to the end of the book by the subcontractor.
  */
+@if not($include-notes) {
+	note {
+		display: none;
+	}
+}
 @if $process-notes {
 	note::before {
 		content: attr(id) ': ';
@@ -352,7 +364,7 @@ code {
 /*
  * Emphases
  */
-@if $skip-typography != true {
+@if $text-level-formatting {
 	em {
 		text-transform: louis-ital;
 	}
