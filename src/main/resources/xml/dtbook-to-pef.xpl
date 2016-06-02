@@ -118,26 +118,28 @@
 
 
     <p:import href="http://www.daisy.org/pipeline/modules/braille/dtbook-to-pef/library.xpl"/>
-    <p:import href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl"/>
+    <p:import href="http://www.daisy.org/pipeline/modules/braille/xml-to-pef/library.xpl"/>
     <p:import href="http://www.daisy.org/pipeline/modules/file-utils/library.xpl"/>
     <p:import href="http://www.daisy.org/pipeline/modules/common-utils/library.xpl"/>
     <p:import href="http://www.celia.fi/pipeline/modules/braille/library.xpl"/>
 
 
     <p:in-scope-names name="in-scope-names"/>
-    <p:identity>
-      <p:input port="source">
-        <p:pipe port="result" step="in-scope-names"/>
-      </p:input>
-    </p:identity>
-    <p:delete match="c:param[@name=('stylesheet',
-                                    'ascii-table',
-				    'include-brf',
-				    'include-preview',
-				    'pef-output-dir',
-				    'brf-output-dir',
-				    'preview-output-dir',
-				    'temp-dir')]"/>
+    <px:merge-parameters>
+        <p:input port="source">
+            <p:pipe port="result" step="in-scope-names"/>
+        </p:input>
+    </px:merge-parameters>
+    <px:delete-parameters parameter-names="stylesheet
+                                           include-brf
+                                           include-preview
+                                           pef-output-dir
+                                           brf-output-dir
+                                           preview-output-dir
+                                           temp-dir"/>
+    <!--
+        FIXME: what is this? something from mod-dedicon?
+    -->
     <p:add-attribute match="c:param[@name='hyphenation']" attribute-name="value">
         <p:with-option name="attribute-value"
 	             select="if ($hyphenation='from-meta')
@@ -203,19 +205,18 @@
     <!-- ========= -->
     <!-- STORE PEF -->
     <!-- ========= -->
-    <p:group>
-      <p:variable name="name" select="replace(p:base-uri(/),'^.*/([^/]*)\.[^/\.]*$','$1')">
+    <px:xml-to-pef.store>
+      <p:input port="obfl">
+        <p:empty/>
+      </p:input>
+      <p:with-option name="name" select="replace(p:base-uri(/),'^.*/([^/]*)\.[^/\.]*$','$1')">
         <p:pipe step="main" port="source"/>
-      </p:variable>
-      <pef:store>
-                  <p:with-option name="href" select="concat($pef-output-dir,'/',$name,'.pef')"/>
-                  <p:with-option name="preview-href" select="if ($include-preview='true' and $preview-output-dir!='')
-                                                             then concat($preview-output-dir,'/',$name,'.pef.html')
-                                                             else ''"/>
-                  <p:with-option name="brf-href" select="if ($include-brf='true' and $brf-output-dir!='')
-                                                         then concat($brf-output-dir,'/',$name,'.brf')
-                                                         else ''"/>
-              </pef:store>
-    </p:group>
+      </p:with-option>
+      <p:with-option name="include-brf" select="$include-brf"/>
+      <p:with-option name="include-preview" select="$include-preview"/>
+      <p:with-option name="pef-output-dir" select="$pef-output-dir"/>
+      <p:with-option name="brf-output-dir" select="$brf-output-dir"/>
+      <p:with-option name="preview-output-dir" select="$preview-output-dir"/>
+    </px:xml-to-pef.store>
 
 </p:declare-step>
