@@ -11,7 +11,7 @@
   </parent>
 
   <artifactId>mod-celia</artifactId>
-  <version>1.4.0-SNAPSHOT</version>
+  <version>1.4.0</version>
   <packaging>bundle</packaging>
 
   <name>DP2 Braille Modules :: mod-celia</name>
@@ -255,4 +255,8 @@
       </plugin>
     </plugins>
   </build>
+
+  <scm>
+    <tag>v1.4.0</tag>
+  </scm>
 </project>
