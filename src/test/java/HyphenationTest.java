@@ -58,7 +58,6 @@ public class HyphenationTest {
 	
 	@Test
 	public void testWithLibhyphen() {
-		assumeTrue(! Config.onWindows);
 		LibhyphenHyphenator hyphenator
 			= ((LibhyphenHyphenator.Provider)context.getService(context.getServiceReference(LibhyphenHyphenator.Provider.class.getName())))
 			.get(query("(table:'hyph-fi.dic')")).iterator().next();

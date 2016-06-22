@@ -17,8 +17,6 @@ import static org.ops4j.pax.exam.CoreOptions.options;
 
 public class Config {
 	
-	public static boolean onWindows = System.getProperty("os.name").toLowerCase().startsWith("windows");
-	
 	public static Option[] config() {
 		return options(
 			logbackConfigFile(),
@@ -34,7 +32,7 @@ public class Config {
 				brailleModule("liblouis-tables"),
 				brailleModule("liblouis-native").forThisPlatform(),
 				brailleModule("libhyphen-core"),
-				onWindows ? null : brailleModule("libhyphen-native").forThisPlatform(),
+				brailleModule("libhyphen-native").forThisPlatform(),
 				brailleModule("texhyph-core"),
 				brailleModule("pef-utils"),
 				brailleModule("dotify-utils"),
