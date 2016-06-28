@@ -2327,7 +2327,7 @@
     </x:expect>
   </x:scenario>
 
-  <x:scenario label="volumes-divisible-by-four" focus="dev">
+  <x:scenario label="volumes-divisible-by-four">
     <x:call step="celia:dtbook-to-pef">
       <x:input port="source">
         <x:document type="file" href="../resources/test.xml"> </x:document>
@@ -2570,7 +2570,7 @@
     </x:expect>
   </x:scenario>
 
-  <x:scenario label="volumes-divisible-by-four-multiple-sections" focus="dev">
+  <x:scenario label="volumes-divisible-by-four-multiple-sections">
     <x:call step="celia:dtbook-to-pef">
       <x:input port="source">
         <x:document type="file" href="../resources/test.xml"> </x:document>
@@ -2900,7 +2900,7 @@
   </x:scenario>
 
 
-  <x:scenario label="volumes-divisible-by-four-non-duplex" focus="dev">
+  <x:scenario label="volumes-divisible-by-four-non-duplex">
     <x:call step="celia:dtbook-to-pef">
       <x:input port="source">
         <x:document type="file" href="../resources/test.xml"> </x:document>
@@ -3149,7 +3149,7 @@
     </x:expect>
   </x:scenario>
 
-  <x:scenario label="volumes-divisible-by-four-non-duplex-multiple-sections" focus="dev">
+  <x:scenario label="volumes-divisible-by-four-non-duplex-multiple-sections">
     <x:call step="celia:dtbook-to-pef">
       <x:input port="source">
         <x:document type="file" href="../resources/test.xml"> </x:document>
@@ -3511,7 +3511,7 @@
     </x:expect>
   </x:scenario>
 
-  <x:scenario label="pad-volume-endings" focus="dev">
+  <x:scenario label="pad-volume-endings">
     <x:call step="celia:dtbook-to-pef">
       <x:input port="source">
         <x:document type="file" href="../resources/test.xml"> </x:document>
@@ -3749,7 +3749,7 @@
     </x:expect>
   </x:scenario>
 
-  <x:scenario label="pad-volume-endings-multiple-sections" focus="dev">
+  <x:scenario label="pad-volume-endings-multiple-sections">
     <x:call step="celia:dtbook-to-pef">
       <x:input port="source">
         <x:document type="file" href="../resources/test.xml"> </x:document>
@@ -4020,7 +4020,7 @@
   </x:scenario>
 
 
-  <x:scenario label="pad-volume-endings-non-duplex" focus="true">
+  <x:scenario label="pad-volume-endings-non-duplex">
     <x:call step="celia:dtbook-to-pef">
       <x:input port="source">
         <x:document type="file" href="../resources/test.xml"> </x:document>
