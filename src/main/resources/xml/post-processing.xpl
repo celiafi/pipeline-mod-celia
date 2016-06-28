@@ -49,6 +49,17 @@
     <p:choose>
       <p:when test="$make-volumes-divisible-by-four='true'">
         <px:message message="Inserting pages to make the volumes divisible by four"/>
+        <!-- Add explicit empty page at the end of each section, if necessary -->
+        <!-- This makes counting the pages easier in the next stage -->
+        <p:xslt>
+          <p:with-param name="duplex" select="$duplex"/>
+          <p:input port="parameters">
+            <p:pipe port="result" step="parameters"/>
+          </p:input>
+          <p:input port="stylesheet">
+            <p:document href="pad-sections.xsl"/>
+          </p:input>
+        </p:xslt>
         <p:xslt>
 	  <p:with-param name="duplex" select="$duplex"/>
           <p:input port="parameters">

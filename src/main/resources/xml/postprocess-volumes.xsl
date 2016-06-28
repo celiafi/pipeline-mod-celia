@@ -18,7 +18,7 @@
 	</xsl:template>
 
         <!-- Insert empty pages if number of pages mod 4 != 0 -->
-        <xsl:template match="volume/section/page[last()]">
+        <xsl:template match="volume/section[last()]/page[last()]">
 	  <xsl:copy-of select="."/>
 	  <xsl:choose>
 	    <xsl:when test="$duplex = 'true'">
@@ -42,6 +42,5 @@
 	    </xsl:otherwise>
 	  </xsl:choose>
 	</xsl:template>
-
 
 </xsl:stylesheet>
