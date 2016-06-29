@@ -17,7 +17,7 @@
 		</xsl:copy>
 	</xsl:template>
 
-        <xsl:template match="volume/section/page[last()]">
+        <xsl:template match="volume/section[last()]/page[last()]">
 	  <xsl:copy-of select="."/>
 	  <xsl:choose>
 	    <xsl:when test="$duplex = 'true'">

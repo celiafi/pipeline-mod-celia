@@ -2570,6 +2570,336 @@
     </x:expect>
   </x:scenario>
 
+  <x:scenario label="volumes-divisible-by-four-multiple-sections">
+    <x:call step="celia:dtbook-to-pef">
+      <x:input port="source">
+        <x:document type="file" href="../resources/test.xml"> </x:document>
+      </x:input>
+      <x:option name="temp-dir" select="$temp-dir"/>
+      <x:option name="pef-output-dir"
+        select="concat($temp-dir, 'volumes-divisible-by-four-multi-sections/output-dir/')"/>
+      <x:option name="toc-depth" select="'1'"/>
+      <x:option name="page-height" select="'8'"/>
+      <x:option name="maximum-number-of-sheets" select="'4'"/>
+      <x:option name="insert-titlepage" select="true()"/>
+      <x:option name="make-volumes-divisible-by-four" select="true()"/>
+    </x:call>
+    <x:context label="pef">
+      <x:document type="file" base-uri="temp-dir"
+        href="volumes-divisible-by-four-multi-sections/output-dir/test.pef"/>
+    </x:context>
+    <x:expect label="result" type="custom"
+      href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl"
+      step="x:pef-compare">
+      <x:document type="inline">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+          <head xmlns:dc="http://purl.org/dc/elements/1.1/">
+            <meta>
+              <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/"
+                >application/x-pef+xml</dc:format>
+              <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
+              <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">Kirja</dc:title>
+              <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">John Doe</dc:creator>
+              <dc:language xmlns:dc="http://purl.org/dc/elements/1.1/">fi</dc:language>
+              <dc:publisher xmlns:dc="http://purl.org/dc/elements/1.1/">Celia</dc:publisher>
+            </meta>
+          </head>
+          <body>
+            <volume cols="27" rows="8" rowgap="0" duplex="true">
+              <section>
+                <page>
+                  <row/>
+                  <row>⠠⠅⠊⠗⠚⠁</row>
+                  <row/>
+                  <row>⠠⠚⠕⠓⠝⠀⠠⠙⠕⠑</row>
+                  <row/>
+                  <row>⠠⠧⠊⠓⠅⠕⠀⠼⠁⠌⠼⠑</row>
+                </page>
+		<page/>
+              </section>
+              <section>
+                <page>
+                  <row>⠠⠁⠇⠅⠥⠞⠊⠑⠙⠕⠞⠀⠐⠐⠐⠐⠐⠐⠐⠐⠐⠐⠐⠐⠀⠼⠁</row>
+                </page>
+		<page/>
+              </section>
+              <section>
+                <page>
+                  <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁</row>
+                  <row>⠠⠅⠊⠗⠚⠁</row>
+                  <row/>
+                  <row>⠠⠚⠕⠓⠝⠀⠠⠙⠕⠑</row>
+                  <row/>
+                  <row>⠠⠁⠇⠅⠥⠞⠊⠑⠙⠕⠞</row>
+                  <row/>
+                  <row>⠠⠠⠅⠥⠎⠞⠁⠝⠞⠁⠚⠁⠀⠠⠠⠏⠁⠊⠅⠅⠁</row>
+                </page>
+                <page>
+                  <row>⠼⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</row>
+                  <row/>
+                  <row>⠠⠧⠊⠊⠙⠑⠎⠀⠏⠁⠊⠝⠕⠎⠂⠀⠼⠃⠚⠁⠑</row>
+                  <row/>
+                  <row>⠠⠞⠥⠕⠞⠞⠁⠚⠁⠒⠀⠠⠉⠑⠇⠊⠁⠀⠤⠀⠠⠝⠜⠅⠪⠤</row>
+                  <row>⠧⠁⠍⠍⠁⠊⠎⠞⠑⠝⠀⠅⠊⠗⠚⠁⠎⠞⠕⠀⠼⠃⠚⠁⠋</row>
+                </page>
+                <page>
+                  <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠉</row>
+                  <row/>
+                  <row>⠠⠅⠜⠽⠞⠞⠪⠕⠊⠅⠑⠥⠎</row>
+                  <row/>
+                  <row>⠠⠞⠜⠍⠜⠀⠅⠊⠗⠚⠁⠀⠕⠝⠀⠧⠁⠇⠍⠊⠎⠞⠑⠞⠞⠥⠀</row>
+                  <row>⠞⠑⠅⠊⠚⠜⠝⠕⠊⠅⠑⠥⠎⠇⠁⠊⠝⠀⠼⠁⠛⠄⠀⠏⠽⠤</row>
+                  <row>⠅⠜⠇⠜⠝⠀⠝⠕⠚⠁⠇⠇⠁⠀⠚⠁⠀⠕⠝⠀⠞⠁⠗⠅⠕⠊⠤</row>
+                  <row>⠞⠑⠞⠞⠥⠀⠁⠊⠝⠕⠁⠎⠞⠁⠁⠝⠀⠝⠜⠅⠪⠧⠁⠍⠤</row>
+                </page>
+                <page>
+                  <row>⠼⠙⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</row>
+                  <row>⠍⠁⠊⠎⠞⠑⠝⠀⠚⠁⠀⠍⠥⠊⠙⠑⠝⠀⠇⠥⠅⠑⠍⠊⠤</row>
+                  <row>⠎⠑⠎⠞⠑⠊⠎⠞⠑⠝⠀⠅⠜⠽⠞⠞⠪⠪⠝⠄</row>
+                  <row/>
+                  <row>⠠⠅⠥⠎⠞⠁⠝⠞⠁⠚⠁⠀⠑⠎⠊⠞⠞⠑⠇⠑⠑</row>
+                  <row/>
+                  <row>⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍⠀⠙⠕⠇⠕⠗⠀⠎⠊⠞⠀</row>
+                  <row>⠁⠍⠑⠞⠂⠀⠉⠕⠝⠎⠑⠉⠞⠑⠞⠥⠗⠀⠁⠙⠊⠤</row>
+                </page>
+              </section>
+	    </volume>
+            <volume cols="27" rows="8" rowgap="0" duplex="true">
+	      <section>
+	        <page>
+	          <row/>
+	          <row>⠠⠅⠊⠗⠚⠁</row>
+	          <row/>
+	          <row>⠠⠚⠕⠓⠝⠀⠠⠙⠕⠑</row>
+	          <row/>
+	          <row>⠠⠧⠊⠓⠅⠕⠀⠼⠃⠌⠼⠑</row>
+	        </page>
+	        <page/>
+	      </section>
+        <section>
+          <page>
+            <row>⠼⠁⠀⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍⠀⠐⠐⠐⠐⠐⠐⠐⠐⠀⠼⠛</row>
+          </page>
+          <page/>
+        </section>
+	      <section>
+                <page>
+                  <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠑</row>
+                  <row>⠏⠊⠎⠉⠊⠝⠛⠀⠑⠇⠊⠞⠂⠀⠎⠑⠙⠀⠙⠕⠀⠑⠊⠥⠎⠤</row>
+                  <row>⠍⠕⠙⠀⠞⠑⠍⠏⠕⠗⠀⠊⠝⠉⠊⠙⠊⠙⠥⠝⠞⠀⠥⠞⠀</row>
+                  <row>⠇⠁⠃⠕⠗⠑⠀⠑⠞⠀⠙⠕⠇⠕⠗⠑⠀⠍⠁⠛⠝⠁⠀</row>
+                  <row>⠁⠇⠊⠟⠥⠁⠄⠀⠠⠥⠞⠀⠑⠝⠊⠍⠀⠁⠙⠀⠍⠊⠝⠊⠍⠀</row>
+                  <row>⠧⠑⠝⠊⠁⠍⠂⠀⠟⠥⠊⠎⠀⠝⠕⠎⠞⠗⠥⠙⠀</row>
+                  <row>⠑⠭⠑⠗⠉⠊⠞⠁⠞⠊⠕⠝⠀⠥⠇⠇⠁⠍⠉⠕⠀⠇⠁⠃⠕⠤</row>
+                  <row>⠗⠊⠎⠀⠝⠊⠎⠊⠀⠥⠞⠀⠁⠇⠊⠟⠥⠊⠏⠀⠑⠭⠀⠑⠁⠀</row>
+                </page>
+                <page>
+                  <row>⠼⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</row>
+                  <row>⠉⠕⠍⠍⠕⠙⠕⠀⠉⠕⠝⠎⠑⠟⠥⠁⠞⠄⠀⠠⠙⠥⠊⠎⠀</row>
+                  <row>⠁⠥⠞⠑⠀⠊⠗⠥⠗⠑⠀⠙⠕⠇⠕⠗⠀⠊⠝⠀⠗⠑⠏⠗⠑⠤</row>
+                  <row>⠓⠑⠝⠙⠑⠗⠊⠞⠀⠊⠝⠀⠧⠕⠇⠥⠏⠞⠁⠞⠑⠀⠧⠑⠇⠊⠞</row>
+                  <row>⠑⠎⠎⠑⠀⠉⠊⠇⠇⠥⠍⠀⠙⠕⠇⠕⠗⠑⠀⠑⠥⠀⠋⠥⠛⠊⠤</row>
+                  <row>⠁⠞⠀⠝⠥⠇⠇⠁⠀⠏⠁⠗⠊⠁⠞⠥⠗⠄⠀⠠⠑⠭⠉⠑⠏⠤</row>
+                  <row>⠞⠑⠥⠗⠀⠎⠊⠝⠞⠀⠕⠉⠉⠁⠑⠉⠁⠞⠀⠉⠥⠏⠊⠙⠁⠤</row>
+                  <row>⠞⠁⠞⠀⠝⠕⠝⠀⠏⠗⠕⠊⠙⠑⠝⠞⠂⠀⠎⠥⠝⠞⠀⠊⠝⠀</row>
+                </page>
+                <page>
+                  <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠛</row>
+                  <row>⠉⠥⠇⠏⠁⠀⠟⠥⠊⠀⠕⠋⠋⠊⠉⠊⠁⠀⠙⠑⠎⠑⠗⠥⠝⠞⠀</row>
+                  <row>⠍⠕⠇⠇⠊⠞⠀⠁⠝⠊⠍⠀⠊⠙⠀⠑⠎⠞⠀⠇⠁⠃⠕⠗⠥⠍⠄</row>
+                  <row/>
+                  <row>⠼⠁⠀⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍</row>
+                  <row/>
+                  <row>⠀⠀⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍⠀⠙⠕⠇⠕⠗⠀⠎⠊⠞⠀</row>
+                  <row>⠁⠍⠑⠞⠂⠀⠉⠕⠝⠎⠑⠉⠞⠑⠞⠥⠗⠀⠁⠙⠊⠤</row>
+                </page>
+                <page>
+                  <row>⠼⠓⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</row>
+                  <row>⠏⠊⠎⠉⠊⠝⠛⠀⠑⠇⠊⠞⠂⠀⠎⠑⠙⠀⠙⠕⠀⠑⠊⠥⠎⠤</row>
+                  <row>⠍⠕⠙⠀⠞⠑⠍⠏⠕⠗⠀⠊⠝⠉⠊⠙⠊⠙⠥⠝⠞⠀⠥⠞⠀</row>
+                  <row>⠇⠁⠃⠕⠗⠑⠀⠑⠞⠀⠙⠕⠇⠕⠗⠑⠀⠍⠁⠛⠝⠁⠀</row>
+                  <row>⠁⠇⠊⠟⠥⠁⠄⠀⠠⠥⠞⠀⠑⠝⠊⠍⠀⠁⠙⠀⠍⠊⠝⠊⠍⠀</row>
+                  <row>⠧⠑⠝⠊⠁⠍⠂⠀⠟⠥⠊⠎⠀⠝⠕⠎⠞⠗⠥⠙⠀</row>
+                  <row>⠑⠭⠑⠗⠉⠊⠞⠁⠞⠊⠕⠝⠀⠥⠇⠇⠁⠍⠉⠕⠀⠇⠁⠃⠕⠤</row>
+                  <row>⠗⠊⠎⠀⠝⠊⠎⠊⠀⠥⠞⠀⠁⠇⠊⠟⠥⠊⠏⠀⠑⠭⠀⠑⠁⠀</row>
+                </page>
+	      </section>
+      </volume>
+            <volume cols="27" rows="8" rowgap="0" duplex="true">
+              <section>
+                <page>
+                  <row/>
+                  <row>⠠⠅⠊⠗⠚⠁</row>
+                  <row/>
+                  <row>⠠⠚⠕⠓⠝⠀⠠⠙⠕⠑</row>
+                  <row/>
+                  <row>⠠⠧⠊⠓⠅⠕⠀⠼⠉⠌⠼⠑</row>
+                </page>
+                <page/>
+              </section>
+              <!-- NB: No TOC here because no headings in this volume either -->
+              <section>
+                <page>
+                  <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠊</row>
+                  <row>⠉⠕⠍⠍⠕⠙⠕⠀⠉⠕⠝⠎⠑⠟⠥⠁⠞⠄⠀⠠⠙⠥⠊⠎⠀</row>
+                  <row>⠁⠥⠞⠑⠀⠊⠗⠥⠗⠑⠀⠙⠕⠇⠕⠗⠀⠊⠝⠀⠗⠑⠏⠗⠑⠤</row>
+                  <row>⠓⠑⠝⠙⠑⠗⠊⠞⠀⠊⠝⠀⠧⠕⠇⠥⠏⠞⠁⠞⠑⠀⠧⠑⠇⠊⠞</row>
+                  <row>⠑⠎⠎⠑⠀⠉⠊⠇⠇⠥⠍⠀⠙⠕⠇⠕⠗⠑⠀⠑⠥⠀⠋⠥⠛⠊⠤</row>
+                  <row>⠁⠞⠀⠝⠥⠇⠇⠁⠀⠏⠁⠗⠊⠁⠞⠥⠗⠄⠀⠠⠑⠭⠉⠑⠏⠤</row>
+                  <row>⠞⠑⠥⠗⠀⠎⠊⠝⠞⠀⠕⠉⠉⠁⠑⠉⠁⠞⠀⠉⠥⠏⠊⠙⠁⠤</row>
+                  <row>⠞⠁⠞⠀⠝⠕⠝⠀⠏⠗⠕⠊⠙⠑⠝⠞⠂⠀⠎⠥⠝⠞⠀⠊⠝⠀</row>
+                </page>
+                <page>
+                  <row>⠼⠁⠚⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</row>
+                  <row>⠉⠥⠇⠏⠁⠀⠟⠥⠊⠀⠕⠋⠋⠊⠉⠊⠁⠀⠙⠑⠎⠑⠗⠥⠝⠞⠀</row>
+                  <row>⠍⠕⠇⠇⠊⠞⠀⠁⠝⠊⠍⠀⠊⠙⠀⠑⠎⠞⠀⠇⠁⠃⠕⠗⠥⠍⠄</row>
+                  <row/>
+                  <row>⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍</row>
+                  <row/>
+                  <row>⠀⠀⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍⠀⠙⠕⠇⠕⠗⠀⠎⠊⠞⠀</row>
+                  <row>⠁⠍⠑⠞⠂⠀⠉⠕⠝⠎⠑⠉⠞⠑⠞⠥⠗⠀⠁⠙⠊⠤</row>
+                </page>
+                <page>
+                  <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁⠁</row>
+                  <row>⠏⠊⠎⠉⠊⠝⠛⠀⠑⠇⠊⠞⠂⠀⠎⠑⠙⠀⠙⠕⠀⠑⠊⠥⠎⠤</row>
+                  <row>⠍⠕⠙⠀⠞⠑⠍⠏⠕⠗⠀⠊⠝⠉⠊⠙⠊⠙⠥⠝⠞⠀⠥⠞⠀</row>
+                  <row>⠇⠁⠃⠕⠗⠑⠀⠑⠞⠀⠙⠕⠇⠕⠗⠑⠀⠍⠁⠛⠝⠁⠀</row>
+                  <row>⠁⠇⠊⠟⠥⠁⠄⠀⠠⠥⠞⠀⠑⠝⠊⠍⠀⠁⠙⠀⠍⠊⠝⠊⠍⠀</row>
+                  <row>⠧⠑⠝⠊⠁⠍⠂⠀⠟⠥⠊⠎⠀⠝⠕⠎⠞⠗⠥⠙⠀</row>
+                  <row>⠑⠭⠑⠗⠉⠊⠞⠁⠞⠊⠕⠝⠀⠥⠇⠇⠁⠍⠉⠕⠀⠇⠁⠃⠕⠤</row>
+                  <row>⠗⠊⠎⠀⠝⠊⠎⠊⠀⠥⠞⠀⠁⠇⠊⠟⠥⠊⠏⠀⠑⠭⠀⠑⠁⠀</row>
+                </page>
+                <page>
+                  <row>⠼⠁⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</row>
+                  <row>⠉⠕⠍⠍⠕⠙⠕⠀⠉⠕⠝⠎⠑⠟⠥⠁⠞⠄⠀⠠⠙⠥⠊⠎⠀</row>
+                  <row>⠁⠥⠞⠑⠀⠊⠗⠥⠗⠑⠀⠙⠕⠇⠕⠗⠀⠊⠝⠀⠗⠑⠏⠗⠑⠤</row>
+                  <row>⠓⠑⠝⠙⠑⠗⠊⠞⠀⠊⠝⠀⠧⠕⠇⠥⠏⠞⠁⠞⠑⠀⠧⠑⠇⠊⠞</row>
+                  <row>⠑⠎⠎⠑⠀⠉⠊⠇⠇⠥⠍⠀⠙⠕⠇⠕⠗⠑⠀⠑⠥⠀⠋⠥⠛⠊⠤</row>
+                  <row>⠁⠞⠀⠝⠥⠇⠇⠁⠀⠏⠁⠗⠊⠁⠞⠥⠗⠄⠀⠠⠑⠭⠉⠑⠏⠤</row>
+                  <row>⠞⠑⠥⠗⠀⠎⠊⠝⠞⠀⠕⠉⠉⠁⠑⠉⠁⠞⠀⠉⠥⠏⠊⠙⠁⠤</row>
+                  <row>⠞⠁⠞⠀⠝⠕⠝⠀⠏⠗⠕⠊⠙⠑⠝⠞⠂⠀⠎⠥⠝⠞⠀⠊⠝⠀</row>
+                </page>
+                <page>
+                  <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁⠉</row>
+                  <row>⠉⠥⠇⠏⠁⠀⠟⠥⠊⠀⠕⠋⠋⠊⠉⠊⠁⠀⠙⠑⠎⠑⠗⠥⠝⠞⠀</row>
+                  <row>⠍⠕⠇⠇⠊⠞⠀⠁⠝⠊⠍⠀⠊⠙⠀⠑⠎⠞⠀⠇⠁⠃⠕⠗⠥⠍⠄</row>
+                  <row>⠀⠀⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍⠀⠙⠕⠇⠕⠗⠀⠎⠊⠞⠀</row>
+                  <row>⠁⠍⠑⠞⠂⠀⠉⠕⠝⠎⠑⠉⠞⠑⠞⠥⠗⠀⠁⠙⠊⠤</row>
+                  <row>⠏⠊⠎⠉⠊⠝⠛⠀⠑⠇⠊⠞⠂⠀⠎⠑⠙⠀⠙⠕⠀⠑⠊⠥⠎⠤</row>
+                  <row>⠍⠕⠙⠀⠞⠑⠍⠏⠕⠗⠀⠊⠝⠉⠊⠙⠊⠙⠥⠝⠞⠀⠥⠞⠀</row>
+                  <row>⠇⠁⠃⠕⠗⠑⠀⠑⠞⠀⠙⠕⠇⠕⠗⠑⠀⠍⠁⠛⠝⠁⠀</row>
+                </page>
+                <page>
+                  <row>⠼⠁⠙⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</row>
+                  <row>⠁⠇⠊⠟⠥⠁⠄⠀⠠⠥⠞⠀⠑⠝⠊⠍⠀⠁⠙⠀⠍⠊⠝⠊⠍⠀</row>
+                  <row>⠧⠑⠝⠊⠁⠍⠂⠀⠟⠥⠊⠎⠀⠝⠕⠎⠞⠗⠥⠙⠀</row>
+                  <row>⠑⠭⠑⠗⠉⠊⠞⠁⠞⠊⠕⠝⠀⠥⠇⠇⠁⠍⠉⠕⠀⠇⠁⠃⠕⠤</row>
+                  <row>⠗⠊⠎⠀⠝⠊⠎⠊⠀⠥⠞⠀⠁⠇⠊⠟⠥⠊⠏⠀⠑⠭⠀⠑⠁⠀</row>
+                  <row>⠉⠕⠍⠍⠕⠙⠕⠀⠉⠕⠝⠎⠑⠟⠥⠁⠞⠄⠀⠠⠙⠥⠊⠎⠀</row>
+                  <row>⠁⠥⠞⠑⠀⠊⠗⠥⠗⠑⠀⠙⠕⠇⠕⠗⠀⠊⠝⠀⠗⠑⠏⠗⠑⠤</row>
+                  <row>⠓⠑⠝⠙⠑⠗⠊⠞⠀⠊⠝⠀⠧⠕⠇⠥⠏⠞⠁⠞⠑⠀⠧⠑⠇⠊⠞</row>
+                </page>
+              </section>
+            </volume>
+            <volume cols="27" rows="8" rowgap="0" duplex="true">
+              <section>
+                <page>
+                  <row/>
+                  <row>⠠⠅⠊⠗⠚⠁</row>
+                  <row/>
+                  <row>⠠⠚⠕⠓⠝⠀⠠⠙⠕⠑</row>
+                  <row/>
+                  <row>⠠⠧⠊⠓⠅⠕⠀⠼⠙⠌⠼⠑</row>
+                </page>
+                <page/>
+              </section>
+              <section>
+                <page>
+                  <row>⠠⠇⠕⠏⠏⠥⠎⠁⠝⠁⠞⠀⠐⠐⠐⠐⠐⠐⠐⠐⠐⠐⠐⠀⠼⠁⠋</row>
+                </page>
+                <page/>
+              </section>
+              <section>
+                <page>
+                  <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁⠑</row>
+                  <row>⠑⠎⠎⠑⠀⠉⠊⠇⠇⠥⠍⠀⠙⠕⠇⠕⠗⠑⠀⠑⠥⠀⠋⠥⠛⠊⠤</row>
+                  <row>⠁⠞⠀⠝⠥⠇⠇⠁⠀⠏⠁⠗⠊⠁⠞⠥⠗⠄⠀⠠⠑⠭⠉⠑⠏⠤</row>
+                  <row>⠞⠑⠥⠗⠀⠎⠊⠝⠞⠀⠕⠉⠉⠁⠑⠉⠁⠞⠀⠉⠥⠏⠊⠙⠁⠤</row>
+                  <row>⠞⠁⠞⠀⠝⠕⠝⠀⠏⠗⠕⠊⠙⠑⠝⠞⠂⠀⠎⠥⠝⠞⠀⠊⠝⠀</row>
+                  <row>⠉⠥⠇⠏⠁⠀⠟⠥⠊⠀⠕⠋⠋⠊⠉⠊⠁⠀⠙⠑⠎⠑⠗⠥⠝⠞⠀</row>
+                  <row>⠍⠕⠇⠇⠊⠞⠀⠁⠝⠊⠍⠀⠊⠙⠀⠑⠎⠞⠀⠇⠁⠃⠕⠗⠥⠍⠄</row>
+                </page>
+                <page>
+                  <row>⠼⠁⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</row>
+                  <row/>
+                  <row>⠠⠇⠕⠏⠏⠥⠎⠁⠝⠁⠞</row>
+                  <row/>
+                  <row>⠀⠀⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍⠀⠙⠕⠇⠕⠗⠀⠎⠊⠞⠀</row>
+                  <row>⠁⠍⠑⠞⠂⠀⠉⠕⠝⠎⠑⠉⠞⠑⠞⠥⠗⠀⠁⠙⠊⠤</row>
+                  <row>⠏⠊⠎⠉⠊⠝⠛⠀⠑⠇⠊⠞⠂⠀⠎⠑⠙⠀⠙⠕⠀⠑⠊⠥⠎⠤</row>
+                  <row>⠍⠕⠙⠀⠞⠑⠍⠏⠕⠗⠀⠊⠝⠉⠊⠙⠊⠙⠥⠝⠞⠀⠥⠞⠀</row>
+                </page>
+                <page>
+                  <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁⠛</row>
+                  <row>⠇⠁⠃⠕⠗⠑⠀⠑⠞⠀⠙⠕⠇⠕⠗⠑⠀⠍⠁⠛⠝⠁⠀</row>
+                  <row>⠁⠇⠊⠟⠥⠁⠄⠀⠠⠥⠞⠀⠑⠝⠊⠍⠀⠁⠙⠀⠍⠊⠝⠊⠍⠀</row>
+                  <row>⠧⠑⠝⠊⠁⠍⠂⠀⠟⠥⠊⠎⠀⠝⠕⠎⠞⠗⠥⠙⠀</row>
+                  <row>⠑⠭⠑⠗⠉⠊⠞⠁⠞⠊⠕⠝⠀⠥⠇⠇⠁⠍⠉⠕⠀⠇⠁⠃⠕⠤</row>
+                  <row>⠗⠊⠎⠀⠝⠊⠎⠊⠀⠥⠞⠀⠁⠇⠊⠟⠥⠊⠏⠀⠑⠭⠀⠑⠁⠀</row>
+                  <row>⠉⠕⠍⠍⠕⠙⠕⠀⠉⠕⠝⠎⠑⠟⠥⠁⠞⠄⠀⠠⠙⠥⠊⠎⠀</row>
+                  <row>⠁⠥⠞⠑⠀⠊⠗⠥⠗⠑⠀⠙⠕⠇⠕⠗⠀⠊⠝⠀⠗⠑⠏⠗⠑⠤</row>
+                </page>
+                <page>
+                  <row>⠼⠁⠓⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</row>
+                  <row>⠓⠑⠝⠙⠑⠗⠊⠞⠀⠊⠝⠀⠧⠕⠇⠥⠏⠞⠁⠞⠑⠀⠧⠑⠇⠊⠞</row>
+                  <row>⠑⠎⠎⠑⠀⠉⠊⠇⠇⠥⠍⠀⠙⠕⠇⠕⠗⠑⠀⠑⠥⠀⠋⠥⠛⠊⠤</row>
+                  <row>⠁⠞⠀⠝⠥⠇⠇⠁⠀⠏⠁⠗⠊⠁⠞⠥⠗⠄⠀⠠⠑⠭⠉⠑⠏⠤</row>
+                  <row>⠞⠑⠥⠗⠀⠎⠊⠝⠞⠀⠕⠉⠉⠁⠑⠉⠁⠞⠀⠉⠥⠏⠊⠙⠁⠤</row>
+                  <row>⠞⠁⠞⠀⠝⠕⠝⠀⠏⠗⠕⠊⠙⠑⠝⠞⠂⠀⠎⠥⠝⠞⠀⠊⠝⠀</row>
+                  <row>⠉⠥⠇⠏⠁⠀⠟⠥⠊⠀⠕⠋⠋⠊⠉⠊⠁⠀⠙⠑⠎⠑⠗⠥⠝⠞⠀</row>
+                  <row>⠍⠕⠇⠇⠊⠞⠀⠁⠝⠊⠍⠀⠊⠙⠀⠑⠎⠞⠀⠇⠁⠃⠕⠗⠥⠍⠄</row>
+                </page>
+              </section>
+            </volume>
+            <volume cols="27" rows="8" rowgap="0" duplex="true">
+              <section>
+                <page>
+                  <row/>
+                  <row>⠠⠅⠊⠗⠚⠁</row>
+                  <row/>
+                  <row>⠠⠚⠕⠓⠝⠀⠠⠙⠕⠑</row>
+                  <row/>
+                  <row>⠠⠧⠊⠓⠅⠕⠀⠼⠑⠌⠼⠑</row>
+                </page>
+                <page/>
+              </section>
+              <section>
+                <page>
+                  <row>⠠⠅⠊⠗⠚⠁⠝⠀⠇⠕⠏⠏⠥⠀⠐⠐⠐⠐⠐⠐⠐⠐⠐⠀⠼⠁⠊</row>
+                </page>
+                <page/>
+              </section>
+              <section>
+                <page>
+                  <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁⠊</row>
+                  <row/>
+                  <row>⠠⠅⠊⠗⠚⠁⠝⠀⠇⠕⠏⠏⠥</row>
+                  <row/>
+                  <row>⠀⠀⠠⠞⠜⠓⠜⠝⠀⠏⠜⠜⠞⠞⠽⠊⠀⠅⠊⠗⠚⠁⠀</row>
+                  <row>⠠⠅⠊⠗⠚⠁</row>
+                </page>
+                <page/>
+                <page/>
+                <page/>
+              </section>
+            </volume>
+          </body>
+        </pef>
+      </x:document>
+    </x:expect>
+  </x:scenario>
+
+
   <x:scenario label="volumes-divisible-by-four-non-duplex">
     <x:call step="celia:dtbook-to-pef">
       <x:input port="source">
@@ -2819,6 +3149,368 @@
     </x:expect>
   </x:scenario>
 
+  <x:scenario label="volumes-divisible-by-four-non-duplex-multiple-sections">
+    <x:call step="celia:dtbook-to-pef">
+      <x:input port="source">
+        <x:document type="file" href="../resources/test.xml"> </x:document>
+      </x:input>
+      <x:option name="temp-dir" select="$temp-dir"/>
+      <x:option name="pef-output-dir"
+        select="concat($temp-dir, 'volumes-divisible-by-four-non-duplex-multi-sections/output-dir/')"/>
+      <x:option name="toc-depth" select="'1'"/>
+      <x:option name="page-height" select="'8'"/>
+      <x:option name="maximum-number-of-sheets" select="'4'"/>
+      <x:option name="insert-titlepage" select="true()"/>
+      <x:option name="make-volumes-divisible-by-four" select="true()"/>
+      <x:option name="duplex" select="false()"/>
+    </x:call>
+    <x:context label="pef">
+      <x:document type="file" base-uri="temp-dir"
+        href="volumes-divisible-by-four-non-duplex-multi-sections/output-dir/test.pef"/>
+    </x:context>
+    <x:expect label="result" type="custom"
+      href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl"
+      step="x:pef-compare">
+      <x:document type="inline">
+        <!-- NB: Not all volumes have TOCs, because not all volumes have headings -->
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" xml:lang="fi" version="2008-1">
+          <head>
+            <meta>
+              <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/"
+                >application/x-pef+xml</dc:format>
+              <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
+              <dc:date xmlns:dc="http://purl.org/dc/elements/1.1/">2016-05-18</dc:date>
+              <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">Kirja</dc:title>
+              <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">John Doe</dc:creator>
+              <dc:language xmlns:dc="http://purl.org/dc/elements/1.1/">fi</dc:language>
+              <dc:publisher xmlns:dc="http://purl.org/dc/elements/1.1/">Celia</dc:publisher>
+            </meta>
+          </head>
+    <body>
+        <volume cols="27" rows="8" rowgap="0" duplex="false">
+            <section>
+                <page>
+                    <row/>
+                    <row>⠠⠅⠊⠗⠚⠁</row>
+                    <row/>
+                    <row>⠠⠚⠕⠓⠝⠀⠠⠙⠕⠑</row>
+                    <row/>
+                    <row>⠠⠧⠊⠓⠅⠕⠀⠼⠁⠌⠼⠓</row>
+                </page>
+            </section>
+            <section>
+                <page>
+                    <row>⠠⠁⠇⠅⠥⠞⠊⠑⠙⠕⠞⠀⠐⠐⠐⠐⠐⠐⠐⠐⠐⠐⠐⠐⠀⠼⠁</row>
+                </page>
+            </section>
+            <section>
+                <page>
+                    <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁</row>
+                    <row>⠠⠅⠊⠗⠚⠁</row>
+                    <row/>
+                    <row>⠠⠚⠕⠓⠝⠀⠠⠙⠕⠑</row>
+                    <row/>
+                    <row>⠠⠁⠇⠅⠥⠞⠊⠑⠙⠕⠞</row>
+                    <row/>
+                    <row>⠠⠠⠅⠥⠎⠞⠁⠝⠞⠁⠚⠁⠀⠠⠠⠏⠁⠊⠅⠅⠁</row>
+                </page>
+                <page>
+                    <row>⠼⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</row>
+                    <row/>
+                    <row>⠠⠧⠊⠊⠙⠑⠎⠀⠏⠁⠊⠝⠕⠎⠂⠀⠼⠃⠚⠁⠑</row>
+                    <row/>
+                    <row>⠠⠞⠥⠕⠞⠞⠁⠚⠁⠒⠀⠠⠉⠑⠇⠊⠁⠀⠤⠀⠠⠝⠜⠅⠪⠤</row>
+                    <row>⠧⠁⠍⠍⠁⠊⠎⠞⠑⠝⠀⠅⠊⠗⠚⠁⠎⠞⠕⠀⠼⠃⠚⠁⠋</row>
+                </page>
+            </section>
+        </volume>
+        <volume cols="27" rows="8" rowgap="0" duplex="false">
+            <section>
+                <page>
+                    <row/>
+                    <row>⠠⠅⠊⠗⠚⠁</row>
+                    <row/>
+                    <row>⠠⠚⠕⠓⠝⠀⠠⠙⠕⠑</row>
+                    <row/>
+                    <row>⠠⠧⠊⠓⠅⠕⠀⠼⠃⠌⠼⠓</row>
+                </page>
+            </section>
+            <section>
+                <page>
+                    <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠉</row>
+                    <row/>
+                    <row>⠠⠅⠜⠽⠞⠞⠪⠕⠊⠅⠑⠥⠎</row>
+                    <row/>
+                    <row>⠠⠞⠜⠍⠜⠀⠅⠊⠗⠚⠁⠀⠕⠝⠀⠧⠁⠇⠍⠊⠎⠞⠑⠞⠞⠥⠀</row>
+                    <row>⠞⠑⠅⠊⠚⠜⠝⠕⠊⠅⠑⠥⠎⠇⠁⠊⠝⠀⠼⠁⠛⠄⠀⠏⠽⠤</row>
+                    <row>⠅⠜⠇⠜⠝⠀⠝⠕⠚⠁⠇⠇⠁⠀⠚⠁⠀⠕⠝⠀⠞⠁⠗⠅⠕⠊⠤</row>
+                    <row>⠞⠑⠞⠞⠥⠀⠁⠊⠝⠕⠁⠎⠞⠁⠁⠝⠀⠝⠜⠅⠪⠧⠁⠍⠤</row>
+                </page>
+                <page>
+                    <row>⠼⠙⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</row>
+                    <row>⠍⠁⠊⠎⠞⠑⠝⠀⠚⠁⠀⠍⠥⠊⠙⠑⠝⠀⠇⠥⠅⠑⠍⠊⠤</row>
+                    <row>⠎⠑⠎⠞⠑⠊⠎⠞⠑⠝⠀⠅⠜⠽⠞⠞⠪⠪⠝⠄</row>
+                    <row/>
+                    <row>⠠⠅⠥⠎⠞⠁⠝⠞⠁⠚⠁⠀⠑⠎⠊⠞⠞⠑⠇⠑⠑</row>
+                    <row/>
+                    <row>⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍⠀⠙⠕⠇⠕⠗⠀⠎⠊⠞⠀</row>
+                    <row>⠁⠍⠑⠞⠂⠀⠉⠕⠝⠎⠑⠉⠞⠑⠞⠥⠗⠀⠁⠙⠊⠤</row>
+                </page>
+                <page>
+                    <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠑</row>
+                    <row>⠏⠊⠎⠉⠊⠝⠛⠀⠑⠇⠊⠞⠂⠀⠎⠑⠙⠀⠙⠕⠀⠑⠊⠥⠎⠤</row>
+                    <row>⠍⠕⠙⠀⠞⠑⠍⠏⠕⠗⠀⠊⠝⠉⠊⠙⠊⠙⠥⠝⠞⠀⠥⠞⠀</row>
+                    <row>⠇⠁⠃⠕⠗⠑⠀⠑⠞⠀⠙⠕⠇⠕⠗⠑⠀⠍⠁⠛⠝⠁⠀</row>
+                    <row>⠁⠇⠊⠟⠥⠁⠄⠀⠠⠥⠞⠀⠑⠝⠊⠍⠀⠁⠙⠀⠍⠊⠝⠊⠍⠀</row>
+                    <row>⠧⠑⠝⠊⠁⠍⠂⠀⠟⠥⠊⠎⠀⠝⠕⠎⠞⠗⠥⠙⠀</row>
+                    <row>⠑⠭⠑⠗⠉⠊⠞⠁⠞⠊⠕⠝⠀⠥⠇⠇⠁⠍⠉⠕⠀⠇⠁⠃⠕⠤</row>
+                    <row>⠗⠊⠎⠀⠝⠊⠎⠊⠀⠥⠞⠀⠁⠇⠊⠟⠥⠊⠏⠀⠑⠭⠀⠑⠁⠀</row>
+                </page>
+            </section>
+        </volume>
+        <volume cols="27" rows="8" rowgap="0" duplex="false">
+            <section>
+                <page>
+                    <row/>
+                    <row>⠠⠅⠊⠗⠚⠁</row>
+                    <row/>
+                    <row>⠠⠚⠕⠓⠝⠀⠠⠙⠕⠑</row>
+                    <row/>
+                    <row>⠠⠧⠊⠓⠅⠕⠀⠼⠉⠌⠼⠓</row>
+                </page>
+            </section>
+            <section>
+                <page>
+                    <row>⠼⠁⠀⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍⠀⠐⠐⠐⠐⠐⠐⠐⠐⠀⠼⠛</row>
+                </page>
+            </section>
+            <section>
+                <page>
+                    <row>⠼⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</row>
+                    <row>⠉⠕⠍⠍⠕⠙⠕⠀⠉⠕⠝⠎⠑⠟⠥⠁⠞⠄⠀⠠⠙⠥⠊⠎⠀</row>
+                    <row>⠁⠥⠞⠑⠀⠊⠗⠥⠗⠑⠀⠙⠕⠇⠕⠗⠀⠊⠝⠀⠗⠑⠏⠗⠑⠤</row>
+                    <row>⠓⠑⠝⠙⠑⠗⠊⠞⠀⠊⠝⠀⠧⠕⠇⠥⠏⠞⠁⠞⠑⠀⠧⠑⠇⠊⠞</row>
+                    <row>⠑⠎⠎⠑⠀⠉⠊⠇⠇⠥⠍⠀⠙⠕⠇⠕⠗⠑⠀⠑⠥⠀⠋⠥⠛⠊⠤</row>
+                    <row>⠁⠞⠀⠝⠥⠇⠇⠁⠀⠏⠁⠗⠊⠁⠞⠥⠗⠄⠀⠠⠑⠭⠉⠑⠏⠤</row>
+                    <row>⠞⠑⠥⠗⠀⠎⠊⠝⠞⠀⠕⠉⠉⠁⠑⠉⠁⠞⠀⠉⠥⠏⠊⠙⠁⠤</row>
+                    <row>⠞⠁⠞⠀⠝⠕⠝⠀⠏⠗⠕⠊⠙⠑⠝⠞⠂⠀⠎⠥⠝⠞⠀⠊⠝⠀</row>
+                </page>
+                <page>
+                    <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠛</row>
+                    <row>⠉⠥⠇⠏⠁⠀⠟⠥⠊⠀⠕⠋⠋⠊⠉⠊⠁⠀⠙⠑⠎⠑⠗⠥⠝⠞⠀</row>
+                    <row>⠍⠕⠇⠇⠊⠞⠀⠁⠝⠊⠍⠀⠊⠙⠀⠑⠎⠞⠀⠇⠁⠃⠕⠗⠥⠍⠄</row>
+                    <row/>
+                    <row>⠼⠁⠀⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍</row>
+                    <row/>
+                    <row>⠀⠀⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍⠀⠙⠕⠇⠕⠗⠀⠎⠊⠞⠀</row>
+                    <row>⠁⠍⠑⠞⠂⠀⠉⠕⠝⠎⠑⠉⠞⠑⠞⠥⠗⠀⠁⠙⠊⠤</row>
+                </page>
+            </section>
+        </volume>
+        <volume cols="27" rows="8" rowgap="0" duplex="false">
+            <section>
+                <page>
+                    <row/>
+                    <row>⠠⠅⠊⠗⠚⠁</row>
+                    <row/>
+                    <row>⠠⠚⠕⠓⠝⠀⠠⠙⠕⠑</row>
+                    <row/>
+                    <row>⠠⠧⠊⠓⠅⠕⠀⠼⠙⠌⠼⠓</row>
+                </page>
+            </section>
+            <section>
+                <page>
+                    <row>⠼⠓⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</row>
+                    <row>⠏⠊⠎⠉⠊⠝⠛⠀⠑⠇⠊⠞⠂⠀⠎⠑⠙⠀⠙⠕⠀⠑⠊⠥⠎⠤</row>
+                    <row>⠍⠕⠙⠀⠞⠑⠍⠏⠕⠗⠀⠊⠝⠉⠊⠙⠊⠙⠥⠝⠞⠀⠥⠞⠀</row>
+                    <row>⠇⠁⠃⠕⠗⠑⠀⠑⠞⠀⠙⠕⠇⠕⠗⠑⠀⠍⠁⠛⠝⠁⠀</row>
+                    <row>⠁⠇⠊⠟⠥⠁⠄⠀⠠⠥⠞⠀⠑⠝⠊⠍⠀⠁⠙⠀⠍⠊⠝⠊⠍⠀</row>
+                    <row>⠧⠑⠝⠊⠁⠍⠂⠀⠟⠥⠊⠎⠀⠝⠕⠎⠞⠗⠥⠙⠀</row>
+                    <row>⠑⠭⠑⠗⠉⠊⠞⠁⠞⠊⠕⠝⠀⠥⠇⠇⠁⠍⠉⠕⠀⠇⠁⠃⠕⠤</row>
+                    <row>⠗⠊⠎⠀⠝⠊⠎⠊⠀⠥⠞⠀⠁⠇⠊⠟⠥⠊⠏⠀⠑⠭⠀⠑⠁⠀</row>
+                </page>
+                <page>
+                    <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠊</row>
+                    <row>⠉⠕⠍⠍⠕⠙⠕⠀⠉⠕⠝⠎⠑⠟⠥⠁⠞⠄⠀⠠⠙⠥⠊⠎⠀</row>
+                    <row>⠁⠥⠞⠑⠀⠊⠗⠥⠗⠑⠀⠙⠕⠇⠕⠗⠀⠊⠝⠀⠗⠑⠏⠗⠑⠤</row>
+                    <row>⠓⠑⠝⠙⠑⠗⠊⠞⠀⠊⠝⠀⠧⠕⠇⠥⠏⠞⠁⠞⠑⠀⠧⠑⠇⠊⠞</row>
+                    <row>⠑⠎⠎⠑⠀⠉⠊⠇⠇⠥⠍⠀⠙⠕⠇⠕⠗⠑⠀⠑⠥⠀⠋⠥⠛⠊⠤</row>
+                    <row>⠁⠞⠀⠝⠥⠇⠇⠁⠀⠏⠁⠗⠊⠁⠞⠥⠗⠄⠀⠠⠑⠭⠉⠑⠏⠤</row>
+                    <row>⠞⠑⠥⠗⠀⠎⠊⠝⠞⠀⠕⠉⠉⠁⠑⠉⠁⠞⠀⠉⠥⠏⠊⠙⠁⠤</row>
+                    <row>⠞⠁⠞⠀⠝⠕⠝⠀⠏⠗⠕⠊⠙⠑⠝⠞⠂⠀⠎⠥⠝⠞⠀⠊⠝⠀</row>
+                </page>
+                <page>
+                    <row>⠼⠁⠚⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</row>
+                    <row>⠉⠥⠇⠏⠁⠀⠟⠥⠊⠀⠕⠋⠋⠊⠉⠊⠁⠀⠙⠑⠎⠑⠗⠥⠝⠞⠀</row>
+                    <row>⠍⠕⠇⠇⠊⠞⠀⠁⠝⠊⠍⠀⠊⠙⠀⠑⠎⠞⠀⠇⠁⠃⠕⠗⠥⠍⠄</row>
+                    <row/>
+                    <row>⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍</row>
+                    <row/>
+                    <row>⠀⠀⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍⠀⠙⠕⠇⠕⠗⠀⠎⠊⠞⠀</row>
+                    <row>⠁⠍⠑⠞⠂⠀⠉⠕⠝⠎⠑⠉⠞⠑⠞⠥⠗⠀⠁⠙⠊⠤</row>
+                </page>
+            </section>
+        </volume>
+        <volume cols="27" rows="8" rowgap="0" duplex="false">
+            <section>
+                <page>
+                    <row/>
+                    <row>⠠⠅⠊⠗⠚⠁</row>
+                    <row/>
+                    <row>⠠⠚⠕⠓⠝⠀⠠⠙⠕⠑</row>
+                    <row/>
+                    <row>⠠⠧⠊⠓⠅⠕⠀⠼⠑⠌⠼⠓</row>
+                </page>
+            </section>
+            <section>
+                <page>
+                    <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁⠁</row>
+                    <row>⠏⠊⠎⠉⠊⠝⠛⠀⠑⠇⠊⠞⠂⠀⠎⠑⠙⠀⠙⠕⠀⠑⠊⠥⠎⠤</row>
+                    <row>⠍⠕⠙⠀⠞⠑⠍⠏⠕⠗⠀⠊⠝⠉⠊⠙⠊⠙⠥⠝⠞⠀⠥⠞⠀</row>
+                    <row>⠇⠁⠃⠕⠗⠑⠀⠑⠞⠀⠙⠕⠇⠕⠗⠑⠀⠍⠁⠛⠝⠁⠀</row>
+                    <row>⠁⠇⠊⠟⠥⠁⠄⠀⠠⠥⠞⠀⠑⠝⠊⠍⠀⠁⠙⠀⠍⠊⠝⠊⠍⠀</row>
+                    <row>⠧⠑⠝⠊⠁⠍⠂⠀⠟⠥⠊⠎⠀⠝⠕⠎⠞⠗⠥⠙⠀</row>
+                    <row>⠑⠭⠑⠗⠉⠊⠞⠁⠞⠊⠕⠝⠀⠥⠇⠇⠁⠍⠉⠕⠀⠇⠁⠃⠕⠤</row>
+                    <row>⠗⠊⠎⠀⠝⠊⠎⠊⠀⠥⠞⠀⠁⠇⠊⠟⠥⠊⠏⠀⠑⠭⠀⠑⠁⠀</row>
+                </page>
+                <page>
+                    <row>⠼⠁⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</row>
+                    <row>⠉⠕⠍⠍⠕⠙⠕⠀⠉⠕⠝⠎⠑⠟⠥⠁⠞⠄⠀⠠⠙⠥⠊⠎⠀</row>
+                    <row>⠁⠥⠞⠑⠀⠊⠗⠥⠗⠑⠀⠙⠕⠇⠕⠗⠀⠊⠝⠀⠗⠑⠏⠗⠑⠤</row>
+                    <row>⠓⠑⠝⠙⠑⠗⠊⠞⠀⠊⠝⠀⠧⠕⠇⠥⠏⠞⠁⠞⠑⠀⠧⠑⠇⠊⠞</row>
+                    <row>⠑⠎⠎⠑⠀⠉⠊⠇⠇⠥⠍⠀⠙⠕⠇⠕⠗⠑⠀⠑⠥⠀⠋⠥⠛⠊⠤</row>
+                    <row>⠁⠞⠀⠝⠥⠇⠇⠁⠀⠏⠁⠗⠊⠁⠞⠥⠗⠄⠀⠠⠑⠭⠉⠑⠏⠤</row>
+                    <row>⠞⠑⠥⠗⠀⠎⠊⠝⠞⠀⠕⠉⠉⠁⠑⠉⠁⠞⠀⠉⠥⠏⠊⠙⠁⠤</row>
+                    <row>⠞⠁⠞⠀⠝⠕⠝⠀⠏⠗⠕⠊⠙⠑⠝⠞⠂⠀⠎⠥⠝⠞⠀⠊⠝⠀</row>
+                </page>
+                <page>
+                    <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁⠉</row>
+                    <row>⠉⠥⠇⠏⠁⠀⠟⠥⠊⠀⠕⠋⠋⠊⠉⠊⠁⠀⠙⠑⠎⠑⠗⠥⠝⠞⠀</row>
+                    <row>⠍⠕⠇⠇⠊⠞⠀⠁⠝⠊⠍⠀⠊⠙⠀⠑⠎⠞⠀⠇⠁⠃⠕⠗⠥⠍⠄</row>
+                    <row>⠀⠀⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍⠀⠙⠕⠇⠕⠗⠀⠎⠊⠞⠀</row>
+                    <row>⠁⠍⠑⠞⠂⠀⠉⠕⠝⠎⠑⠉⠞⠑⠞⠥⠗⠀⠁⠙⠊⠤</row>
+                    <row>⠏⠊⠎⠉⠊⠝⠛⠀⠑⠇⠊⠞⠂⠀⠎⠑⠙⠀⠙⠕⠀⠑⠊⠥⠎⠤</row>
+                    <row>⠍⠕⠙⠀⠞⠑⠍⠏⠕⠗⠀⠊⠝⠉⠊⠙⠊⠙⠥⠝⠞⠀⠥⠞⠀</row>
+                    <row>⠇⠁⠃⠕⠗⠑⠀⠑⠞⠀⠙⠕⠇⠕⠗⠑⠀⠍⠁⠛⠝⠁⠀</row>
+                </page>
+            </section>
+        </volume>
+        <volume cols="27" rows="8" rowgap="0" duplex="false">
+            <section>
+                <page>
+                    <row/>
+                    <row>⠠⠅⠊⠗⠚⠁</row>
+                    <row/>
+                    <row>⠠⠚⠕⠓⠝⠀⠠⠙⠕⠑</row>
+                    <row/>
+                    <row>⠠⠧⠊⠓⠅⠕⠀⠼⠋⠌⠼⠓</row>
+                </page>
+            </section>
+            <section>
+                <page>
+                    <row>⠼⠁⠙⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</row>
+                    <row>⠁⠇⠊⠟⠥⠁⠄⠀⠠⠥⠞⠀⠑⠝⠊⠍⠀⠁⠙⠀⠍⠊⠝⠊⠍⠀</row>
+                    <row>⠧⠑⠝⠊⠁⠍⠂⠀⠟⠥⠊⠎⠀⠝⠕⠎⠞⠗⠥⠙⠀</row>
+                    <row>⠑⠭⠑⠗⠉⠊⠞⠁⠞⠊⠕⠝⠀⠥⠇⠇⠁⠍⠉⠕⠀⠇⠁⠃⠕⠤</row>
+                    <row>⠗⠊⠎⠀⠝⠊⠎⠊⠀⠥⠞⠀⠁⠇⠊⠟⠥⠊⠏⠀⠑⠭⠀⠑⠁⠀</row>
+                    <row>⠉⠕⠍⠍⠕⠙⠕⠀⠉⠕⠝⠎⠑⠟⠥⠁⠞⠄⠀⠠⠙⠥⠊⠎⠀</row>
+                    <row>⠁⠥⠞⠑⠀⠊⠗⠥⠗⠑⠀⠙⠕⠇⠕⠗⠀⠊⠝⠀⠗⠑⠏⠗⠑⠤</row>
+                    <row>⠓⠑⠝⠙⠑⠗⠊⠞⠀⠊⠝⠀⠧⠕⠇⠥⠏⠞⠁⠞⠑⠀⠧⠑⠇⠊⠞</row>
+                </page>
+                <page>
+                    <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁⠑</row>
+                    <row>⠑⠎⠎⠑⠀⠉⠊⠇⠇⠥⠍⠀⠙⠕⠇⠕⠗⠑⠀⠑⠥⠀⠋⠥⠛⠊⠤</row>
+                    <row>⠁⠞⠀⠝⠥⠇⠇⠁⠀⠏⠁⠗⠊⠁⠞⠥⠗⠄⠀⠠⠑⠭⠉⠑⠏⠤</row>
+                    <row>⠞⠑⠥⠗⠀⠎⠊⠝⠞⠀⠕⠉⠉⠁⠑⠉⠁⠞⠀⠉⠥⠏⠊⠙⠁⠤</row>
+                    <row>⠞⠁⠞⠀⠝⠕⠝⠀⠏⠗⠕⠊⠙⠑⠝⠞⠂⠀⠎⠥⠝⠞⠀⠊⠝⠀</row>
+                    <row>⠉⠥⠇⠏⠁⠀⠟⠥⠊⠀⠕⠋⠋⠊⠉⠊⠁⠀⠙⠑⠎⠑⠗⠥⠝⠞⠀</row>
+                    <row>⠍⠕⠇⠇⠊⠞⠀⠁⠝⠊⠍⠀⠊⠙⠀⠑⠎⠞⠀⠇⠁⠃⠕⠗⠥⠍⠄</row>
+                </page>
+                <page/>
+            </section>
+        </volume>
+        <volume cols="27" rows="8" rowgap="0" duplex="false">
+            <section>
+                <page>
+                    <row/>
+                    <row>⠠⠅⠊⠗⠚⠁</row>
+                    <row/>
+                    <row>⠠⠚⠕⠓⠝⠀⠠⠙⠕⠑</row>
+                    <row/>
+                    <row>⠠⠧⠊⠓⠅⠕⠀⠼⠛⠌⠼⠓</row>
+                </page>
+            </section>
+            <section>
+                <page>
+                    <row>⠠⠇⠕⠏⠏⠥⠎⠁⠝⠁⠞⠀⠐⠐⠐⠐⠐⠐⠐⠐⠐⠐⠐⠀⠼⠁⠋</row>
+                </page>
+            </section>
+            <section>
+                <page>
+                    <row>⠼⠁⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</row>
+                    <row/>
+                    <row>⠠⠇⠕⠏⠏⠥⠎⠁⠝⠁⠞</row>
+                    <row/>
+                    <row>⠀⠀⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍⠀⠙⠕⠇⠕⠗⠀⠎⠊⠞⠀</row>
+                    <row>⠁⠍⠑⠞⠂⠀⠉⠕⠝⠎⠑⠉⠞⠑⠞⠥⠗⠀⠁⠙⠊⠤</row>
+                    <row>⠏⠊⠎⠉⠊⠝⠛⠀⠑⠇⠊⠞⠂⠀⠎⠑⠙⠀⠙⠕⠀⠑⠊⠥⠎⠤</row>
+                    <row>⠍⠕⠙⠀⠞⠑⠍⠏⠕⠗⠀⠊⠝⠉⠊⠙⠊⠙⠥⠝⠞⠀⠥⠞⠀</row>
+                </page>
+                <page>
+                    <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁⠛</row>
+                    <row>⠇⠁⠃⠕⠗⠑⠀⠑⠞⠀⠙⠕⠇⠕⠗⠑⠀⠍⠁⠛⠝⠁⠀</row>
+                    <row>⠁⠇⠊⠟⠥⠁⠄⠀⠠⠥⠞⠀⠑⠝⠊⠍⠀⠁⠙⠀⠍⠊⠝⠊⠍⠀</row>
+                    <row>⠧⠑⠝⠊⠁⠍⠂⠀⠟⠥⠊⠎⠀⠝⠕⠎⠞⠗⠥⠙⠀</row>
+                    <row>⠑⠭⠑⠗⠉⠊⠞⠁⠞⠊⠕⠝⠀⠥⠇⠇⠁⠍⠉⠕⠀⠇⠁⠃⠕⠤</row>
+                    <row>⠗⠊⠎⠀⠝⠊⠎⠊⠀⠥⠞⠀⠁⠇⠊⠟⠥⠊⠏⠀⠑⠭⠀⠑⠁⠀</row>
+                    <row>⠉⠕⠍⠍⠕⠙⠕⠀⠉⠕⠝⠎⠑⠟⠥⠁⠞⠄⠀⠠⠙⠥⠊⠎⠀</row>
+                    <row>⠁⠥⠞⠑⠀⠊⠗⠥⠗⠑⠀⠙⠕⠇⠕⠗⠀⠊⠝⠀⠗⠑⠏⠗⠑⠤</row>
+                </page>
+            </section>
+        </volume>
+        <volume cols="27" rows="8" rowgap="0" duplex="false">
+            <section>
+                <page>
+                    <row/>
+                    <row>⠠⠅⠊⠗⠚⠁</row>
+                    <row/>
+                    <row>⠠⠚⠕⠓⠝⠀⠠⠙⠕⠑</row>
+                    <row/>
+                    <row>⠠⠧⠊⠓⠅⠕⠀⠼⠓⠌⠼⠓</row>
+                </page>
+            </section>
+            <section>
+                <page>
+                    <row>⠠⠅⠊⠗⠚⠁⠝⠀⠇⠕⠏⠏⠥⠀⠐⠐⠐⠐⠐⠐⠐⠐⠐⠀⠼⠁⠊</row>
+                </page>
+            </section>
+            <section>
+                <page>
+                    <row>⠼⠁⠓⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</row>
+                    <row>⠓⠑⠝⠙⠑⠗⠊⠞⠀⠊⠝⠀⠧⠕⠇⠥⠏⠞⠁⠞⠑⠀⠧⠑⠇⠊⠞</row>
+                    <row>⠑⠎⠎⠑⠀⠉⠊⠇⠇⠥⠍⠀⠙⠕⠇⠕⠗⠑⠀⠑⠥⠀⠋⠥⠛⠊⠤</row>
+                    <row>⠁⠞⠀⠝⠥⠇⠇⠁⠀⠏⠁⠗⠊⠁⠞⠥⠗⠄⠀⠠⠑⠭⠉⠑⠏⠤</row>
+                    <row>⠞⠑⠥⠗⠀⠎⠊⠝⠞⠀⠕⠉⠉⠁⠑⠉⠁⠞⠀⠉⠥⠏⠊⠙⠁⠤</row>
+                    <row>⠞⠁⠞⠀⠝⠕⠝⠀⠏⠗⠕⠊⠙⠑⠝⠞⠂⠀⠎⠥⠝⠞⠀⠊⠝⠀</row>
+                    <row>⠉⠥⠇⠏⠁⠀⠟⠥⠊⠀⠕⠋⠋⠊⠉⠊⠁⠀⠙⠑⠎⠑⠗⠥⠝⠞⠀</row>
+                    <row>⠍⠕⠇⠇⠊⠞⠀⠁⠝⠊⠍⠀⠊⠙⠀⠑⠎⠞⠀⠇⠁⠃⠕⠗⠥⠍⠄</row>
+                </page>
+                <page>
+                    <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁⠊</row>
+                    <row/>
+                    <row>⠠⠅⠊⠗⠚⠁⠝⠀⠇⠕⠏⠏⠥</row>
+                    <row/>
+                    <row>⠀⠀⠠⠞⠜⠓⠜⠝⠀⠏⠜⠜⠞⠞⠽⠊⠀⠅⠊⠗⠚⠁⠀</row>
+                    <row>⠠⠅⠊⠗⠚⠁</row>
+                </page>
+            </section>
+        </volume>
+    </body>          
+        </pef>
+      </x:document>
+    </x:expect>
+  </x:scenario>
+
   <x:scenario label="pad-volume-endings">
     <x:call step="celia:dtbook-to-pef">
       <x:input port="source">
@@ -3056,6 +3748,277 @@
       </x:document>
     </x:expect>
   </x:scenario>
+
+  <x:scenario label="pad-volume-endings-multiple-sections">
+    <x:call step="celia:dtbook-to-pef">
+      <x:input port="source">
+        <x:document type="file" href="../resources/test.xml"> </x:document>
+      </x:input>
+      <x:option name="temp-dir" select="$temp-dir"/>
+      <x:option name="pef-output-dir" select="concat($temp-dir, 'pad-volume-endings-multi-sections/output-dir/')"/>
+      <x:option name="toc-depth" select="'1'"/>
+      <x:option name="page-height" select="'8'"/>
+      <x:option name="maximum-number-of-sheets" select="'8'"/>
+      <x:option name="insert-titlepage" select="true()"/>
+      <x:option name="make-volumes-divisible-by-four" select="false()"/>
+      <x:option name="pad-volume-endings" select="true()"/>
+    </x:call>
+    <x:context label="pef">
+      <x:document type="file" base-uri="temp-dir" href="pad-volume-endings-multi-sections/output-dir/test.pef"/>
+    </x:context>
+    <x:expect label="result" type="custom"
+      href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl"
+      step="x:pef-compare">
+      <x:document type="inline">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" xml:lang="fi" version="2008-1">
+          <head>
+            <meta>
+              <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/"
+                >application/x-pef+xml</dc:format>
+              <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
+              <dc:date xmlns:dc="http://purl.org/dc/elements/1.1/">2016-05-19</dc:date>
+              <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">Kirja</dc:title>
+              <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">John Doe</dc:creator>
+              <dc:language xmlns:dc="http://purl.org/dc/elements/1.1/">fi</dc:language>
+              <dc:publisher xmlns:dc="http://purl.org/dc/elements/1.1/">Celia</dc:publisher>
+            </meta>
+          </head>
+          <body>
+            <volume cols="27" rows="8" rowgap="0" duplex="true">
+              <section>
+                <page>
+                  <row/>
+                  <row>⠠⠅⠊⠗⠚⠁</row>
+                  <row/>
+                  <row>⠠⠚⠕⠓⠝⠀⠠⠙⠕⠑</row>
+                  <row/>
+                  <row>⠠⠧⠊⠓⠅⠕⠀⠼⠁⠌⠼⠃</row>
+                </page>
+              </section>
+              <section>
+                <page>
+                  <row>⠠⠁⠇⠅⠥⠞⠊⠑⠙⠕⠞⠀⠐⠐⠐⠐⠐⠐⠐⠐⠐⠐⠐⠐⠀⠼⠁</row>
+                  <row>⠼⠁⠀⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍⠀⠐⠐⠐⠐⠐⠐⠐⠐⠀⠼⠛</row>
+                </page>
+              </section>
+              <section>
+                <page>
+                  <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁</row>
+                  <row>⠠⠅⠊⠗⠚⠁</row>
+                  <row/>
+                  <row>⠠⠚⠕⠓⠝⠀⠠⠙⠕⠑</row>
+                  <row/>
+                  <row>⠠⠁⠇⠅⠥⠞⠊⠑⠙⠕⠞</row>
+                  <row/>
+                  <row>⠠⠠⠅⠥⠎⠞⠁⠝⠞⠁⠚⠁⠀⠠⠠⠏⠁⠊⠅⠅⠁</row>
+                </page>
+                <page>
+                  <row>⠼⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</row>
+                  <row/>
+                  <row>⠠⠧⠊⠊⠙⠑⠎⠀⠏⠁⠊⠝⠕⠎⠂⠀⠼⠃⠚⠁⠑</row>
+                  <row/>
+                  <row>⠠⠞⠥⠕⠞⠞⠁⠚⠁⠒⠀⠠⠉⠑⠇⠊⠁⠀⠤⠀⠠⠝⠜⠅⠪⠤</row>
+                  <row>⠧⠁⠍⠍⠁⠊⠎⠞⠑⠝⠀⠅⠊⠗⠚⠁⠎⠞⠕⠀⠼⠃⠚⠁⠋</row>
+                </page>
+                <page>
+                  <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠉</row>
+                  <row/>
+                  <row>⠠⠅⠜⠽⠞⠞⠪⠕⠊⠅⠑⠥⠎</row>
+                  <row/>
+                  <row>⠠⠞⠜⠍⠜⠀⠅⠊⠗⠚⠁⠀⠕⠝⠀⠧⠁⠇⠍⠊⠎⠞⠑⠞⠞⠥⠀</row>
+                  <row>⠞⠑⠅⠊⠚⠜⠝⠕⠊⠅⠑⠥⠎⠇⠁⠊⠝⠀⠼⠁⠛⠄⠀⠏⠽⠤</row>
+                  <row>⠅⠜⠇⠜⠝⠀⠝⠕⠚⠁⠇⠇⠁⠀⠚⠁⠀⠕⠝⠀⠞⠁⠗⠅⠕⠊⠤</row>
+                  <row>⠞⠑⠞⠞⠥⠀⠁⠊⠝⠕⠁⠎⠞⠁⠁⠝⠀⠝⠜⠅⠪⠧⠁⠍⠤</row>
+                </page>
+                <page>
+                  <row>⠼⠙⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</row>
+                  <row>⠍⠁⠊⠎⠞⠑⠝⠀⠚⠁⠀⠍⠥⠊⠙⠑⠝⠀⠇⠥⠅⠑⠍⠊⠤</row>
+                  <row>⠎⠑⠎⠞⠑⠊⠎⠞⠑⠝⠀⠅⠜⠽⠞⠞⠪⠪⠝⠄</row>
+                  <row/>
+                  <row>⠠⠅⠥⠎⠞⠁⠝⠞⠁⠚⠁⠀⠑⠎⠊⠞⠞⠑⠇⠑⠑</row>
+                  <row/>
+                  <row>⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍⠀⠙⠕⠇⠕⠗⠀⠎⠊⠞⠀</row>
+                  <row>⠁⠍⠑⠞⠂⠀⠉⠕⠝⠎⠑⠉⠞⠑⠞⠥⠗⠀⠁⠙⠊⠤</row>
+                </page>
+                <page>
+                  <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠑</row>
+                  <row>⠏⠊⠎⠉⠊⠝⠛⠀⠑⠇⠊⠞⠂⠀⠎⠑⠙⠀⠙⠕⠀⠑⠊⠥⠎⠤</row>
+                  <row>⠍⠕⠙⠀⠞⠑⠍⠏⠕⠗⠀⠊⠝⠉⠊⠙⠊⠙⠥⠝⠞⠀⠥⠞⠀</row>
+                  <row>⠇⠁⠃⠕⠗⠑⠀⠑⠞⠀⠙⠕⠇⠕⠗⠑⠀⠍⠁⠛⠝⠁⠀</row>
+                  <row>⠁⠇⠊⠟⠥⠁⠄⠀⠠⠥⠞⠀⠑⠝⠊⠍⠀⠁⠙⠀⠍⠊⠝⠊⠍⠀</row>
+                  <row>⠧⠑⠝⠊⠁⠍⠂⠀⠟⠥⠊⠎⠀⠝⠕⠎⠞⠗⠥⠙⠀</row>
+                  <row>⠑⠭⠑⠗⠉⠊⠞⠁⠞⠊⠕⠝⠀⠥⠇⠇⠁⠍⠉⠕⠀⠇⠁⠃⠕⠤</row>
+                  <row>⠗⠊⠎⠀⠝⠊⠎⠊⠀⠥⠞⠀⠁⠇⠊⠟⠥⠊⠏⠀⠑⠭⠀⠑⠁⠀</row>
+                </page>
+                <page>
+                  <row>⠼⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</row>
+                  <row>⠉⠕⠍⠍⠕⠙⠕⠀⠉⠕⠝⠎⠑⠟⠥⠁⠞⠄⠀⠠⠙⠥⠊⠎⠀</row>
+                  <row>⠁⠥⠞⠑⠀⠊⠗⠥⠗⠑⠀⠙⠕⠇⠕⠗⠀⠊⠝⠀⠗⠑⠏⠗⠑⠤</row>
+                  <row>⠓⠑⠝⠙⠑⠗⠊⠞⠀⠊⠝⠀⠧⠕⠇⠥⠏⠞⠁⠞⠑⠀⠧⠑⠇⠊⠞</row>
+                  <row>⠑⠎⠎⠑⠀⠉⠊⠇⠇⠥⠍⠀⠙⠕⠇⠕⠗⠑⠀⠑⠥⠀⠋⠥⠛⠊⠤</row>
+                  <row>⠁⠞⠀⠝⠥⠇⠇⠁⠀⠏⠁⠗⠊⠁⠞⠥⠗⠄⠀⠠⠑⠭⠉⠑⠏⠤</row>
+                  <row>⠞⠑⠥⠗⠀⠎⠊⠝⠞⠀⠕⠉⠉⠁⠑⠉⠁⠞⠀⠉⠥⠏⠊⠙⠁⠤</row>
+                  <row>⠞⠁⠞⠀⠝⠕⠝⠀⠏⠗⠕⠊⠙⠑⠝⠞⠂⠀⠎⠥⠝⠞⠀⠊⠝⠀</row>
+                </page>
+                <page>
+                  <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠛</row>
+                  <row>⠉⠥⠇⠏⠁⠀⠟⠥⠊⠀⠕⠋⠋⠊⠉⠊⠁⠀⠙⠑⠎⠑⠗⠥⠝⠞⠀</row>
+                  <row>⠍⠕⠇⠇⠊⠞⠀⠁⠝⠊⠍⠀⠊⠙⠀⠑⠎⠞⠀⠇⠁⠃⠕⠗⠥⠍⠄</row>
+                  <row/>
+                  <row>⠼⠁⠀⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍</row>
+                  <row/>
+                  <row>⠀⠀⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍⠀⠙⠕⠇⠕⠗⠀⠎⠊⠞⠀</row>
+                  <row>⠁⠍⠑⠞⠂⠀⠉⠕⠝⠎⠑⠉⠞⠑⠞⠥⠗⠀⠁⠙⠊⠤</row>
+                </page>
+                <page>
+                  <row>⠼⠓⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</row>
+                  <row>⠏⠊⠎⠉⠊⠝⠛⠀⠑⠇⠊⠞⠂⠀⠎⠑⠙⠀⠙⠕⠀⠑⠊⠥⠎⠤</row>
+                  <row>⠍⠕⠙⠀⠞⠑⠍⠏⠕⠗⠀⠊⠝⠉⠊⠙⠊⠙⠥⠝⠞⠀⠥⠞⠀</row>
+                  <row>⠇⠁⠃⠕⠗⠑⠀⠑⠞⠀⠙⠕⠇⠕⠗⠑⠀⠍⠁⠛⠝⠁⠀</row>
+                  <row>⠁⠇⠊⠟⠥⠁⠄⠀⠠⠥⠞⠀⠑⠝⠊⠍⠀⠁⠙⠀⠍⠊⠝⠊⠍⠀</row>
+                  <row>⠧⠑⠝⠊⠁⠍⠂⠀⠟⠥⠊⠎⠀⠝⠕⠎⠞⠗⠥⠙⠀</row>
+                  <row>⠑⠭⠑⠗⠉⠊⠞⠁⠞⠊⠕⠝⠀⠥⠇⠇⠁⠍⠉⠕⠀⠇⠁⠃⠕⠤</row>
+                  <row>⠗⠊⠎⠀⠝⠊⠎⠊⠀⠥⠞⠀⠁⠇⠊⠟⠥⠊⠏⠀⠑⠭⠀⠑⠁⠀</row>
+                </page>
+                <page>
+                  <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠊</row>
+                  <row>⠉⠕⠍⠍⠕⠙⠕⠀⠉⠕⠝⠎⠑⠟⠥⠁⠞⠄⠀⠠⠙⠥⠊⠎⠀</row>
+                  <row>⠁⠥⠞⠑⠀⠊⠗⠥⠗⠑⠀⠙⠕⠇⠕⠗⠀⠊⠝⠀⠗⠑⠏⠗⠑⠤</row>
+                  <row>⠓⠑⠝⠙⠑⠗⠊⠞⠀⠊⠝⠀⠧⠕⠇⠥⠏⠞⠁⠞⠑⠀⠧⠑⠇⠊⠞</row>
+                  <row>⠑⠎⠎⠑⠀⠉⠊⠇⠇⠥⠍⠀⠙⠕⠇⠕⠗⠑⠀⠑⠥⠀⠋⠥⠛⠊⠤</row>
+                  <row>⠁⠞⠀⠝⠥⠇⠇⠁⠀⠏⠁⠗⠊⠁⠞⠥⠗⠄⠀⠠⠑⠭⠉⠑⠏⠤</row>
+                  <row>⠞⠑⠥⠗⠀⠎⠊⠝⠞⠀⠕⠉⠉⠁⠑⠉⠁⠞⠀⠉⠥⠏⠊⠙⠁⠤</row>
+                  <row>⠞⠁⠞⠀⠝⠕⠝⠀⠏⠗⠕⠊⠙⠑⠝⠞⠂⠀⠎⠥⠝⠞⠀⠊⠝⠀</row>
+                </page>
+                <page>
+                  <row>⠼⠁⠚⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</row>
+                  <row>⠉⠥⠇⠏⠁⠀⠟⠥⠊⠀⠕⠋⠋⠊⠉⠊⠁⠀⠙⠑⠎⠑⠗⠥⠝⠞⠀</row>
+                  <row>⠍⠕⠇⠇⠊⠞⠀⠁⠝⠊⠍⠀⠊⠙⠀⠑⠎⠞⠀⠇⠁⠃⠕⠗⠥⠍⠄</row>
+                  <row/>
+                  <row>⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍</row>
+                  <row/>
+                  <row>⠀⠀⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍⠀⠙⠕⠇⠕⠗⠀⠎⠊⠞⠀</row>
+                  <row>⠁⠍⠑⠞⠂⠀⠉⠕⠝⠎⠑⠉⠞⠑⠞⠥⠗⠀⠁⠙⠊⠤</row>
+                </page>
+                <page/>
+                <page/>
+              </section>
+            </volume>
+            <volume cols="27" rows="8" rowgap="0" duplex="true">
+              <section>
+                <page>
+                  <row/>
+                  <row>⠠⠅⠊⠗⠚⠁</row>
+                  <row/>
+                  <row>⠠⠚⠕⠓⠝⠀⠠⠙⠕⠑</row>
+                  <row/>
+                  <row>⠠⠧⠊⠓⠅⠕⠀⠼⠃⠌⠼⠃</row>
+                </page>
+              </section>
+              <section>
+                <page>
+                  <row>⠠⠇⠕⠏⠏⠥⠎⠁⠝⠁⠞⠀⠐⠐⠐⠐⠐⠐⠐⠐⠐⠐⠐⠀⠼⠁⠋</row>
+                  <row>⠠⠅⠊⠗⠚⠁⠝⠀⠇⠕⠏⠏⠥⠀⠐⠐⠐⠐⠐⠐⠐⠐⠐⠀⠼⠁⠊</row>
+                </page>
+              </section>
+              <section>
+                <page>
+                  <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁⠁</row>
+                  <row>⠏⠊⠎⠉⠊⠝⠛⠀⠑⠇⠊⠞⠂⠀⠎⠑⠙⠀⠙⠕⠀⠑⠊⠥⠎⠤</row>
+                  <row>⠍⠕⠙⠀⠞⠑⠍⠏⠕⠗⠀⠊⠝⠉⠊⠙⠊⠙⠥⠝⠞⠀⠥⠞⠀</row>
+                  <row>⠇⠁⠃⠕⠗⠑⠀⠑⠞⠀⠙⠕⠇⠕⠗⠑⠀⠍⠁⠛⠝⠁⠀</row>
+                  <row>⠁⠇⠊⠟⠥⠁⠄⠀⠠⠥⠞⠀⠑⠝⠊⠍⠀⠁⠙⠀⠍⠊⠝⠊⠍⠀</row>
+                  <row>⠧⠑⠝⠊⠁⠍⠂⠀⠟⠥⠊⠎⠀⠝⠕⠎⠞⠗⠥⠙⠀</row>
+                  <row>⠑⠭⠑⠗⠉⠊⠞⠁⠞⠊⠕⠝⠀⠥⠇⠇⠁⠍⠉⠕⠀⠇⠁⠃⠕⠤</row>
+                  <row>⠗⠊⠎⠀⠝⠊⠎⠊⠀⠥⠞⠀⠁⠇⠊⠟⠥⠊⠏⠀⠑⠭⠀⠑⠁⠀</row>
+                </page>
+                <page>
+                  <row>⠼⠁⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</row>
+                  <row>⠉⠕⠍⠍⠕⠙⠕⠀⠉⠕⠝⠎⠑⠟⠥⠁⠞⠄⠀⠠⠙⠥⠊⠎⠀</row>
+                  <row>⠁⠥⠞⠑⠀⠊⠗⠥⠗⠑⠀⠙⠕⠇⠕⠗⠀⠊⠝⠀⠗⠑⠏⠗⠑⠤</row>
+                  <row>⠓⠑⠝⠙⠑⠗⠊⠞⠀⠊⠝⠀⠧⠕⠇⠥⠏⠞⠁⠞⠑⠀⠧⠑⠇⠊⠞</row>
+                  <row>⠑⠎⠎⠑⠀⠉⠊⠇⠇⠥⠍⠀⠙⠕⠇⠕⠗⠑⠀⠑⠥⠀⠋⠥⠛⠊⠤</row>
+                  <row>⠁⠞⠀⠝⠥⠇⠇⠁⠀⠏⠁⠗⠊⠁⠞⠥⠗⠄⠀⠠⠑⠭⠉⠑⠏⠤</row>
+                  <row>⠞⠑⠥⠗⠀⠎⠊⠝⠞⠀⠕⠉⠉⠁⠑⠉⠁⠞⠀⠉⠥⠏⠊⠙⠁⠤</row>
+                  <row>⠞⠁⠞⠀⠝⠕⠝⠀⠏⠗⠕⠊⠙⠑⠝⠞⠂⠀⠎⠥⠝⠞⠀⠊⠝⠀</row>
+                </page>
+                <page>
+                  <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁⠉</row>
+                  <row>⠉⠥⠇⠏⠁⠀⠟⠥⠊⠀⠕⠋⠋⠊⠉⠊⠁⠀⠙⠑⠎⠑⠗⠥⠝⠞⠀</row>
+                  <row>⠍⠕⠇⠇⠊⠞⠀⠁⠝⠊⠍⠀⠊⠙⠀⠑⠎⠞⠀⠇⠁⠃⠕⠗⠥⠍⠄</row>
+                  <row>⠀⠀⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍⠀⠙⠕⠇⠕⠗⠀⠎⠊⠞⠀</row>
+                  <row>⠁⠍⠑⠞⠂⠀⠉⠕⠝⠎⠑⠉⠞⠑⠞⠥⠗⠀⠁⠙⠊⠤</row>
+                  <row>⠏⠊⠎⠉⠊⠝⠛⠀⠑⠇⠊⠞⠂⠀⠎⠑⠙⠀⠙⠕⠀⠑⠊⠥⠎⠤</row>
+                  <row>⠍⠕⠙⠀⠞⠑⠍⠏⠕⠗⠀⠊⠝⠉⠊⠙⠊⠙⠥⠝⠞⠀⠥⠞⠀</row>
+                  <row>⠇⠁⠃⠕⠗⠑⠀⠑⠞⠀⠙⠕⠇⠕⠗⠑⠀⠍⠁⠛⠝⠁⠀</row>
+                </page>
+                <page>
+                  <row>⠼⠁⠙⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</row>
+                  <row>⠁⠇⠊⠟⠥⠁⠄⠀⠠⠥⠞⠀⠑⠝⠊⠍⠀⠁⠙⠀⠍⠊⠝⠊⠍⠀</row>
+                  <row>⠧⠑⠝⠊⠁⠍⠂⠀⠟⠥⠊⠎⠀⠝⠕⠎⠞⠗⠥⠙⠀</row>
+                  <row>⠑⠭⠑⠗⠉⠊⠞⠁⠞⠊⠕⠝⠀⠥⠇⠇⠁⠍⠉⠕⠀⠇⠁⠃⠕⠤</row>
+                  <row>⠗⠊⠎⠀⠝⠊⠎⠊⠀⠥⠞⠀⠁⠇⠊⠟⠥⠊⠏⠀⠑⠭⠀⠑⠁⠀</row>
+                  <row>⠉⠕⠍⠍⠕⠙⠕⠀⠉⠕⠝⠎⠑⠟⠥⠁⠞⠄⠀⠠⠙⠥⠊⠎⠀</row>
+                  <row>⠁⠥⠞⠑⠀⠊⠗⠥⠗⠑⠀⠙⠕⠇⠕⠗⠀⠊⠝⠀⠗⠑⠏⠗⠑⠤</row>
+                  <row>⠓⠑⠝⠙⠑⠗⠊⠞⠀⠊⠝⠀⠧⠕⠇⠥⠏⠞⠁⠞⠑⠀⠧⠑⠇⠊⠞</row>
+                </page>
+                <page>
+                  <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁⠑</row>
+                  <row>⠑⠎⠎⠑⠀⠉⠊⠇⠇⠥⠍⠀⠙⠕⠇⠕⠗⠑⠀⠑⠥⠀⠋⠥⠛⠊⠤</row>
+                  <row>⠁⠞⠀⠝⠥⠇⠇⠁⠀⠏⠁⠗⠊⠁⠞⠥⠗⠄⠀⠠⠑⠭⠉⠑⠏⠤</row>
+                  <row>⠞⠑⠥⠗⠀⠎⠊⠝⠞⠀⠕⠉⠉⠁⠑⠉⠁⠞⠀⠉⠥⠏⠊⠙⠁⠤</row>
+                  <row>⠞⠁⠞⠀⠝⠕⠝⠀⠏⠗⠕⠊⠙⠑⠝⠞⠂⠀⠎⠥⠝⠞⠀⠊⠝⠀</row>
+                  <row>⠉⠥⠇⠏⠁⠀⠟⠥⠊⠀⠕⠋⠋⠊⠉⠊⠁⠀⠙⠑⠎⠑⠗⠥⠝⠞⠀</row>
+                  <row>⠍⠕⠇⠇⠊⠞⠀⠁⠝⠊⠍⠀⠊⠙⠀⠑⠎⠞⠀⠇⠁⠃⠕⠗⠥⠍⠄</row>
+                </page>
+                <page>
+                  <row>⠼⠁⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</row>
+                  <row/>
+                  <row>⠠⠇⠕⠏⠏⠥⠎⠁⠝⠁⠞</row>
+                  <row/>
+                  <row>⠀⠀⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍⠀⠙⠕⠇⠕⠗⠀⠎⠊⠞⠀</row>
+                  <row>⠁⠍⠑⠞⠂⠀⠉⠕⠝⠎⠑⠉⠞⠑⠞⠥⠗⠀⠁⠙⠊⠤</row>
+                  <row>⠏⠊⠎⠉⠊⠝⠛⠀⠑⠇⠊⠞⠂⠀⠎⠑⠙⠀⠙⠕⠀⠑⠊⠥⠎⠤</row>
+                  <row>⠍⠕⠙⠀⠞⠑⠍⠏⠕⠗⠀⠊⠝⠉⠊⠙⠊⠙⠥⠝⠞⠀⠥⠞⠀</row>
+                </page>
+                <page>
+                  <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁⠛</row>
+                  <row>⠇⠁⠃⠕⠗⠑⠀⠑⠞⠀⠙⠕⠇⠕⠗⠑⠀⠍⠁⠛⠝⠁⠀</row>
+                  <row>⠁⠇⠊⠟⠥⠁⠄⠀⠠⠥⠞⠀⠑⠝⠊⠍⠀⠁⠙⠀⠍⠊⠝⠊⠍⠀</row>
+                  <row>⠧⠑⠝⠊⠁⠍⠂⠀⠟⠥⠊⠎⠀⠝⠕⠎⠞⠗⠥⠙⠀</row>
+                  <row>⠑⠭⠑⠗⠉⠊⠞⠁⠞⠊⠕⠝⠀⠥⠇⠇⠁⠍⠉⠕⠀⠇⠁⠃⠕⠤</row>
+                  <row>⠗⠊⠎⠀⠝⠊⠎⠊⠀⠥⠞⠀⠁⠇⠊⠟⠥⠊⠏⠀⠑⠭⠀⠑⠁⠀</row>
+                  <row>⠉⠕⠍⠍⠕⠙⠕⠀⠉⠕⠝⠎⠑⠟⠥⠁⠞⠄⠀⠠⠙⠥⠊⠎⠀</row>
+                  <row>⠁⠥⠞⠑⠀⠊⠗⠥⠗⠑⠀⠙⠕⠇⠕⠗⠀⠊⠝⠀⠗⠑⠏⠗⠑⠤</row>
+                </page>
+                <page>
+                  <row>⠼⠁⠓⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</row>
+                  <row>⠓⠑⠝⠙⠑⠗⠊⠞⠀⠊⠝⠀⠧⠕⠇⠥⠏⠞⠁⠞⠑⠀⠧⠑⠇⠊⠞</row>
+                  <row>⠑⠎⠎⠑⠀⠉⠊⠇⠇⠥⠍⠀⠙⠕⠇⠕⠗⠑⠀⠑⠥⠀⠋⠥⠛⠊⠤</row>
+                  <row>⠁⠞⠀⠝⠥⠇⠇⠁⠀⠏⠁⠗⠊⠁⠞⠥⠗⠄⠀⠠⠑⠭⠉⠑⠏⠤</row>
+                  <row>⠞⠑⠥⠗⠀⠎⠊⠝⠞⠀⠕⠉⠉⠁⠑⠉⠁⠞⠀⠉⠥⠏⠊⠙⠁⠤</row>
+                  <row>⠞⠁⠞⠀⠝⠕⠝⠀⠏⠗⠕⠊⠙⠑⠝⠞⠂⠀⠎⠥⠝⠞⠀⠊⠝⠀</row>
+                  <row>⠉⠥⠇⠏⠁⠀⠟⠥⠊⠀⠕⠋⠋⠊⠉⠊⠁⠀⠙⠑⠎⠑⠗⠥⠝⠞⠀</row>
+                  <row>⠍⠕⠇⠇⠊⠞⠀⠁⠝⠊⠍⠀⠊⠙⠀⠑⠎⠞⠀⠇⠁⠃⠕⠗⠥⠍⠄</row>
+                </page>
+                <page>
+                  <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁⠊</row>
+                  <row/>
+                  <row>⠠⠅⠊⠗⠚⠁⠝⠀⠇⠕⠏⠏⠥</row>
+                  <row/>
+                  <row>⠀⠀⠠⠞⠜⠓⠜⠝⠀⠏⠜⠜⠞⠞⠽⠊⠀⠅⠊⠗⠚⠁⠀</row>
+                  <row>⠠⠅⠊⠗⠚⠁</row>
+                </page>
+                <page/>
+                <page/>
+              </section>
+            </volume>
+          </body>          
+        </pef>
+      </x:document>
+    </x:expect>
+  </x:scenario>
+
 
   <x:scenario label="pad-volume-endings-non-duplex">
     <x:call step="celia:dtbook-to-pef">
