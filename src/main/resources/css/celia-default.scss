@@ -16,6 +16,7 @@ $include-note-references: true !default;
 $process-note-references: true !default;
 $include-notes: true !default;
 $process-notes: true !default;
+$include-volume-tocs: true !default;
 $include-document-toc-in-first-volume: false !default;
 
 @namespace xml "http://www.w3.org/XML/1998/namespace";
@@ -25,7 +26,8 @@ $include-document-toc-in-first-volume: false !default;
  */
 @volume {
 	@begin {
-		content: flow(title-page) flow(volume-toc);
+		@if $include-volume-tocs { content: flow(title-page) flow(volume-toc); }
+		@else { content: flow(title-page); }
 		page: generated;
 	}
 }
@@ -33,7 +35,7 @@ $include-document-toc-in-first-volume: false !default;
 @if $include-document-toc-in-first-volume { 
 	@volume:first {
 		@begin {
-			content: flow(title-page) flow(document-toc) flow(volume-toc);
+			content: flow(title-page) flow(document-toc);
 			page: generated;
 		}
 	}
