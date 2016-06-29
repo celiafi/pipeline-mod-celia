@@ -109,10 +109,16 @@
     </p:option>
 
     <p:option name="toc-depth" select="'2'"/>
+    <p:option name="include-volume-tocs" px:type="boolean" select="'true'">
+        <p:documentation xmlns="http://www.w3.org/1999/xhtml">
+	    <h2 px:role="name">Include volume TOCs</h2>
+	    <p px:role="desc">When enabled, includes volume-level tables of contents at the beginning of each volume.</p>
+	</p:documentation>
+    </p:option>
     <p:option name="include-document-toc-in-first-volume" px:type="boolean" select="'false'">
         <p:documentation xmlns="http://www.w3.org/1999/xhtml">
 	    <h2 px:role="name">Include document TOC in first volume</h2>
-	    <p px:role="desc">When enabled, includes document-level table of contents at the beginning of the first volume. The depth of the document-level table of contents is the same as that of volume-level TOCs.</p>
+	    <p px:role="desc">When enabled, includes document-level table of contents at the beginning of the first volume. Additionally, if both volume-level and document-level TOCs are enabled, then volume-level TOC is skipped in the first volume, because the information is redundant. The depth of the document-level table of contents is the same as that of volume-level TOCs.</p>
 	</p:documentation>
     </p:option>
 
