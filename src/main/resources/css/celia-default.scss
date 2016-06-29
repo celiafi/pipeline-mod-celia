@@ -212,6 +212,17 @@ li {
 }
 
 /*
+ * Blockquotes
+ * Otherwise similar to paragraph, but with top and bottom margins to clearly separate it from body text.
+ */
+blockquote {
+	display: block;
+	margin-top: 1;
+	margin-bottom: 1;
+	text-indent: 2;
+}
+
+/*
  * Producer notes
  */
 @if $include-production-notes {
@@ -341,6 +352,14 @@ sidebar {
 	note::before {
 		content: attr(id) ': ';
 	}
+}
+
+/*
+ * Poems
+ */
+poem {
+	margin-top: 1;
+	margin-bottom: 1;
 }
 
 /*
