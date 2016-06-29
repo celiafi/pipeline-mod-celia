@@ -143,15 +143,6 @@
                                            brf-output-dir
                                            preview-output-dir
                                            temp-dir"/>
-    <!--
-        FIXME: what is this? something from mod-dedicon?
-    -->
-    <p:add-attribute match="c:param[@name='hyphenation']" attribute-name="value">
-        <p:with-option name="attribute-value"
-	             select="if ($hyphenation='from-meta')
-		             then (//dtb:meta[@name='prod:docHyphenate']/@content,'Y')[1]='Y'
-			     else $hyphenation='true'"/>
-    </p:add-attribute>
 
     <p:identity name="input-options"/>
     <p:sink/>
