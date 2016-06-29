@@ -33,7 +33,7 @@ $include-document-toc-in-first-volume: false !default;
 @if $include-document-toc-in-first-volume { 
 	@volume:first {
 		@begin {
-			content: flow(title-page) flow(document-toc) flow(volume-toc);
+			content: flow(title-page) flow(document-toc);
 			page: generated;
 		}
 	}
