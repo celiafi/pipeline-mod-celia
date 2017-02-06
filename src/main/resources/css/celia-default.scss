@@ -71,34 +71,29 @@ $include-document-toc-in-first-volume: false !default;
 }
 
 /*
- * Generated volume TOC
- * Leaders and formatting for TOC
+ * Leaders and formatting for generated TOC
  */
-#generated-volume-toc li a::after {
-	content: ' ' leader('⠐') ' ' target-counter(attr(href), page);
-	margin-left: 2;
-	text-indent: -2;
-}
-
-/* Override ordinary li's negative indentation */
-#generated-volume-toc li {
-	margin-left: 0;
-	text-indent: 0;
-}
-
-/*
- * Generated document TOC
- */
-#generated-document-toc li a::after {
-	content: ' ' leader('⠐') ' ' target-counter(attr(href), page);
-	margin-left: 2;
-	text-indent: -2;
-}
-
-/* Override ordinary li's negative indentation */
-#generated-document-toc li {
-	margin-left: 0;
-	text-indent: 0;
+#generated-volume-toc,
+#generated-document-toc {
+	/* Override ordinary list's top and bottom margin */
+	margin-top: 0;
+	margin-bottom: 0;
+	list {
+		margin-top: 0;
+		margin-bottom: 0; }
+	li {
+		/* Override ordinary li's negative indentation */
+		margin-left: 0;
+		text-indent: 0;
+		a {
+			display: block;
+			margin-left: 2;
+			text-indent: -2;
+			&::after {
+				content: ' ' leader('⠐') ' ' target-counter(attr(href), page);
+			}
+		}
+	}
 }
 
 /*
