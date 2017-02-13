@@ -11,7 +11,7 @@
   </parent>
 
   <artifactId>mod-celia</artifactId>
-  <version>1.5.0-SNAPSHOT</version>
+  <version>1.5.1-SNAPSHOT</version>
   <packaging>bundle</packaging>
 
   <name>DP2 Braille Modules :: mod-celia</name>
@@ -257,6 +257,7 @@
         <artifactId>maven-release-plugin</artifactId>
         <configuration>
           <tagNameFormat>v@{project.version}</tagNameFormat>
+          <arguments>-DskipTests -Psonatype-oss-release</arguments>
         </configuration>
       </plugin>
     </plugins>
