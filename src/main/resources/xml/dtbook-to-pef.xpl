@@ -123,11 +123,34 @@
     </p:option>
 
 
-    <p:import href="http://www.daisy.org/pipeline/modules/braille/dtbook-to-pef/library.xpl"/>
-    <p:import href="http://www.daisy.org/pipeline/modules/braille/xml-to-pef/library.xpl"/>
-    <p:import href="http://www.daisy.org/pipeline/modules/file-utils/library.xpl"/>
-    <p:import href="http://www.daisy.org/pipeline/modules/common-utils/library.xpl"/>
-    <p:import href="http://www.celia.fi/pipeline/modules/braille/library.xpl"/>
+    <p:import href="http://www.daisy.org/pipeline/modules/braille/dtbook-to-pef/library.xpl">
+      <p:documentation>
+        px:dtbook-to-pef
+        px:dtbook-to-pef.store
+      </p:documentation>
+    </p:import>
+    <p:import href="http://www.daisy.org/pipeline/modules/braille/common-utils/library.xpl">
+      <p:documentation>
+        px:merge-parameters
+        px:delete-parameters
+      </p:documentation>
+    </p:import>
+    <p:import href="http://www.daisy.org/pipeline/modules/file-utils/library.xpl">
+      <p:documentation>
+        px:tempdir
+      </p:documentation>
+    </p:import>
+    <p:import href="http://www.daisy.org/pipeline/modules/dtbook-utils/library.xpl">
+        <p:documentation>
+            px:dtbook-load
+        </p:documentation>
+    </p:import>
+    <p:import href="http://www.celia.fi/pipeline/modules/braille/library.xpl">
+      <p:documentation>
+        celia:pre-processing
+        celia:post-processing
+      </p:documentation>
+    </p:import>
 
 
     <p:in-scope-names name="in-scope-names"/>
@@ -158,15 +181,19 @@
     <!-- ==================== -->
     <!-- DTBOOK PREPROCESSING -->
     <!-- ==================== -->
-    <p:identity>
-      <p:input port="source">
-        <p:pipe step="main" port="source"/>
-      </p:input>
-    </p:identity>
+    <px:dtbook-load name="load">
+        <p:input port="source">
+            <p:pipe step="main" port="source"/>
+        </p:input>
+    </px:dtbook-load>
+    <p:sink/>
 
-    <celia:pre-processing>
+    <celia:pre-processing name="pre-processing">
+      <p:input port="source">
+        <p:pipe step="load" port="in-memory.out"/>
+      </p:input>
       <p:input port="parameters">
-	<p:pipe step="input-options" port="result"/>
+        <p:pipe step="input-options" port="result"/>
       </p:input>
       <p:with-option name="preprocess-tables" select="$preprocess-tables"/>
       <p:with-option name="insert-titlepage" select="$insert-titlepage"/>
@@ -175,8 +202,14 @@
     <!-- ============= -->
     <!-- DTBOOK TO PEF -->
     <!-- ============= -->
-    <px:dtbook-to-pef.convert default-stylesheet="http://www.daisy.org/pipeline/modules/braille/dtbook-to-pef/css/default.css"
-                              transform="(formatter:dotify)(translator:celia)">
+    <px:dtbook-to-pef default-stylesheet="http://www.daisy.org/pipeline/modules/braille/dtbook-to-pef/css/default.css"
+                      transform="(formatter:dotify)(translator:celia)">
+	<p:input port="source.fileset">
+	  <p:pipe step="load" port="fileset.out"/>
+	</p:input>
+	<p:input port="source.in-memory">
+	  <p:pipe step="pre-processing" port="result"/>
+	</p:input>
 	<p:with-option name="temp-dir" select="string(/c:result)">
 	  <p:pipe step="temp-dir" port="result"/>
 	</p:with-option>
@@ -184,7 +217,7 @@
 	<p:input port="parameters">
 	  <p:pipe step="input-options" port="result"/>
 	</p:input>
-    </px:dtbook-to-pef.convert>
+    </px:dtbook-to-pef>
 
     <!-- ================== -->
     <!-- PEF POSTPROCESSING -->
@@ -202,18 +235,15 @@
     <!-- ========= -->
     <!-- STORE PEF -->
     <!-- ========= -->
-    <px:xml-to-pef.store>
-      <p:input port="obfl">
-        <p:empty/>
-      </p:input>
-      <p:with-option name="name" select="replace(p:base-uri(/),'^.*/([^/]*)\.[^/\.]*$','$1')">
+    <px:dtbook-to-pef.store>
+      <p:input port="dtbook">
         <p:pipe step="main" port="source"/>
-      </p:with-option>
+      </p:input>
       <p:with-option name="include-brf" select="$include-brf"/>
       <p:with-option name="include-preview" select="$include-preview"/>
       <p:with-option name="pef-output-dir" select="$pef-output-dir"/>
       <p:with-option name="brf-output-dir" select="$brf-output-dir"/>
       <p:with-option name="preview-output-dir" select="$preview-output-dir"/>
-    </px:xml-to-pef.store>
+    </px:dtbook-to-pef.store>
 
 </p:declare-step>

@@ -5,16 +5,16 @@ import java.util.List;
 import java.util.Map;
 import java.net.URI;
 
-import com.google.common.base.Objects;
+import com.google.common.base.MoreObjects;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 
+import org.daisy.common.file.URIs;
+import org.daisy.common.file.URLs;
 import org.daisy.pipeline.braille.common.AbstractBrailleTranslator;
 import org.daisy.pipeline.braille.common.AbstractTransformProvider;
 import org.daisy.pipeline.braille.common.AbstractTransformProvider.util.Function;
 import org.daisy.pipeline.braille.common.AbstractTransformProvider.util.Iterables;
-import static org.daisy.pipeline.braille.common.AbstractTransformProvider.util.Iterables.concat;
-import static org.daisy.pipeline.braille.common.AbstractTransformProvider.util.Iterables.transform;
 import static org.daisy.pipeline.braille.common.AbstractTransformProvider.util.logCreate;
 import static org.daisy.pipeline.braille.common.AbstractTransformProvider.util.logSelect;
 import org.daisy.pipeline.braille.common.BrailleTranslator;
@@ -28,7 +28,6 @@ import org.daisy.pipeline.braille.common.TransformProvider;
 import static org.daisy.pipeline.braille.common.TransformProvider.util.dispatch;
 import static org.daisy.pipeline.braille.common.TransformProvider.util.memoize;
 import static org.daisy.pipeline.braille.common.util.Locales.parseLocale;
-import static org.daisy.pipeline.braille.common.util.URIs.asURI;
 import org.daisy.pipeline.braille.libhyphen.LibhyphenHyphenator;
 import org.daisy.pipeline.braille.liblouis.LiblouisTranslator;
 
@@ -37,7 +36,6 @@ import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.component.annotations.ReferenceCardinality;
 import org.osgi.service.component.annotations.ReferencePolicy;
-import org.osgi.service.component.ComponentContext;
 
 public interface CeliaTranslator {
 	
@@ -53,8 +51,8 @@ public interface CeliaTranslator {
 		private URI href;
 		
 		@Activate
-		private void activate(ComponentContext context, final Map<?,?> properties) {
-			href = asURI(context.getBundleContext().getBundle().getEntry("xml/block-translate.xpl"));
+		void activate(final Map<?,?> properties) {
+			href = URIs.asURI(URLs.getResourceFromJAR("/xml/block-translate.xpl", CeliaTranslator.class));
 		}
 		
 		private final static Query liblouisTable = mutableQuery().add("liblouis-table", "http://www.liblouis.org/tables/fi.utb,http://www.celia.fi/liblouis/undefined.utb,http://www.celia.fi/liblouis/additional-symbols.utb");
@@ -87,13 +85,13 @@ public interface CeliaTranslator {
 				if ("celia".equals(q.removeOnly("translator").getValue().get()))
 					if (q.isEmpty()) {
 						Iterable<LibhyphenHyphenator> hyphenators = logSelect(hyphenTable, libhyphenHyphenatorProvider);
-						return concat(
-							transform(
+						return Iterables.concat(
+							Iterables.transform(
 								hyphenators,
 								new Function<LibhyphenHyphenator,Iterable<BrailleTranslator>>() {
 									public Iterable<BrailleTranslator> _apply(LibhyphenHyphenator h) {
 										Query translatorQuery = mutableQuery(liblouisTable).add("hyphenator", h.getIdentifier());
-										return transform(
+										return Iterables.transform(
 											logSelect(translatorQuery, liblouisTranslatorProvider),
 											new Function<LiblouisTranslator,BrailleTranslator>() {
 												public BrailleTranslator _apply(LiblouisTranslator translator) {
@@ -123,14 +121,14 @@ public interface CeliaTranslator {
 			}
 			
 			private final FromStyledTextToBraille fromStyledTextToBraille = new FromStyledTextToBraille() {
-				public java.lang.Iterable<String> transform(java.lang.Iterable<CSSStyledText> styledText) {
-					return translator.transform(styledText);
+				public java.lang.Iterable<String> transform(java.lang.Iterable<CSSStyledText> styledText, int from, int to) {
+					return translator.transform(styledText, from, to);
 				}
 			};
 			
 			@Override
 			public String toString() {
-				return Objects.toStringHelper(CeliaTranslator.class.getSimpleName())
+				return MoreObjects.toStringHelper(CeliaTranslator.class.getSimpleName())
 					.add("id", getIdentifier())
 					.toString();
 			}

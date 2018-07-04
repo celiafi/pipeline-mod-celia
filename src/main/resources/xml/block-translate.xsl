@@ -7,7 +7,7 @@
                 xmlns:html="http://www.w3.org/1999/xhtml"
                 exclude-result-prefixes="#all">
 	
-	<xsl:import href="http://www.daisy.org/pipeline/modules/braille/css-utils/transform/block-translator-template.xsl"/>
+	<xsl:import href="http://www.daisy.org/pipeline/modules/braille/css-utils/transform/abstract-block-translator.xsl"/>
 	
 	<xsl:param name="query" required="yes"/>
 	

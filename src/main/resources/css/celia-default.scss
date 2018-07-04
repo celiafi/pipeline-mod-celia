@@ -90,7 +90,12 @@ $include-document-toc-in-first-volume: false !default;
 			margin-left: 2;
 			text-indent: -2;
 			&::after {
-				content: ' ' leader('⠐') ' ' target-counter(attr(href), page);
+				/* FIXME: The NBSP is because otherwise Dotify treats
+				the space before and after the leader as a continuous
+				sequence of spaces and therefore collapses them into
+				one (strips the second space).
+				see https://github.com/brailleapps/dotify.formatter.impl/issues/114 */
+				content: ' ' leader('⠐') ' ' target-counter(attr(href), page);
 			}
 		}
 	}

@@ -56,11 +56,11 @@
     		<xsl:attribute name="style" select="'display:block; margin-top:1;'"/>
     		<xsl:text>Vihko </xsl:text>
     		<xsl:element name="span" namespace="{$OUTPUT_NAMESPACE}">
-    			<xsl:attribute name="style" select="'::before { content: -obfl-evaluate(&quot;(round $volume)&quot;); }'"/>
+    			<xsl:attribute name="style" select="'&amp;::before { content: -obfl-evaluate(&quot;$volume&quot;); }'"/>
     		</xsl:element>
 		<xsl:text>/</xsl:text>
     		<xsl:element name="span" namespace="{$OUTPUT_NAMESPACE}">
-    			<xsl:attribute name="style" select="'::before { content: -obfl-evaluate(&quot;(round $volumes)&quot;); }'"/>
+    			<xsl:attribute name="style" select="'&amp;::before { content: -obfl-evaluate(&quot;$volumes&quot;); }'"/>
     		</xsl:element>
     	</xsl:element>
     </xsl:template>

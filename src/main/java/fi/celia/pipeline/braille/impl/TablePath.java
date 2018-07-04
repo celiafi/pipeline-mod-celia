@@ -6,7 +6,6 @@ import org.daisy.pipeline.braille.liblouis.LiblouisTablePath;
 
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
-import org.osgi.service.component.ComponentContext;
 
 @Component(
 	name = "fi.celia.pipeline.braille.impl.TablePath",
@@ -22,7 +21,7 @@ import org.osgi.service.component.ComponentContext;
 public class TablePath extends LiblouisTablePath {
 	
 	@Activate
-	protected void activate(ComponentContext context, Map<?,?> properties) throws Exception {
-		super.activate(context, properties);
+	public void activate(Map<?,?> properties) {
+		super.activate(properties, TablePath.class);
 	}
 }

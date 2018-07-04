@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<x:description xmlns:x="http://www.daisy.org/ns/xprocspec" xmlns:p="http://www.w3.org/ns/xproc"
-  xmlns:px="http://www.daisy.org/ns/pipeline/xproc" xmlns:html="http://www.w3.org/1999/xhtml"
-  xmlns:css="http://www.daisy.org/ns/pipeline/braille-css"
-  xmlns:pxi="http://www.daisy.org/ns/pipeline/xproc/internal" xmlns:celia="http://www.celia.fi"
-  script="http://www.celia.fi/pipeline/modules/braille/dtbook-to-pef.xpl">
+<x:description xmlns:x="http://www.daisy.org/ns/xprocspec"
+               xmlns:celia="http://www.celia.fi"
+               script="http://www.celia.fi/pipeline/modules/braille/dtbook-to-pef.xpl">
 
   <x:scenario label="table-of-contents">
     <x:call step="celia:dtbook-to-pef">
@@ -55,7 +53,7 @@
       href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl"
       step="x:pef-compare">
       <x:document type="inline">
-        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1">
           <head>
             <meta>
               <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -63,6 +61,7 @@
               <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
               <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">title</dc:title>
               <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">celia</dc:creator>
+              <dc:language xmlns:dc="http://purl.org/dc/elements/1.1/">fi</dc:language>
             </meta>
           </head>
           <body>
@@ -164,7 +163,7 @@
       href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl"
       step="x:pef-compare">
       <x:document type="inline">
-        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1">
           <head>
             <meta>
               <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -172,6 +171,7 @@
               <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
               <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">title</dc:title>
               <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">celia</dc:creator>
+              <dc:language xmlns:dc="http://purl.org/dc/elements/1.1/">fi</dc:language>
             </meta>
           </head>
           <body>
@@ -292,7 +292,7 @@
       href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl"
       step="x:pef-compare">
       <x:document type="inline">
-        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1">
           <head>
             <meta>
               <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -300,6 +300,7 @@
               <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
               <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">title</dc:title>
               <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">celia</dc:creator>
+              <dc:language xmlns:dc="http://purl.org/dc/elements/1.1/">fi</dc:language>
             </meta>
           </head>
           <body>
@@ -394,7 +395,7 @@
       href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl"
       step="x:pef-compare">
       <x:document type="inline">
-        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1">
           <head>
             <meta>
               <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -402,6 +403,7 @@
               <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
               <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">title</dc:title>
               <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">celia</dc:creator>
+              <dc:language xmlns:dc="http://purl.org/dc/elements/1.1/">fi</dc:language>
             </meta>
           </head>
           <body>
@@ -458,7 +460,7 @@
       href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl"
       step="x:pef-compare">
       <x:document type="inline">
-        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1">
           <head>
             <meta>
               <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -466,6 +468,7 @@
               <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
               <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">title</dc:title>
               <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">celia</dc:creator>
+              <dc:language xmlns:dc="http://purl.org/dc/elements/1.1/">fi</dc:language>
             </meta>
           </head>
           <body>
@@ -519,7 +522,7 @@
       href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl"
       step="x:pef-compare">
       <x:document type="inline">
-        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1">
           <head>
             <meta>
               <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -527,6 +530,7 @@
               <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
               <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">title</dc:title>
               <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">celia</dc:creator>
+              <dc:language xmlns:dc="http://purl.org/dc/elements/1.1/">fi</dc:language>
             </meta>
           </head>
           <body>
@@ -581,7 +585,7 @@
       href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl"
       step="x:pef-compare">
       <x:document type="inline">
-        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1">
           <head>
             <meta>
               <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -589,6 +593,7 @@
               <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
               <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">title</dc:title>
               <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">celia</dc:creator>
+              <dc:language xmlns:dc="http://purl.org/dc/elements/1.1/">fi</dc:language>
             </meta>
           </head>
           <body>
@@ -646,7 +651,7 @@
       href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl"
       step="x:pef-compare">
       <x:document type="inline">
-        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1">
           <head>
             <meta>
               <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -654,6 +659,7 @@
               <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
               <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">title</dc:title>
               <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">celia</dc:creator>
+              <dc:language xmlns:dc="http://purl.org/dc/elements/1.1/">fi</dc:language>
             </meta>
           </head>
           <body>
@@ -712,13 +718,14 @@
     </x:context>
     <x:expect label="result" type="custom" href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl" step="x:pef-compare">
       <x:document type="inline">
-        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1">
           <head>
             <meta>
               <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/">application/x-pef+xml</dc:format>
               <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
               <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">title</dc:title>
               <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">celia</dc:creator>
+              <dc:language xmlns:dc="http://purl.org/dc/elements/1.1/">fi</dc:language>
             </meta>
           </head>
           <body>
@@ -793,7 +800,7 @@
       href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl"
       step="x:pef-compare">
       <x:document type="inline">
-        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1">
           <head>
             <meta>
               <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -801,6 +808,7 @@
               <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
               <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">title</dc:title>
               <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">celia</dc:creator>
+              <dc:language xmlns:dc="http://purl.org/dc/elements/1.1/">fi</dc:language>
             </meta>
           </head>
           <body>
@@ -868,7 +876,7 @@
       href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl"
       step="x:pef-compare">
       <x:document type="inline">
-        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1">
           <head>
             <meta>
               <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -876,6 +884,7 @@
               <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
               <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">title</dc:title>
               <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">celia</dc:creator>
+              <dc:language xmlns:dc="http://purl.org/dc/elements/1.1/">fi</dc:language>
             </meta>
           </head>
           <body>
@@ -938,7 +947,7 @@
       href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl"
       step="x:pef-compare">
       <x:document type="inline">
-        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1">
           <head>
             <meta>
               <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -946,6 +955,7 @@
               <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
               <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">title</dc:title>
               <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">celia</dc:creator>
+              <dc:language xmlns:dc="http://purl.org/dc/elements/1.1/">fi</dc:language>
             </meta>
           </head>
           <body>
@@ -1022,7 +1032,7 @@
       href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl"
       step="x:pef-compare">
       <x:document type="inline">
-        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1">
           <head>
             <meta>
               <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -1030,6 +1040,7 @@
               <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
               <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">title</dc:title>
               <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">celia</dc:creator>
+              <dc:language xmlns:dc="http://purl.org/dc/elements/1.1/">fi</dc:language>
             </meta>
           </head>
           <body>
@@ -1105,7 +1116,7 @@
       href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl"
       step="x:pef-compare">
       <x:document type="inline">
-        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1">
           <head>
             <meta>
               <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -1113,6 +1124,7 @@
               <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
               <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">title</dc:title>
               <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">celia</dc:creator>
+              <dc:language xmlns:dc="http://purl.org/dc/elements/1.1/">fi</dc:language>
             </meta>
           </head>
           <body>
@@ -1172,7 +1184,7 @@
       href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl"
       step="x:pef-compare">
       <x:document type="inline">
-        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1">
           <head>
             <meta>
               <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -1180,6 +1192,7 @@
               <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
               <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">title</dc:title>
               <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">celia</dc:creator>
+              <dc:language xmlns:dc="http://purl.org/dc/elements/1.1/">fi</dc:language>
             </meta>
           </head>
           <body>
@@ -1241,7 +1254,7 @@
       href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl"
       step="x:pef-compare">
       <x:document type="inline">
-        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1">
           <head>
             <meta>
               <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -1249,6 +1262,7 @@
               <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
               <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">title</dc:title>
               <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">celia</dc:creator>
+              <dc:language xmlns:dc="http://purl.org/dc/elements/1.1/">fi</dc:language>
             </meta>
           </head>
           <body>
@@ -1308,7 +1322,7 @@
       href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl"
       step="x:pef-compare">
       <x:document type="inline">
-        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1">
           <head>
             <meta>
               <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -1316,6 +1330,7 @@
               <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
               <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">title</dc:title>
               <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">celia</dc:creator>
+              <dc:language xmlns:dc="http://purl.org/dc/elements/1.1/">fi</dc:language>
             </meta>
           </head>
           <body>
@@ -1376,7 +1391,7 @@
       href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl"
       step="x:pef-compare">
       <x:document type="inline">
-        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1">
           <head>
             <meta>
               <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -1384,9 +1399,18 @@
               <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
               <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">title</dc:title>
               <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">celia</dc:creator>
+              <dc:language xmlns:dc="http://purl.org/dc/elements/1.1/">fi</dc:language>
             </meta>
           </head>
-          <body> </body>
+          <body>
+          <volume cols="27" rows="30" rowgap="0" duplex="true">
+            <section>
+              <page>
+                <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁</row>
+              </page>
+            </section>
+          </volume>
+          </body>
         </pef>
       </x:document>
     </x:expect>
@@ -1408,7 +1432,7 @@
       href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl"
       step="x:pef-compare">
       <x:document type="inline">
-        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1">
           <head xmlns:dc="http://purl.org/dc/elements/1.1/">
             <meta>
               <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -1620,7 +1644,7 @@
       href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl"
       step="x:pef-compare">
       <x:document type="inline">
-        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1">
           <head>
             <meta>
               <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -1628,6 +1652,7 @@
               <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
               <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">title</dc:title>
               <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">celia</dc:creator>
+              <dc:language xmlns:dc="http://purl.org/dc/elements/1.1/">fi</dc:language>
             </meta>
           </head>
           <body>
@@ -1701,7 +1726,7 @@
       href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl"
       step="x:pef-compare">
       <x:document type="inline">
-        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1">
           <head>
             <meta>
               <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -1709,6 +1734,7 @@
               <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
               <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">title</dc:title>
               <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">celia</dc:creator>
+              <dc:language xmlns:dc="http://purl.org/dc/elements/1.1/">fi</dc:language>
             </meta>
           </head>
           <body>
@@ -1776,7 +1802,7 @@
       href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl"
       step="x:pef-compare">
       <x:document type="inline">
-        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1">
           <head>
             <meta>
               <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -1784,6 +1810,7 @@
               <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
               <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">title</dc:title>
               <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">celia</dc:creator>
+              <dc:language xmlns:dc="http://purl.org/dc/elements/1.1/">fi</dc:language>
             </meta>
           </head>
           <body>
@@ -1851,7 +1878,7 @@
       href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl"
       step="x:pef-compare">
       <x:document type="inline">
-        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1">
           <head>
             <meta>
               <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -1859,6 +1886,7 @@
               <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
               <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">title</dc:title>
               <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">celia</dc:creator>
+              <dc:language xmlns:dc="http://purl.org/dc/elements/1.1/">fi</dc:language>
             </meta>
           </head>
           <body>
@@ -1927,7 +1955,7 @@
       href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl"
       step="x:pef-compare">
       <x:document type="inline">
-        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1">
           <head>
             <meta>
               <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -1935,6 +1963,7 @@
               <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
               <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">title</dc:title>
               <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">celia</dc:creator>
+              <dc:language xmlns:dc="http://purl.org/dc/elements/1.1/">fi</dc:language>
             </meta>
           </head>
           <body>
@@ -2017,7 +2046,7 @@
       href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl"
       step="x:pef-compare">
       <x:document type="inline">
-        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1">
           <head>
             <meta>
               <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -2025,6 +2054,7 @@
               <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
               <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">title</dc:title>
               <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">celia</dc:creator>
+              <dc:language xmlns:dc="http://purl.org/dc/elements/1.1/">fi</dc:language>
             </meta>
           </head>
           <body>
@@ -2101,7 +2131,7 @@
       href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl"
       step="x:pef-compare">
       <x:document type="inline">
-        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1">
           <head>
             <meta>
               <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -2109,6 +2139,7 @@
               <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
               <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">title</dc:title>
               <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">celia</dc:creator>
+              <dc:language xmlns:dc="http://purl.org/dc/elements/1.1/">fi</dc:language>
             </meta>
           </head>
           <body>
@@ -2175,7 +2206,7 @@
       href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl"
       step="x:pef-compare">
       <x:document type="inline">
-        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1">
           <head>
             <meta>
               <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -2183,6 +2214,7 @@
               <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
               <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">title</dc:title>
               <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">celia</dc:creator>
+              <dc:language xmlns:dc="http://purl.org/dc/elements/1.1/">fi</dc:language>
             </meta>
           </head>
           <body>
@@ -2250,7 +2282,7 @@
       href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl"
       step="x:pef-compare">
       <x:document type="inline">
-        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1">
           <head>
             <meta>
               <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -2258,6 +2290,7 @@
               <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
               <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">title</dc:title>
               <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">celia</dc:creator>
+              <dc:language xmlns:dc="http://purl.org/dc/elements/1.1/">fi</dc:language>
             </meta>
           </head>
           <body>
@@ -2315,7 +2348,7 @@
       href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl"
       step="x:pef-compare">
       <x:document type="inline">
-        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1">
           <head>
             <meta>
               <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -2323,6 +2356,7 @@
               <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
               <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">title</dc:title>
               <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">celia</dc:creator>
+              <dc:language xmlns:dc="http://purl.org/dc/elements/1.1/">fi</dc:language>
             </meta>
           </head>
           <body>
@@ -2365,7 +2399,7 @@
       href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl"
       step="x:pef-compare">
       <x:document type="inline">
-        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1">
           <head xmlns:dc="http://purl.org/dc/elements/1.1/">
             <meta>
               <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -2603,7 +2637,7 @@
       href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl"
       step="x:pef-compare">
       <x:document type="inline">
-        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1">
           <head xmlns:dc="http://purl.org/dc/elements/1.1/">
             <meta>
               <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -2846,7 +2880,7 @@
       href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl"
       step="x:pef-compare">
       <x:document type="inline">
-        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1">
           <head xmlns:dc="http://purl.org/dc/elements/1.1/">
             <meta>
               <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -3177,7 +3211,7 @@
       href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl"
       step="x:pef-compare">
       <x:document type="inline">
-        <pef xmlns="http://www.daisy.org/ns/2008/pef" xml:lang="fi" version="2008-1">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1">
           <head>
             <meta>
               <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -3427,7 +3461,7 @@
       step="x:pef-compare">
       <x:document type="inline">
         <!-- NB: Not all volumes have TOCs, because not all volumes have headings -->
-        <pef xmlns="http://www.daisy.org/ns/2008/pef" xml:lang="fi" version="2008-1">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1">
           <head>
             <meta>
               <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -3786,7 +3820,7 @@
       href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl"
       step="x:pef-compare">
       <x:document type="inline">
-        <pef xmlns="http://www.daisy.org/ns/2008/pef" xml:lang="fi" version="2008-1">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1">
           <head>
             <meta>
               <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -4024,7 +4058,7 @@
       href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl"
       step="x:pef-compare">
       <x:document type="inline">
-        <pef xmlns="http://www.daisy.org/ns/2008/pef" xml:lang="fi" version="2008-1">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1">
           <head>
             <meta>
               <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -4298,7 +4332,7 @@
       href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl"
       step="x:pef-compare">
       <x:document type="inline">
-        <pef xmlns="http://www.daisy.org/ns/2008/pef" xml:lang="fi" version="2008-1">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1">
           <head>
             <meta>
               <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -4561,7 +4595,7 @@
       href="http://www.daisy.org/pipeline/modules/braille/pef-utils/library.xpl"
       step="x:pef-compare">
       <x:document type="inline">
-        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1" xml:lang="fi">
+        <pef xmlns="http://www.daisy.org/ns/2008/pef" version="2008-1">
           <head>
             <meta>
               <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -4569,6 +4603,7 @@
               <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">identifier?</dc:identifier>
               <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">title</dc:title>
               <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">celia</dc:creator>
+              <dc:language xmlns:dc="http://purl.org/dc/elements/1.1/">fi</dc:language>
             </meta>
           </head>
           <body>

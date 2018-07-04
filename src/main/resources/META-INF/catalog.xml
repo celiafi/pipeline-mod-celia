@@ -3,15 +3,16 @@
          xmlns:px="http://www.daisy.org/ns/pipeline">
   <!-- scripts -->
   <uri name="http://www.celia.fi/pipeline/modules/braille/dtbook-to-pef.xpl" uri="../xml/dtbook-to-pef.xpl"
-       px:script="true" px:extends="http://www.daisy.org/pipeline/modules/braille/dtbook-to-pef/dtbook-to-pef.xpl"/>
+       px:extends="http://www.daisy.org/pipeline/modules/braille/dtbook-to-pef/dtbook-to-pef.xpl"
+       px:content-type="script" px:id="celia:dtbook-to-pef"/>
   <!-- library -->
   <uri name="http://www.celia.fi/pipeline/modules/braille/library.xpl" uri="../xml/library.xpl"/>
   <!-- CSS -->
   <uri name="http://www.celia.fi/pipeline/modules/braille/default.scss"
        uri="../css/celia-default.scss"/>
   <!-- dependencies -->
+  <nextCatalog catalog="org:daisy:pipeline:modules:braille:common-utils"/>
   <nextCatalog catalog="org:daisy:pipeline:modules:braille:css-utils"/>
   <nextCatalog catalog="org:daisy:pipeline:modules:braille:liblouis-utils"/>
-  <nextCatalog catalog="org:daisy:pipeline:modules:braille:liblouis-tables"/>
   <nextCatalog catalog="org:daisy:pipeline:modules:braille:dtbook-to-pef"/>
 </catalog>

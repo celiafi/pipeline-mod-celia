@@ -12,26 +12,24 @@ import net.davidashen.text.Hyphenator;
 import net.davidashen.text.Utf8TexParser.TexParserException;
 
 import static org.daisy.pipeline.braille.common.Query.util.query;
+import static org.daisy.pipeline.pax.exam.Options.mavenBundle;
+
 import org.daisy.pipeline.braille.libhyphen.LibhyphenHyphenator;
 import org.daisy.pipeline.braille.tex.TexHyphenator;
+import org.daisy.pipeline.junit.AbstractTest;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assume.assumeTrue;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.BeforeClass;
-
 import org.ops4j.pax.exam.Configuration;
-import org.ops4j.pax.exam.junit.PaxExam;
+import static org.ops4j.pax.exam.CoreOptions.composite;
+import static org.ops4j.pax.exam.CoreOptions.options;
+
+import org.junit.Test;
 import org.ops4j.pax.exam.Option;
-import org.ops4j.pax.exam.spi.reactors.ExamReactorStrategy;
-import org.ops4j.pax.exam.spi.reactors.PerClass;
+import org.junit.BeforeClass;
 
 import org.osgi.framework.BundleContext;
 
-@RunWith(PaxExam.class)
-@ExamReactorStrategy(PerClass.class)
-public class HyphenationTest {
+public class HyphenationTest extends AbstractTest {
 	
 	static ArrayList<String[]> testCases;
 	
@@ -92,8 +90,16 @@ public class HyphenationTest {
 		}
 	}
 	
-	@Configuration
+	@Override
+	protected String[] testDependencies() {
+		return Config.testDependencies();
+	}
+
+	@Override @Configuration
 	public Option[] config() {
-		return Config.config();
+		return options(
+			// FIXME: Dotify and epubcheck need older version of jing
+			mavenBundle("org.daisy.libs:jing:20120724.0.0"),
+			composite(super.config()));
 	}
 }
