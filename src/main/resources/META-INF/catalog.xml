@@ -10,9 +10,17 @@
   <!-- CSS -->
   <uri name="http://www.celia.fi/pipeline/modules/braille/default.scss"
        uri="../css/celia-default.scss"/>
+  <!-- liblouis tables -->
+  <uri name="http://www.celia.fi/liblouis/" uri="../liblouis/"
+       px:content-type="liblouis-tables" px:id="celia-liblouis-tables"/>
+  <!-- hyphen dictionaries-->
+  <uri name="http://www.celia.fi/pipeline/hyphen/" uri="../hyph/"
+       px:includes="*.dic" px:content-type="libhyphen-tables" px:id="celia-hyphen-tables"/>
   <!-- dependencies -->
+  <nextCatalog catalog="org:daisy:pipeline:modules:common-utils"/>
+  <nextCatalog catalog="org:daisy:pipeline:modules:file-utils"/>
+  <nextCatalog catalog="org:daisy:pipeline:modules:dtbook-utils"/>
   <nextCatalog catalog="org:daisy:pipeline:modules:braille:common-utils"/>
   <nextCatalog catalog="org:daisy:pipeline:modules:braille:css-utils"/>
-  <nextCatalog catalog="org:daisy:pipeline:modules:braille:liblouis-utils"/>
   <nextCatalog catalog="org:daisy:pipeline:modules:braille:dtbook-to-pef"/>
 </catalog>

@@ -98,7 +98,7 @@ public class HyphenationTest extends AbstractTest {
 	@Override @Configuration
 	public Option[] config() {
 		return options(
-			// FIXME: Dotify and epubcheck need older version of jing
+			// FIXME: epubcheck needs older version of jing
 			mavenBundle("org.daisy.libs:jing:20120724.0.0"),
 			composite(super.config()));
 	}

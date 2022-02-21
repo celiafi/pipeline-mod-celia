@@ -9,12 +9,17 @@ import com.google.common.base.MoreObjects;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 
-import org.daisy.common.file.URIs;
+import com.xmlcalabash.core.XProcRuntime;
+import com.xmlcalabash.runtime.XAtomicStep;
+
 import org.daisy.common.file.URLs;
+import org.daisy.common.xproc.calabash.XProcStep;
+import org.daisy.common.xproc.calabash.XProcStepProvider;
 import org.daisy.pipeline.braille.common.AbstractBrailleTranslator;
 import org.daisy.pipeline.braille.common.AbstractTransformProvider;
 import org.daisy.pipeline.braille.common.AbstractTransformProvider.util.Function;
 import org.daisy.pipeline.braille.common.AbstractTransformProvider.util.Iterables;
+import org.daisy.pipeline.braille.common.calabash.CxEvalBasedTransformer;
 import static org.daisy.pipeline.braille.common.AbstractTransformProvider.util.logCreate;
 import static org.daisy.pipeline.braille.common.AbstractTransformProvider.util.logSelect;
 import org.daisy.pipeline.braille.common.BrailleTranslator;
@@ -52,7 +57,7 @@ public interface CeliaTranslator {
 		
 		@Activate
 		void activate(final Map<?,?> properties) {
-			href = URIs.asURI(URLs.getResourceFromJAR("/xml/block-translate.xpl", CeliaTranslator.class));
+			href = URLs.asURI(URLs.getResourceFromJAR("/xml/block-translate.xpl", CeliaTranslator.class));
 		}
 		
 		private final static Query liblouisTable = mutableQuery().add("liblouis-table", "http://www.liblouis.org/tables/fi.utb,http://www.celia.fi/liblouis/undefined.utb,http://www.celia.fi/liblouis/additional-symbols.utb");
@@ -99,20 +104,19 @@ public interface CeliaTranslator {
 			return empty;
 		}
 		
-		private class TransformImpl extends AbstractBrailleTranslator {
+		private class TransformImpl extends AbstractBrailleTranslator implements XProcStepProvider {
 			
 			private final FromStyledTextToBraille translator;
-			private final XProc xproc;
+			private final Map<String,String> options;
 			
 			private TransformImpl(LiblouisTranslator translator) {
-				Map<String,String> options = ImmutableMap.of("query", mutableQuery().add("id", this.getIdentifier()).toString());
-				xproc = new XProc(href, null, options);
+				options = ImmutableMap.of("query", mutableQuery().add("id", this.getIdentifier()).toString());
 				this.translator = translator.fromStyledTextToBraille();
 			}
 			
 			@Override
-			public XProc asXProc() {
-				return xproc;
+			public XProcStep newStep(XProcRuntime runtime, XAtomicStep step) {
+				return new CxEvalBasedTransformer(href, null, options).newStep(runtime, step);
 			}
 			
 			@Override

@@ -133,6 +133,7 @@
       <p:documentation>
         px:merge-parameters
         px:delete-parameters
+        px:add-parameters
       </p:documentation>
     </p:import>
     <p:import href="http://www.daisy.org/pipeline/modules/file-utils/library.xpl">
@@ -167,6 +168,9 @@
                                            preview-output-dir
                                            temp-dir"/>
 
+    <px:add-parameters>
+      <p:with-param name="toc-exclude-class" select="''"/>
+    </px:add-parameters>
     <p:identity name="input-options"/>
     <p:sink/>
 
@@ -202,8 +206,7 @@
     <!-- ============= -->
     <!-- DTBOOK TO PEF -->
     <!-- ============= -->
-    <px:dtbook-to-pef default-stylesheet="http://www.daisy.org/pipeline/modules/braille/dtbook-to-pef/css/default.css"
-                      transform="(formatter:dotify)(translator:celia)">
+    <px:dtbook-to-pef transform="(formatter:dotify)(translator:celia)(force-pre-translation)">
 	<p:input port="source.fileset">
 	  <p:pipe step="load" port="fileset.out"/>
 	</p:input>

@@ -39,11 +39,11 @@
           </dtbook>
         </x:document>
       </x:input>
-      <x:option name="include-brf" select="true()"/>
+      <x:option name="include-brf" select="'true'"/>
       <x:option name="pef-output-dir" select="concat($temp-dir, 'table-of-contents/output-dir/')"/>
       <x:option name="brf-output-dir" select="concat($temp-dir, 'table-of-contents/output-dir/')"/>
       <x:option name="temp-dir" select="concat($temp-dir, 'table-of-contents/temp-dir/')"/>
-      <x:option name="insert-titlepage" select="false()"/>
+      <x:option name="insert-titlepage" select="'false'"/>
     </x:call>
     <x:context label="pef">
       <x:document type="file" base-uri="temp-dir"
@@ -148,11 +148,11 @@
           </dtbook>
         </x:document>
       </x:input>
-      <x:option name="include-brf" select="true()"/>
+      <x:option name="include-brf" select="'true'"/>
       <x:option name="pef-output-dir" select="concat($temp-dir, 'document-toc/output-dir/')"/>
       <x:option name="brf-output-dir" select="concat($temp-dir, 'document-toc/output-dir/')"/>
       <x:option name="temp-dir" select="concat($temp-dir, 'document-toc/temp-dir/')"/>
-      <x:option name="insert-titlepage" select="false()"/>
+      <x:option name="insert-titlepage" select="'false'"/>
       <x:option name="include-document-toc-in-first-volume" select="true()"/>
       <x:option name="maximum-number-of-sheets" select="2"/>
     </x:call>
@@ -275,11 +275,11 @@
           </dtbook>
         </x:document>
       </x:input>
-      <x:option name="include-brf" select="true()"/>
+      <x:option name="include-brf" select="'true'"/>
       <x:option name="pef-output-dir" select="concat($temp-dir, 'only-document-toc/output-dir/')"/>
       <x:option name="brf-output-dir" select="concat($temp-dir, 'only-document-toc/output-dir/')"/>
       <x:option name="temp-dir" select="concat($temp-dir, 'only-document-toc/temp-dir/')"/>
-      <x:option name="insert-titlepage" select="false()"/>
+      <x:option name="insert-titlepage" select="'false'"/>
       <x:option name="include-document-toc-in-first-volume" select="true()"/>
       <x:option name="toc-depth" select="'2'"/>
       <x:option name="include-volume-tocs" select="false()"/>
@@ -380,11 +380,11 @@
           </dtbook>
         </x:document>
       </x:input>
-      <x:option name="include-brf" select="true()"/>
+      <x:option name="include-brf" select="'true'"/>
       <x:option name="pef-output-dir" select="concat($temp-dir, 'multi-line-headings/output-dir/')"/>
       <x:option name="brf-output-dir" select="concat($temp-dir, 'multi-line-headings/output-dir/')"/>
       <x:option name="temp-dir" select="concat($temp-dir, 'multi-line-headings/temp-dir/')"/>
-      <x:option name="insert-titlepage" select="false()"/>
+      <x:option name="insert-titlepage" select="'false'"/>
       <x:option name="toc-depth" select="'0'"/>
     </x:call>
     <x:context label="pef">
@@ -445,11 +445,11 @@
           </dtbook>
         </x:document>
       </x:input>
-      <x:option name="include-brf" select="true()"/>
+      <x:option name="include-brf" select="'true'"/>
       <x:option name="pef-output-dir" select="concat($temp-dir, 'prodnotes/output-dir/')"/>
       <x:option name="brf-output-dir" select="concat($temp-dir, 'prodnotes/output-dir/')"/>
       <x:option name="temp-dir" select="concat($temp-dir, 'prodnotes/temp-dir/')"/>
-      <x:option name="insert-titlepage" select="false()"/>
+      <x:option name="insert-titlepage" select="'false'"/>
       <x:option name="toc-depth" select="'0'"/>
       <x:option name="include-production-notes" select="true()"/>
     </x:call>
@@ -507,11 +507,11 @@
           </dtbook>
         </x:document>
       </x:input>
-      <x:option name="include-brf" select="true()"/>
+      <x:option name="include-brf" select="'true'"/>
       <x:option name="pef-output-dir" select="concat($temp-dir, 'skip-prodnotes/output-dir/')"/>
       <x:option name="brf-output-dir" select="concat($temp-dir, 'skip-prodnotes/output-dir/')"/>
       <x:option name="temp-dir" select="concat($temp-dir, 'skip-prodnotes/temp-dir/')"/>
-      <x:option name="insert-titlepage" select="false()"/>
+      <x:option name="insert-titlepage" select="'false'"/>
       <x:option name="toc-depth" select="'0'"/>
       <x:option name="include-production-notes" select="false()"/>
     </x:call>
@@ -569,11 +569,11 @@
           </dtbook>
         </x:document>
       </x:input>
-      <x:option name="include-brf" select="true()"/>
+      <x:option name="include-brf" select="'true'"/>
       <x:option name="pef-output-dir" select="concat($temp-dir, 'print-page-numbers/output-dir/')"/>
       <x:option name="brf-output-dir" select="concat($temp-dir, 'print-page-numbers/output-dir/')"/>
       <x:option name="temp-dir" select="concat($temp-dir, 'print-page-numbers/temp-dir/')"/>
-      <x:option name="insert-titlepage" select="false()"/>
+      <x:option name="insert-titlepage" select="'false'"/>
       <x:option name="toc-depth" select="'0'"/>
       <x:option name="show-print-page-numbers" select="true()"/>
     </x:call>
@@ -635,11 +635,11 @@
           </dtbook>
         </x:document>
       </x:input>
-      <x:option name="include-brf" select="true()"/>
+      <x:option name="include-brf" select="'true'"/>
       <x:option name="pef-output-dir" select="concat($temp-dir, 'no-braille-page-numbers/output-dir/')"/>
       <x:option name="brf-output-dir" select="concat($temp-dir, 'no-braille-page-numbers/output-dir/')"/>
       <x:option name="temp-dir" select="concat($temp-dir, 'print-page-numbers/temp-dir/')"/>
-      <x:option name="insert-titlepage" select="false()"/>
+      <x:option name="insert-titlepage" select="'false'"/>
       <x:option name="toc-depth" select="'0'"/>
       <x:option name="show-braille-page-numbers" select="false()"/>
     </x:call>
@@ -705,11 +705,11 @@
           </dtbook>
         </x:document>
       </x:input>
-      <x:option name="include-brf" select="true()"/>
+      <x:option name="include-brf" select="'true'"/>
       <x:option name="pef-output-dir" select="concat($temp-dir, 'no-transform/output-dir/')"/>
       <x:option name="brf-output-dir" select="concat($temp-dir, 'no-transform/output-dir/')"/>
       <x:option name="temp-dir" select="concat($temp-dir, 'no-transform/temp-dir/')"/>
-      <x:option name="insert-titlepage" select="false()"/>
+      <x:option name="insert-titlepage" select="'false'"/>
       <x:option name="toc-depth" select="'0'"/>
       <x:option name="show-print-page-numbers" select="true()"/>
     </x:call>
@@ -785,11 +785,11 @@
           </dtbook>
         </x:document>
       </x:input>
-      <x:option name="include-brf" select="true()"/>
+      <x:option name="include-brf" select="'true'"/>
       <x:option name="pef-output-dir" select="concat($temp-dir, 'lists/output-dir/')"/>
       <x:option name="brf-output-dir" select="concat($temp-dir, 'lists/output-dir/')"/>
       <x:option name="temp-dir" select="concat($temp-dir, 'lists/temp-dir/')"/>
-      <x:option name="insert-titlepage" select="false()"/>
+      <x:option name="insert-titlepage" select="'false'"/>
       <x:option name="toc-depth" select="'0'"/>
       <x:option name="show-print-page-numbers" select="true()"/>
     </x:call>
@@ -861,11 +861,11 @@
           </dtbook>
         </x:document>
       </x:input>
-      <x:option name="include-brf" select="true()"/>
+      <x:option name="include-brf" select="'true'"/>
       <x:option name="pef-output-dir" select="concat($temp-dir, 'blockquotes/output-dir/')"/>
       <x:option name="brf-output-dir" select="concat($temp-dir, 'blockquotes/output-dir/')"/>
       <x:option name="temp-dir" select="concat($temp-dir, 'blockquotes/temp-dir/')"/>
-      <x:option name="insert-titlepage" select="false()"/>
+      <x:option name="insert-titlepage" select="'false'"/>
       <x:option name="toc-depth" select="'0'"/>
       <x:option name="show-print-page-numbers" select="true()"/>
     </x:call>
@@ -932,11 +932,11 @@
           </dtbook>
         </x:document>
       </x:input>
-      <x:option name="include-brf" select="true()"/>
+      <x:option name="include-brf" select="'true'"/>
       <x:option name="pef-output-dir" select="concat($temp-dir, 'poem/output-dir/')"/>
       <x:option name="brf-output-dir" select="concat($temp-dir, 'poem/output-dir/')"/>
       <x:option name="temp-dir" select="concat($temp-dir, 'poem/temp-dir/')"/>
-      <x:option name="insert-titlepage" select="false()"/>
+      <x:option name="insert-titlepage" select="'false'"/>
       <x:option name="toc-depth" select="'0'"/>
       <x:option name="show-print-page-numbers" select="true()"/>
     </x:call>
@@ -1017,11 +1017,11 @@
           </dtbook>
         </x:document>
       </x:input>
-      <x:option name="include-brf" select="true()"/>
+      <x:option name="include-brf" select="'true'"/>
       <x:option name="pef-output-dir" select="concat($temp-dir, 'tables/output-dir/')"/>
       <x:option name="brf-output-dir" select="concat($temp-dir, 'tables/output-dir/')"/>
       <x:option name="temp-dir" select="concat($temp-dir, 'tables/temp-dir/')"/>
-      <x:option name="insert-titlepage" select="false()"/>
+      <x:option name="insert-titlepage" select="'false'"/>
       <x:option name="toc-depth" select="'0'"/>
       <x:option name="show-print-page-numbers" select="true()"/>
     </x:call>
@@ -1101,11 +1101,11 @@
           </dtbook>
         </x:document>
       </x:input>
-      <x:option name="include-brf" select="true()"/>
+      <x:option name="include-brf" select="'true'"/>
       <x:option name="pef-output-dir" select="concat($temp-dir, 'slash-tables/output-dir/')"/>
       <x:option name="brf-output-dir" select="concat($temp-dir, 'slash-tables/output-dir/')"/>
       <x:option name="temp-dir" select="concat($temp-dir, 'slash-tables/temp-dir/')"/>
-      <x:option name="preprocess-tables" select="true()"/>
+      <x:option name="preprocess-tables" select="'true'"/>
       <x:option name="toc-depth" select="'0'"/>
       <x:option name="show-print-page-numbers" select="true()"/>
     </x:call>
@@ -1169,11 +1169,11 @@
           </dtbook>
         </x:document>
       </x:input>
-      <x:option name="include-brf" select="true()"/>
+      <x:option name="include-brf" select="'true'"/>
       <x:option name="pef-output-dir" select="concat($temp-dir, 'sidebar/output-dir/')"/>
       <x:option name="brf-output-dir" select="concat($temp-dir, 'sidebar/output-dir/')"/>
       <x:option name="temp-dir" select="concat($temp-dir, 'sidebar/temp-dir/')"/>
-      <x:option name="insert-titlepage" select="false()"/>
+      <x:option name="insert-titlepage" select="'false'"/>
       <x:option name="toc-depth" select="'0'"/>
       <x:option name="show-print-page-numbers" select="true()"/>
     </x:call>
@@ -1235,11 +1235,11 @@
           </dtbook>
         </x:document>
       </x:input>
-      <x:option name="include-brf" select="true()"/>
+      <x:option name="include-brf" select="'true'"/>
       <x:option name="pef-output-dir" select="concat($temp-dir, 'image/output-dir/')"/>
       <x:option name="brf-output-dir" select="concat($temp-dir, 'image/output-dir/')"/>
       <x:option name="temp-dir" select="concat($temp-dir, 'image/temp-dir/')"/>
-      <x:option name="insert-titlepage" select="false()"/>
+      <x:option name="insert-titlepage" select="'false'"/>
       <x:option name="toc-depth" select="'0'"/>
       <x:option name="show-print-page-numbers" select="true()"/>
       <x:option name="include-image-groups" select="true()"/>
@@ -1303,11 +1303,11 @@
           </dtbook>
         </x:document>
       </x:input>
-      <x:option name="include-brf" select="true()"/>
+      <x:option name="include-brf" select="'true'"/>
       <x:option name="pef-output-dir" select="concat($temp-dir, 'images/output-dir/')"/>
       <x:option name="brf-output-dir" select="concat($temp-dir, 'images/output-dir/')"/>
       <x:option name="temp-dir" select="concat($temp-dir, 'images/temp-dir/')"/>
-      <x:option name="insert-titlepage" select="false()"/>
+      <x:option name="insert-titlepage" select="'false'"/>
       <x:option name="toc-depth" select="'0'"/>
       <x:option name="show-print-page-numbers" select="true()"/>
       <x:option name="include-image-groups" select="true()"/>
@@ -1373,11 +1373,11 @@
           </dtbook>
         </x:document>
       </x:input>
-      <x:option name="include-brf" select="true()"/>
+      <x:option name="include-brf" select="'true'"/>
       <x:option name="pef-output-dir" select="concat($temp-dir, 'no-images/output-dir/')"/>
       <x:option name="brf-output-dir" select="concat($temp-dir, 'no-images/output-dir/')"/>
       <x:option name="temp-dir" select="concat($temp-dir, 'no-images/temp-dir/')"/>
-      <x:option name="insert-titlepage" select="false()"/>
+      <x:option name="insert-titlepage" select="'false'"/>
       <x:option name="toc-depth" select="'0'"/>
       <x:option name="show-print-page-numbers" select="true()"/>
       <x:option name="include-image-groups" select="false()"/>
@@ -1631,7 +1631,7 @@
           </dtbook>
         </x:document>
       </x:input>
-      <x:option name="include-brf" select="true()"/>
+      <x:option name="include-brf" select="'true'"/>
       <x:option name="pef-output-dir" select="concat($temp-dir, 'title-page/output-dir/')"/>
       <x:option name="brf-output-dir" select="concat($temp-dir, 'title-page/output-dir/')"/>
       <x:option name="temp-dir" select="concat($temp-dir, 'title-page/temp-dir/')"/>
@@ -1686,7 +1686,7 @@
   </x:scenario>
 
   <!-- Noterefs are collected at the end of the dtbook by the subcontractor. -->
-  <x:scenario label="noterefs">
+  <x:scenario label="noterefs" pending="need to disable default notes processing">
     <x:call step="celia:dtbook-to-pef">
       <x:input port="source">
         <x:document type="inline">
@@ -1712,11 +1712,11 @@
           </dtbook>
         </x:document>
       </x:input>
-      <x:option name="include-brf" select="true()"/>
+      <x:option name="include-brf" select="'true'"/>
       <x:option name="pef-output-dir" select="concat($temp-dir, 'noterefs/output-dir/')"/>
       <x:option name="brf-output-dir" select="concat($temp-dir, 'noterefs/output-dir/')"/>
       <x:option name="temp-dir" select="concat($temp-dir, 'noterefs/temp-dir/')"/>
-      <x:option name="insert-titlepage" select="false()"/>
+      <x:option name="insert-titlepage" select="'false'"/>
       <x:option name="toc-depth" select="'0'"/>
     </x:call>
     <x:context label="pef">
@@ -1761,7 +1761,7 @@
     </x:expect>
   </x:scenario>
 
-  <x:scenario label="no-noterefs-processing">
+  <x:scenario label="no-noterefs-processing" pending="need to disable default notes processing">
     <x:call step="celia:dtbook-to-pef">
       <x:input port="source">
         <x:document type="inline">
@@ -1787,11 +1787,11 @@
           </dtbook>
         </x:document>
       </x:input>
-      <x:option name="include-brf" select="true()"/>
+      <x:option name="include-brf" select="'true'"/>
       <x:option name="pef-output-dir" select="concat($temp-dir, 'no-noterefs-processing/output-dir/')"/>
       <x:option name="brf-output-dir" select="concat($temp-dir, 'no-noterefs-processing/output-dir/')"/>
       <x:option name="temp-dir" select="concat($temp-dir, 'no-noterefs-processing/temp-dir/')"/>
-      <x:option name="insert-titlepage" select="false()"/>
+      <x:option name="insert-titlepage" select="'false'"/>
       <x:option name="toc-depth" select="'0'"/>
       <x:option name="process-note-references" select="false()"/>
     </x:call>
@@ -1837,7 +1837,7 @@
     </x:expect>
   </x:scenario>
 
-  <x:scenario label="no-notes-processing">
+  <x:scenario label="no-notes-processing" pending="need to disable default notes processing">
     <x:call step="celia:dtbook-to-pef">
       <x:input port="source">
         <x:document type="inline">
@@ -1863,11 +1863,11 @@
           </dtbook>
         </x:document>
       </x:input>
-      <x:option name="include-brf" select="true()"/>
+      <x:option name="include-brf" select="'true'"/>
       <x:option name="pef-output-dir" select="concat($temp-dir, 'no-notes-processing/output-dir/')"/>
       <x:option name="brf-output-dir" select="concat($temp-dir, 'no-notes-processing/output-dir/')"/>
       <x:option name="temp-dir" select="concat($temp-dir, 'no-notes-processing/temp-dir/')"/>
-      <x:option name="insert-titlepage" select="false()"/>
+      <x:option name="insert-titlepage" select="'false'"/>
       <x:option name="toc-depth" select="'0'"/>
       <x:option name="process-notes" select="false()"/>
     </x:call>
@@ -1913,7 +1913,7 @@
     </x:expect>
   </x:scenario>
 
-  <x:scenario label="dont-include-notes-or-noterefs">
+  <x:scenario label="dont-include-notes-or-noterefs" pending="need to disable default notes processing">
     <x:call step="celia:dtbook-to-pef">
       <x:input port="source">
         <x:document type="inline">
@@ -1939,11 +1939,11 @@
           </dtbook>
         </x:document>
       </x:input>
-      <x:option name="include-brf" select="true()"/>
+      <x:option name="include-brf" select="'true'"/>
       <x:option name="pef-output-dir" select="concat($temp-dir, 'no-notes/output-dir/')"/>
       <x:option name="brf-output-dir" select="concat($temp-dir, 'no-notes/output-dir/')"/>
       <x:option name="temp-dir" select="concat($temp-dir, 'no-notes/temp-dir/')"/>
-      <x:option name="insert-titlepage" select="false()"/>
+      <x:option name="insert-titlepage" select="'false'"/>
       <x:option name="toc-depth" select="'0'"/>
       <x:option name="include-note-references" select="false()"/>
       <x:option name="include-notes" select="false()"/>
@@ -2030,11 +2030,11 @@
           </dtbook>
         </x:document>
       </x:input>
-      <x:option name="include-brf" select="true()"/>
+      <x:option name="include-brf" select="'true'"/>
       <x:option name="pef-output-dir" select="concat($temp-dir, 'multilines/output-dir/')"/>
       <x:option name="brf-output-dir" select="concat($temp-dir, 'multilines/output-dir/')"/>
       <x:option name="temp-dir" select="concat($temp-dir, 'multilines/temp-dir/')"/>
-      <x:option name="insert-titlepage" select="false()"/>
+      <x:option name="insert-titlepage" select="'false'"/>
       <x:option name="toc-depth" select="'0'"/>
       <x:option name="show-print-page-numbers" select="true()"/>
       <x:option name="hyphenation" select="false()"/>
@@ -2115,11 +2115,11 @@
           </dtbook>
         </x:document>
       </x:input>
-      <x:option name="include-brf" select="true()"/>
+      <x:option name="include-brf" select="'true'"/>
       <x:option name="pef-output-dir" select="concat($temp-dir, 'custom-params/output-dir/')"/>
       <x:option name="brf-output-dir" select="concat($temp-dir, 'custom-params/output-dir/')"/>
       <x:option name="temp-dir" select="concat($temp-dir, 'custom-params/temp-dir/')"/>
-      <x:option name="insert-titlepage" select="false()"/>
+      <x:option name="insert-titlepage" select="'false'"/>
       <x:option name="toc-depth" select="'0'"/>
       <x:option name="show-print-page-numbers" select="true()"/>
       <x:option name="letter-spacing" select="'1'"/>
@@ -2189,11 +2189,11 @@
           </dtbook>
         </x:document>
       </x:input>
-      <x:option name="include-brf" select="true()"/>
+      <x:option name="include-brf" select="'true'"/>
       <x:option name="pef-output-dir" select="concat($temp-dir, 'line-spacing/output-dir/')"/>
       <x:option name="brf-output-dir" select="concat($temp-dir, 'line-spacing/output-dir/')"/>
       <x:option name="temp-dir" select="concat($temp-dir, 'line-spacing/temp-dir/')"/>
-      <x:option name="insert-titlepage" select="false()"/>
+      <x:option name="insert-titlepage" select="'false'"/>
       <x:option name="toc-depth" select="'0'"/>
       <x:option name="show-print-page-numbers" select="true()"/>
       <x:option name="letter-spacing" select="'1'"/>
@@ -2266,11 +2266,11 @@
           </dtbook>
         </x:document>
       </x:input>
-      <x:option name="include-brf" select="true()"/>
+      <x:option name="include-brf" select="'true'"/>
       <x:option name="pef-output-dir" select="concat($temp-dir, 'skip-typography/output-dir/')"/>
       <x:option name="brf-output-dir" select="concat($temp-dir, 'skip-typography/output-dir/')"/>
       <x:option name="temp-dir" select="concat($temp-dir, 'skip-typography/temp-dir/')"/>
-      <x:option name="insert-titlepage" select="false()"/>
+      <x:option name="insert-titlepage" select="'false'"/>
       <x:option name="toc-depth" select="'0'"/>
       <x:option name="text-level-formatting" select="false()"/>
     </x:call>
@@ -2334,11 +2334,11 @@
           </dtbook>
         </x:document>
       </x:input>
-      <x:option name="include-brf" select="true()"/>
+      <x:option name="include-brf" select="'true'"/>
       <x:option name="pef-output-dir" select="concat($temp-dir, 'emphases/output-dir/')"/>
       <x:option name="brf-output-dir" select="concat($temp-dir, 'emphases/output-dir/')"/>
       <x:option name="temp-dir" select="concat($temp-dir, 'emphases/temp-dir/')"/>
-      <x:option name="insert-titlepage" select="false()"/>
+      <x:option name="insert-titlepage" select="'false'"/>
       <x:option name="toc-depth" select="'0'"/>
     </x:call>
     <x:context label="pef">
@@ -2389,7 +2389,7 @@
       <x:option name="toc-depth" select="'0'"/>
       <x:option name="page-height" select="'8'"/>
       <x:option name="maximum-number-of-sheets" select="'4'"/>
-      <x:option name="insert-titlepage" select="false()"/>
+      <x:option name="insert-titlepage" select="'false'"/>
     </x:call>
     <x:context label="pef">
       <x:document type="file" base-uri="temp-dir"
@@ -2556,10 +2556,6 @@
                   <row>⠁⠥⠞⠑⠀⠊⠗⠥⠗⠑⠀⠙⠕⠇⠕⠗⠀⠊⠝⠀⠗⠑⠏⠗⠑⠤</row>
                   <row>⠓⠑⠝⠙⠑⠗⠊⠞⠀⠊⠝⠀⠧⠕⠇⠥⠏⠞⠁⠞⠑⠀⠧⠑⠇⠊⠞</row>
                 </page>
-              </section>
-            </volume>
-            <volume cols="27" rows="8" rowgap="0" duplex="true">
-              <section>
                 <page>
                   <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁⠑</row>
                   <row>⠑⠎⠎⠑⠀⠉⠊⠇⠇⠥⠍⠀⠙⠕⠇⠕⠗⠑⠀⠑⠥⠀⠋⠥⠛⠊⠤</row>
@@ -2579,6 +2575,10 @@
                   <row>⠏⠊⠎⠉⠊⠝⠛⠀⠑⠇⠊⠞⠂⠀⠎⠑⠙⠀⠙⠕⠀⠑⠊⠥⠎⠤</row>
                   <row>⠍⠕⠙⠀⠞⠑⠍⠏⠕⠗⠀⠊⠝⠉⠊⠙⠊⠙⠥⠝⠞⠀⠥⠞⠀</row>
                 </page>
+              </section>
+            </volume>
+            <volume cols="27" rows="8" rowgap="0" duplex="true">
+              <section>
                 <page>
                   <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁⠛</row>
                   <row>⠇⠁⠃⠕⠗⠑⠀⠑⠞⠀⠙⠕⠇⠕⠗⠑⠀⠍⠁⠛⠝⠁⠀</row>
@@ -2626,8 +2626,8 @@
       <x:option name="toc-depth" select="'0'"/>
       <x:option name="page-height" select="'8'"/>
       <x:option name="maximum-number-of-sheets" select="'4'"/>
-      <x:option name="insert-titlepage" select="false()"/>
-      <x:option name="make-volumes-divisible-by-four" select="true()"/>
+      <x:option name="insert-titlepage" select="'false'"/>
+      <x:option name="make-volumes-divisible-by-four" select="'true'"/>
     </x:call>
     <x:context label="pef">
       <x:document type="file" base-uri="temp-dir"
@@ -2794,12 +2794,6 @@
                   <row>⠁⠥⠞⠑⠀⠊⠗⠥⠗⠑⠀⠙⠕⠇⠕⠗⠀⠊⠝⠀⠗⠑⠏⠗⠑⠤</row>
                   <row>⠓⠑⠝⠙⠑⠗⠊⠞⠀⠊⠝⠀⠧⠕⠇⠥⠏⠞⠁⠞⠑⠀⠧⠑⠇⠊⠞</row>
                 </page>
-                <page/>
-                <page/>
-              </section>
-            </volume>
-            <volume cols="27" rows="8" rowgap="0" duplex="true">
-              <section>
                 <page>
                   <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁⠑</row>
                   <row>⠑⠎⠎⠑⠀⠉⠊⠇⠇⠥⠍⠀⠙⠕⠇⠕⠗⠑⠀⠑⠥⠀⠋⠥⠛⠊⠤</row>
@@ -2819,6 +2813,10 @@
                   <row>⠏⠊⠎⠉⠊⠝⠛⠀⠑⠇⠊⠞⠂⠀⠎⠑⠙⠀⠙⠕⠀⠑⠊⠥⠎⠤</row>
                   <row>⠍⠕⠙⠀⠞⠑⠍⠏⠕⠗⠀⠊⠝⠉⠊⠙⠊⠙⠥⠝⠞⠀⠥⠞⠀</row>
                 </page>
+              </section>
+            </volume>
+            <volume cols="27" rows="8" rowgap="0" duplex="true">
+              <section>
                 <page>
                   <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁⠛</row>
                   <row>⠇⠁⠃⠕⠗⠑⠀⠑⠞⠀⠙⠕⠇⠕⠗⠑⠀⠍⠁⠛⠝⠁⠀</row>
@@ -2848,8 +2846,6 @@
                   <row>⠠⠅⠊⠗⠚⠁</row>
                 </page>
                 <page/>
-                <page/>
-                <page/>
               </section>
             </volume>
           </body>
@@ -2869,8 +2865,8 @@
       <x:option name="toc-depth" select="'1'"/>
       <x:option name="page-height" select="'8'"/>
       <x:option name="maximum-number-of-sheets" select="'4'"/>
-      <x:option name="insert-titlepage" select="true()"/>
-      <x:option name="make-volumes-divisible-by-four" select="true()"/>
+      <x:option name="insert-titlepage" select="'true'"/>
+      <x:option name="make-volumes-divisible-by-four" select="'true'"/>
     </x:call>
     <x:context label="pef">
       <x:document type="file" base-uri="temp-dir"
@@ -3067,26 +3063,8 @@
                   <row>⠞⠑⠥⠗⠀⠎⠊⠝⠞⠀⠕⠉⠉⠁⠑⠉⠁⠞⠀⠉⠥⠏⠊⠙⠁⠤</row>
                   <row>⠞⠁⠞⠀⠝⠕⠝⠀⠏⠗⠕⠊⠙⠑⠝⠞⠂⠀⠎⠥⠝⠞⠀⠊⠝⠀</row>
                 </page>
-                <page>
-                  <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁⠉</row>
-                  <row>⠉⠥⠇⠏⠁⠀⠟⠥⠊⠀⠕⠋⠋⠊⠉⠊⠁⠀⠙⠑⠎⠑⠗⠥⠝⠞⠀</row>
-                  <row>⠍⠕⠇⠇⠊⠞⠀⠁⠝⠊⠍⠀⠊⠙⠀⠑⠎⠞⠀⠇⠁⠃⠕⠗⠥⠍⠄</row>
-                  <row>⠀⠀⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍⠀⠙⠕⠇⠕⠗⠀⠎⠊⠞⠀</row>
-                  <row>⠁⠍⠑⠞⠂⠀⠉⠕⠝⠎⠑⠉⠞⠑⠞⠥⠗⠀⠁⠙⠊⠤</row>
-                  <row>⠏⠊⠎⠉⠊⠝⠛⠀⠑⠇⠊⠞⠂⠀⠎⠑⠙⠀⠙⠕⠀⠑⠊⠥⠎⠤</row>
-                  <row>⠍⠕⠙⠀⠞⠑⠍⠏⠕⠗⠀⠊⠝⠉⠊⠙⠊⠙⠥⠝⠞⠀⠥⠞⠀</row>
-                  <row>⠇⠁⠃⠕⠗⠑⠀⠑⠞⠀⠙⠕⠇⠕⠗⠑⠀⠍⠁⠛⠝⠁⠀</row>
-                </page>
-                <page>
-                  <row>⠼⠁⠙⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</row>
-                  <row>⠁⠇⠊⠟⠥⠁⠄⠀⠠⠥⠞⠀⠑⠝⠊⠍⠀⠁⠙⠀⠍⠊⠝⠊⠍⠀</row>
-                  <row>⠧⠑⠝⠊⠁⠍⠂⠀⠟⠥⠊⠎⠀⠝⠕⠎⠞⠗⠥⠙⠀</row>
-                  <row>⠑⠭⠑⠗⠉⠊⠞⠁⠞⠊⠕⠝⠀⠥⠇⠇⠁⠍⠉⠕⠀⠇⠁⠃⠕⠤</row>
-                  <row>⠗⠊⠎⠀⠝⠊⠎⠊⠀⠥⠞⠀⠁⠇⠊⠟⠥⠊⠏⠀⠑⠭⠀⠑⠁⠀</row>
-                  <row>⠉⠕⠍⠍⠕⠙⠕⠀⠉⠕⠝⠎⠑⠟⠥⠁⠞⠄⠀⠠⠙⠥⠊⠎⠀</row>
-                  <row>⠁⠥⠞⠑⠀⠊⠗⠥⠗⠑⠀⠙⠕⠇⠕⠗⠀⠊⠝⠀⠗⠑⠏⠗⠑⠤</row>
-                  <row>⠓⠑⠝⠙⠑⠗⠊⠞⠀⠊⠝⠀⠧⠕⠇⠥⠏⠞⠁⠞⠑⠀⠧⠑⠇⠊⠞</row>
-                </page>
+                <page/>
+                <page/>
               </section>
             </volume>
             <volume cols="27" rows="8" rowgap="0" duplex="true">
@@ -3109,6 +3087,26 @@
               </section>
               <section>
                 <page>
+                  <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁⠉</row>
+                  <row>⠉⠥⠇⠏⠁⠀⠟⠥⠊⠀⠕⠋⠋⠊⠉⠊⠁⠀⠙⠑⠎⠑⠗⠥⠝⠞⠀</row>
+                  <row>⠍⠕⠇⠇⠊⠞⠀⠁⠝⠊⠍⠀⠊⠙⠀⠑⠎⠞⠀⠇⠁⠃⠕⠗⠥⠍⠄</row>
+                  <row>⠀⠀⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍⠀⠙⠕⠇⠕⠗⠀⠎⠊⠞⠀</row>
+                  <row>⠁⠍⠑⠞⠂⠀⠉⠕⠝⠎⠑⠉⠞⠑⠞⠥⠗⠀⠁⠙⠊⠤</row>
+                  <row>⠏⠊⠎⠉⠊⠝⠛⠀⠑⠇⠊⠞⠂⠀⠎⠑⠙⠀⠙⠕⠀⠑⠊⠥⠎⠤</row>
+                  <row>⠍⠕⠙⠀⠞⠑⠍⠏⠕⠗⠀⠊⠝⠉⠊⠙⠊⠙⠥⠝⠞⠀⠥⠞⠀</row>
+                  <row>⠇⠁⠃⠕⠗⠑⠀⠑⠞⠀⠙⠕⠇⠕⠗⠑⠀⠍⠁⠛⠝⠁⠀</row>
+                </page>
+                <page>
+                  <row>⠼⠁⠙⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</row>
+                  <row>⠁⠇⠊⠟⠥⠁⠄⠀⠠⠥⠞⠀⠑⠝⠊⠍⠀⠁⠙⠀⠍⠊⠝⠊⠍⠀</row>
+                  <row>⠧⠑⠝⠊⠁⠍⠂⠀⠟⠥⠊⠎⠀⠝⠕⠎⠞⠗⠥⠙⠀</row>
+                  <row>⠑⠭⠑⠗⠉⠊⠞⠁⠞⠊⠕⠝⠀⠥⠇⠇⠁⠍⠉⠕⠀⠇⠁⠃⠕⠤</row>
+                  <row>⠗⠊⠎⠀⠝⠊⠎⠊⠀⠥⠞⠀⠁⠇⠊⠟⠥⠊⠏⠀⠑⠭⠀⠑⠁⠀</row>
+                  <row>⠉⠕⠍⠍⠕⠙⠕⠀⠉⠕⠝⠎⠑⠟⠥⠁⠞⠄⠀⠠⠙⠥⠊⠎⠀</row>
+                  <row>⠁⠥⠞⠑⠀⠊⠗⠥⠗⠑⠀⠙⠕⠇⠕⠗⠀⠊⠝⠀⠗⠑⠏⠗⠑⠤</row>
+                  <row>⠓⠑⠝⠙⠑⠗⠊⠞⠀⠊⠝⠀⠧⠕⠇⠥⠏⠞⠁⠞⠑⠀⠧⠑⠇⠊⠞</row>
+                </page>
+                <page>
                   <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁⠑</row>
                   <row>⠑⠎⠎⠑⠀⠉⠊⠇⠇⠥⠍⠀⠙⠕⠇⠕⠗⠑⠀⠑⠥⠀⠋⠥⠛⠊⠤</row>
                   <row>⠁⠞⠀⠝⠥⠇⠇⠁⠀⠏⠁⠗⠊⠁⠞⠥⠗⠄⠀⠠⠑⠭⠉⠑⠏⠤</row>
@@ -3126,26 +3124,6 @@
                   <row>⠁⠍⠑⠞⠂⠀⠉⠕⠝⠎⠑⠉⠞⠑⠞⠥⠗⠀⠁⠙⠊⠤</row>
                   <row>⠏⠊⠎⠉⠊⠝⠛⠀⠑⠇⠊⠞⠂⠀⠎⠑⠙⠀⠙⠕⠀⠑⠊⠥⠎⠤</row>
                   <row>⠍⠕⠙⠀⠞⠑⠍⠏⠕⠗⠀⠊⠝⠉⠊⠙⠊⠙⠥⠝⠞⠀⠥⠞⠀</row>
-                </page>
-                <page>
-                  <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁⠛</row>
-                  <row>⠇⠁⠃⠕⠗⠑⠀⠑⠞⠀⠙⠕⠇⠕⠗⠑⠀⠍⠁⠛⠝⠁⠀</row>
-                  <row>⠁⠇⠊⠟⠥⠁⠄⠀⠠⠥⠞⠀⠑⠝⠊⠍⠀⠁⠙⠀⠍⠊⠝⠊⠍⠀</row>
-                  <row>⠧⠑⠝⠊⠁⠍⠂⠀⠟⠥⠊⠎⠀⠝⠕⠎⠞⠗⠥⠙⠀</row>
-                  <row>⠑⠭⠑⠗⠉⠊⠞⠁⠞⠊⠕⠝⠀⠥⠇⠇⠁⠍⠉⠕⠀⠇⠁⠃⠕⠤</row>
-                  <row>⠗⠊⠎⠀⠝⠊⠎⠊⠀⠥⠞⠀⠁⠇⠊⠟⠥⠊⠏⠀⠑⠭⠀⠑⠁⠀</row>
-                  <row>⠉⠕⠍⠍⠕⠙⠕⠀⠉⠕⠝⠎⠑⠟⠥⠁⠞⠄⠀⠠⠙⠥⠊⠎⠀</row>
-                  <row>⠁⠥⠞⠑⠀⠊⠗⠥⠗⠑⠀⠙⠕⠇⠕⠗⠀⠊⠝⠀⠗⠑⠏⠗⠑⠤</row>
-                </page>
-                <page>
-                  <row>⠼⠁⠓⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</row>
-                  <row>⠓⠑⠝⠙⠑⠗⠊⠞⠀⠊⠝⠀⠧⠕⠇⠥⠏⠞⠁⠞⠑⠀⠧⠑⠇⠊⠞</row>
-                  <row>⠑⠎⠎⠑⠀⠉⠊⠇⠇⠥⠍⠀⠙⠕⠇⠕⠗⠑⠀⠑⠥⠀⠋⠥⠛⠊⠤</row>
-                  <row>⠁⠞⠀⠝⠥⠇⠇⠁⠀⠏⠁⠗⠊⠁⠞⠥⠗⠄⠀⠠⠑⠭⠉⠑⠏⠤</row>
-                  <row>⠞⠑⠥⠗⠀⠎⠊⠝⠞⠀⠕⠉⠉⠁⠑⠉⠁⠞⠀⠉⠥⠏⠊⠙⠁⠤</row>
-                  <row>⠞⠁⠞⠀⠝⠕⠝⠀⠏⠗⠕⠊⠙⠑⠝⠞⠂⠀⠎⠥⠝⠞⠀⠊⠝⠀</row>
-                  <row>⠉⠥⠇⠏⠁⠀⠟⠥⠊⠀⠕⠋⠋⠊⠉⠊⠁⠀⠙⠑⠎⠑⠗⠥⠝⠞⠀</row>
-                  <row>⠍⠕⠇⠇⠊⠞⠀⠁⠝⠊⠍⠀⠊⠙⠀⠑⠎⠞⠀⠇⠁⠃⠕⠗⠥⠍⠄</row>
                 </page>
               </section>
             </volume>
@@ -3169,6 +3147,26 @@
               </section>
               <section>
                 <page>
+                  <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁⠛</row>
+                  <row>⠇⠁⠃⠕⠗⠑⠀⠑⠞⠀⠙⠕⠇⠕⠗⠑⠀⠍⠁⠛⠝⠁⠀</row>
+                  <row>⠁⠇⠊⠟⠥⠁⠄⠀⠠⠥⠞⠀⠑⠝⠊⠍⠀⠁⠙⠀⠍⠊⠝⠊⠍⠀</row>
+                  <row>⠧⠑⠝⠊⠁⠍⠂⠀⠟⠥⠊⠎⠀⠝⠕⠎⠞⠗⠥⠙⠀</row>
+                  <row>⠑⠭⠑⠗⠉⠊⠞⠁⠞⠊⠕⠝⠀⠥⠇⠇⠁⠍⠉⠕⠀⠇⠁⠃⠕⠤</row>
+                  <row>⠗⠊⠎⠀⠝⠊⠎⠊⠀⠥⠞⠀⠁⠇⠊⠟⠥⠊⠏⠀⠑⠭⠀⠑⠁⠀</row>
+                  <row>⠉⠕⠍⠍⠕⠙⠕⠀⠉⠕⠝⠎⠑⠟⠥⠁⠞⠄⠀⠠⠙⠥⠊⠎⠀</row>
+                  <row>⠁⠥⠞⠑⠀⠊⠗⠥⠗⠑⠀⠙⠕⠇⠕⠗⠀⠊⠝⠀⠗⠑⠏⠗⠑⠤</row>
+                </page>
+                <page>
+                  <row>⠼⠁⠓⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</row>
+                  <row>⠓⠑⠝⠙⠑⠗⠊⠞⠀⠊⠝⠀⠧⠕⠇⠥⠏⠞⠁⠞⠑⠀⠧⠑⠇⠊⠞</row>
+                  <row>⠑⠎⠎⠑⠀⠉⠊⠇⠇⠥⠍⠀⠙⠕⠇⠕⠗⠑⠀⠑⠥⠀⠋⠥⠛⠊⠤</row>
+                  <row>⠁⠞⠀⠝⠥⠇⠇⠁⠀⠏⠁⠗⠊⠁⠞⠥⠗⠄⠀⠠⠑⠭⠉⠑⠏⠤</row>
+                  <row>⠞⠑⠥⠗⠀⠎⠊⠝⠞⠀⠕⠉⠉⠁⠑⠉⠁⠞⠀⠉⠥⠏⠊⠙⠁⠤</row>
+                  <row>⠞⠁⠞⠀⠝⠕⠝⠀⠏⠗⠕⠊⠙⠑⠝⠞⠂⠀⠎⠥⠝⠞⠀⠊⠝⠀</row>
+                  <row>⠉⠥⠇⠏⠁⠀⠟⠥⠊⠀⠕⠋⠋⠊⠉⠊⠁⠀⠙⠑⠎⠑⠗⠥⠝⠞⠀</row>
+                  <row>⠍⠕⠇⠇⠊⠞⠀⠁⠝⠊⠍⠀⠊⠙⠀⠑⠎⠞⠀⠇⠁⠃⠕⠗⠥⠍⠄</row>
+                </page>
+                <page>
                   <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁⠊</row>
                   <row/>
                   <row>⠠⠅⠊⠗⠚⠁⠝⠀⠇⠕⠏⠏⠥</row>
@@ -3176,8 +3174,6 @@
                   <row>⠀⠀⠠⠞⠜⠓⠜⠝⠀⠏⠜⠜⠞⠞⠽⠊⠀⠅⠊⠗⠚⠁⠀</row>
                   <row>⠠⠅⠊⠗⠚⠁</row>
                 </page>
-                <page/>
-                <page/>
                 <page/>
               </section>
             </volume>
@@ -3199,9 +3195,9 @@
       <x:option name="toc-depth" select="'0'"/>
       <x:option name="page-height" select="'8'"/>
       <x:option name="maximum-number-of-sheets" select="'4'"/>
-      <x:option name="insert-titlepage" select="false()"/>
-      <x:option name="make-volumes-divisible-by-four" select="true()"/>
-      <x:option name="duplex" select="false()"/>
+      <x:option name="insert-titlepage" select="'false'"/>
+      <x:option name="make-volumes-divisible-by-four" select="'true'"/>
+      <x:option name="duplex" select="'false'"/>
     </x:call>
     <x:context label="pef">
       <x:document type="file" base-uri="temp-dir"
@@ -3448,9 +3444,9 @@
       <x:option name="toc-depth" select="'1'"/>
       <x:option name="page-height" select="'8'"/>
       <x:option name="maximum-number-of-sheets" select="'4'"/>
-      <x:option name="insert-titlepage" select="true()"/>
-      <x:option name="make-volumes-divisible-by-four" select="true()"/>
-      <x:option name="duplex" select="false()"/>
+      <x:option name="insert-titlepage" select="'true'"/>
+      <x:option name="make-volumes-divisible-by-four" select="'true'"/>
+      <x:option name="duplex" select="'false'"/>
     </x:call>
     <x:context label="pef">
       <x:document type="file" base-uri="temp-dir"
@@ -3809,9 +3805,9 @@
       <x:option name="toc-depth" select="'0'"/>
       <x:option name="page-height" select="'8'"/>
       <x:option name="maximum-number-of-sheets" select="'8'"/>
-      <x:option name="insert-titlepage" select="false()"/>
-      <x:option name="make-volumes-divisible-by-four" select="false()"/>
-      <x:option name="pad-volume-endings" select="true()"/>
+      <x:option name="insert-titlepage" select="'false'"/>
+      <x:option name="make-volumes-divisible-by-four" select="'false'"/>
+      <x:option name="pad-volume-endings" select="'true'"/>
     </x:call>
     <x:context label="pef">
       <x:document type="file" base-uri="temp-dir" href="pad-volume-endings/output-dir/test.pef"/>
@@ -3934,12 +3930,6 @@
                   <row>⠀⠀⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍⠀⠙⠕⠇⠕⠗⠀⠎⠊⠞⠀</row>
                   <row>⠁⠍⠑⠞⠂⠀⠉⠕⠝⠎⠑⠉⠞⠑⠞⠥⠗⠀⠁⠙⠊⠤</row>
                 </page>
-                <page/>
-                <page/>
-              </section>
-            </volume>
-            <volume cols="27" rows="8" rowgap="0" duplex="true">
-              <section>
                 <page>
                   <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁⠁</row>
                   <row>⠏⠊⠎⠉⠊⠝⠛⠀⠑⠇⠊⠞⠂⠀⠎⠑⠙⠀⠙⠕⠀⠑⠊⠥⠎⠤</row>
@@ -3999,6 +3989,12 @@
                   <row>⠏⠊⠎⠉⠊⠝⠛⠀⠑⠇⠊⠞⠂⠀⠎⠑⠙⠀⠙⠕⠀⠑⠊⠥⠎⠤</row>
                   <row>⠍⠕⠙⠀⠞⠑⠍⠏⠕⠗⠀⠊⠝⠉⠊⠙⠊⠙⠥⠝⠞⠀⠥⠞⠀</row>
                 </page>
+                <page/>
+                <page/>
+              </section>
+            </volume>
+            <volume cols="27" rows="8" rowgap="0" duplex="true">
+              <section>
                 <page>
                   <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁⠛</row>
                   <row>⠇⠁⠃⠕⠗⠑⠀⠑⠞⠀⠙⠕⠇⠕⠗⠑⠀⠍⠁⠛⠝⠁⠀</row>
@@ -4047,9 +4043,9 @@
       <x:option name="toc-depth" select="'1'"/>
       <x:option name="page-height" select="'8'"/>
       <x:option name="maximum-number-of-sheets" select="'8'"/>
-      <x:option name="insert-titlepage" select="true()"/>
-      <x:option name="make-volumes-divisible-by-four" select="false()"/>
-      <x:option name="pad-volume-endings" select="true()"/>
+      <x:option name="insert-titlepage" select="'true'"/>
+      <x:option name="make-volumes-divisible-by-four" select="'false'"/>
+      <x:option name="pad-volume-endings" select="'true'"/>
     </x:call>
     <x:context label="pef">
       <x:document type="file" base-uri="temp-dir" href="pad-volume-endings-multi-sections/output-dir/test.pef"/>
@@ -4188,6 +4184,26 @@
                   <row>⠀⠀⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍⠀⠙⠕⠇⠕⠗⠀⠎⠊⠞⠀</row>
                   <row>⠁⠍⠑⠞⠂⠀⠉⠕⠝⠎⠑⠉⠞⠑⠞⠥⠗⠀⠁⠙⠊⠤</row>
                 </page>
+                <page>
+                  <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁⠁</row>
+                  <row>⠏⠊⠎⠉⠊⠝⠛⠀⠑⠇⠊⠞⠂⠀⠎⠑⠙⠀⠙⠕⠀⠑⠊⠥⠎⠤</row>
+                  <row>⠍⠕⠙⠀⠞⠑⠍⠏⠕⠗⠀⠊⠝⠉⠊⠙⠊⠙⠥⠝⠞⠀⠥⠞⠀</row>
+                  <row>⠇⠁⠃⠕⠗⠑⠀⠑⠞⠀⠙⠕⠇⠕⠗⠑⠀⠍⠁⠛⠝⠁⠀</row>
+                  <row>⠁⠇⠊⠟⠥⠁⠄⠀⠠⠥⠞⠀⠑⠝⠊⠍⠀⠁⠙⠀⠍⠊⠝⠊⠍⠀</row>
+                  <row>⠧⠑⠝⠊⠁⠍⠂⠀⠟⠥⠊⠎⠀⠝⠕⠎⠞⠗⠥⠙⠀</row>
+                  <row>⠑⠭⠑⠗⠉⠊⠞⠁⠞⠊⠕⠝⠀⠥⠇⠇⠁⠍⠉⠕⠀⠇⠁⠃⠕⠤</row>
+                  <row>⠗⠊⠎⠀⠝⠊⠎⠊⠀⠥⠞⠀⠁⠇⠊⠟⠥⠊⠏⠀⠑⠭⠀⠑⠁⠀</row>
+                </page>
+                <page>
+                  <row>⠼⠁⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</row>
+                  <row>⠉⠕⠍⠍⠕⠙⠕⠀⠉⠕⠝⠎⠑⠟⠥⠁⠞⠄⠀⠠⠙⠥⠊⠎⠀</row>
+                  <row>⠁⠥⠞⠑⠀⠊⠗⠥⠗⠑⠀⠙⠕⠇⠕⠗⠀⠊⠝⠀⠗⠑⠏⠗⠑⠤</row>
+                  <row>⠓⠑⠝⠙⠑⠗⠊⠞⠀⠊⠝⠀⠧⠕⠇⠥⠏⠞⠁⠞⠑⠀⠧⠑⠇⠊⠞</row>
+                  <row>⠑⠎⠎⠑⠀⠉⠊⠇⠇⠥⠍⠀⠙⠕⠇⠕⠗⠑⠀⠑⠥⠀⠋⠥⠛⠊⠤</row>
+                  <row>⠁⠞⠀⠝⠥⠇⠇⠁⠀⠏⠁⠗⠊⠁⠞⠥⠗⠄⠀⠠⠑⠭⠉⠑⠏⠤</row>
+                  <row>⠞⠑⠥⠗⠀⠎⠊⠝⠞⠀⠕⠉⠉⠁⠑⠉⠁⠞⠀⠉⠥⠏⠊⠙⠁⠤</row>
+                  <row>⠞⠁⠞⠀⠝⠕⠝⠀⠏⠗⠕⠊⠙⠑⠝⠞⠂⠀⠎⠥⠝⠞⠀⠊⠝⠀</row>
+                </page>
                 <page/>
                 <page/>
               </section>
@@ -4210,26 +4226,6 @@
                 </page>
               </section>
               <section>
-                <page>
-                  <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁⠁</row>
-                  <row>⠏⠊⠎⠉⠊⠝⠛⠀⠑⠇⠊⠞⠂⠀⠎⠑⠙⠀⠙⠕⠀⠑⠊⠥⠎⠤</row>
-                  <row>⠍⠕⠙⠀⠞⠑⠍⠏⠕⠗⠀⠊⠝⠉⠊⠙⠊⠙⠥⠝⠞⠀⠥⠞⠀</row>
-                  <row>⠇⠁⠃⠕⠗⠑⠀⠑⠞⠀⠙⠕⠇⠕⠗⠑⠀⠍⠁⠛⠝⠁⠀</row>
-                  <row>⠁⠇⠊⠟⠥⠁⠄⠀⠠⠥⠞⠀⠑⠝⠊⠍⠀⠁⠙⠀⠍⠊⠝⠊⠍⠀</row>
-                  <row>⠧⠑⠝⠊⠁⠍⠂⠀⠟⠥⠊⠎⠀⠝⠕⠎⠞⠗⠥⠙⠀</row>
-                  <row>⠑⠭⠑⠗⠉⠊⠞⠁⠞⠊⠕⠝⠀⠥⠇⠇⠁⠍⠉⠕⠀⠇⠁⠃⠕⠤</row>
-                  <row>⠗⠊⠎⠀⠝⠊⠎⠊⠀⠥⠞⠀⠁⠇⠊⠟⠥⠊⠏⠀⠑⠭⠀⠑⠁⠀</row>
-                </page>
-                <page>
-                  <row>⠼⠁⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</row>
-                  <row>⠉⠕⠍⠍⠕⠙⠕⠀⠉⠕⠝⠎⠑⠟⠥⠁⠞⠄⠀⠠⠙⠥⠊⠎⠀</row>
-                  <row>⠁⠥⠞⠑⠀⠊⠗⠥⠗⠑⠀⠙⠕⠇⠕⠗⠀⠊⠝⠀⠗⠑⠏⠗⠑⠤</row>
-                  <row>⠓⠑⠝⠙⠑⠗⠊⠞⠀⠊⠝⠀⠧⠕⠇⠥⠏⠞⠁⠞⠑⠀⠧⠑⠇⠊⠞</row>
-                  <row>⠑⠎⠎⠑⠀⠉⠊⠇⠇⠥⠍⠀⠙⠕⠇⠕⠗⠑⠀⠑⠥⠀⠋⠥⠛⠊⠤</row>
-                  <row>⠁⠞⠀⠝⠥⠇⠇⠁⠀⠏⠁⠗⠊⠁⠞⠥⠗⠄⠀⠠⠑⠭⠉⠑⠏⠤</row>
-                  <row>⠞⠑⠥⠗⠀⠎⠊⠝⠞⠀⠕⠉⠉⠁⠑⠉⠁⠞⠀⠉⠥⠏⠊⠙⠁⠤</row>
-                  <row>⠞⠁⠞⠀⠝⠕⠝⠀⠏⠗⠕⠊⠙⠑⠝⠞⠂⠀⠎⠥⠝⠞⠀⠊⠝⠀</row>
-                </page>
                 <page>
                   <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁⠉</row>
                   <row>⠉⠥⠇⠏⠁⠀⠟⠥⠊⠀⠕⠋⠋⠊⠉⠊⠁⠀⠙⠑⠎⠑⠗⠥⠝⠞⠀</row>
@@ -4319,10 +4315,10 @@
       <x:option name="toc-depth" select="'0'"/>
       <x:option name="page-height" select="'8'"/>
       <x:option name="maximum-number-of-sheets" select="'8'"/>
-      <x:option name="insert-titlepage" select="false()"/>
-      <x:option name="make-volumes-divisible-by-four" select="false()"/>
-      <x:option name="pad-volume-endings" select="true()"/>
-      <x:option name="duplex" select="false()"/>
+      <x:option name="insert-titlepage" select="'false'"/>
+      <x:option name="make-volumes-divisible-by-four" select="'false'"/>
+      <x:option name="pad-volume-endings" select="'true'"/>
+      <x:option name="duplex" select="'false'"/>
     </x:call>
     <x:context label="pef">
       <x:document type="file" base-uri="temp-dir"
@@ -4416,11 +4412,6 @@
                   <row>⠀⠀⠠⠇⠕⠗⠑⠍⠀⠊⠏⠎⠥⠍⠀⠙⠕⠇⠕⠗⠀⠎⠊⠞⠀</row>
                   <row>⠁⠍⠑⠞⠂⠀⠉⠕⠝⠎⠑⠉⠞⠑⠞⠥⠗⠀⠁⠙⠊⠤</row>
                 </page>
-                <page/>
-              </section>
-            </volume>
-            <volume cols="27" rows="8" rowgap="0" duplex="false">
-              <section>
                 <page>
                   <row>⠼⠓⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</row>
                   <row>⠏⠊⠎⠉⠊⠝⠛⠀⠑⠇⠊⠞⠂⠀⠎⠑⠙⠀⠙⠕⠀⠑⠊⠥⠎⠤</row>
@@ -4431,6 +4422,11 @@
                   <row>⠑⠭⠑⠗⠉⠊⠞⠁⠞⠊⠕⠝⠀⠥⠇⠇⠁⠍⠉⠕⠀⠇⠁⠃⠕⠤</row>
                   <row>⠗⠊⠎⠀⠝⠊⠎⠊⠀⠥⠞⠀⠁⠇⠊⠟⠥⠊⠏⠀⠑⠭⠀⠑⠁⠀</row>
                 </page>
+                <page/>
+              </section>
+            </volume>
+            <volume cols="27" rows="8" rowgap="0" duplex="false">
+              <section>
                 <page>
                   <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠊</row>
                   <row>⠉⠕⠍⠍⠕⠙⠕⠀⠉⠕⠝⠎⠑⠟⠥⠁⠞⠄⠀⠠⠙⠥⠊⠎⠀</row>
@@ -4481,11 +4477,6 @@
                   <row>⠍⠕⠙⠀⠞⠑⠍⠏⠕⠗⠀⠊⠝⠉⠊⠙⠊⠙⠥⠝⠞⠀⠥⠞⠀</row>
                   <row>⠇⠁⠃⠕⠗⠑⠀⠑⠞⠀⠙⠕⠇⠕⠗⠑⠀⠍⠁⠛⠝⠁⠀</row>
                 </page>
-                <page/>
-              </section>
-            </volume>
-            <volume cols="27" rows="8" rowgap="0" duplex="false">
-              <section>
                 <page>
                   <row>⠼⠁⠙⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</row>
                   <row>⠁⠇⠊⠟⠥⠁⠄⠀⠠⠥⠞⠀⠑⠝⠊⠍⠀⠁⠙⠀⠍⠊⠝⠊⠍⠀</row>
@@ -4515,6 +4506,11 @@
                   <row>⠏⠊⠎⠉⠊⠝⠛⠀⠑⠇⠊⠞⠂⠀⠎⠑⠙⠀⠙⠕⠀⠑⠊⠥⠎⠤</row>
                   <row>⠍⠕⠙⠀⠞⠑⠍⠏⠕⠗⠀⠊⠝⠉⠊⠙⠊⠙⠥⠝⠞⠀⠥⠞⠀</row>
                 </page>
+                <page/>
+              </section>
+            </volume>
+            <volume cols="27" rows="8" rowgap="0" duplex="false">
+              <section>
                 <page>
                   <row>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠁⠛</row>
                   <row>⠇⠁⠃⠕⠗⠑⠀⠑⠞⠀⠙⠕⠇⠕⠗⠑⠀⠍⠁⠛⠝⠁⠀</row>
@@ -4579,11 +4575,11 @@
           </dtbook>
         </x:document>
       </x:input>
-      <x:option name="include-brf" select="true()"/>
+      <x:option name="include-brf" select="'true'"/>
       <x:option name="pef-output-dir" select="concat($temp-dir, 'dimensions/output-dir/')"/>
       <x:option name="brf-output-dir" select="concat($temp-dir, 'dimensions/output-dir/')"/>
       <x:option name="temp-dir" select="concat($temp-dir, 'dimensions/temp-dir/')"/>
-      <x:option name="insert-titlepage" select="false()"/>
+      <x:option name="insert-titlepage" select="'false'"/>
       <x:option name="toc-depth" select="'0'"/>
       <x:option name="page-height" select="'8'"/>
       <x:option name="page-width" select="'8'"/>

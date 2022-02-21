@@ -3,6 +3,7 @@ import static org.daisy.pipeline.pax.exam.Options.thisPlatform;
 public class Config {
 	static String[] testDependencies() {
 		return new String[] {
+			"org.daisy.pipeline.modules:css-utils:?",
 			"org.daisy.pipeline.modules.braille:common-utils:?",
 			"org.daisy.pipeline.modules.braille:css-utils:?",
 			"org.daisy.pipeline.modules.braille:liblouis-utils:?",

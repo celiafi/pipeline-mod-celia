@@ -10,14 +10,11 @@
     <p:declare-step type="pxi:transform" version="1.0">
       <p:input port="source"/>
       <p:output port="result"/>
-      <p:option name="temp-dir" required="true"/>
       <p:option name="stylesheet"/>
       <p:import href="http://www.daisy.org/pipeline/modules/braille/common-utils/library.xpl"/>
-      <p:import href="http://www.daisy.org/pipeline/modules/braille/css-utils/library.xpl"/>
-      <css:inline/>
-      <px:transform query="(input:css)(output:pef)(formatter:dotify)(translator:celia)(locale:fi)">
-        <p:with-option name="temp-dir" select="$temp-dir"/>
-      </px:transform>
+      <p:import href="http://www.daisy.org/pipeline/modules/css-utils/library.xpl"/>
+      <px:css-cascade/>
+      <px:transform query="(input:css)(output:pef)(formatter:dotify)(translator:celia)(locale:fi)(force-pre-translation)"/>
     </p:declare-step>
   </x:script>
   
@@ -47,7 +44,6 @@
           </html>
         </x:document>
       </x:input>
-      <x:option name="temp-dir" select="$temp-dir"/>
     </x:call>
     <x:context label="pef">
       <x:document type="port" port="result"/>
@@ -101,7 +97,6 @@
           </html>
         </x:document>
       </x:input>
-      <x:option name="temp-dir" select="$temp-dir"/>
     </x:call>
     <x:context label="pef">
       <x:document type="port" port="result"/>
@@ -159,7 +154,6 @@
           </html>
         </x:document>
       </x:input>
-      <x:option name="temp-dir" select="$temp-dir"/>
     </x:call>
     <x:context label="pef">
       <x:document type="port" port="result"/>
