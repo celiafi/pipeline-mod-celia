@@ -135,6 +135,9 @@
                     }
                   </footer>
                 </concat>
+                <exec executable="perl" failonerror="yes">
+                  <arg value="extract-hyphenation-tables.pl" />
+                </exec> 
               </target>
             </configuration>
           </execution>
